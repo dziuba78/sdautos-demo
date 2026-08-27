@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Placeholder produktu">
+  <rect width="800" height="600" fill="#161c24"/>
+  <rect x="80" y="80" width="640" height="440" rx="12" fill="#1c2430" stroke="#8a96a3" stroke-width="2"/>
+  <circle cx="400" cy="270" r="70" fill="#1b6ca8" opacity="0.85"/>
+  <text x="400" y="420" text-anchor="middle" fill="#c5ced6" font-family="Arial, sans-serif" font-size="28">Produkt  DEMO</text>
+  <text x="400" y="460" text-anchor="middle" fill="#9aa8b5" font-family="Arial, sans-serif" font-size="18">Zdjcie do uzupeBnienia</text>
+</svg>

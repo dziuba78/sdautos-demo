@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img">
+  <rect width="800" height="600" fill="#161c24"/>
+  <rect x="120" y="160" width="560" height="220" rx="8" fill="#0f1419" stroke="#4da3db" stroke-width="3"/>
+  <text x="400" y="280" text-anchor="middle" fill="#c5ced6" font-family="Arial, sans-serif" font-size="24">Element lakierowany</text>
+  <text x="400" y="480" text-anchor="middle" fill="#9aa8b5" font-family="Arial, sans-serif" font-size="18">Placeholder galerii</text>
+</svg>

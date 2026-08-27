@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-label="Abstrakcyjna wizualizacja lakierni samochodowej  placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#090c10"/>
+      <stop offset="45%" stop-color="#161c24"/>
+      <stop offset="100%" stop-color="#1b6ca8"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#c5ced6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <ellipse cx="1180" cy="420" rx="420" ry="180" fill="url(#shine)"/>
+  <path d="M180 620 C420 480, 780 500, 980 560 C1180 620, 1380 640, 1500 600" fill="none" stroke="#8a96a3" stroke-width="3" opacity="0.55"/>
+  <path d="M220 700 C480 560, 820 580, 1020 640 C1220 700, 1400 720, 1520 680" fill="none" stroke="#1b6ca8" stroke-width="6" opacity="0.7"/>
+  <circle cx="360" cy="300" r="70" fill="#1c2430" stroke="#4da3db" stroke-width="2" opacity="0.8"/>
+  <circle cx="360" cy="300" r="28" fill="#1b6ca8" opacity="0.85"/>
+  <text x="120" y="880" fill="#9aa8b5" font-family="Arial, sans-serif" font-size="28">Placeholder wizualny  do zastpienia zdjciem warsztatu</text>
+</svg>

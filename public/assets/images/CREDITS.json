@@ -1,0 +1,62 @@
+[
+  {
+    "file": "hero/hero-workshop.webp",
+    "credit": "Pexels — person spray painting (photo 3807329)",
+    "source_url": "https://images.pexels.com/photos/3807329/pexels-photo-3807329.jpeg"
+  },
+  {
+    "file": "gallery/before-01.webp",
+    "credit": "Pexels — car body repair (photo 3807517)",
+    "source_url": "https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg"
+  },
+  {
+    "file": "gallery/after-01.webp",
+    "credit": "Pexels — polished car paint (photo 3806249)",
+    "source_url": "https://images.pexels.com/photos/3806249/pexels-photo-3806249.jpeg"
+  },
+  {
+    "file": "gallery/part-01.webp",
+    "credit": "Pexels — car part / spray work (photo 4489749)",
+    "source_url": "https://images.pexels.com/photos/4489749/pexels-photo-4489749.jpeg"
+  },
+  {
+    "file": "gallery/process-01.webp",
+    "credit": "Pexels — auto body process (photo 4489702)",
+    "source_url": "https://images.pexels.com/photos/4489702/pexels-photo-4489702.jpeg"
+  },
+  {
+    "file": "gallery/polish-01.webp",
+    "credit": "Pexels — car polishing (photo 6870313)",
+    "source_url": "https://images.pexels.com/photos/6870313/pexels-photo-6870313.jpeg"
+  },
+  {
+    "file": "gallery/booth-01.webp",
+    "credit": "Pexels — workshop paint work (photo 3807277)",
+    "source_url": "https://images.pexels.com/photos/3807277/pexels-photo-3807277.jpeg"
+  },
+  {
+    "file": "products/paint-cans.webp",
+    "credit": "Pexels — paint materials (photo 5898101)",
+    "source_url": "https://images.pexels.com/photos/5898101/pexels-photo-5898101.jpeg"
+  },
+  {
+    "file": "products/tools.webp",
+    "credit": "Unsplash — workshop tools (photo-1581094794329-c8112a89af12)",
+    "source_url": "https://images.unsplash.com/photo-1581094794329-c8112a89af12"
+  },
+  {
+    "file": "products/spray-gun.webp",
+    "credit": "Pexels — spray equipment (photo 4489733)",
+    "source_url": "https://images.pexels.com/photos/4489733/pexels-photo-4489733.jpeg"
+  },
+  {
+    "file": "products/abrasive.webp",
+    "credit": "Pexels — sanding / prep (photo 3807315)",
+    "source_url": "https://images.pexels.com/photos/3807315/pexels-photo-3807315.jpeg"
+  },
+  {
+    "file": "og-default.webp",
+    "credit": "Pexels — OG image base (photo 3807329)",
+    "source_url": "https://images.pexels.com/photos/3807329/pexels-photo-3807329.jpeg"
+  }
+]

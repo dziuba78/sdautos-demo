@@ -1,0 +1,40 @@
+# Środowisko i sekrety
+.env
+.env.local
+.env.*.local
+
+# System / IDE
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logi i cache
+*.log
+logs/
+cache/
+tmp/
+temp/
+
+# Zależności (jeśli pojawią się później)
+node_modules/
+vendor/composer/
+composer.lock
+
+# Pliki systemowe / build
+*.bak
+*.tmp
+dist/
+.sass-cache/
+
+# Certyfikaty i klucze
+*.pem
+*.key
+*.crt
+*.p12
+id_rsa*
+*.secret

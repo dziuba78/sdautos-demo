@@ -1,0 +1,131 @@
+/**
+ * Responsywność SDAUTOS
+ * Breakpointy: 320, 375, 390, 414, 768, 1024, 1280, 1440, 1920
+ */
+
+/* Zapobieganie poziomemu scrollowi */
+html,
+body {
+  overflow-x: hidden;
+}
+
+@media (min-width: 576px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .header-phone {
+    display: inline-flex;
+  }
+
+  /* Slot na przyszły koszyk — widoczny od tabletu */
+  .header-cart {
+    display: inline-flex;
+  }
+
+  .feature-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .color-finder {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+
+  .contact-layout {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .color-finder__fields {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-desktop {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .feature-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-sda {
+    width: min(100% - 3rem, var(--container));
+  }
+}
+
+/* Bardzo wąskie ekrany (320px) */
+@media (max-width: 359px) {
+  .container-sda {
+    width: min(100% - 1.25rem, var(--container));
+  }
+
+  .btn-sda {
+    width: 100%;
+  }
+
+  .btn-group-sda {
+    flex-direction: column;
+  }
+
+  .brand__mark {
+    font-size: 1.35rem;
+  }
+}
+
+/* Redukcja ruchu */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

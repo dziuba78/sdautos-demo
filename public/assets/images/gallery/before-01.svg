@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img">
+  <rect width="800" height="600" fill="#2a3038"/>
+  <text x="400" y="290" text-anchor="middle" fill="#c5ced6" font-family="Arial, sans-serif" font-size="26">PRZED  placeholder</text>
+  <text x="400" y="340" text-anchor="middle" fill="#9aa8b5" font-family="Arial, sans-serif" font-size="18">Realizacja demonstracyjna</text>
+</svg>

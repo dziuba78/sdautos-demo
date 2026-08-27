@@ -1,0 +1,84 @@
+/**
+ * Design tokens SDAUTOS — system wizualny automotive / refinishing
+ * Komentarze po polsku. Wartości CSS custom properties.
+ */
+
+:root {
+  /* Kolory bazowe */
+  --color-bg-dark: #0f1419;
+  --color-bg-darker: #090c10;
+  --color-bg-panel: #161c24;
+  --color-bg-light: #f4f6f8;
+  --color-bg-white: #ffffff;
+  --color-surface: #1c2430;
+
+  /* Akcenty — stalowy niebieski / aluminium */
+  --color-accent: #1b6ca8;
+  --color-accent-hover: #155a8c;
+  --color-accent-soft: rgba(27, 108, 168, 0.14);
+  --color-metal: #8a96a3;
+  --color-metal-light: #c5ced6;
+
+  /* Tekst */
+  --color-text: #e8eef4;
+  --color-text-muted: #9aa8b5;
+  --color-text-dark: #1a222c;
+  --color-text-dark-muted: #5a6775;
+  --color-link: #4da3db;
+
+  /* Stany */
+  --color-success: #2f8f5b;
+  --color-error: #c4453c;
+  --color-warning: #c9922a;
+  --color-border: rgba(197, 206, 214, 0.18);
+  --color-border-light: rgba(26, 34, 44, 0.12);
+  --color-focus: #4da3db;
+
+  /* Typografia */
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", sans-serif;
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-base: 1.0625rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.375rem;
+  --fs-xl: 1.75rem;
+  --fs-2xl: 2.25rem;
+  --fs-3xl: clamp(2.25rem, 4vw, 3.25rem);
+  --fs-hero: clamp(2.5rem, 6vw, 4rem);
+  --lh-tight: 1.15;
+  --lh-base: 1.6;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* Odstępy */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --section-y: clamp(3.5rem, 8vw, 6rem);
+
+  /* Layout */
+  --container: 72rem;
+  --header-h: 4.25rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.28);
+  --transition: 180ms ease;
+
+  /* Breakpointy (dokumentacyjne — media queries w responsive.css) */
+  --bp-sm: 375px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1440px;
+}

@@ -1,0 +1,32 @@
+# Apache — katalog public (DocumentRoot)
+
+Options -Indexes
+DirectoryIndex index.php index.html
+
+<IfModule mod_authz_core.c>
+  Require all granted
+</IfModule>
+
+# Podstawowe nagłówki bezpieczeństwa
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Ochrona wrażliwych plików, jeśli kiedyś trafią do public
+<FilesMatch "^\.env">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+</FilesMatch>
+
+# Cache statycznych assetów
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType font/woff2 "access plus 30 days"
+</IfModule>

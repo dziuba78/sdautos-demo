@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- [DO UZUPEŁNIENIA] Zastąp localhost docelowym adresem produkcyjnym -->
+  <url><loc>http://localhost:8000/index.php</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>http://localhost:8000/lakiernictwo.php</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>http://localhost:8000/materialy.php</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>http://localhost:8000/produkty.php</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>http://localhost:8000/dobor-lakieru.php</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>http://localhost:8000/o-nas.php</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>http://localhost:8000/realizacje.php</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>http://localhost:8000/kontakt.php</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>http://localhost:8000/polityka-prywatnosci.php</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>http://localhost:8000/cookies.php</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>http://localhost:8000/informacje-prawne.php</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+</urlset>

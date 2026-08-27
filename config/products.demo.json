@@ -1,0 +1,88 @@
+{
+  "note": "Dane demonstracyjne produktów. W przyszłości można zastąpić źródłem PrestaShop 9 API. Zdjęcia stock — patrz assets/images/CREDITS.json",
+  "categories": [
+    { "id": "lakiery", "name": "Lakiery" },
+    { "id": "podklady", "name": "Podkłady" },
+    { "id": "szpachle", "name": "Szpachle" },
+    { "id": "bezbarwne", "name": "Bezbarwne" },
+    { "id": "scierne", "name": "Materiały ścierne" },
+    { "id": "polerowanie", "name": "Polerowanie" },
+    { "id": "maskowanie", "name": "Maskowanie" },
+    { "id": "pistolety", "name": "Pistolety lakiernicze" },
+    { "id": "akcesoria", "name": "Akcesoria" }
+  ],
+  "products": [
+    {
+      "id": "demo-lakier-01",
+      "name": "Lakier bazowy — [DEMO]",
+      "category": "lakiery",
+      "short": "Demonstracyjny produkt z kategorii lakierów bazowych.",
+      "image": "/assets/images/products/paint-cans.webp",
+      "slug": "lakier-bazowy-demo"
+    },
+    {
+      "id": "demo-podklad-01",
+      "name": "Podkład wypełniający — [DEMO]",
+      "category": "podklady",
+      "short": "Demonstracyjny podkład do przygotowania powierzchni.",
+      "image": "/assets/images/products/abrasive.webp",
+      "slug": "podklad-wypelniajacy-demo"
+    },
+    {
+      "id": "demo-szpachla-01",
+      "name": "Szpachla uniwersalna — [DEMO]",
+      "category": "szpachle",
+      "short": "Demonstracyjna szpachla do napraw karoserii.",
+      "image": "/assets/images/products/abrasive.webp",
+      "slug": "szpachla-uniwersalna-demo"
+    },
+    {
+      "id": "demo-bezbarwny-01",
+      "name": "Lakier bezbarwny — [DEMO]",
+      "category": "bezbarwne",
+      "short": "Demonstracyjny bezbarwny do zabezpieczenia powłoki.",
+      "image": "/assets/images/products/paint-cans.webp",
+      "slug": "lakier-bezbarwny-demo"
+    },
+    {
+      "id": "demo-scierne-01",
+      "name": "Papier ścierny zestaw — [DEMO]",
+      "category": "scierne",
+      "short": "Demonstracyjny zestaw materiałów ściernych.",
+      "image": "/assets/images/products/abrasive.webp",
+      "slug": "papier-scierny-demo"
+    },
+    {
+      "id": "demo-poler-01",
+      "name": "Pasta polerska — [DEMO]",
+      "category": "polerowanie",
+      "short": "Demonstracyjna pasta do polerowania lakieru.",
+      "image": "/assets/images/products/polish.webp",
+      "slug": "pasta-polerska-demo"
+    },
+    {
+      "id": "demo-mask-01",
+      "name": "Taśma maskująca — [DEMO]",
+      "category": "maskowanie",
+      "short": "Demonstracyjna taśma do precyzyjnego maskowania.",
+      "image": "/assets/images/products/tools.webp",
+      "slug": "tasma-maskujaca-demo"
+    },
+    {
+      "id": "demo-pistolet-01",
+      "name": "Pistolet lakierniczy — [DEMO]",
+      "category": "pistolety",
+      "short": "Demonstracyjny pistolet do aplikacji lakierów.",
+      "image": "/assets/images/products/spray-gun.webp",
+      "slug": "pistolet-lakierniczy-demo"
+    },
+    {
+      "id": "demo-akcesoria-01",
+      "name": "Zestaw akcesoriów — [DEMO]",
+      "category": "akcesoria",
+      "short": "Demonstracyjne akcesoria warsztatowe dla lakierników.",
+      "image": "/assets/images/products/tools.webp",
+      "slug": "akcesoria-warsztatowe-demo"
+    }
+  ]
+}
