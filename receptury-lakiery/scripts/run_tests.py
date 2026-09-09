@@ -14,6 +14,10 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 from libreoffice_pack import convert  # noqa: E402
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 XLSX = ROOT / "RECEPTURY_LAKIERY.xlsx"
 ODS = ROOT / "RECEPTURY_LAKIERY.ods"
 OUT = ROOT / "data" / "extracted" / "test_out"
@@ -119,12 +123,86 @@ def test_structure():
             dx11 = dx.cell(r, 13).value
             break
     ok("T DX11 do weryfikacji", dx11 == "DO WERYFIKACJI", str(dx11))
+    ac_pl = 0
+    ac_en = []
+    ac_empty = []
+    for r in range(9, 9 + n_ac):
+        text = str(ac.cell(r, 10).value or "").strip()
+        nr = ac.cell(r, 3).value
+        if not text:
+            ac_empty.append(nr)
+            continue
+        low = text.lower()
+        pl_hit = any(
+            k in low
+            for k in (
+                "flop",
+                "odcień",
+                "światł",
+                "cień",
+                "jeżeli",
+                "rozjaśn",
+                "ciemniejsz",
+                "ziarn",
+                "płatek",
+                "kryj",
+                "użyj",
+                "dodaje",
+                "toner",
+                "metalik",
+                "perł",
+                "travel",
+                "reguluj",
+                "konwerter",
+                "iskrz",
+            )
+        ) or any(ch in text for ch in "ąćęłńóśźżĄĆĘŁŃÓŚŹŻ")
+        en_lead = text.startswith(("If more", "Yellow-shade", "Colour shifting", "Special effect", "Pale yellow with"))
+        if pl_hit and not en_lead:
+            ac_pl += 1
+        else:
+            ac_en.append(f"{nr}: {text[:50]}")
+    ok("T AC opisy działania PL >=96", ac_pl >= 96, str(ac_pl))
+    ok("T AC brak pustych opisów dobarwiania", len(ac_empty) == 0, str(ac_empty[:8]))
+    ok("T AC brak surowego EN w OPIS_DOBARWIANIA", len(ac_en) == 0, str(ac_en[:6]))
+    hdr = [ac.cell(8, c).value for c in range(1, 20)]
+    ok("T AC kolumna OPIS_DZIALANIA_PL", "OPIS_DZIALANIA_PL" in hdr, str(hdr[-3:]))
+    ok("T AC kolumna OPIS_EN", "OPIS_EN" in hdr)
+    dx_sample = None
+    for r in range(9, 9 + n_dx):
+        if dx.cell(r, 3).value == "DX5111":
+            dx_sample = str(dx.cell(r, 10).value or "")
+            break
+    ok("T DUXONE opis nadal PL", bool(dx_sample) and "If more" not in dx_sample, (dx_sample or "")[:80])
     wb.close()
     ok("T ODS istnieje", ODS.exists(), str(ODS))
     import zipfile
 
     with zipfile.ZipFile(ODS) as z:
         ok("T makra Basic", "Basic/Standard/modReceptury.xml" in z.namelist())
+
+
+def test_json_autocolor_pl():
+    ac = PIG["autocolor"]
+    dx = PIG["duxone"]
+    n_pl = 0
+    missing = []
+    still_en = []
+    for r in ac:
+        text = (r.get("procedura_dobarwiania") or r.get("opis") or "").strip()
+        if not text:
+            missing.append(r["nr_pigmentu"])
+            continue
+        if text.startswith(("If more", "Yellow-shade", "Colour shifting", "Special effect")):
+            still_en.append(r["nr_pigmentu"])
+            continue
+        n_pl += 1
+    ok("JSON AC PL opisy >=96", n_pl >= 96, str(n_pl))
+    ok("JSON AC wszystkie z opisem", len(missing) == 0, str(missing[:10]))
+    ok("JSON AC brak EN lead", len(still_en) == 0, str(still_en[:8]))
+    ok("JSON AC baza >=96", len(ac) >= 96, str(len(ac)))
+    dx_en = [r["nr_pigmentu"] for r in dx if str(r.get("opis") or "").startswith("If more")]
+    ok("JSON DUXONE nie nadpisany EN", len(dx_en) == 0, str(dx_en[:5]))
 
 
 def test_math_independent():
@@ -322,6 +400,7 @@ def test_libreoffice_recalc():
 
 
 def main():
+    test_json_autocolor_pl()
     test_structure()
     test_math_independent()
     test_libreoffice_recalc()

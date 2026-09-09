@@ -8,6 +8,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from autocolor_tlumaczenia import apply_autocolor_tint
+
 ROOT = Path(__file__).resolve().parents[1]
 BACKUP = ROOT / "data" / "backup"
 OUT = ROOT / "data" / "extracted"
@@ -449,6 +451,7 @@ def merge_autocolor(ods_rows: list[dict], pdf: dict[str, dict]) -> list[dict]:
             }
         )
         used_pdf.add(code)
+    apply_autocolor_tint(out)
     return out
 
 
@@ -631,7 +634,7 @@ def autocolor_rules() -> list[dict]:
         {
             "id": "AC-R01",
             "temat": "Face / Flop / Tone",
-            "tresc": "FACE — kąt silnie zależny od metalików/pereł. FLOP — kąt zwykle ciemniejszy, zależny od tonerów konwencjonalnych. TONE — odcień względem sąsiedniej rodziny barw.",
+            "tresc": "ŚWIATŁO (FACE) — kąt mocno zależny od metalików/pereł. FLOP (CIEŃ) — kąt zwykle ciemniejszy, zależny od tonerów konwencjonalnych. TONE (ODCIEŃ) — odcień względem sąsiedniej rodziny barw.",
         },
         {
             "id": "AC-R02",
@@ -656,7 +659,7 @@ def autocolor_rules() -> list[dict]:
         {
             "id": "AC-R06",
             "temat": "P426-HE02 / kontrola flopu",
-            "tresc": "W PDF: Blue Frost — dodaje żółć na face i jasny błękit na flop w metalikach. W katalogu ODS ten sam kod ma inną nazwę — weryfikuj przed użyciem (status KOLIZJA jeśli wykryta).",
+            "tresc": "W PDF: Blue Frost — dodaje żółć na świetle (face) i jasny błękit na flopie w metalikach. W katalogu ODS ten sam kod ma inną nazwę — weryfikuj przed użyciem (status KOLIZJA jeśli wykryta).",
         },
     ]
 

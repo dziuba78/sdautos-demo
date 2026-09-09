@@ -1,140 +1,140 @@
-﻿system,klucz,nr_pigmentu,nr_bazowy,kod_e,czynnik_e,nazwa,nazwa_ods,nazwa_pdf,opis,procedura_dobarwiania,jednostka,kategoria,status_danych,uwagi_danych,zrodlo_nazwy,w_katalogu_ods,w_szablonie_ods
-AUTOCOLOR,AUTOCOLOR|P192-475,P192-475,P192-475,P192-475/E1,1.0,REGULATOR BAZY,2K REGULATOR BAZY,,,,g,Regulator,OK,,ODS_KATALOG,True,True
-AUTOCOLOR,AUTOCOLOR|P192-528,P192-528,P192-528,P192-528/E2.5,2.5,REGULATOR UŁOŻENIA ZIARNA,2K REGULATOR UŁOŻENIA ZIARNA,,,,g,Regulator,OK,,ODS_KATALOG,True,True
-AUTOCOLOR,AUTOCOLOR|P192-5600,P192-5600,P192-5600,P192-5600/E2.5,2.5,REGULATOR FLOPU,2K REGULATOR FLOPU,,,,g,Regulator,OK,,ODS_KATALOG,True,True
-AUTOCOLOR,AUTOCOLOR|P420-902RT,P420-902RT,P420-902,P420-902/E1,1.0,RT Pale White Strong white.,2K PALE WHITE,RT Pale White Strong white.,If more than 10% use P425-900.,If more than 10% use P425-900.,g,Czerń/Biel,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P420-903RT,P420-903RT,P420-903,P420-903/E1,1.0,Rt Medium Pale Yellow,2K MEDIUM PALE YELLOW,Rt Medium Pale Yellow,Pale yellow with a greenish yellow flop.,Pale yellow with a greenish yellow flop.,g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P420-904RT,P420-904RT,P420-904,P420-904/E1,1.0,RT Transparent Black,2K TRANSPARENT BLACK,RT Transparent Black,"Yellow-shade black, darker flop than","Yellow-shade black, darker flop than",g,Czerń/Biel,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P420-905,P420-905,P420-905,P420-905/E1,1.0,Yellow Oxide,2K YELLOW OXIDE,Yellow Oxide,Opaque yellow oxide.,Opaque yellow oxide.,g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P420-907,P420-907,P420-907,P420-907/E1,1.0,Red Oxide,2K RED OXIDE,Red Oxide,,,g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P420-908RT,P420-908RT,P420-908,P420-908/E1,1.0,RT Russet Blue shade red oxide.,2K RUSSET,RT Russet Blue shade red oxide.,If more than 10% use P420-907.,If more than 10% use P420-907.,g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P420-910RT,P420-910RT,P420-910,P420-910/E1,1.0,RT Deep Blue,2K DEEP BLUE,RT Deep Blue,High strength transparent blue. If more than 10% use P425-957.,High strength transparent blue. If more than 10% use P425-957.,g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P420-920,P420-920,P420-920,P420-920/E1,1.0,Violet,2K VIOLET,Violet,"Clean violet with a dirty yellow flop, redder than P420-930.","Clean violet with a dirty yellow flop, redder than P420-930.",g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P420-926,P420-926,P420-926,P420-926/E1,1.0,Super Red Clean red.,2K SUPER RED,Super Red Clean red.,,,g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P420-930,P420-930,P420-930,P420-930/E1,1.0,Lake Blue Red shade blue.,2K BLUE LAKE,Lake Blue Red shade blue.,,,g,Toner,KOLIZJA NAZW,ODS: 2K BLUE LAKE | PDF: Lake Blue Red shade blue.,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P420-933,P420-933,P420-933,P420-933/E3.5,3.5,Blue Black,2K BLUE BLACK,Blue Black,"Blue-shade black, lighter and bluer flop than P425-948.","Blue-shade black, lighter and bluer flop than P425-948.",g,Czerń/Biel,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P420-938,P420-938,P420-938,P420-938/E1,1.0,Tone Controller appearance and lightens the,2K TONE CONTROLLER,Tone Controller appearance and lightens the,Gives a more coarse flake flop.,Gives a more coarse flake flop.,g,Regulator,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P420-942,P420-942,P420-942,P420-942/E1,1.0,Transoxide Red,2K TRANSOXIDE RED,Transoxide Red,"Golden brown transparent red oxide with a yellow shade flop. Cleaner face, lighter and yellower flop than P420-978.","Golden brown transparent red oxide with a yellow shade flop. Cleaner face, lighter and yellower flop than P420-978.",g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P420-952,P420-952,P420-952,P420-952/E1,1.0,Fast Blue Mid-shade blue.,2K FAST BLUE,Fast Blue Mid-shade blue.,,,g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P420-960RT,P420-960RT,P420-960,P420-960/E1,1.0,RT Burgundy pigments in a formula.,2K REDUCED MAGENTA,RT Burgundy pigments in a formula.,"Blue shade violet, dirtier face and darker flop than P425-921. If more than 10% use P429-976. by the conventional pigments in a metallic or pearlescent colour. (green-shade blue, mid-shade blue, red-shade blue).","Blue shade violet, dirtier face and darker flop than P425-921. If more than 10% use P429-976. by the conventional pigments in a metallic or pearlescent colour. (green-shade blue, mid-shade blue, red-shade blue).",g,Toner,KOLIZJA NAZW,ODS: 2K REDUCED MAGENTA | PDF: RT Burgundy pigments in a formula.,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P420-975,P420-975,P420-975,P420-975/E1,1.0,Bronze Green,2K BRONZE GREEN,Bronze Green,"Golden green face, yellow shade flop.","Golden green face, yellow shade flop.",g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P420-978,P420-978,P420-978,P420-978/E1,1.0,Brown,2K BROWN,Brown,Dark brown with a yellower flop than,Dark brown with a yellower flop than,g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P420-983,P420-983,P420-983,P420-983/E1,1.0,Strong Yellow,2K STRONG YELLOW,Strong Yellow,"Orange shade yellow, can be used when a green tone flop is needed. Cleaner than","Orange shade yellow, can be used when a green tone flop is needed. Cleaner than",g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P425-900,P425-900,P425-900,P425-900/E3.5,3.5,HS Super White,2K SUPER WHITE,HS Super White,,,g,Czerń/Biel,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P425-919,P425-919,P425-919,P425-919/E1,1.0,HS Clean Red Violet,2K CLEAN RED VIOLET,HS Clean Red Violet,Medium violet with deep flop.,Medium violet with deep flop.,g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P425-921,P425-921,P425-921,P425-921/E1,1.0,"HS Claret Clean blue tone magenta, cleaner and lighter",2K CLARET,"HS Claret Clean blue tone magenta, cleaner and lighter",than P429-976.,than P429-976.,g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P425-922,P425-922,P425-922,P425-922/E1,1.0,HS Lagoon Blue metallic/pearl formulations.,2K LAGOON BLUE,HS Lagoon Blue metallic/pearl formulations.,Green shade blue with a green flop. Used in,Green shade blue with a green flop. Used in,g,Perła,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P425-941,P425-941,P425-941,P425-941/E3.5,3.5,HS Strong Red solid colours.,2K STRONG RED,HS Strong Red solid colours.,"Clean, high strength red used primarily in","Clean, high strength red used primarily in",g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P425-948,P425-948,P425-948,P425-948/E1,1.0,HS Black,2K BLACK,HS Black,,,g,Czerń/Biel,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P425-950,P425-950,P425-950,P425-950/E1,1.0,HS Jet Black,2K JET BLACK,HS Jet Black,"Yellow-shade black, darker flop than","Yellow-shade black, darker flop than",g,Czerń/Biel,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P425-954,P425-954,P425-954,P425-954/E1,1.0,HS Blue Green Blue shade green.,2K BLUE GREEN,HS Blue Green Blue shade green.,,,g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P425-956,P425-956,P425-956,P425-956/E1,1.0,HS Super Blue,2K SUPER BLUE,HS Super Blue,Mid-shade blue with green face and red tone flop.,Mid-shade blue with green face and red tone flop.,g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P425-957,P425-957,P425-957,P425-957/E1,1.0,HS Fast Blue,2K FAST BLUE,HS Fast Blue,,,g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P425-971,P425-971,P425-971,P425-971/E1,1.0,HS Brilliant Red Clean yellow tone red.,2K BRILLIANT RED,HS Brilliant Red Clean yellow tone red.,,,g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P425-984,P425-984,P425-984,P425-984/E1,1.0,HS Medium Fine Aluminium,2K BRIGHT MEDIUM ALUMINIUM,HS Medium Fine Aluminium,Fine bright metallic with darker flop than P425-986.,Fine bright metallic with darker flop than P425-986.,g,Aluminium,KOLIZJA NAZW,ODS: 2K BRIGHT MEDIUM ALUMINIUM | PDF: HS Medium Fine Aluminium,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P425-985,P425-985,P425-985,P425-985/E1,1.0,HS Fine Aluminium,2K FINE ALUMINIUM,HS Fine Aluminium,Fine metallic with a dark face and light flop.,Fine metallic with a dark face and light flop.,g,Aluminium,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P425-986,P425-986,P425-986,P425-986/E3.5,3.5,HS Medium Aluminium,2K MEDIUM ALUMINIUM,HS Medium Aluminium,Medium metallic with a darker flop than P425-985.,Medium metallic with a darker flop than P425-985.,g,Aluminium,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P425-987,P425-987,P425-987,P425-987/E3.5,3.5,Medium Coarse Aluminium,2K MEDIUM COARSE ALUMINIUM,Medium Coarse Aluminium,Medium metallic with a darker flop than P425-985.,Medium metallic with a darker flop than P425-985.,g,Aluminium,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P425-988,P425-988,P425-988,P425-988/E1,1.0,HS Coarse Aluminium,2K COARSE ALUMINIUM,HS Coarse Aluminium,"Brighter face, darker flop than P425-987.","Brighter face, darker flop than P425-987.",g,Aluminium,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P425-989,P425-989,P425-989,P425-989/E1,1.0,"HS Very Coarse Aluminium Very coarse, bright aluminium",2K VERY COARSE ALUMINIUM,"HS Very Coarse Aluminium Very coarse, bright aluminium",with a dark flop.,with a dark flop.,g,Aluminium,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P425-991,P425-991,P425-991,P425-991/E1,1.0,Fine Satin Aluminium Fine aluminium. Darker,2K FINE SATIN ALUMINIUM,Fine Satin Aluminium Fine aluminium. Darker,face and lighter flop than,face and lighter flop than,g,Aluminium,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P425-992,P425-992,P425-992,P425-992/E1,1.0,HS Shining Coarse Aluminium,2K SHINING COARSE ALUMINIUM,HS Shining Coarse Aluminium,Medium bright metallic with a darker flop than P425-984.,Medium bright metallic with a darker flop than P425-984.,g,Aluminium,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P425-998,P425-998,P425-998,P425-998/E1,1.0,HS Coarse Silver Dollar Aluminium Bright coarse aluminium.,2K COARSE SILVER DOLLAR ALUMINIUM,HS Coarse Silver Dollar Aluminium Bright coarse aluminium.,Cleaner face and darker flop than P425-992.,Cleaner face and darker flop than P425-992.,g,Aluminium,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P425-EB02,P425-EB02,P425-EB02,P425-EB02/E1,1.0,KONWERTER BAZY DO KOMÓR SILNIKA,2K KONWERTER BAZY DO KOMÓR SILNIKA,,,,g,Toner,OK,,ODS_KATALOG,True,True
-AUTOCOLOR,AUTOCOLOR|P426-HE02,P426-HE02,P426-HE02,P426-HE02/E1,1.0,Blue Frost,2K ULTRA FINE WHITE,Blue Frost,Used in metallic colours to add yellow to the face and light blue tone to the flop.,Used in metallic colours to add yellow to the face and light blue tone to the flop.,g,Czerń/Biel,KOLIZJA NAZW,ODS: 2K ULTRA FINE WHITE | PDF: Blue Frost,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P426-HE03,P426-HE03,P426-HE03,P426-HE03/E1,1.0,Graphite Flake,2K GRAPHITE FLAKE,Graphite Flake,"Subtle blue tone on face, lightens flop.","Subtle blue tone on face, lightens flop.",g,Czerń/Biel,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P426-HE04,P426-HE04,P426-HE04,P426-HE04/E1,1.0,Gold Flash Medium gold aluminium flake.,2K GOLD FLASH,Gold Flash Medium gold aluminium flake.,,,g,Aluminium,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P426-HE05,P426-HE05,P426-HE05,P426-HE05/E1,1.0,Orange Flash Orange aluminium flake.,2K ORANGE FLASH,Orange Flash Orange aluminium flake.,,,g,Aluminium,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P426-HE08,P426-HE08,P426-HE08,P426-HE08/E1,1.0,BLUE ALUMINIUM,2K BLUE ALUMINIUM,,,,g,Aluminium,OK,,ODS_KATALOG,True,True
-AUTOCOLOR,AUTOCOLOR|P426-PP05,P426-PP05,P426-PP05,P426-PP05/E1,1.0,White Pearl,2K WHITE PEARL,White Pearl,"Clean white. Brighter face, darker flop than P426-PP06.","Clean white. Brighter face, darker flop than P426-PP06.",g,Perła,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P426-PP06,P426-PP06,P426-PP06,P426-PP06/E1,1.0,Fine White Pearl,2K FINE PEARL WHITE,Fine White Pearl,Dirtier face and lighter flop than P426-PP05.,Dirtier face and lighter flop than P426-PP05.,g,Perła,KOLIZJA NAZW,ODS: 2K FINE PEARL WHITE | PDF: Fine White Pearl,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P426-PP07,P426-PP07,P426-PP07,P426-PP07/E1,1.0,Blue Pearl,2K PEARL BLUE,Blue Pearl,"Blue face, yellow flop. Coarser than","Blue face, yellow flop. Coarser than",g,Perła,KOLIZJA NAZW,ODS: 2K PEARL BLUE | PDF: Blue Pearl,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P426-PP08,P426-PP08,P426-PP08,P426-PP08/E1,1.0,Red Pearl,2K RED PEARL,Red Pearl,"Red mica, coarser than P426-PP62.","Red mica, coarser than P426-PP62.",g,Perła,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P426-PP09,P426-PP09,P426-PP09,P426-PP09/E1,1.0,Gold Pearl,2K PEARL GOLD,Gold Pearl,"Gold face, bluish tone flop.","Gold face, bluish tone flop.",g,Perła,KOLIZJA NAZW,ODS: 2K PEARL GOLD | PDF: Gold Pearl,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P426-PP10,P426-PP10,P426-PP10,P426-PP10/E1,1.0,Copper Pearl,2K COPPER PEARL,Copper Pearl,"Copper face, travels to dark copper tone on the flop.","Copper face, travels to dark copper tone on the flop.",g,Perła,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P426-PP60,P426-PP60,P426-PP60,P426-PP60/E1,1.0,White Satin Pearl Fine white flake.,2K PEARL WHITE ULTRAFINE,White Satin Pearl Fine white flake.,,,g,Perła,KOLIZJA NAZW,ODS: 2K PEARL WHITE ULTRAFINE | PDF: White Satin Pearl Fine white flake.,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P426-PP61,P426-PP61,P426-PP61,P426-PP61/E1,1.0,Fine Red Pearl,2K PEARL RED FINE,Fine Red Pearl,Interference red mica with a green flop.,Interference red mica with a green flop.,g,Perła,KOLIZJA NAZW,ODS: 2K PEARL RED FINE | PDF: Fine Red Pearl,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P426-PP62,P426-PP62,P426-PP62,P426-PP62/E1,1.0,Fine Russet Pearl,2K RUSSET PEARL FINE,Fine Russet Pearl,Red mica. Finer than P426-PP08.,Red mica. Finer than P426-PP08.,g,Perła,KOLIZJA NAZW,ODS: 2K RUSSET PEARL FINE | PDF: Fine Russet Pearl,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P426-PP63,P426-PP63,P426-PP63,P426-PP63/E1,1.0,Fine Blue Pearl,2K PEARL BLUE FINE,Fine Blue Pearl,"Blue face, yellow flop. Finer than P426-PP07.","Blue face, yellow flop. Finer than P426-PP07.",g,Perła,KOLIZJA NAZW,ODS: 2K PEARL BLUE FINE | PDF: Fine Blue Pearl,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P426-PP64,P426-PP64,P426-PP64,P426-PP64/E1,1.0,Medium Violet Pearl,2K MEDIUM VIOLET PEARL,Medium Violet Pearl,"Lilac face, green flop.","Lilac face, green flop.",g,Perła,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P426-PP65,P426-PP65,P426-PP65,P426-PP65/E1,1.0,Medium Green Pearl,2K MEDIUM GREEN PEARL,Medium Green Pearl,"Green face, reddish tone flop.","Green face, reddish tone flop.",g,Perła,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P426-PP68,P426-PP68,P426-PP68,P426-PP68/E0.33,0.33,Orange Pearl,2K PEARL ORANGE,Orange Pearl,"Clean orange face, green tone flop.","Clean orange face, green tone flop.",g,Perła,KOLIZJA NAZW,ODS: 2K PEARL ORANGE | PDF: Orange Pearl,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P429-914,P429-914,P429-914,P429-914/E1,1.0,HS CLEAN BLUE VIOLET,2K HS CLEAN BLUE VIOLET,,,,g,Toner,OK,,ODS_KATALOG,True,True
-AUTOCOLOR,AUTOCOLOR|P429-917,P429-917,P429-917,P429-917/E1,1.0,HS GREEN GOLD,2K HS GREEN GOLD,,,,g,Toner,OK,,ODS_KATALOG,True,True
-AUTOCOLOR,AUTOCOLOR|P429-923,P429-923,P429-923,P429-923/E1,1.0,HS Bright Maroon,2K BRIGHT MAROON,HS Bright Maroon,"Mid-shade transparent maroon, dark flop.","Mid-shade transparent maroon, dark flop.",g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P429-932,P429-932,P429-932,P429-932/E1,1.0,HS CLEAN ORGANIC ORANGE,2K HS CLEAN ORGANIC ORANGE,,,,g,Toner,OK,,ODS_KATALOG,True,True
-AUTOCOLOR,AUTOCOLOR|P429-937,P429-937,P429-937,P429-937/E1,1.0,HS Pale Yellow,2K PALE YELLOW,HS Pale Yellow,Green shade yellow with a green shade flop.,Green shade yellow with a green shade flop.,g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P429-961,P429-961,P429-961,P429-961/E1,1.0,HS Clean Magenta,2K CLEAN MAGENTA,HS Clean Magenta,"Clean blue tone violet, darker flop than","Clean blue tone violet, darker flop than",g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P429-967,P429-967,P429-967,P429-967/E1,1.0,HS Deep Angle Black 2 =====,2K DEEP ANGLE BLACK,HS Deep Angle Black 2 =====,"Yellow-shade black, darkest flop.","Yellow-shade black, darkest flop.",g,Czerń/Biel,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P429-972,P429-972,P429-972,P429-972/E1,1.0,HS Bright Amber,2K BRIGHT AMBER,HS Bright Amber,Bright orange used primarily in solid colours. Cleaner than P420-982 and P420-983.,Bright orange used primarily in solid colours. Cleaner than P420-982 and P420-983.,g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P429-973,P429-973,P429-973,P429-973/E1,1.0,HS Bright Orange Red shade orange.,2K BRIGHT ORANGE,HS Bright Orange Red shade orange.,,,g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P429-976,P429-976,P429-976,P429-976/E1,1.0,HS Red Violet,2K RED VIOLET,HS Red Violet,,,g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P429-980,P429-980,P429-980,P429-980/E1,1.0,HS Speed Red colours above 20%.,2K SPEED RED,HS Speed Red colours above 20%.,"Bright clean red, used primarily in solid","Bright clean red, used primarily in solid",g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P429-981,P429-981,P429-981,P429-981/E1,1.0,Transparent Gold,2K Transparent Gold,,,,g,Toner,OK,,ODS_KATALOG,True,True
-AUTOCOLOR,AUTOCOLOR|P433-XR10,P433-XR10,P433-XR10,P433-XR10/E0.33,0.33,Crystal Silver,2K XIRALLIC CRYSTAL SILVER,Crystal Silver,"Sparkle bright white effect, coarser appearance and brighter than P426-PP05.","Sparkle bright white effect, coarser appearance and brighter than P426-PP05.",g,Xirallic,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P433-XR11,P433-XR11,P433-XR11,P433-XR11/E0.33,0.33,Sunbeam Gold,2K XIRALLIC SUNBEAM GOLD,Sunbeam Gold,"Sparkle bright gold effect, coarser appearance and brighter than P426-PP09.","Sparkle bright gold effect, coarser appearance and brighter than P426-PP09.",g,Xirallic,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P433-XR12,P433-XR12,P433-XR12,P433-XR12/E0.33,0.33,Radiant Red,2K XIRALLIC RADIANT RED,Radiant Red,"Sparkle bright red effect, coarser appearance and brighter than P426-PP08.","Sparkle bright red effect, coarser appearance and brighter than P426-PP08.",g,Xirallic,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P433-XR13,P433-XR13,P433-XR13,P433-XR13/E0.33,0.33,Galaxy Blue,2K XIRALLIC GALAXY BLUE,Galaxy Blue,"Sparkle bright blue effect, coarser appearance and brighter than P426-PP07.","Sparkle bright blue effect, coarser appearance and brighter than P426-PP07.",g,Xirallic,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P433-XR14,P433-XR14,P433-XR14,P433-XR14/E0.33,0.33,Stellar Green,2K XIRALLIC STELLAR GREEN,Stellar Green,"Sparkle bright green effect, coarser appearance and brighter than P426-PP65.","Sparkle bright green effect, coarser appearance and brighter than P426-PP65.",g,Xirallic,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P433-XR15,P433-XR15,P433-XR15,P433-XR15/E0.33,0.33,Solaris Red,2K XIRALLIC SOLARIS RED,Solaris Red,"Sparkle bright magenta red effect, coarser appearance and brighter than P426-PP61.","Sparkle bright magenta red effect, coarser appearance and brighter than P426-PP61.",g,Xirallic,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P433-XR16,P433-XR16,P433-XR16,P433-XR16/E0.33,0.33,Fireside Copper,2K XIRALLIC FIRESIDE COPPER,Fireside Copper,"Sparkle bright copper effect, coarser appearance and brighter than P426-PP10.","Sparkle bright copper effect, coarser appearance and brighter than P426-PP10.",g,Xirallic,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P433-XR17,P433-XR17,P433-XR17,P433-XR17/E0.33,0.33,Cosmic Turquoise flake pigment.,2K XIRALLIC COSMIC TURQUOISE,Cosmic Turquoise flake pigment.,Sparkle bright unique marine blue,Sparkle bright unique marine blue,g,Xirallic,KOLIZJA NAZW,ODS: 2K XIRALLIC COSMIC TURQUOISE | PDF: Cosmic Turquoise flake pigment.,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P433-XR18,P433-XR18,P433-XR18,P433-XR18/E0.33,0.33,Amethyst Dream,2K XIRALLIC AMETHYST DREAM,Amethyst Dream,"Sparkle bright violet effect, coarser appearance and brighter than P426-PP64.","Sparkle bright violet effect, coarser appearance and brighter than P426-PP64.",g,Xirallic,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P434-CS32,P434-CS32,P434-CS32,P434-CS32/E0.33,0.33,Viola Fantasy unique violet to silver to green to blue colour,2K COLORSTREAM VIOLA FANTASY,Viola Fantasy unique violet to silver to green to blue colour,Special effect white silica flake that creates a travel.,Special effect white silica flake that creates a travel.,g,Colorstream,KOLIZJA NAZW,ODS: 2K COLORSTREAM VIOLA FANTASY | PDF: Viola Fantasy unique violet to silver to green to blue colour,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P434-CS33,P434-CS33,P434-CS33,P434-CS33/E0.33,0.33,Arctic Fire colour travel from subtle turquoise through,2K COLORSTREAM ARCTIC FIRE,Arctic Fire colour travel from subtle turquoise through,Special effect silica flake that creates a unique brilliant silver to red.,Special effect silica flake that creates a unique brilliant silver to red.,g,Colorstream,KOLIZJA NAZW,ODS: 2K COLORSTREAM ARCTIC FIRE | PDF: Arctic Fire colour travel from subtle turquoise through,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P434-CS34,P434-CS34,P434-CS34,P434-CS34/E0.33,0.33,Tropic Sunrise colour travel from green to silver to reddish,2K COLORSTREAM TROPIC SUNRISE,Tropic Sunrise colour travel from green to silver to reddish,Special effect silica flake that creates a unique orange.,Special effect silica flake that creates a unique orange.,g,Colorstream,KOLIZJA NAZW,ODS: 2K COLORSTREAM TROPIC SUNRISE | PDF: Tropic Sunrise colour travel from green to silver to reddish,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P434-CS35,P434-CS35,P434-CS35,P434-CS35/E0.33,0.33,Lapis Sunlight colour travel from gold to green to blue.,2K COLORSTREAM LAPIS SUN LIGHT,Lapis Sunlight colour travel from gold to green to blue.,Special effect silica flake that creates a unique,Special effect silica flake that creates a unique,g,Colorstream,KOLIZJA NAZW,ODS: 2K COLORSTREAM LAPIS SUN LIGHT | PDF: Lapis Sunlight colour travel from gold to green to blue.,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P435-GF37,P435-GF37,P435-GF37,P435-GF37/E0.33,0.33,Silver Glass,2K SPECTRAFLAIR SILVER GLASS,Silver Glass,"Silver metal-coated glass flakes, used to create bright colours with intense sparkle and flare. The effect is particularly evident in bright sunlight.","Silver metal-coated glass flakes, used to create bright colours with intense sparkle and flare. The effect is particularly evident in bright sunlight.",g,Toner,OK,,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P440-FX20,P440-FX20,P440-FX20,P440-FX20/E0.33,0.33,CHROMAFLAIR CYAN TO PURPLE,2K CHROMAFLAIR CYAN TO PURPLE,,,,g,ChromaFlair,OK,,ODS_KATALOG,True,True
-AUTOCOLOR,AUTOCOLOR|P440-FX21,P440-FX21,P440-FX21,P440-FX21/E0.33,0.33,CHROMAFLAIR SILVER TO GREEN,2K CHROMAFLAIR SILVER TO GREEN,,,,g,ChromaFlair,OK,,ODS_KATALOG,True,True
-AUTOCOLOR,AUTOCOLOR|P440-FX22,P440-FX22,P440-FX22,P440-FX22/E0.33,0.33,CHROMAFLAIR GREEN TO PURPLE,2K CHROMAFLAIR GREEN TO PURPLE,,,,g,ChromaFlair,OK,,ODS_KATALOG,True,True
-AUTOCOLOR,AUTOCOLOR|P440-FX23,P440-FX23,P440-FX23,P440-FX23/E0.33,0.33,CHROMAFLAIR BLUE TO RED,2K CHROMAFLAIR BLUE TO RED,,,,g,ChromaFlair,OK,,ODS_KATALOG,True,True
-AUTOCOLOR,AUTOCOLOR|P440-FX24,P440-FX24,P440-FX24,P440-FX24/E0.33,0.33,CHROMAFLAIR MAGENTA TO GOLD,2K CHROMAFLAIR MAGENTA TO GOLD,,,,g,ChromaFlair,OK,,ODS_KATALOG,True,True
-AUTOCOLOR,AUTOCOLOR|P440-FX25,P440-FX25,P440-FX25,P440-FX25/E0.33,0.33,CHROMAFLAIR GOLD TO SILVER,2K CHROMAFLAIR GOLD TO SILVER,,,,g,ChromaFlair,OK,,ODS_KATALOG,True,True
-AUTOCOLOR,AUTOCOLOR|P440-FX26,P440-FX26,P440-FX26,P440-FX26/E0.33,0.33,CHROMAFLAIR RED TO GOLD,2K CHROMAFLAIR RED TO GOLD,,,,g,ChromaFlair,OK,,ODS_KATALOG,True,True
-AUTOCOLOR,AUTOCOLOR|P440-FX51,P440-FX51,P440-FX51,P440-FX51/E0.33,0.33,Silver Flair intense light source.,2K SPECTRAFLAIR SILVER FLAIR,Silver Flair intense light source.,"Exhibits a unique rainbow multi coloured effect, particularly in silver colours under","Exhibits a unique rainbow multi coloured effect, particularly in silver colours under",g,ChromaFlair,KOLIZJA NAZW,ODS: 2K SPECTRAFLAIR SILVER FLAIR | PDF: Silver Flair intense light source.,PDF_AUTOCOLOR,True,True
-AUTOCOLOR,AUTOCOLOR|P440-LM01,P440-LM01,P440-LM01,P440-LM01/E1,1.0,LIQUID METAL SUPER FINE,2K LIQUID METAL SUPER FINE,,,,g,Aluminium,OK,,ODS_KATALOG,True,True
-AUTOCOLOR,AUTOCOLOR|P450-EC50,P450-EC50,P450-EC50,P450-EC50/E0.118,0.118,BRILLIANT RED,BRILLIANT RED,,,,g,Toner,OK,,ODS_KATALOG,True,True
-AUTOCOLOR,AUTOCOLOR|P420-982,P420-982,P420-982,,,Trans Oxide Yellow,,Trans Oxide Yellow,Transparent yellow oxide with a darker flop than P420-983.,Transparent yellow oxide with a darker flop than P420-983.,g,Toner,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False
-AUTOCOLOR,AUTOCOLOR|VM4370,VM4370,VM4370,,,Super Fine Liquid Metal that have a unique optical,,Super Fine Liquid Metal that have a unique optical,Vacuumized metal flakes effect similar to a molten metal appearance.,Vacuumized metal flakes effect similar to a molten metal appearance.,g,Aluminium,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False
-AUTOCOLOR,AUTOCOLOR|P426-HE07,P426-HE07,P426-HE07,,,Blue Flash Organic blue coloured aluminium flake.,,Blue Flash Organic blue coloured aluminium flake.,,,g,Aluminium,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False
-AUTOCOLOR,AUTOCOLOR|P434-CS31,P434-CS31,P434-CS31,,,Autumn Mystery a unique red to gold to bronze to green colour,,Autumn Mystery a unique red to gold to bronze to green colour,Special effect orange silica flake that creates travel.,Special effect orange silica flake that creates travel.,g,Colorstream,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False
-AUTOCOLOR,AUTOCOLOR|VM4987,VM4987,VM4987,,,Cyan to Purple through purple.,,Cyan to Purple through purple.,Colour shifting flake. Colour shifts from cyan,Colour shifting flake. Colour shifts from cyan,g,ChromaFlair,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False
-AUTOCOLOR,AUTOCOLOR|VM4988,VM4988,VM4988,,,Silver to Green through green.,,Silver to Green through green.,Colour shifting flake. Colour shifts from silver,Colour shifting flake. Colour shifts from silver,g,ChromaFlair,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False
-AUTOCOLOR,AUTOCOLOR|VM4989,VM4989,VM4989,,,Green to Purple through purple.,,Green to Purple through purple.,Colour shifting flake. Colour shifts from green,Colour shifting flake. Colour shifts from green,g,ChromaFlair,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False
-AUTOCOLOR,AUTOCOLOR|VM4990,VM4990,VM4990,,,Blue to Red through red.,,Blue to Red through red.,Colour shifting flake. Colour shifts from blue,Colour shifting flake. Colour shifts from blue,g,ChromaFlair,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False
-AUTOCOLOR,AUTOCOLOR|VM4991,VM4991,VM4991,,,Magenta to Gold magenta through gold.,,Magenta to Gold magenta through gold.,Colour shifting flake. Colour shifts from,Colour shifting flake. Colour shifts from,g,ChromaFlair,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False
-AUTOCOLOR,AUTOCOLOR|VM4994,VM4994,VM4994,,,Gold to Silver through silver.,,Gold to Silver through silver.,Colour shifting flake. Colour shifts from gold,Colour shifting flake. Colour shifts from gold,g,ChromaFlair,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False
-AUTOCOLOR,AUTOCOLOR|VM4995,VM4995,VM4995,,,"Red to Gold through gold. Yellow, Green, Blue,",,"Red to Gold through gold. Yellow, Green, Blue,","Colour shifting flake. Colour shifts from red Violet, Red, etc. Colour viewing angle that is heavily influenced by metallic or pearl pigments in a formula. Colour viewing angle that is generally darker and influenced mostly by the conventional pigments in a metallic or pearlescent colour.","Colour shifting flake. Colour shifts from red Violet, Red, etc. Colour viewing angle that is heavily influenced by metallic or pearl pigments in a formula. Colour viewing angle that is generally darker and influenced mostly by the conventional pigments in a metallic or pearlescent colour.",g,ChromaFlair,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False
-DUXONE,DUXONE|DX5110,DX5110,DX5110,,,DEEP BLACK,,DEEP BLACK,,,g,Solid,OK,,PDF_DUXONE,False,True
+﻿system,klucz,nr_pigmentu,nr_bazowy,kod_e,czynnik_e,nazwa,nazwa_ods,nazwa_pdf,opis,procedura_dobarwiania,jednostka,kategoria,status_danych,uwagi_danych,zrodlo_nazwy,w_katalogu_ods,w_szablonie_ods,opis_en,opis_dzialania_pl
+AUTOCOLOR,AUTOCOLOR|P192-475,P192-475,P192-475,P192-475/E1,1.0,REGULATOR BAZY,2K REGULATOR BAZY,REGULATOR BAZY,"Regulator bazy — rozcieńcza i ułatwia aplikację mieszanki, bez zmiany odcienia. Nie jest tonerem kolorystycznym.","Regulator bazy — rozcieńcza i ułatwia aplikację mieszanki, bez zmiany odcienia. Nie jest tonerem kolorystycznym.",g,Regulator,OK,,ODS_KATALOG,True,True,Base blender / reducer. Does not shift hue; adjusts viscosity and application of the mixing base.,"Regulator bazy — rozcieńcza i ułatwia aplikację mieszanki, bez zmiany odcienia. Nie jest tonerem kolorystycznym."
+AUTOCOLOR,AUTOCOLOR|P192-528,P192-528,P192-528,P192-528/E2.5,2.5,REGULATOR UŁOŻENIA ZIARNA,2K REGULATOR UŁOŻENIA ZIARNA,REGULATOR UŁOŻENIA ZIARNA,"Regulator ułożenia ziarna — poprawia orientację płatków metalicznych, uspokaja układ ziarna na powierzchni.","Regulator ułożenia ziarna — poprawia orientację płatków metalicznych, uspokaja układ ziarna na powierzchni.",g,Regulator,OK,,ODS_KATALOG,True,True,Grain / flake orientation controller. Settles metallic flake layout.,"Regulator ułożenia ziarna — poprawia orientację płatków metalicznych, uspokaja układ ziarna na powierzchni."
+AUTOCOLOR,AUTOCOLOR|P192-5600,P192-5600,P192-5600,P192-5600/E2.5,2.5,REGULATOR FLOPU,2K REGULATOR FLOPU,REGULATOR FLOPU,"Regulator flopu — koryguje różnicę światło/cień, uspokaja lub pogłębia flop (cień) w metalikach i perłach.","Regulator flopu — koryguje różnicę światło/cień, uspokaja lub pogłębia flop (cień) w metalikach i perłach.",g,Regulator,OK,,ODS_KATALOG,True,True,Flop controller. Adjusts the light-to-dark travel (face vs flop).,"Regulator flopu — koryguje różnicę światło/cień, uspokaja lub pogłębia flop (cień) w metalikach i perłach."
+AUTOCOLOR,AUTOCOLOR|P420-902RT,P420-902RT,P420-902,P420-902/E1,1.0,RT Pale White,2K PALE WHITE,RT Pale White,"Mocna biel — silnie rozjaśnia. Toner RT (obniżona moc). Jeżeli udział przekracza 10%, użyj P425-900.","Mocna biel — silnie rozjaśnia. Toner RT (obniżona moc). Jeżeli udział przekracza 10%, użyj P425-900.",g,Czerń/Biel,OK,,PDF_AUTOCOLOR,True,True,Strong white. If more than 10% use P425-900.,"Mocna biel — silnie rozjaśnia. Toner RT (obniżona moc). Jeżeli udział przekracza 10%, użyj P425-900."
+AUTOCOLOR,AUTOCOLOR|P420-903RT,P420-903RT,P420-903,P420-903/E1,1.0,RT Medium Pale Yellow,2K MEDIUM PALE YELLOW,RT Medium Pale Yellow,Bladożółty z zielonkawożółtym flopem (cień). Toner RT — rozjaśnia w stronę bladego żółtego.,Bladożółty z zielonkawożółtym flopem (cień). Toner RT — rozjaśnia w stronę bladego żółtego.,g,Toner,OK,,PDF_AUTOCOLOR,True,True,Pale yellow with a greenish yellow flop.,Bladożółty z zielonkawożółtym flopem (cień). Toner RT — rozjaśnia w stronę bladego żółtego.
+AUTOCOLOR,AUTOCOLOR|P420-904RT,P420-904RT,P420-904,P420-904/E1,1.0,RT Transparent Black,2K TRANSPARENT BLACK,RT Transparent Black,"Czerń o żółtym odcieniu, ciemniejszy flop niż P420-933. Toner RT, transparentniejszy niż pełna czerń. Jeżeli udział przekracza 10%, użyj P425-948.","Czerń o żółtym odcieniu, ciemniejszy flop niż P420-933. Toner RT, transparentniejszy niż pełna czerń. Jeżeli udział przekracza 10%, użyj P425-948.",g,Czerń/Biel,OK,,PDF_AUTOCOLOR,True,True,"Yellow-shade black, darker flop than P420-933. If more than 10% use P425-948.","Czerń o żółtym odcieniu, ciemniejszy flop niż P420-933. Toner RT, transparentniejszy niż pełna czerń. Jeżeli udział przekracza 10%, użyj P425-948."
+AUTOCOLOR,AUTOCOLOR|P420-905,P420-905,P420-905,P420-905/E1,1.0,Yellow Oxide,2K YELLOW OXIDE,Yellow Oxide,"Kryjący tlenek żółty. Dodaje żółć tlenkową (ciepłą, ziemistą), silne krycie, przytłumia czystość tonu.","Kryjący tlenek żółty. Dodaje żółć tlenkową (ciepłą, ziemistą), silne krycie, przytłumia czystość tonu.",g,Toner,OK,,PDF_AUTOCOLOR,True,True,Opaque yellow oxide.,"Kryjący tlenek żółty. Dodaje żółć tlenkową (ciepłą, ziemistą), silne krycie, przytłumia czystość tonu."
+AUTOCOLOR,AUTOCOLOR|P420-907,P420-907,P420-907,P420-907/E1,1.0,Red Oxide,2K RED OXIDE,Red Oxide,Tlenek czerwony (rdzawy). Kryjący toner tlenkowy; pełna moc odpowiednika RT Russet (P420-908RT).,Tlenek czerwony (rdzawy). Kryjący toner tlenkowy; pełna moc odpowiednika RT Russet (P420-908RT).,g,Toner,OK,,PDF_AUTOCOLOR,True,True,Red oxide. Full-strength counterpart of RT Russet P420-908RT.,Tlenek czerwony (rdzawy). Kryjący toner tlenkowy; pełna moc odpowiednika RT Russet (P420-908RT).
+AUTOCOLOR,AUTOCOLOR|P420-908RT,P420-908RT,P420-908,P420-908/E1,1.0,RT Russet,2K RUSSET,RT Russet,"Tlenek czerwony o niebieskim odcieniu. Toner RT. Jeżeli udział przekracza 10%, użyj P420-907.","Tlenek czerwony o niebieskim odcieniu. Toner RT. Jeżeli udział przekracza 10%, użyj P420-907.",g,Toner,OK,,PDF_AUTOCOLOR,True,True,Blue shade red oxide. If more than 10% use P420-907.,"Tlenek czerwony o niebieskim odcieniu. Toner RT. Jeżeli udział przekracza 10%, użyj P420-907."
+AUTOCOLOR,AUTOCOLOR|P420-910RT,P420-910RT,P420-910,P420-910/E1,1.0,RT Deep Blue,2K DEEP BLUE,RT Deep Blue,"Wysokowydajny transparentny niebieski. Toner RT. Jeżeli udział przekracza 10%, użyj P425-957.","Wysokowydajny transparentny niebieski. Toner RT. Jeżeli udział przekracza 10%, użyj P425-957.",g,Toner,OK,,PDF_AUTOCOLOR,True,True,High strength transparent blue. If more than 10% use P425-957.,"Wysokowydajny transparentny niebieski. Toner RT. Jeżeli udział przekracza 10%, użyj P425-957."
+AUTOCOLOR,AUTOCOLOR|P420-920,P420-920,P420-920,P420-920/E1,1.0,Violet,2K VIOLET,Violet,"Czysty fiolet z brudnym żółtym flopem; bardziej czerwony niż P420-930. Czyste światło (face), cieplejszy/brudniejszy cień.","Czysty fiolet z brudnym żółtym flopem; bardziej czerwony niż P420-930. Czyste światło (face), cieplejszy/brudniejszy cień.",g,Toner,OK,,PDF_AUTOCOLOR,True,True,"Clean violet with a dirty yellow flop, redder than P420-930.","Czysty fiolet z brudnym żółtym flopem; bardziej czerwony niż P420-930. Czyste światło (face), cieplejszy/brudniejszy cień."
+AUTOCOLOR,AUTOCOLOR|P420-926,P420-926,P420-926,P420-926/E1,1.0,Super Red,2K SUPER RED,Super Red,Czysta czerwień. Dodaje czysty czerwony ton (bez tlenkowego przytłumienia).,Czysta czerwień. Dodaje czysty czerwony ton (bez tlenkowego przytłumienia).,g,Toner,OK,,PDF_AUTOCOLOR,True,True,Clean red.,Czysta czerwień. Dodaje czysty czerwony ton (bez tlenkowego przytłumienia).
+AUTOCOLOR,AUTOCOLOR|P420-930,P420-930,P420-930,P420-930/E1,1.0,Lake Blue,2K BLUE LAKE,Lake Blue,Niebieski o czerwonym odcieniu. Przesuwa ton w stronę czerwono-niebieskiego (cieplejszy błękit).,Niebieski o czerwonym odcieniu. Przesuwa ton w stronę czerwono-niebieskiego (cieplejszy błękit).,g,Toner,KOLIZJA NAZW,ODS: 2K BLUE LAKE | PDF: Lake Blue Red shade blue.,PDF_AUTOCOLOR,True,True,Red shade blue.,Niebieski o czerwonym odcieniu. Przesuwa ton w stronę czerwono-niebieskiego (cieplejszy błękit).
+AUTOCOLOR,AUTOCOLOR|P420-933,P420-933,P420-933,P420-933/E3.5,3.5,Blue Black,2K BLUE BLACK,Blue Black,Czerń o niebieskim odcieniu; jaśniejszy i bardziej niebieski flop niż P425-948. Ściemia z niebieskim cieniem.,Czerń o niebieskim odcieniu; jaśniejszy i bardziej niebieski flop niż P425-948. Ściemia z niebieskim cieniem.,g,Czerń/Biel,OK,,PDF_AUTOCOLOR,True,True,"Blue-shade black, lighter and bluer flop than P425-948.",Czerń o niebieskim odcieniu; jaśniejszy i bardziej niebieski flop niż P425-948. Ściemia z niebieskim cieniem.
+AUTOCOLOR,AUTOCOLOR|P420-938,P420-938,P420-938,P420-938/E1,1.0,Tone Controller,2K TONE CONTROLLER,Tone Controller,Kontroler tonu — daje wrażenie grubszego ziarna i rozjaśnia flop (cień). Uspokaja zbyt ciemny/płaski cień metaliku.,Kontroler tonu — daje wrażenie grubszego ziarna i rozjaśnia flop (cień). Uspokaja zbyt ciemny/płaski cień metaliku.,g,Regulator,OK,,PDF_AUTOCOLOR,True,True,Gives a more coarse flake appearance and lightens the flop.,Kontroler tonu — daje wrażenie grubszego ziarna i rozjaśnia flop (cień). Uspokaja zbyt ciemny/płaski cień metaliku.
+AUTOCOLOR,AUTOCOLOR|P420-942,P420-942,P420-942,P420-942/E1,1.0,Transoxide Red,2K TRANSOXIDE RED,Transoxide Red,"Złotobrązowy transparentny tlenek czerwony z żółtym flopem. Czystsze światło (face), jaśniejszy i bardziej żółty flop niż P420-978.","Złotobrązowy transparentny tlenek czerwony z żółtym flopem. Czystsze światło (face), jaśniejszy i bardziej żółty flop niż P420-978.",g,Toner,OK,,PDF_AUTOCOLOR,True,True,"Golden brown transparent red oxide with a yellow shade flop. Cleaner face, lighter and yellower flop than P420-978.","Złotobrązowy transparentny tlenek czerwony z żółtym flopem. Czystsze światło (face), jaśniejszy i bardziej żółty flop niż P420-978."
+AUTOCOLOR,AUTOCOLOR|P420-952,P420-952,P420-952,P420-952/E1,1.0,Fast Blue,2K FAST BLUE,Fast Blue,Niebieski o środkowym odcieniu. Neutralny błękit do korekty tonu bez silnego przesunięcia w zieleń lub czerwień.,Niebieski o środkowym odcieniu. Neutralny błękit do korekty tonu bez silnego przesunięcia w zieleń lub czerwień.,g,Toner,OK,,PDF_AUTOCOLOR,True,True,Mid-shade blue.,Niebieski o środkowym odcieniu. Neutralny błękit do korekty tonu bez silnego przesunięcia w zieleń lub czerwień.
+AUTOCOLOR,AUTOCOLOR|P420-960RT,P420-960RT,P420-960,P420-960/E1,1.0,RT Burgundy,2K REDUCED MAGENTA,RT Burgundy,"Fiolet o niebieskim odcieniu; brudniejsze światło (face) i ciemniejszy flop niż P425-921. Toner RT. Jeżeli udział przekracza 10%, użyj P429-976.","Fiolet o niebieskim odcieniu; brudniejsze światło (face) i ciemniejszy flop niż P425-921. Toner RT. Jeżeli udział przekracza 10%, użyj P429-976.",g,Toner,KOLIZJA NAZW,ODS: 2K REDUCED MAGENTA | PDF: RT Burgundy pigments in a formula.,PDF_AUTOCOLOR,True,True,"Blue shade violet, dirtier face and darker flop than P425-921. If more than 10% use P429-976.","Fiolet o niebieskim odcieniu; brudniejsze światło (face) i ciemniejszy flop niż P425-921. Toner RT. Jeżeli udział przekracza 10%, użyj P429-976."
+AUTOCOLOR,AUTOCOLOR|P420-975,P420-975,P420-975,P420-975/E1,1.0,Bronze Green,2K BRONZE GREEN,Bronze Green,"Złocista zieleń na świetle (face), żółty odcień na flopie. Ciepła zieleń z żółtym cieniem.","Złocista zieleń na świetle (face), żółty odcień na flopie. Ciepła zieleń z żółtym cieniem.",g,Toner,OK,,PDF_AUTOCOLOR,True,True,"Golden green face, yellow shade flop.","Złocista zieleń na świetle (face), żółty odcień na flopie. Ciepła zieleń z żółtym cieniem."
+AUTOCOLOR,AUTOCOLOR|P420-978,P420-978,P420-978,P420-978/E1,1.0,Brown,2K BROWN,Brown,"Ciemny brąz z bardziej żółtym flopem niż P429-923. Ściemia i ociepla, szczególnie w cieniu.","Ciemny brąz z bardziej żółtym flopem niż P429-923. Ściemia i ociepla, szczególnie w cieniu.",g,Toner,OK,,PDF_AUTOCOLOR,True,True,Dark brown with a yellower flop than P429-923.,"Ciemny brąz z bardziej żółtym flopem niż P429-923. Ściemia i ociepla, szczególnie w cieniu."
+AUTOCOLOR,AUTOCOLOR|P420-983,P420-983,P420-983,P420-983/E1,1.0,Strong Yellow,2K STRONG YELLOW,Strong Yellow,"Żółty o pomarańczowym odcieniu; stosować, gdy potrzebny zielony flop. Czystszy niż P420-982.","Żółty o pomarańczowym odcieniu; stosować, gdy potrzebny zielony flop. Czystszy niż P420-982.",g,Toner,OK,,PDF_AUTOCOLOR,True,True,"Orange shade yellow, can be used when a green tone flop is needed. Cleaner than P420-982.","Żółty o pomarańczowym odcieniu; stosować, gdy potrzebny zielony flop. Czystszy niż P420-982."
+AUTOCOLOR,AUTOCOLOR|P425-900,P425-900,P425-900,P425-900/E3.5,3.5,HS Super White,2K SUPER WHITE,HS Super White,Mocna biel HS — silnie rozjaśnia recepturę. Pełna moc odpowiednika RT Pale White (P420-902RT).,Mocna biel HS — silnie rozjaśnia recepturę. Pełna moc odpowiednika RT Pale White (P420-902RT).,g,Czerń/Biel,OK,,PDF_AUTOCOLOR,True,True,Strong HS white. Full-strength counterpart of RT Pale White P420-902RT.,Mocna biel HS — silnie rozjaśnia recepturę. Pełna moc odpowiednika RT Pale White (P420-902RT).
+AUTOCOLOR,AUTOCOLOR|P425-919,P425-919,P425-919,P425-919/E1,1.0,HS Clean Red Violet,2K CLEAN RED VIOLET,HS Clean Red Violet,"Średni fiolet z głębokim flopem. Czysty czerwono-fioletowy ton, mocno pogłębia cień.","Średni fiolet z głębokim flopem. Czysty czerwono-fioletowy ton, mocno pogłębia cień.",g,Toner,OK,,PDF_AUTOCOLOR,True,True,Medium violet with deep flop.,"Średni fiolet z głębokim flopem. Czysty czerwono-fioletowy ton, mocno pogłębia cień."
+AUTOCOLOR,AUTOCOLOR|P425-921,P425-921,P425-921,P425-921/E1,1.0,HS Claret,2K CLARET,HS Claret,"Czysta magenta o niebieskim tonie; czystsza i jaśniejsza niż P429-976. Czysty, chłodny czerwono-fiolet.","Czysta magenta o niebieskim tonie; czystsza i jaśniejsza niż P429-976. Czysty, chłodny czerwono-fiolet.",g,Toner,OK,,PDF_AUTOCOLOR,True,True,"Clean blue tone magenta, cleaner and lighter than P429-976.","Czysta magenta o niebieskim tonie; czystsza i jaśniejsza niż P429-976. Czysty, chłodny czerwono-fiolet."
+AUTOCOLOR,AUTOCOLOR|P425-922,P425-922,P425-922,P425-922/E1,1.0,HS Lagoon Blue,2K LAGOON BLUE,HS Lagoon Blue,"Zielonawy niebieski z zielonym flopem. Do receptur metalik/perła — przesuwa błękit w zieleń, także w cieniu.","Zielonawy niebieski z zielonym flopem. Do receptur metalik/perła — przesuwa błękit w zieleń, także w cieniu.",g,Perła,OK,,PDF_AUTOCOLOR,True,True,Green shade blue with a green flop. Used in metallic/pearl formulations.,"Zielonawy niebieski z zielonym flopem. Do receptur metalik/perła — przesuwa błękit w zieleń, także w cieniu."
+AUTOCOLOR,AUTOCOLOR|P425-941,P425-941,P425-941,P425-941/E3.5,3.5,HS Strong Red,2K STRONG RED,HS Strong Red,"Czysta, wysokowydajna czerwień — głównie kolory solid. Silna siła barwienia, czysty czerwony ton.","Czysta, wysokowydajna czerwień — głównie kolory solid. Silna siła barwienia, czysty czerwony ton.",g,Toner,OK,,PDF_AUTOCOLOR,True,True,"Clean, high strength red used primarily in solid colours.","Czysta, wysokowydajna czerwień — głównie kolory solid. Silna siła barwienia, czysty czerwony ton."
+AUTOCOLOR,AUTOCOLOR|P425-948,P425-948,P425-948,P425-948/E1,1.0,HS Black,2K BLACK,HS Black,Czerń HS. Ściemia światło i flop. Pełna moc odpowiednika RT Transparent Black (P420-904RT).,Czerń HS. Ściemia światło i flop. Pełna moc odpowiednika RT Transparent Black (P420-904RT).,g,Czerń/Biel,OK,,PDF_AUTOCOLOR,True,True,HS black. Full-strength counterpart of RT Transparent Black P420-904RT.,Czerń HS. Ściemia światło i flop. Pełna moc odpowiednika RT Transparent Black (P420-904RT).
+AUTOCOLOR,AUTOCOLOR|P425-950,P425-950,P425-950,P425-950/E1,1.0,HS Jet Black,2K JET BLACK,HS Jet Black,"Czerń o żółtym odcieniu, ciemniejszy flop niż P425-948. Głębszy, cieplejszy cień niż standardowa czerń HS.","Czerń o żółtym odcieniu, ciemniejszy flop niż P425-948. Głębszy, cieplejszy cień niż standardowa czerń HS.",g,Czerń/Biel,OK,,PDF_AUTOCOLOR,True,True,"Yellow-shade black, darker flop than P425-948.","Czerń o żółtym odcieniu, ciemniejszy flop niż P425-948. Głębszy, cieplejszy cień niż standardowa czerń HS."
+AUTOCOLOR,AUTOCOLOR|P425-954,P425-954,P425-954,P425-954/E1,1.0,HS Blue Green,2K BLUE GREEN,HS Blue Green,Zieleń o niebieskim odcieniu. Chłodna zieleń — przesuwa ton od żółtozielonego w stronę błękitu.,Zieleń o niebieskim odcieniu. Chłodna zieleń — przesuwa ton od żółtozielonego w stronę błękitu.,g,Toner,OK,,PDF_AUTOCOLOR,True,True,Blue shade green.,Zieleń o niebieskim odcieniu. Chłodna zieleń — przesuwa ton od żółtozielonego w stronę błękitu.
+AUTOCOLOR,AUTOCOLOR|P425-956,P425-956,P425-956,P425-956/E1,1.0,HS Super Blue,2K SUPER BLUE,HS Super Blue,"Niebieski środkowy z zielonym światłem (face) i czerwonym flopem. Na świetle chłodniejszy, w cieniu cieplejszy.","Niebieski środkowy z zielonym światłem (face) i czerwonym flopem. Na świetle chłodniejszy, w cieniu cieplejszy.",g,Toner,OK,,PDF_AUTOCOLOR,True,True,Mid-shade blue with green face and red tone flop.,"Niebieski środkowy z zielonym światłem (face) i czerwonym flopem. Na świetle chłodniejszy, w cieniu cieplejszy."
+AUTOCOLOR,AUTOCOLOR|P425-957,P425-957,P425-957,P425-957/E1,1.0,HS Fast Blue,2K FAST BLUE,HS Fast Blue,Wysokowydajny niebieski HS. Pełna moc odpowiednika RT Deep Blue (P420-910RT).,Wysokowydajny niebieski HS. Pełna moc odpowiednika RT Deep Blue (P420-910RT).,g,Toner,OK,,PDF_AUTOCOLOR,True,True,High strength blue. Full-strength counterpart of RT Deep Blue P420-910RT.,Wysokowydajny niebieski HS. Pełna moc odpowiednika RT Deep Blue (P420-910RT).
+AUTOCOLOR,AUTOCOLOR|P425-971,P425-971,P425-971,P425-971/E1,1.0,HS Brilliant Red,2K BRILLIANT RED,HS Brilliant Red,"Czysta czerwień o żółtym tonie. Ciepła, jaskrawa czerwień (w stronę pomarańczu), bez brudzenia flopu.","Czysta czerwień o żółtym tonie. Ciepła, jaskrawa czerwień (w stronę pomarańczu), bez brudzenia flopu.",g,Toner,OK,,PDF_AUTOCOLOR,True,True,Clean yellow tone red.,"Czysta czerwień o żółtym tonie. Ciepła, jaskrawa czerwień (w stronę pomarańczu), bez brudzenia flopu."
+AUTOCOLOR,AUTOCOLOR|P425-984,P425-984,P425-984,P425-984/E1,1.0,HS Medium Fine Aluminium,2K BRIGHT MEDIUM ALUMINIUM,HS Medium Fine Aluminium,"Drobny, jasny metalik z ciemniejszym flopem niż P425-986. Rozjaśnia światło, pogłębia cień względem średniego aluminium.","Drobny, jasny metalik z ciemniejszym flopem niż P425-986. Rozjaśnia światło, pogłębia cień względem średniego aluminium.",g,Aluminium,KOLIZJA NAZW,ODS: 2K BRIGHT MEDIUM ALUMINIUM | PDF: HS Medium Fine Aluminium,PDF_AUTOCOLOR,True,True,Fine bright metallic with darker flop than P425-986.,"Drobny, jasny metalik z ciemniejszym flopem niż P425-986. Rozjaśnia światło, pogłębia cień względem średniego aluminium."
+AUTOCOLOR,AUTOCOLOR|P425-985,P425-985,P425-985,P425-985/E1,1.0,HS Fine Aluminium,2K FINE ALUMINIUM,HS Fine Aluminium,"Drobny metalik z ciemnym światłem (face) i jasnym flopem. Drobne ziarno: ciemniejszy na wprost, jaśniejszy w cieniu.","Drobny metalik z ciemnym światłem (face) i jasnym flopem. Drobne ziarno: ciemniejszy na wprost, jaśniejszy w cieniu.",g,Aluminium,OK,,PDF_AUTOCOLOR,True,True,Fine metallic with a dark face and light flop.,"Drobny metalik z ciemnym światłem (face) i jasnym flopem. Drobne ziarno: ciemniejszy na wprost, jaśniejszy w cieniu."
+AUTOCOLOR,AUTOCOLOR|P425-986,P425-986,P425-986,P425-986/E3.5,3.5,HS Medium Aluminium,2K MEDIUM ALUMINIUM,HS Medium Aluminium,Średni metalik z ciemniejszym flopem niż P425-985. Grubsze ziarno niż Fine — ciemniejszy cień.,Średni metalik z ciemniejszym flopem niż P425-985. Grubsze ziarno niż Fine — ciemniejszy cień.,g,Aluminium,OK,,PDF_AUTOCOLOR,True,True,Medium metallic with a darker flop than P425-985.,Średni metalik z ciemniejszym flopem niż P425-985. Grubsze ziarno niż Fine — ciemniejszy cień.
+AUTOCOLOR,AUTOCOLOR|P425-987,P425-987,P425-987,P425-987/E3.5,3.5,Medium Coarse Aluminium,2K MEDIUM COARSE ALUMINIUM,Medium Coarse Aluminium,"Średnio grube aluminium z ciemniejszym flopem niż P425-985. Wyraźniejsze ziarno, ciemniejszy cień.","Średnio grube aluminium z ciemniejszym flopem niż P425-985. Wyraźniejsze ziarno, ciemniejszy cień.",g,Aluminium,OK,,PDF_AUTOCOLOR,True,True,Medium metallic with a darker flop than P425-985.,"Średnio grube aluminium z ciemniejszym flopem niż P425-985. Wyraźniejsze ziarno, ciemniejszy cień."
+AUTOCOLOR,AUTOCOLOR|P425-988,P425-988,P425-988,P425-988/E1,1.0,HS Coarse Aluminium,2K COARSE ALUMINIUM,HS Coarse Aluminium,"Grube aluminium: jaśniejsze światło (face), ciemniejszy flop niż P425-987. Mocniejszy błysk ziarna, głębszy cień.","Grube aluminium: jaśniejsze światło (face), ciemniejszy flop niż P425-987. Mocniejszy błysk ziarna, głębszy cień.",g,Aluminium,OK,,PDF_AUTOCOLOR,True,True,"Brighter face, darker flop than P425-987.","Grube aluminium: jaśniejsze światło (face), ciemniejszy flop niż P425-987. Mocniejszy błysk ziarna, głębszy cień."
+AUTOCOLOR,AUTOCOLOR|P425-989,P425-989,P425-989,P425-989/E1,1.0,HS Very Coarse Aluminium,2K VERY COARSE ALUMINIUM,HS Very Coarse Aluminium,"Bardzo grube, jasne aluminium z ciemnym flopem. Duże ziarno, silny błysk na świetle, głęboki cień.","Bardzo grube, jasne aluminium z ciemnym flopem. Duże ziarno, silny błysk na świetle, głęboki cień.",g,Aluminium,OK,,PDF_AUTOCOLOR,True,True,"Very coarse, bright aluminium with a dark flop.","Bardzo grube, jasne aluminium z ciemnym flopem. Duże ziarno, silny błysk na świetle, głęboki cień."
+AUTOCOLOR,AUTOCOLOR|P425-991,P425-991,P425-991,P425-991/E1,1.0,Fine Satin Aluminium,2K FINE SATIN ALUMINIUM,Fine Satin Aluminium,"Drobne aluminium satynowe. Ciemniejsze światło i jaśniejszy flop niż P425-984. Uspokaja błysk, rozjaśnia cień.","Drobne aluminium satynowe. Ciemniejsze światło i jaśniejszy flop niż P425-984. Uspokaja błysk, rozjaśnia cień.",g,Aluminium,OK,,PDF_AUTOCOLOR,True,True,Fine aluminium. Darker face and lighter flop than P425-984.,"Drobne aluminium satynowe. Ciemniejsze światło i jaśniejszy flop niż P425-984. Uspokaja błysk, rozjaśnia cień."
+AUTOCOLOR,AUTOCOLOR|P425-992,P425-992,P425-992,P425-992/E1,1.0,HS Shining Coarse Aluminium,2K SHINING COARSE ALUMINIUM,HS Shining Coarse Aluminium,"Średnio jasny, błyszczący grubszy metalik z ciemniejszym flopem niż P425-984.","Średnio jasny, błyszczący grubszy metalik z ciemniejszym flopem niż P425-984.",g,Aluminium,OK,,PDF_AUTOCOLOR,True,True,Medium bright metallic with a darker flop than P425-984.,"Średnio jasny, błyszczący grubszy metalik z ciemniejszym flopem niż P425-984."
+AUTOCOLOR,AUTOCOLOR|P425-998,P425-998,P425-998,P425-998/E1,1.0,HS Coarse Silver Dollar Aluminium,2K COARSE SILVER DOLLAR ALUMINIUM,HS Coarse Silver Dollar Aluminium,Jasne grube aluminium typu silver dollar. Czystsze światło i ciemniejszy flop niż P425-992.,Jasne grube aluminium typu silver dollar. Czystsze światło i ciemniejszy flop niż P425-992.,g,Aluminium,OK,,PDF_AUTOCOLOR,True,True,Bright coarse aluminium. Cleaner face and darker flop than P425-992.,Jasne grube aluminium typu silver dollar. Czystsze światło i ciemniejszy flop niż P425-992.
+AUTOCOLOR,AUTOCOLOR|P425-EB02,P425-EB02,P425-EB02,P425-EB02/E1,1.0,KONWERTER BAZY DO KOMÓR SILNIKA,2K KONWERTER BAZY DO KOMÓR SILNIKA,KONWERTER BAZY DO KOMÓR SILNIKA,Konwerter bazy do komór silnika — zmienia bazę pod aplikację w komorze silnika. Nie jest tonerem kolorystycznym.,Konwerter bazy do komór silnika — zmienia bazę pod aplikację w komorze silnika. Nie jest tonerem kolorystycznym.,g,Toner,OK,,ODS_KATALOG,True,True,Engine-bay base converter. Not a colour toner.,Konwerter bazy do komór silnika — zmienia bazę pod aplikację w komorze silnika. Nie jest tonerem kolorystycznym.
+AUTOCOLOR,AUTOCOLOR|P426-HE02,P426-HE02,P426-HE02,P426-HE02/E1,1.0,Blue Frost,2K ULTRA FINE WHITE,Blue Frost,W metalikach dodaje żółć na świetle (face) i jasnoniebieski ton na flopie. Koryguje flop w stronę chłodnego błękitu.,W metalikach dodaje żółć na świetle (face) i jasnoniebieski ton na flopie. Koryguje flop w stronę chłodnego błękitu.,g,Czerń/Biel,KOLIZJA NAZW,ODS: 2K ULTRA FINE WHITE | PDF: Blue Frost,PDF_AUTOCOLOR,True,True,Used in metallic colours to add yellow to the face and light blue tone to the flop.,W metalikach dodaje żółć na świetle (face) i jasnoniebieski ton na flopie. Koryguje flop w stronę chłodnego błękitu.
+AUTOCOLOR,AUTOCOLOR|P426-HE03,P426-HE03,P426-HE03,P426-HE03/E1,1.0,Graphite Flake,2K GRAPHITE FLAKE,Graphite Flake,"Subtelny niebieski ton na świetle (face), rozjaśnia flop. Grafitowe ziarno — uspokaja i rozjaśnia cień.","Subtelny niebieski ton na świetle (face), rozjaśnia flop. Grafitowe ziarno — uspokaja i rozjaśnia cień.",g,Czerń/Biel,OK,,PDF_AUTOCOLOR,True,True,"Subtle blue tone on face, lightens flop.","Subtelny niebieski ton na świetle (face), rozjaśnia flop. Grafitowe ziarno — uspokaja i rozjaśnia cień."
+AUTOCOLOR,AUTOCOLOR|P426-HE04,P426-HE04,P426-HE04,P426-HE04/E1,1.0,Gold Flash,2K GOLD FLASH,Gold Flash,Średni złoty płatek aluminiowy. Dodaje złoty błysk ziarna (nie toner konwencjonalny).,Średni złoty płatek aluminiowy. Dodaje złoty błysk ziarna (nie toner konwencjonalny).,g,Aluminium,OK,,PDF_AUTOCOLOR,True,True,Medium gold aluminium flake.,Średni złoty płatek aluminiowy. Dodaje złoty błysk ziarna (nie toner konwencjonalny).
+AUTOCOLOR,AUTOCOLOR|P426-HE05,P426-HE05,P426-HE05,P426-HE05/E1,1.0,Orange Flash,2K ORANGE FLASH,Orange Flash,Pomarańczowy płatek aluminiowy. Dodaje pomarańczowy refleks na ziarnie.,Pomarańczowy płatek aluminiowy. Dodaje pomarańczowy refleks na ziarnie.,g,Aluminium,OK,,PDF_AUTOCOLOR,True,True,Orange aluminium flake.,Pomarańczowy płatek aluminiowy. Dodaje pomarańczowy refleks na ziarnie.
+AUTOCOLOR,AUTOCOLOR|P426-HE08,P426-HE08,P426-HE08,P426-HE08/E1,1.0,BLUE ALUMINIUM,2K BLUE ALUMINIUM,BLUE ALUMINIUM,"Niebieskie aluminium — barwiony płatek metaliczny, dodaje niebieski refleks na ziarnie.","Niebieskie aluminium — barwiony płatek metaliczny, dodaje niebieski refleks na ziarnie.",g,Aluminium,OK,,ODS_KATALOG,True,True,Blue coloured aluminium flake.,"Niebieskie aluminium — barwiony płatek metaliczny, dodaje niebieski refleks na ziarnie."
+AUTOCOLOR,AUTOCOLOR|P426-PP05,P426-PP05,P426-PP05,P426-PP05/E1,1.0,White Pearl,2K WHITE PEARL,White Pearl,"Czysta biel perłowa. Jaśniejsze światło (face), ciemniejszy flop niż P426-PP06. Rozjaśnia perły, pogłębia cień względem Fine White Pearl.","Czysta biel perłowa. Jaśniejsze światło (face), ciemniejszy flop niż P426-PP06. Rozjaśnia perły, pogłębia cień względem Fine White Pearl.",g,Perła,OK,,PDF_AUTOCOLOR,True,True,"Clean white. Brighter face, darker flop than P426-PP06.","Czysta biel perłowa. Jaśniejsze światło (face), ciemniejszy flop niż P426-PP06. Rozjaśnia perły, pogłębia cień względem Fine White Pearl."
+AUTOCOLOR,AUTOCOLOR|P426-PP06,P426-PP06,P426-PP06,P426-PP06/E1,1.0,Fine White Pearl,2K FINE PEARL WHITE,Fine White Pearl,"Drobna biała perła. Brudniejsze światło i jaśniejszy flop niż P426-PP05. Drobniejsze ziarno, uspokaja kontrast światło/cień.","Drobna biała perła. Brudniejsze światło i jaśniejszy flop niż P426-PP05. Drobniejsze ziarno, uspokaja kontrast światło/cień.",g,Perła,KOLIZJA NAZW,ODS: 2K FINE PEARL WHITE | PDF: Fine White Pearl,PDF_AUTOCOLOR,True,True,Dirtier face and lighter flop than P426-PP05.,"Drobna biała perła. Brudniejsze światło i jaśniejszy flop niż P426-PP05. Drobniejsze ziarno, uspokaja kontrast światło/cień."
+AUTOCOLOR,AUTOCOLOR|P426-PP07,P426-PP07,P426-PP07,P426-PP07/E1,1.0,Blue Pearl,2K PEARL BLUE,Blue Pearl,"Niebieskie światło (face), żółty flop. Grubsza niż P426-PP63. Perła z travel: błękit na wprost, żółć w cieniu.","Niebieskie światło (face), żółty flop. Grubsza niż P426-PP63. Perła z travel: błękit na wprost, żółć w cieniu.",g,Perła,KOLIZJA NAZW,ODS: 2K PEARL BLUE | PDF: Blue Pearl,PDF_AUTOCOLOR,True,True,"Blue face, yellow flop. Coarser than P426-PP63.","Niebieskie światło (face), żółty flop. Grubsza niż P426-PP63. Perła z travel: błękit na wprost, żółć w cieniu."
+AUTOCOLOR,AUTOCOLOR|P426-PP08,P426-PP08,P426-PP08,P426-PP08/E1,1.0,Red Pearl,2K RED PEARL,Red Pearl,"Czerwona mika, grubsza niż P426-PP62. Dodaje czerwony efekt perłowy, wyraźniejsze ziarno.","Czerwona mika, grubsza niż P426-PP62. Dodaje czerwony efekt perłowy, wyraźniejsze ziarno.",g,Perła,OK,,PDF_AUTOCOLOR,True,True,"Red mica, coarser than P426-PP62.","Czerwona mika, grubsza niż P426-PP62. Dodaje czerwony efekt perłowy, wyraźniejsze ziarno."
+AUTOCOLOR,AUTOCOLOR|P426-PP09,P426-PP09,P426-PP09,P426-PP09/E1,1.0,Gold Pearl,2K PEARL GOLD,Gold Pearl,"Złote światło (face), niebieskawy flop. Złota perła z chłodniejszym cieniem.","Złote światło (face), niebieskawy flop. Złota perła z chłodniejszym cieniem.",g,Perła,KOLIZJA NAZW,ODS: 2K PEARL GOLD | PDF: Gold Pearl,PDF_AUTOCOLOR,True,True,"Gold face, bluish tone flop.","Złote światło (face), niebieskawy flop. Złota perła z chłodniejszym cieniem."
+AUTOCOLOR,AUTOCOLOR|P426-PP10,P426-PP10,P426-PP10,P426-PP10/E1,1.0,Copper Pearl,2K COPPER PEARL,Copper Pearl,"Miedziane światło (face), na flopie przechodzi w ciemną miedź. Perła z travel miedzianym.","Miedziane światło (face), na flopie przechodzi w ciemną miedź. Perła z travel miedzianym.",g,Perła,OK,,PDF_AUTOCOLOR,True,True,"Copper face, travels to dark copper tone on the flop.","Miedziane światło (face), na flopie przechodzi w ciemną miedź. Perła z travel miedzianym."
+AUTOCOLOR,AUTOCOLOR|P426-PP60,P426-PP60,P426-PP60,P426-PP60/E1,1.0,White Satin Pearl,2K PEARL WHITE ULTRAFINE,White Satin Pearl,"Drobne białe ziarno perłowe (satyna). Subtelna biała perła, uspokaja błysk.","Drobne białe ziarno perłowe (satyna). Subtelna biała perła, uspokaja błysk.",g,Perła,KOLIZJA NAZW,ODS: 2K PEARL WHITE ULTRAFINE | PDF: White Satin Pearl Fine white flake.,PDF_AUTOCOLOR,True,True,Fine white flake.,"Drobne białe ziarno perłowe (satyna). Subtelna biała perła, uspokaja błysk."
+AUTOCOLOR,AUTOCOLOR|P426-PP61,P426-PP61,P426-PP61,P426-PP61/E1,1.0,Fine Red Pearl,2K PEARL RED FINE,Fine Red Pearl,"Interferencyjna czerwona mika z zielonym flopem. Czerwień na świetle, zieleń w cieniu.","Interferencyjna czerwona mika z zielonym flopem. Czerwień na świetle, zieleń w cieniu.",g,Perła,KOLIZJA NAZW,ODS: 2K PEARL RED FINE | PDF: Fine Red Pearl,PDF_AUTOCOLOR,True,True,Interference red mica with a green flop.,"Interferencyjna czerwona mika z zielonym flopem. Czerwień na świetle, zieleń w cieniu."
+AUTOCOLOR,AUTOCOLOR|P426-PP62,P426-PP62,P426-PP62,P426-PP62/E1,1.0,Fine Russet Pearl,2K RUSSET PEARL FINE,Fine Russet Pearl,"Czerwona mika, drobniejsza niż P426-PP08. Russet perłowy o drobniejszym ziarnie.","Czerwona mika, drobniejsza niż P426-PP08. Russet perłowy o drobniejszym ziarnie.",g,Perła,KOLIZJA NAZW,ODS: 2K RUSSET PEARL FINE | PDF: Fine Russet Pearl,PDF_AUTOCOLOR,True,True,Red mica. Finer than P426-PP08.,"Czerwona mika, drobniejsza niż P426-PP08. Russet perłowy o drobniejszym ziarnie."
+AUTOCOLOR,AUTOCOLOR|P426-PP63,P426-PP63,P426-PP63,P426-PP63/E1,1.0,Fine Blue Pearl,2K PEARL BLUE FINE,Fine Blue Pearl,"Niebieskie światło, żółty flop. Drobniejsza niż P426-PP07. Ten sam travel co Blue Pearl, spokojniejsze ziarno.","Niebieskie światło, żółty flop. Drobniejsza niż P426-PP07. Ten sam travel co Blue Pearl, spokojniejsze ziarno.",g,Perła,KOLIZJA NAZW,ODS: 2K PEARL BLUE FINE | PDF: Fine Blue Pearl,PDF_AUTOCOLOR,True,True,"Blue face, yellow flop. Finer than P426-PP07.","Niebieskie światło, żółty flop. Drobniejsza niż P426-PP07. Ten sam travel co Blue Pearl, spokojniejsze ziarno."
+AUTOCOLOR,AUTOCOLOR|P426-PP64,P426-PP64,P426-PP64,P426-PP64/E1,1.0,Medium Violet Pearl,2K MEDIUM VIOLET PEARL,Medium Violet Pearl,"Liliowe światło (face), zielony flop. Fioletowa perła z zielonym cieniem.","Liliowe światło (face), zielony flop. Fioletowa perła z zielonym cieniem.",g,Perła,OK,,PDF_AUTOCOLOR,True,True,"Lilac face, green flop.","Liliowe światło (face), zielony flop. Fioletowa perła z zielonym cieniem."
+AUTOCOLOR,AUTOCOLOR|P426-PP65,P426-PP65,P426-PP65,P426-PP65/E1,1.0,Medium Green Pearl,2K MEDIUM GREEN PEARL,Medium Green Pearl,"Zielone światło (face), czerwonawy flop. Zielona perła z ciepłym cieniem.","Zielone światło (face), czerwonawy flop. Zielona perła z ciepłym cieniem.",g,Perła,OK,,PDF_AUTOCOLOR,True,True,"Green face, reddish tone flop.","Zielone światło (face), czerwonawy flop. Zielona perła z ciepłym cieniem."
+AUTOCOLOR,AUTOCOLOR|P426-PP68,P426-PP68,P426-PP68,P426-PP68/E0.33,0.33,Orange Pearl,2K PEARL ORANGE,Orange Pearl,"Czyste pomarańczowe światło (face), zielony flop. Czysta pomarańcz perłowa z chłodniejszym cieniem.","Czyste pomarańczowe światło (face), zielony flop. Czysta pomarańcz perłowa z chłodniejszym cieniem.",g,Perła,KOLIZJA NAZW,ODS: 2K PEARL ORANGE | PDF: Orange Pearl,PDF_AUTOCOLOR,True,True,"Clean orange face, green tone flop.","Czyste pomarańczowe światło (face), zielony flop. Czysta pomarańcz perłowa z chłodniejszym cieniem."
+AUTOCOLOR,AUTOCOLOR|P429-914,P429-914,P429-914,P429-914/E1,1.0,HS CLEAN BLUE VIOLET,2K HS CLEAN BLUE VIOLET,HS CLEAN BLUE VIOLET,"Czysty fiolet o niebieskim odcieniu (HS). Chłodny, czysty ton — korekta w stronę niebieskiego fioletu.","Czysty fiolet o niebieskim odcieniu (HS). Chłodny, czysty ton — korekta w stronę niebieskiego fioletu.",g,Toner,OK,,ODS_KATALOG,True,True,Clean blue-shade violet HS toner.,"Czysty fiolet o niebieskim odcieniu (HS). Chłodny, czysty ton — korekta w stronę niebieskiego fioletu."
+AUTOCOLOR,AUTOCOLOR|P429-917,P429-917,P429-917,P429-917/E1,1.0,HS GREEN GOLD,2K HS GREEN GOLD,HS GREEN GOLD,"Złoto-zielony toner HS. Dodaje złocistą zieleń na świetle, ciepły zielonożółty ton.","Złoto-zielony toner HS. Dodaje złocistą zieleń na świetle, ciepły zielonożółty ton.",g,Toner,OK,,ODS_KATALOG,True,True,Green-gold HS toner.,"Złoto-zielony toner HS. Dodaje złocistą zieleń na świetle, ciepły zielonożółty ton."
+AUTOCOLOR,AUTOCOLOR|P429-923,P429-923,P429-923,P429-923/E1,1.0,HS Bright Maroon,2K BRIGHT MAROON,HS Bright Maroon,"Transparentny bordo o środkowym odcieniu, ciemny flop. Ściemia i czerwieni w cieniu, bez silnego krycia.","Transparentny bordo o środkowym odcieniu, ciemny flop. Ściemia i czerwieni w cieniu, bez silnego krycia.",g,Toner,OK,,PDF_AUTOCOLOR,True,True,"Mid-shade transparent maroon, dark flop.","Transparentny bordo o środkowym odcieniu, ciemny flop. Ściemia i czerwieni w cieniu, bez silnego krycia."
+AUTOCOLOR,AUTOCOLOR|P429-932,P429-932,P429-932,P429-932/E1,1.0,HS CLEAN ORGANIC ORANGE,2K HS CLEAN ORGANIC ORANGE,HS CLEAN ORGANIC ORANGE,"Czysta organiczna pomarańcz HS. Nasycony, czysty ton pomarańczowy (nie tlenkowy).","Czysta organiczna pomarańcz HS. Nasycony, czysty ton pomarańczowy (nie tlenkowy).",g,Toner,OK,,ODS_KATALOG,True,True,Clean organic orange HS toner.,"Czysta organiczna pomarańcz HS. Nasycony, czysty ton pomarańczowy (nie tlenkowy)."
+AUTOCOLOR,AUTOCOLOR|P429-937,P429-937,P429-937,P429-937/E1,1.0,HS Pale Yellow,2K PALE YELLOW,HS Pale Yellow,"Żółty o zielonym odcieniu, z zielonym flopem. Chłodna, blada żółć — rozjaśnia w stronę zieleni.","Żółty o zielonym odcieniu, z zielonym flopem. Chłodna, blada żółć — rozjaśnia w stronę zieleni.",g,Toner,OK,,PDF_AUTOCOLOR,True,True,Green shade yellow with a green shade flop.,"Żółty o zielonym odcieniu, z zielonym flopem. Chłodna, blada żółć — rozjaśnia w stronę zieleni."
+AUTOCOLOR,AUTOCOLOR|P429-961,P429-961,P429-961,P429-961/E1,1.0,HS Clean Magenta,2K CLEAN MAGENTA,HS Clean Magenta,"Czysty fiolet o niebieskim tonie, ciemniejszy flop niż P425-921. Chłodna magenta, głębszy cień.","Czysty fiolet o niebieskim tonie, ciemniejszy flop niż P425-921. Chłodna magenta, głębszy cień.",g,Toner,OK,,PDF_AUTOCOLOR,True,True,"Clean blue tone violet, darker flop than P425-921.","Czysty fiolet o niebieskim tonie, ciemniejszy flop niż P425-921. Chłodna magenta, głębszy cień."
+AUTOCOLOR,AUTOCOLOR|P429-967,P429-967,P429-967,P429-967/E1,1.0,HS Deep Angle Black,2K DEEP ANGLE BLACK,HS Deep Angle Black,"Czerń o żółtym odcieniu, najciemniejszy flop. Najgłębszy cień spośród czerni 2K — ściemia kąt duży.","Czerń o żółtym odcieniu, najciemniejszy flop. Najgłębszy cień spośród czerni 2K — ściemia kąt duży.",g,Czerń/Biel,OK,,PDF_AUTOCOLOR,True,True,"Yellow-shade black, darkest flop.","Czerń o żółtym odcieniu, najciemniejszy flop. Najgłębszy cień spośród czerni 2K — ściemia kąt duży."
+AUTOCOLOR,AUTOCOLOR|P429-972,P429-972,P429-972,P429-972/E1,1.0,HS Bright Amber,2K BRIGHT AMBER,HS Bright Amber,"Jasna pomarańcz, głównie kolory solid. Czystsza niż P420-982 i P420-983.","Jasna pomarańcz, głównie kolory solid. Czystsza niż P420-982 i P420-983.",g,Toner,OK,,PDF_AUTOCOLOR,True,True,Bright orange used primarily in solid colours. Cleaner than P420-982 and P420-983.,"Jasna pomarańcz, głównie kolory solid. Czystsza niż P420-982 i P420-983."
+AUTOCOLOR,AUTOCOLOR|P429-973,P429-973,P429-973,P429-973/E1,1.0,HS Bright Orange,2K BRIGHT ORANGE,HS Bright Orange,"Pomarańcz o czerwonym odcieniu. Ciepła, czerwona pomarańcz do korekty tonu.","Pomarańcz o czerwonym odcieniu. Ciepła, czerwona pomarańcz do korekty tonu.",g,Toner,OK,,PDF_AUTOCOLOR,True,True,Red shade orange.,"Pomarańcz o czerwonym odcieniu. Ciepła, czerwona pomarańcz do korekty tonu."
+AUTOCOLOR,AUTOCOLOR|P429-976,P429-976,P429-976,P429-976/E1,1.0,HS Red Violet,2K RED VIOLET,HS Red Violet,Fiolet czerwony HS. Pełna moc odpowiednika RT Burgundy (P420-960RT).,Fiolet czerwony HS. Pełna moc odpowiednika RT Burgundy (P420-960RT).,g,Toner,OK,,PDF_AUTOCOLOR,True,True,Red violet HS. Full-strength counterpart of RT Burgundy P420-960RT.,Fiolet czerwony HS. Pełna moc odpowiednika RT Burgundy (P420-960RT).
+AUTOCOLOR,AUTOCOLOR|P429-980,P429-980,P429-980,P429-980/E1,1.0,HS Speed Red,2K SPEED RED,HS Speed Red,"Jasna, czysta czerwień — głównie kolory solid, zwykle powyżej 20% udziału. Silna, czysta czerwień solid.","Jasna, czysta czerwień — głównie kolory solid, zwykle powyżej 20% udziału. Silna, czysta czerwień solid.",g,Toner,OK,,PDF_AUTOCOLOR,True,True,"Bright clean red, used primarily in solid colours above 20%.","Jasna, czysta czerwień — głównie kolory solid, zwykle powyżej 20% udziału. Silna, czysta czerwień solid."
+AUTOCOLOR,AUTOCOLOR|P429-981,P429-981,P429-981,P429-981/E1,1.0,Transparent Gold,2K Transparent Gold,Transparent Gold,"Transparentne złoto. Dodaje złoty ton bez silnego krycia; ociepla światło, słabiej buduje flop.","Transparentne złoto. Dodaje złoty ton bez silnego krycia; ociepla światło, słabiej buduje flop.",g,Toner,OK,,ODS_KATALOG,True,True,Transparent gold toner.,"Transparentne złoto. Dodaje złoty ton bez silnego krycia; ociepla światło, słabiej buduje flop."
+AUTOCOLOR,AUTOCOLOR|P433-XR10,P433-XR10,P433-XR10,P433-XR10/E0.33,0.33,Crystal Silver,2K XIRALLIC CRYSTAL SILVER,Crystal Silver,"Iskrzący, jasny biały efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP05.","Iskrzący, jasny biały efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP05.",g,Xirallic,OK,,PDF_AUTOCOLOR,True,True,"Sparkle bright white effect, coarser appearance and brighter than P426-PP05.","Iskrzący, jasny biały efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP05."
+AUTOCOLOR,AUTOCOLOR|P433-XR11,P433-XR11,P433-XR11,P433-XR11/E0.33,0.33,Sunbeam Gold,2K XIRALLIC SUNBEAM GOLD,Sunbeam Gold,"Iskrzący, jasny złoty efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP09.","Iskrzący, jasny złoty efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP09.",g,Xirallic,OK,,PDF_AUTOCOLOR,True,True,"Sparkle bright gold effect, coarser appearance and brighter than P426-PP09.","Iskrzący, jasny złoty efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP09."
+AUTOCOLOR,AUTOCOLOR|P433-XR12,P433-XR12,P433-XR12,P433-XR12/E0.33,0.33,Radiant Red,2K XIRALLIC RADIANT RED,Radiant Red,"Iskrzący, jasny czerwony efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP08.","Iskrzący, jasny czerwony efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP08.",g,Xirallic,OK,,PDF_AUTOCOLOR,True,True,"Sparkle bright red effect, coarser appearance and brighter than P426-PP08.","Iskrzący, jasny czerwony efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP08."
+AUTOCOLOR,AUTOCOLOR|P433-XR13,P433-XR13,P433-XR13,P433-XR13/E0.33,0.33,Galaxy Blue,2K XIRALLIC GALAXY BLUE,Galaxy Blue,"Iskrzący, jasny niebieski efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP07.","Iskrzący, jasny niebieski efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP07.",g,Xirallic,OK,,PDF_AUTOCOLOR,True,True,"Sparkle bright blue effect, coarser appearance and brighter than P426-PP07.","Iskrzący, jasny niebieski efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP07."
+AUTOCOLOR,AUTOCOLOR|P433-XR14,P433-XR14,P433-XR14,P433-XR14/E0.33,0.33,Stellar Green,2K XIRALLIC STELLAR GREEN,Stellar Green,"Iskrzący, jasny zielony efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP65.","Iskrzący, jasny zielony efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP65.",g,Xirallic,OK,,PDF_AUTOCOLOR,True,True,"Sparkle bright green effect, coarser appearance and brighter than P426-PP65.","Iskrzący, jasny zielony efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP65."
+AUTOCOLOR,AUTOCOLOR|P433-XR15,P433-XR15,P433-XR15,P433-XR15/E0.33,0.33,Solaris Red,2K XIRALLIC SOLARIS RED,Solaris Red,"Iskrzący, jasny magenta-czerwony efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP61.","Iskrzący, jasny magenta-czerwony efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP61.",g,Xirallic,OK,,PDF_AUTOCOLOR,True,True,"Sparkle bright magenta red effect, coarser appearance and brighter than P426-PP61.","Iskrzący, jasny magenta-czerwony efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP61."
+AUTOCOLOR,AUTOCOLOR|P433-XR16,P433-XR16,P433-XR16,P433-XR16/E0.33,0.33,Fireside Copper,2K XIRALLIC FIRESIDE COPPER,Fireside Copper,"Iskrzący, jasny miedziany efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP10.","Iskrzący, jasny miedziany efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP10.",g,Xirallic,OK,,PDF_AUTOCOLOR,True,True,"Sparkle bright copper effect, coarser appearance and brighter than P426-PP10.","Iskrzący, jasny miedziany efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP10."
+AUTOCOLOR,AUTOCOLOR|P433-XR17,P433-XR17,P433-XR17,P433-XR17/E0.33,0.33,Cosmic Turquoise,2K XIRALLIC COSMIC TURQUOISE,Cosmic Turquoise,"Iskrzący, unikalny morski błękit (turkus) — płatek Xirallic o wyraźnej iskrze.","Iskrzący, unikalny morski błękit (turkus) — płatek Xirallic o wyraźnej iskrze.",g,Xirallic,KOLIZJA NAZW,ODS: 2K XIRALLIC COSMIC TURQUOISE | PDF: Cosmic Turquoise flake pigment.,PDF_AUTOCOLOR,True,True,Sparkle bright unique marine blue flake pigment.,"Iskrzący, unikalny morski błękit (turkus) — płatek Xirallic o wyraźnej iskrze."
+AUTOCOLOR,AUTOCOLOR|P433-XR18,P433-XR18,P433-XR18,P433-XR18/E0.33,0.33,Amethyst Dream,2K XIRALLIC AMETHYST DREAM,Amethyst Dream,"Iskrzący, jasny fioletowy efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP64.","Iskrzący, jasny fioletowy efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP64.",g,Xirallic,OK,,PDF_AUTOCOLOR,True,True,"Sparkle bright violet effect, coarser appearance and brighter than P426-PP64.","Iskrzący, jasny fioletowy efekt Xirallic; grubsze ziarno i jaśniejszy niż P426-PP64."
+AUTOCOLOR,AUTOCOLOR|P434-CS32,P434-CS32,P434-CS32,P434-CS32/E0.33,0.33,Viola Fantasy,2K COLORSTREAM VIOLA FANTASY,Viola Fantasy,Efektowy biały płatek krzemionkowy Colorstream: unikalny travel fiolet → srebro → zieleń → błękit.,Efektowy biały płatek krzemionkowy Colorstream: unikalny travel fiolet → srebro → zieleń → błękit.,g,Colorstream,KOLIZJA NAZW,ODS: 2K COLORSTREAM VIOLA FANTASY | PDF: Viola Fantasy unique violet to silver to green to blue colour,PDF_AUTOCOLOR,True,True,Special effect white silica flake that creates a unique violet to silver to green to blue colour travel.,Efektowy biały płatek krzemionkowy Colorstream: unikalny travel fiolet → srebro → zieleń → błękit.
+AUTOCOLOR,AUTOCOLOR|P434-CS33,P434-CS33,P434-CS33,P434-CS33/E0.33,0.33,Arctic Fire,2K COLORSTREAM ARCTIC FIRE,Arctic Fire,Efektowy płatek krzemionkowy Colorstream: travel od subtelnego turkusu przez błyszczące srebro do czerwieni.,Efektowy płatek krzemionkowy Colorstream: travel od subtelnego turkusu przez błyszczące srebro do czerwieni.,g,Colorstream,KOLIZJA NAZW,ODS: 2K COLORSTREAM ARCTIC FIRE | PDF: Arctic Fire colour travel from subtle turquoise through,PDF_AUTOCOLOR,True,True,Special effect silica flake that creates a unique colour travel from subtle turquoise through brilliant silver to red.,Efektowy płatek krzemionkowy Colorstream: travel od subtelnego turkusu przez błyszczące srebro do czerwieni.
+AUTOCOLOR,AUTOCOLOR|P434-CS34,P434-CS34,P434-CS34,P434-CS34/E0.33,0.33,Tropic Sunrise,2K COLORSTREAM TROPIC SUNRISE,Tropic Sunrise,Efektowy płatek krzemionkowy Colorstream: travel zieleń → srebro → czerwonawa pomarańcz.,Efektowy płatek krzemionkowy Colorstream: travel zieleń → srebro → czerwonawa pomarańcz.,g,Colorstream,KOLIZJA NAZW,ODS: 2K COLORSTREAM TROPIC SUNRISE | PDF: Tropic Sunrise colour travel from green to silver to reddish,PDF_AUTOCOLOR,True,True,Special effect silica flake that creates a unique colour travel from green to silver to reddish orange.,Efektowy płatek krzemionkowy Colorstream: travel zieleń → srebro → czerwonawa pomarańcz.
+AUTOCOLOR,AUTOCOLOR|P434-CS35,P434-CS35,P434-CS35,P434-CS35/E0.33,0.33,Lapis Sunlight,2K COLORSTREAM LAPIS SUN LIGHT,Lapis Sunlight,Efektowy płatek krzemionkowy Colorstream: travel złoto → zieleń → błękit.,Efektowy płatek krzemionkowy Colorstream: travel złoto → zieleń → błękit.,g,Colorstream,KOLIZJA NAZW,ODS: 2K COLORSTREAM LAPIS SUN LIGHT | PDF: Lapis Sunlight colour travel from gold to green to blue.,PDF_AUTOCOLOR,True,True,Special effect silica flake that creates a unique colour travel from gold to green to blue.,Efektowy płatek krzemionkowy Colorstream: travel złoto → zieleń → błękit.
+AUTOCOLOR,AUTOCOLOR|P435-GF37,P435-GF37,P435-GF37,P435-GF37/E0.33,0.33,Silver Glass,2K SPECTRAFLAIR SILVER GLASS,Silver Glass,Srebrne płatki szkła pokryte metalem — jasne kolory z intensywną iskrą i flare. Efekt szczególnie widoczny w ostrym słońcu.,Srebrne płatki szkła pokryte metalem — jasne kolory z intensywną iskrą i flare. Efekt szczególnie widoczny w ostrym słońcu.,g,Toner,OK,,PDF_AUTOCOLOR,True,True,"Silver metal-coated glass flakes, used to create bright colours with intense sparkle and flare. The effect is particularly evident in bright sunlight.",Srebrne płatki szkła pokryte metalem — jasne kolory z intensywną iskrą i flare. Efekt szczególnie widoczny w ostrym słońcu.
+AUTOCOLOR,AUTOCOLOR|P440-FX20,P440-FX20,P440-FX20,P440-FX20/E0.33,0.33,CHROMAFLAIR CYAN TO PURPLE,2K CHROMAFLAIR CYAN TO PURPLE,CHROMAFLAIR CYAN TO PURPLE,"Płatek zmieniający barwę (ChromaFlair): travel cyjan → fiolet. Dodaje kątowe przesunięcie koloru, nie krycie.","Płatek zmieniający barwę (ChromaFlair): travel cyjan → fiolet. Dodaje kątowe przesunięcie koloru, nie krycie.",g,ChromaFlair,OK,,ODS_KATALOG,True,True,Colour shifting flake. Colour shifts from cyan through purple.,"Płatek zmieniający barwę (ChromaFlair): travel cyjan → fiolet. Dodaje kątowe przesunięcie koloru, nie krycie."
+AUTOCOLOR,AUTOCOLOR|P440-FX21,P440-FX21,P440-FX21,P440-FX21/E0.33,0.33,CHROMAFLAIR SILVER TO GREEN,2K CHROMAFLAIR SILVER TO GREEN,CHROMAFLAIR SILVER TO GREEN,Płatek zmieniający barwę (ChromaFlair): travel srebro → zieleń.,Płatek zmieniający barwę (ChromaFlair): travel srebro → zieleń.,g,ChromaFlair,OK,,ODS_KATALOG,True,True,Colour shifting flake. Colour shifts from silver through green.,Płatek zmieniający barwę (ChromaFlair): travel srebro → zieleń.
+AUTOCOLOR,AUTOCOLOR|P440-FX22,P440-FX22,P440-FX22,P440-FX22/E0.33,0.33,CHROMAFLAIR GREEN TO PURPLE,2K CHROMAFLAIR GREEN TO PURPLE,CHROMAFLAIR GREEN TO PURPLE,Płatek zmieniający barwę (ChromaFlair): travel zieleń → fiolet.,Płatek zmieniający barwę (ChromaFlair): travel zieleń → fiolet.,g,ChromaFlair,OK,,ODS_KATALOG,True,True,Colour shifting flake. Colour shifts from green through purple.,Płatek zmieniający barwę (ChromaFlair): travel zieleń → fiolet.
+AUTOCOLOR,AUTOCOLOR|P440-FX23,P440-FX23,P440-FX23,P440-FX23/E0.33,0.33,CHROMAFLAIR BLUE TO RED,2K CHROMAFLAIR BLUE TO RED,CHROMAFLAIR BLUE TO RED,Płatek zmieniający barwę (ChromaFlair): travel błękit → czerwień.,Płatek zmieniający barwę (ChromaFlair): travel błękit → czerwień.,g,ChromaFlair,OK,,ODS_KATALOG,True,True,Colour shifting flake. Colour shifts from blue through red.,Płatek zmieniający barwę (ChromaFlair): travel błękit → czerwień.
+AUTOCOLOR,AUTOCOLOR|P440-FX24,P440-FX24,P440-FX24,P440-FX24/E0.33,0.33,CHROMAFLAIR MAGENTA TO GOLD,2K CHROMAFLAIR MAGENTA TO GOLD,CHROMAFLAIR MAGENTA TO GOLD,Płatek zmieniający barwę (ChromaFlair): travel magenta → złoto.,Płatek zmieniający barwę (ChromaFlair): travel magenta → złoto.,g,ChromaFlair,OK,,ODS_KATALOG,True,True,Colour shifting flake. Colour shifts from magenta through gold.,Płatek zmieniający barwę (ChromaFlair): travel magenta → złoto.
+AUTOCOLOR,AUTOCOLOR|P440-FX25,P440-FX25,P440-FX25,P440-FX25/E0.33,0.33,CHROMAFLAIR GOLD TO SILVER,2K CHROMAFLAIR GOLD TO SILVER,CHROMAFLAIR GOLD TO SILVER,Płatek zmieniający barwę (ChromaFlair): travel złoto → srebro.,Płatek zmieniający barwę (ChromaFlair): travel złoto → srebro.,g,ChromaFlair,OK,,ODS_KATALOG,True,True,Colour shifting flake. Colour shifts from gold through silver.,Płatek zmieniający barwę (ChromaFlair): travel złoto → srebro.
+AUTOCOLOR,AUTOCOLOR|P440-FX26,P440-FX26,P440-FX26,P440-FX26/E0.33,0.33,CHROMAFLAIR RED TO GOLD,2K CHROMAFLAIR RED TO GOLD,CHROMAFLAIR RED TO GOLD,Płatek zmieniający barwę (ChromaFlair): travel czerwień → złoto.,Płatek zmieniający barwę (ChromaFlair): travel czerwień → złoto.,g,ChromaFlair,OK,,ODS_KATALOG,True,True,Colour shifting flake. Colour shifts from red through gold.,Płatek zmieniający barwę (ChromaFlair): travel czerwień → złoto.
+AUTOCOLOR,AUTOCOLOR|P440-FX51,P440-FX51,P440-FX51,P440-FX51/E0.33,0.33,Silver Flair,2K SPECTRAFLAIR SILVER FLAIR,Silver Flair,"Tęczowy, wielobarwny efekt (rainbow), szczególnie w srebrnych kolorach przy intensywnym świetle.","Tęczowy, wielobarwny efekt (rainbow), szczególnie w srebrnych kolorach przy intensywnym świetle.",g,ChromaFlair,KOLIZJA NAZW,ODS: 2K SPECTRAFLAIR SILVER FLAIR | PDF: Silver Flair intense light source.,PDF_AUTOCOLOR,True,True,"Exhibits a unique rainbow multi coloured effect, particularly in silver colours under intense light source.","Tęczowy, wielobarwny efekt (rainbow), szczególnie w srebrnych kolorach przy intensywnym świetle."
+AUTOCOLOR,AUTOCOLOR|P440-LM01,P440-LM01,P440-LM01,P440-LM01/E1,1.0,LIQUID METAL SUPER FINE,2K LIQUID METAL SUPER FINE,LIQUID METAL SUPER FINE,"Próżniowe płatki metalu (liquid metal) o efekcie stopionego metalu. Bardzo drobne ziarno, lustrzany połysk.","Próżniowe płatki metalu (liquid metal) o efekcie stopionego metalu. Bardzo drobne ziarno, lustrzany połysk.",g,Aluminium,OK,,ODS_KATALOG,True,True,Vacuumized metal flakes with a unique optical effect similar to a molten metal appearance.,"Próżniowe płatki metalu (liquid metal) o efekcie stopionego metalu. Bardzo drobne ziarno, lustrzany połysk."
+AUTOCOLOR,AUTOCOLOR|P450-EC50,P450-EC50,P450-EC50,P450-EC50/E0.118,0.118,BRILLIANT RED,BRILLIANT RED,BRILLIANT RED,"Jaskrawa czerwień (toner EC). Dodaje czysty, intensywny czerwony ton.","Jaskrawa czerwień (toner EC). Dodaje czysty, intensywny czerwony ton.",g,Toner,OK,,ODS_KATALOG,True,True,Brilliant red effect / toner.,"Jaskrawa czerwień (toner EC). Dodaje czysty, intensywny czerwony ton."
+AUTOCOLOR,AUTOCOLOR|P420-982,P420-982,P420-982,,,Trans Oxide Yellow,,Trans Oxide Yellow,"Transparentny tlenek żółty z ciemniejszym flopem niż P420-983. Żółć tlenkowa bez silnego krycia, pogłębia cień.","Transparentny tlenek żółty z ciemniejszym flopem niż P420-983. Żółć tlenkowa bez silnego krycia, pogłębia cień.",g,Toner,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False,Transparent yellow oxide with a darker flop than P420-983.,"Transparentny tlenek żółty z ciemniejszym flopem niż P420-983. Żółć tlenkowa bez silnego krycia, pogłębia cień."
+AUTOCOLOR,AUTOCOLOR|VM4370,VM4370,VM4370,,,Super Fine Liquid Metal,,Super Fine Liquid Metal,"Próżniowe płatki metalu — unikalny efekt optyczny jak stopiony metal. Bardzo drobne ziarno, lustrzany połysk.","Próżniowe płatki metalu — unikalny efekt optyczny jak stopiony metal. Bardzo drobne ziarno, lustrzany połysk.",g,Aluminium,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False,Vacuumized metal flakes that have a unique optical effect similar to a molten metal appearance.,"Próżniowe płatki metalu — unikalny efekt optyczny jak stopiony metal. Bardzo drobne ziarno, lustrzany połysk."
+AUTOCOLOR,AUTOCOLOR|P426-HE07,P426-HE07,P426-HE07,,,Blue Flash,,Blue Flash,Organiczny niebieski płatek aluminiowy. Barwione ziarno — niebieski błysk metaliku.,Organiczny niebieski płatek aluminiowy. Barwione ziarno — niebieski błysk metaliku.,g,Aluminium,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False,Organic blue coloured aluminium flake.,Organiczny niebieski płatek aluminiowy. Barwione ziarno — niebieski błysk metaliku.
+AUTOCOLOR,AUTOCOLOR|P434-CS31,P434-CS31,P434-CS31,,,Autumn Mystery,,Autumn Mystery,Efektowy pomarańczowy płatek krzemionkowy Colorstream: unikalny travel czerwony → złoty → brąz → zieleń.,Efektowy pomarańczowy płatek krzemionkowy Colorstream: unikalny travel czerwony → złoty → brąz → zieleń.,g,Colorstream,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False,Special effect orange silica flake that creates a unique red to gold to bronze to green colour travel.,Efektowy pomarańczowy płatek krzemionkowy Colorstream: unikalny travel czerwony → złoty → brąz → zieleń.
+AUTOCOLOR,AUTOCOLOR|VM4987,VM4987,VM4987,,,Cyan to Purple,,Cyan to Purple,Płatek zmieniający barwę: travel cyjan → fiolet.,Płatek zmieniający barwę: travel cyjan → fiolet.,g,ChromaFlair,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False,Colour shifting flake. Colour shifts from cyan through purple.,Płatek zmieniający barwę: travel cyjan → fiolet.
+AUTOCOLOR,AUTOCOLOR|VM4988,VM4988,VM4988,,,Silver to Green,,Silver to Green,Płatek zmieniający barwę: travel srebro → zieleń.,Płatek zmieniający barwę: travel srebro → zieleń.,g,ChromaFlair,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False,Colour shifting flake. Colour shifts from silver through green.,Płatek zmieniający barwę: travel srebro → zieleń.
+AUTOCOLOR,AUTOCOLOR|VM4989,VM4989,VM4989,,,Green to Purple,,Green to Purple,Płatek zmieniający barwę: travel zieleń → fiolet.,Płatek zmieniający barwę: travel zieleń → fiolet.,g,ChromaFlair,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False,Colour shifting flake. Colour shifts from green through purple.,Płatek zmieniający barwę: travel zieleń → fiolet.
+AUTOCOLOR,AUTOCOLOR|VM4990,VM4990,VM4990,,,Blue to Red,,Blue to Red,Płatek zmieniający barwę: travel błękit → czerwień.,Płatek zmieniający barwę: travel błękit → czerwień.,g,ChromaFlair,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False,Colour shifting flake. Colour shifts from blue through red.,Płatek zmieniający barwę: travel błękit → czerwień.
+AUTOCOLOR,AUTOCOLOR|VM4991,VM4991,VM4991,,,Magenta to Gold,,Magenta to Gold,Płatek zmieniający barwę: travel magenta → złoto.,Płatek zmieniający barwę: travel magenta → złoto.,g,ChromaFlair,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False,Colour shifting flake. Colour shifts from magenta through gold.,Płatek zmieniający barwę: travel magenta → złoto.
+AUTOCOLOR,AUTOCOLOR|VM4994,VM4994,VM4994,,,Gold to Silver,,Gold to Silver,Płatek zmieniający barwę: travel złoto → srebro.,Płatek zmieniający barwę: travel złoto → srebro.,g,ChromaFlair,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False,Colour shifting flake. Colour shifts from gold through silver.,Płatek zmieniający barwę: travel złoto → srebro.
+AUTOCOLOR,AUTOCOLOR|VM4995,VM4995,VM4995,,,Red to Gold,,Red to Gold,Płatek zmieniający barwę: travel czerwień → złoto.,Płatek zmieniający barwę: travel czerwień → złoto.,g,ChromaFlair,DODANY Z PDF,"Kod występuje w przewodniku dobarwiania, brak w ODS",PDF_AUTOCOLOR,False,False,Colour shifting flake. Colour shifts from red through gold.,Płatek zmieniający barwę: travel czerwień → złoto.
+DUXONE,DUXONE|DX5110,DX5110,DX5110,,,DEEP BLACK,,DEEP BLACK,,,g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5111,DX5111,DX5111,,,BLACK,,BLACK,"Najmocniejszy i najbardziej nasycony czarny pigment
 DX5111 jest ciemniejszy patrząc „pod dużym kątem” (flop) niż DX5110
 Zamień DX5110 na DX5111: stężenie DX5110 x 2
 Ma niebieskie zabarwienie","Najmocniejszy i najbardziej nasycony czarny pigment
 DX5111 jest ciemniejszy patrząc „pod dużym kątem” (flop) niż DX5110
 Zamień DX5110 na DX5111: stężenie DX5110 x 2
-Ma niebieskie zabarwienie",g,Solid,OK,,PDF_DUXONE,False,True
+Ma niebieskie zabarwienie",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5121,DX5121,DX5121,,,EFFECT BROWN,,EFFECT BROWN,"Przezroczysty pigment
 Najbardziej czerwonawy pigment z rodziny tlenków trans
 Ciemniejszy i bardziej zielonkawy odcień patrząc „pod dużym kątem” niż
 DX5126 oraz DX5122","Przezroczysty pigment
 Najbardziej czerwonawy pigment z rodziny tlenków trans
 Ciemniejszy i bardziej zielonkawy odcień patrząc „pod dużym kątem” niż
-DX5126 oraz DX5122",g,Solid,OK,,PDF_DUXONE,False,True
+DX5126 oraz DX5122",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5122,DX5122,DX5122,,,EFFECT BROWN RED,,EFFECT BROWN RED,"Przezroczysty pigment
 Czerwony patrząc „pod dużym kątem” i „na wprost”
 Czerwony w świetle żarówkowym","Przezroczysty pigment
 Czerwony patrząc „pod dużym kątem” i „na wprost”
-Czerwony w świetle żarówkowym",g,Solid,OK,,PDF_DUXONE,False,True
+Czerwony w świetle żarówkowym",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5123,DX5123,DX5123,,,TRANSPARENT MAROON,,TRANSPARENT MAROON,"Przezroczysty, czerwony komponent
 Taki sam jak DX5147, ale bardziej czerwony i bardziej niebieski","Przezroczysty, czerwony komponent
-Taki sam jak DX5147, ale bardziej czerwony i bardziej niebieski",g,Solid,OK,,PDF_DUXONE,False,True
+Taki sam jak DX5147, ale bardziej czerwony i bardziej niebieski",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5126,DX5126,DX5126,,,EFFECT OCRE,,EFFECT OCRE,"Przezroczysty pigment
 Najbardziej żółtawy brąz
 Zielony/żółty odcień i jasny czerwony patrząc „pod dużym kątem”","Przezroczysty pigment
 Najbardziej żółtawy brąz
-Zielony/żółty odcień i jasny czerwony patrząc „pod dużym kątem”",g,Solid,OK,,PDF_DUXONE,False,True
-DUXONE,DUXONE|DX5130,DX5130,DX5130,,,WHITE HS,,WHITE HS,,,g,Solid,OK,,PDF_DUXONE,False,True
+Zielony/żółty odcień i jasny czerwony patrząc „pod dużym kątem”",g,Solid,OK,,PDF_DUXONE,False,True,,
+DUXONE,DUXONE|DX5130,DX5130,DX5130,,,WHITE HS,,WHITE HS,,,g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5134,DX5134,DX5134,,,EFFECT WHITE,,EFFECT WHITE,"Jest używany w kolorach z efektem aby uzyskać kolor bardziej żołty patrząc „pod
 kątem” oraz bardziej niebieski i jaśniejszy patrząc „pod dużym kątem” (flop)
 Nie używać więcej niż 40% na wagę receptury by uniknąć problemów z
@@ -143,7 +143,7 @@ Dodatki modyfikujące","Jest używany w kolorach z efektem aby uzyskać kolor ba
 kątem” oraz bardziej niebieski i jaśniejszy patrząc „pod dużym kątem” (flop)
 Nie używać więcej niż 40% na wagę receptury by uniknąć problemów z
 trwałością
-Dodatki modyfikujące",g,Modyfikator,OK,,PDF_DUXONE,False,True
+Dodatki modyfikujące",g,Modyfikator,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5136,DX5136,DX5136,,,Metallic Adjuster,,Metallic Adjuster,"Tylko do użycia w kolorach metalicznych i perłowych.
 
 Powoduje ściemnienie koloru przy paotrzeniu „pod kątem” (NRSP)
@@ -270,24 +270,24 @@ Komponenty Solid
 SOLID
 Komponenty perłowe XIRALLIC
 PERŁOWE &
-XIRALLIC",g,Modyfikator,OK,,PDF_DUXONE,False,True
+XIRALLIC",g,Modyfikator,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5161,DX5161,DX5161,,,ORANGE,,ORANGE,"Bardzo przezroczysty „pod kątem” (15°)
 Bardzo czysty pomarańczowy
 Ciemny pomarańczowy komponent w świetle żarówkowym","Bardzo przezroczysty „pod kątem” (15°)
 Bardzo czysty pomarańczowy
-Ciemny pomarańczowy komponent w świetle żarówkowym",g,Solid,OK,,PDF_DUXONE,False,True
+Ciemny pomarańczowy komponent w świetle żarówkowym",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5143,DX5143,DX5143,,,RED,,RED,"Używać w kolorach metalicznych tylko w razie konieczności
 Substytut dla pigmentów zawierających ołów
 Ciemny pomarańczowy komponent w świetle sodowym","Używać w kolorach metalicznych tylko w razie konieczności
 Substytut dla pigmentów zawierających ołów
-Ciemny pomarańczowy komponent w świetle sodowym",g,Solid,OK,,PDF_DUXONE,False,True
+Ciemny pomarańczowy komponent w świetle sodowym",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5144,DX5144,DX5144,,,DARK RED,,DARK RED,"Nasycony, kryjący czerwony komponent
 Przeważnie używany w kolorach Solid
 Może być używany w małych ilościach w kolorach z efektem do wytworzenia
 czystego, jasnego czerwonego flopu (patrząc „pod duzym kątem”)","Nasycony, kryjący czerwony komponent
 Przeważnie używany w kolorach Solid
 Może być używany w małych ilościach w kolorach z efektem do wytworzenia
-czystego, jasnego czerwonego flopu (patrząc „pod duzym kątem”)",g,Solid,OK,,PDF_DUXONE,False,True
+czystego, jasnego czerwonego flopu (patrząc „pod duzym kątem”)",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5145,DX5145,DX5145,,,PINK RED,,PINK RED,"Czysty czerwony o niebieskim odcieniu
 Mniej czerwonawy pigment w świetle żarówkowym w przeciwieństwie do
 DX5146 i DX5189
@@ -296,33 +296,33 @@ zwiększ stężenie DX5110 o 10%","Czysty czerwony o niebieskim odcieniu
 Mniej czerwonawy pigment w świetle żarówkowym w przeciwieństwie do
 DX5146 i DX5189
 Jeśłi zamieniasz DX5146 lub DX5189 na DX5145: zmniejsz stężenie o 5% i
-zwiększ stężenie DX5110 o 10%",g,Solid,OK,,PDF_DUXONE,False,True
+zwiększ stężenie DX5110 o 10%",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5142,DX5142,DX5142,,,FLAMING RED,,FLAMING RED,"Przezroczysty czerwony
 Podobny do DX5123 ale bardziej niebieski odcień.
 Bardzo jasny i czysty pod żródłem światła lampy (F11)","Przezroczysty czerwony
 Podobny do DX5123 ale bardziej niebieski odcień.
-Bardzo jasny i czysty pod żródłem światła lampy (F11)",g,Solid,OK,,PDF_DUXONE,False,True
+Bardzo jasny i czysty pod żródłem światła lampy (F11)",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5146,DX5146,DX5146,,,MAGENTA RED,,MAGENTA RED,"Czerwony o niebieskim odcieniu, przezroczysty komponent
 DX5146 jest mniej nienasycony od DX5189
 Najbardziej czerwony czerwony komponent patrząc „pod dużym kątem” (flop)
 Bardziej przezroczysty od DX5189","Czerwony o niebieskim odcieniu, przezroczysty komponent
 DX5146 jest mniej nienasycony od DX5189
 Najbardziej czerwony czerwony komponent patrząc „pod dużym kątem” (flop)
-Bardziej przezroczysty od DX5189",g,Solid,OK,,PDF_DUXONE,False,True
+Bardziej przezroczysty od DX5189",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5147,DX5147,DX5147,,,LIGHT RED,,LIGHT RED,"Przezroczysty, czerwony komponent (żywy, nasycony pomarańczowy)
 Nasycony czerwony o żółtym odcieniu pod każdym kątem","Przezroczysty, czerwony komponent (żywy, nasycony pomarańczowy)
-Nasycony czerwony o żółtym odcieniu pod każdym kątem",g,Solid,OK,,PDF_DUXONE,False,True
+Nasycony czerwony o żółtym odcieniu pod każdym kątem",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5149,DX5149,DX5149,,,BRIGHT RED,,BRIGHT RED,"Bardziej czerwonawy pigment w świetle dziennym (D65)
 Ciemny w świetle sodowym","Bardziej czerwonawy pigment w świetle dziennym (D65)
-Ciemny w świetle sodowym",g,Solid,OK,,PDF_DUXONE,False,True
-DUXONE,DUXONE|DX5155,DX5155,DX5155,,,,,,,,g,Solid,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True
+Ciemny w świetle sodowym",g,Solid,OK,,PDF_DUXONE,False,True,,
+DUXONE,DUXONE|DX5155,DX5155,DX5155,,,,,,,,g,Solid,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True,,
 DUXONE,DUXONE|DX5162,DX5162,DX5162,,,YELLOW ORANGE (LEAD FREE),,YELLOW ORANGE (LEAD FREE),"Kryjacy komponent dla kolorów solid
 Stosowany w małych ilościach w kolorach z efektem do uzyskania bardzo
 zielonego i jasnego wyglądu „pod dużym kątem” (flop)
 Zielony w świetle żarówkowym","Kryjacy komponent dla kolorów solid
 Stosowany w małych ilościach w kolorach z efektem do uzyskania bardzo
 zielonego i jasnego wyglądu „pod dużym kątem” (flop)
-Zielony w świetle żarówkowym",g,Solid,OK,,PDF_DUXONE,False,True
+Zielony w świetle żarówkowym",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5163,DX5163,DX5163,,,EFFECT YELLOW (LEAD FREE),,EFFECT YELLOW (LEAD FREE),"Przezroczysty żółty komponent (żywy, nasycony czerwony)
 Żółty z czerwonym odcieniem w świetle dziennym (D65)
 Zielony efekt w świetle żarówkowym
@@ -331,36 +331,36 @@ Do użytku z kolorami metalicznymi","Przezroczysty żółty komponent (żywy, na
 Żółty z czerwonym odcieniem w świetle dziennym (D65)
 Zielony efekt w świetle żarówkowym
 Ten komponent jest bardziej nasycony jak DX5162
-Do użytku z kolorami metalicznymi",g,Solid,OK,,PDF_DUXONE,False,True
+Do użytku z kolorami metalicznymi",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5166,DX5166,DX5166,,,EFFECT LIGHT YELLOW (LEAD FREE),,EFFECT LIGHT YELLOW (LEAD FREE),"Przezroczysty żółty odcień
 Najbardziej czerwonawy żółty komponent w świetle żarówkowym
 Staje się jaśniejszy w oświetleniu sodowym","Przezroczysty żółty odcień
 Najbardziej czerwonawy żółty komponent w świetle żarówkowym
-Staje się jaśniejszy w oświetleniu sodowym",g,Solid,OK,,PDF_DUXONE,False,True
+Staje się jaśniejszy w oświetleniu sodowym",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5167,DX5167,DX5167,,,YELLOW (LEAD FREE),,YELLOW (LEAD FREE),"Kryjący komponent dla kolorów solid
 Nasycony żółty odcień
 Najciemniejszy żółty w oświetleniu sodowym","Kryjący komponent dla kolorów solid
 Nasycony żółty odcień
-Najciemniejszy żółty w oświetleniu sodowym",g,Solid,OK,,PDF_DUXONE,False,True
+Najciemniejszy żółty w oświetleniu sodowym",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5168,DX5168,DX5168,,,YELLOW BROWN,,YELLOW BROWN,"Kryjący komponent o zielono / żółtym odcieniu
 Może być używany w małych ilościach do kolorów z efektem dla uzyskania
 jasnego i żółtego wyglądu „pod dużym kątem” (flop)","Kryjący komponent o zielono / żółtym odcieniu
 Może być używany w małych ilościach do kolorów z efektem dla uzyskania
-jasnego i żółtego wyglądu „pod dużym kątem” (flop)",g,Solid,OK,,PDF_DUXONE,False,True
+jasnego i żółtego wyglądu „pod dużym kątem” (flop)",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5171,DX5171,DX5171,,,YELLOW GREEN,,YELLOW GREEN,"Jaśniejszy od DX5172 patrząc „pod dużym kątem”
 Zielony z odcieniem żółtego","Jaśniejszy od DX5172 patrząc „pod dużym kątem”
-Zielony z odcieniem żółtego",g,Solid,OK,,PDF_DUXONE,False,True
-DUXONE,DUXONE|DX5172,DX5172,DX5172,,,GREEN,,GREEN,Zielony z odcieniem niebieskiego,Zielony z odcieniem niebieskiego,g,Solid,OK,,PDF_DUXONE,False,True
+Zielony z odcieniem żółtego",g,Solid,OK,,PDF_DUXONE,False,True,,
+DUXONE,DUXONE|DX5172,DX5172,DX5172,,,GREEN,,GREEN,Zielony z odcieniem niebieskiego,Zielony z odcieniem niebieskiego,g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5173,DX5173,DX5173,,,BRIGHT GREEN,,BRIGHT GREEN,"Przezroczysty zielony z odcieniem żółtego
 Zielono-żółty w świetle dziennym (D65) i czerwonawy efekt w świetle
 żarówkowym w kolorach metalicznych
 Może być używany z kolorami Solid w dużych ilościach (jeśli jest taka potrzeba)","Przezroczysty zielony z odcieniem żółtego
 Zielono-żółty w świetle dziennym (D65) i czerwonawy efekt w świetle
 żarówkowym w kolorach metalicznych
-Może być używany z kolorami Solid w dużych ilościach (jeśli jest taka potrzeba)",g,Solid,OK,,PDF_DUXONE,False,True
+Może być używany z kolorami Solid w dużych ilościach (jeśli jest taka potrzeba)",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5174,DX5174,DX5174,,,GOLD GREEN,,GOLD GREEN,"Nasycony, przezroczysty zielony z zółtym odcieniem
 Podobny do DX5173 ale bardziej nasycony i czystrzy","Nasycony, przezroczysty zielony z zółtym odcieniem
-Podobny do DX5173 ale bardziej nasycony i czystrzy",g,Solid,OK,,PDF_DUXONE,False,True
+Podobny do DX5173 ale bardziej nasycony i czystrzy",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5181,DX5181,DX5181,,,GREEN BLUE,,GREEN BLUE,"Zielony w świetle dziennym (D65)
 Staje się bardziej zielony w świetle żarówkowym
 Zielony patrząc „na wprost”
@@ -369,33 +369,33 @@ Czerwony","Zielony w świetle dziennym (D65)
 Staje się bardziej zielony w świetle żarówkowym
 Zielony patrząc „na wprost”
 Zielony
-Czerwony",g,Solid,OK,,PDF_DUXONE,False,True
+Czerwony",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5182,DX5182,DX5182,,,EFFECT BLUE,,EFFECT BLUE,"Niebieski z zielonym odcieniem „pod dużym kątem” (flop)
 Czerwony patrząc „na wprost”","Niebieski z zielonym odcieniem „pod dużym kątem” (flop)
-Czerwony patrząc „na wprost”",g,Solid,OK,,PDF_DUXONE,False,True
+Czerwony patrząc „na wprost”",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5184,DX5184,DX5184,,,„Pod kątem”,,„Pod kątem”,"„Na wprost”
 „Pod dużym kątem”
 Ogólnie - Światło dzienne (D65) / światło słoneczne","„Na wprost”
 „Pod dużym kątem”
-Ogólnie - Światło dzienne (D65) / światło słoneczne",g,Solid,OK,,PDF_DUXONE,False,True
+Ogólnie - Światło dzienne (D65) / światło słoneczne",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5185,DX5185,DX5185,,,RED BLUE,,RED BLUE,"Przezroczysty pigment
 Czerwonawy niebieski w świetle dziennym (D65) i najczerwieńszy ze wszystkich
 niebieskich w świetle żarówkowym","Przezroczysty pigment
 Czerwonawy niebieski w świetle dziennym (D65) i najczerwieńszy ze wszystkich
-niebieskich w świetle żarówkowym",g,Solid,OK,,PDF_DUXONE,False,True
+niebieskich w świetle żarówkowym",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5187,DX5187,DX5187,,,VIOLET,,VIOLET,"Mniej nasycony niż DX5188
 Bardziej czerwony patrząc „pod dużym kątem” (flop) niż DX5188
 Bardziej zielony w świetle żarówkowym w porównaniu do DX5188","Mniej nasycony niż DX5188
 Bardziej czerwony patrząc „pod dużym kątem” (flop) niż DX5188
-Bardziej zielony w świetle żarówkowym w porównaniu do DX5188",g,Solid,OK,,PDF_DUXONE,False,True
+Bardziej zielony w świetle żarówkowym w porównaniu do DX5188",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5188,DX5188,DX5188,,,RED VIOLET,,RED VIOLET,"Bardzo nasycony czerwonawy fiolet
 Bardziej zielony patrząc „pod dużym kątem” (flop) niż DX5187 i brudniejszy
 Czerwony w świetle żarówkowym w porównaniu do DX5187","Bardzo nasycony czerwonawy fiolet
 Bardziej zielony patrząc „pod dużym kątem” (flop) niż DX5187 i brudniejszy
-Czerwony w świetle żarówkowym w porównaniu do DX5187",g,Solid,OK,,PDF_DUXONE,False,True
+Czerwony w świetle żarówkowym w porównaniu do DX5187",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5189,DX5189,DX5189,,,DARK MAGENTA,,DARK MAGENTA,"Najbardziej nienasycony czerwony o niebieskim odcieniu
 Najbardziej czerwonawy w świetle żarówkowym","Najbardziej nienasycony czerwony o niebieskim odcieniu
-Najbardziej czerwonawy w świetle żarówkowym",g,Solid,OK,,PDF_DUXONE,False,True
+Najbardziej czerwonawy w świetle żarówkowym",g,Solid,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5211,DX5211,DX5211,,,Komponenty aluminiowe pod względem grubości ziarna,,Komponenty aluminiowe pod względem grubości ziarna,"Komponenty aluminiowe pod względem iskrzenia się
 SOLID
 ALUMINIOWE
@@ -404,48 +404,48 @@ XIRALLIC","Komponenty aluminiowe pod względem iskrzenia się
 SOLID
 ALUMINIOWE
 PERŁOWE &
-XIRALLIC",g,Aluminium,OK,,PDF_DUXONE,False,True
+XIRALLIC",g,Aluminium,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5212,DX5212,DX5212,,,COARSE SILVER,,COARSE SILVER,"Skrzący się „pod dużym kątem”
 Jednakowa jasność patrząc „pod kątem”, „na wprost” oraz „pod dużym kątem”","Skrzący się „pod dużym kątem”
-Jednakowa jasność patrząc „pod kątem”, „na wprost” oraz „pod dużym kątem”",g,Aluminium,OK,,PDF_DUXONE,False,True
+Jednakowa jasność patrząc „pod kątem”, „na wprost” oraz „pod dużym kątem”",g,Aluminium,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5213,DX5213,DX5213,,,MEDIUM COARSE SILVER,,MEDIUM COARSE SILVER,"Jasnoskrzący się (iskrzący się)
 Jednakowa jasność patrząc „pod kątem”, „na wprost” oraz „pod dużym kątem”","Jasnoskrzący się (iskrzący się)
-Jednakowa jasność patrząc „pod kątem”, „na wprost” oraz „pod dużym kątem”",g,Aluminium,OK,,PDF_DUXONE,False,True
+Jednakowa jasność patrząc „pod kątem”, „na wprost” oraz „pod dużym kątem”",g,Aluminium,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5214,DX5214,DX5214,,,MEDIUM SILVER,,MEDIUM SILVER,"Grubość ziarna identyczna jak w DX5215
 Ciemniejszy patrząc „pod kątem” niż DX5215
 Taki sam efekt patrząc „pod dużym kątem” jak DX5215
 DX5214 = DX5215 + 10%","Grubość ziarna identyczna jak w DX5215
 Ciemniejszy patrząc „pod kątem” niż DX5215
 Taki sam efekt patrząc „pod dużym kątem” jak DX5215
-DX5214 = DX5215 + 10%",g,Aluminium,OK,,PDF_DUXONE,False,True
+DX5214 = DX5215 + 10%",g,Aluminium,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5215,DX5215,DX5215,,,FINE SILVER,,FINE SILVER,"Przejrzysty (czysty) patrząc „na wprost”
 Jasny pod 3 kątami widzenia","Przejrzysty (czysty) patrząc „na wprost”
-Jasny pod 3 kątami widzenia",g,Aluminium,OK,,PDF_DUXONE,False,True
-DUXONE,DUXONE|DX5216,DX5216,DX5216,,,,,,,,g,Aluminium,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True
+Jasny pod 3 kątami widzenia",g,Aluminium,OK,,PDF_DUXONE,False,True,,
+DUXONE,DUXONE|DX5216,DX5216,DX5216,,,,,,,,g,Aluminium,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True,,
 DUXONE,DUXONE|DX5217,DX5217,DX5217,,,EXTRA FINE SILVER,,EXTRA FINE SILVER,"Jasny patrząc „na wprost” i brudny (rozmyty) „pod dużym kątem”
 Ciemny patrząc „pod kątem”","Jasny patrząc „na wprost” i brudny (rozmyty) „pod dużym kątem”
-Ciemny patrząc „pod kątem”",g,Aluminium,OK,,PDF_DUXONE,False,True
+Ciemny patrząc „pod kątem”",g,Aluminium,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5221,DX5221,DX5221,,,COARSE BRIGHT SILVER,,COARSE BRIGHT SILVER,"Taki sam jak DX5223, ale jaśniejszy
 Komponent aluminium „silver dollar”","Taki sam jak DX5223, ale jaśniejszy
-Komponent aluminium „silver dollar”",g,Aluminium,OK,,PDF_DUXONE,False,True
-DUXONE,DUXONE|DX5223,DX5223,DX5223,,,MEDIUM BRIGHT SILVER,,MEDIUM BRIGHT SILVER,Bardzo jasny patrząc „pod kątem” i ciemniejszy „pod dużym kątem”,Bardzo jasny patrząc „pod kątem” i ciemniejszy „pod dużym kątem”,g,Aluminium,OK,,PDF_DUXONE,False,True
+Komponent aluminium „silver dollar”",g,Aluminium,OK,,PDF_DUXONE,False,True,,
+DUXONE,DUXONE|DX5223,DX5223,DX5223,,,MEDIUM BRIGHT SILVER,,MEDIUM BRIGHT SILVER,Bardzo jasny patrząc „pod kątem” i ciemniejszy „pod dużym kątem”,Bardzo jasny patrząc „pod kątem” i ciemniejszy „pod dużym kątem”,g,Aluminium,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5224,DX5224,DX5224,,,GOLD ALU,,GOLD ALU,"Aluminium pokryte tlenkiem żelaza (żółty)
 Wielkość ziarna podobna do DX5215
 Jaśniejszy patrząc „pod kątem” i czerwony „pod dużym kątem” (flop)","Aluminium pokryte tlenkiem żelaza (żółty)
 Wielkość ziarna podobna do DX5215
-Jaśniejszy patrząc „pod kątem” i czerwony „pod dużym kątem” (flop)",g,Aluminium,OK,,PDF_DUXONE,False,True
+Jaśniejszy patrząc „pod kątem” i czerwony „pod dużym kątem” (flop)",g,Aluminium,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5225,DX5225,DX5225,,,ORANGE ALU,,ORANGE ALU,"Aluminium pokryte tlenkiem żelaza (pomarańczowy)
 Wielkość ziarna identyczna jak w DX5215
 Jaśniejszy patrząc „pod kątem” i czerwony „pod dużym kątem” (flop)","Aluminium pokryte tlenkiem żelaza (pomarańczowy)
 Wielkość ziarna identyczna jak w DX5215
-Jaśniejszy patrząc „pod kątem” i czerwony „pod dużym kątem” (flop)",g,Aluminium,OK,,PDF_DUXONE,False,True
+Jaśniejszy patrząc „pod kątem” i czerwony „pod dużym kątem” (flop)",g,Aluminium,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5226,DX5226,DX5226,,,FINE EXTRA BRIGHT ALU,,FINE EXTRA BRIGHT ALU,"Komponent aluminium „silver dollar”; nowszy typ od DX5223 i DX5221
 Drobne ziarno w świetle dziennym, ale bardziej skrzący się w świetle
 słonecznym
 Bardzo jasny patrząc „pod kątem” i ciemniejszy „pod dużym kątem” (flop)","Komponent aluminium „silver dollar”; nowszy typ od DX5223 i DX5221
 Drobne ziarno w świetle dziennym, ale bardziej skrzący się w świetle
 słonecznym
-Bardzo jasny patrząc „pod kątem” i ciemniejszy „pod dużym kątem” (flop)",g,Aluminium,OK,,PDF_DUXONE,False,True
+Bardzo jasny patrząc „pod kątem” i ciemniejszy „pod dużym kątem” (flop)",g,Aluminium,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5227,DX5227,DX5227,,,MEDIUM FINE BRIGHT ALU,,MEDIUM FINE BRIGHT ALU,"Takie same właściwości jak DX5226, ale jaśniejszy w świetle słonecznym
 DROBNE
 ZIARNO
@@ -454,68 +454,68 @@ ZIARNO","Takie same właściwości jak DX5226, ale jaśniejszy w świetle słone
 DROBNE
 ZIARNO
 GRUBE
-ZIARNO",g,Aluminium,OK,,PDF_DUXONE,False,True
+ZIARNO",g,Aluminium,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5231,DX5231,DX5231,,,SILVER PEARL,,SILVER PEARL,"Półprzezroczysty
 Średnia wielkość ziarna","Półprzezroczysty
-Średnia wielkość ziarna",g,Perła,OK,,PDF_DUXONE,False,True
+Średnia wielkość ziarna",g,Perła,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5232,DX5232,DX5232,,,FINE SILVER PEARL,,FINE SILVER PEARL,"Półprzezroczysty
 Drobna wielkość ziarna
 Ciemny patrząc „na wprost” i jaśniejszy patrząc „pod dużym kątem” (flop)
 jak DX5231","Półprzezroczysty
 Drobna wielkość ziarna
 Ciemny patrząc „na wprost” i jaśniejszy patrząc „pod dużym kątem” (flop)
-jak DX5231",g,Perła,OK,,PDF_DUXONE,False,True
+jak DX5231",g,Perła,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5241,DX5241,DX5241,,,RED PEARL,,RED PEARL,"Średniej wielkości ziarno
 Efekt koloru czerwonego pod każdym kątem","Średniej wielkości ziarno
-Efekt koloru czerwonego pod każdym kątem",g,Perła,OK,,PDF_DUXONE,False,True
+Efekt koloru czerwonego pod każdym kątem",g,Perła,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5242,DX5242,DX5242,,,FINE RED PEARL,,FINE RED PEARL,"Średnia-drobna wielkość ziarna
 Efekt kolorystyczny taki sam jak w DX5241, ale ze względu na drobniejsza
 wielkość ziarna w DX5242 nasycenie jest mniej jasne, a wygląd ciemniejszy
 patrząc „na wprost” i jaśniejszy „pod dużym kątem” (flop)","Średnia-drobna wielkość ziarna
 Efekt kolorystyczny taki sam jak w DX5241, ale ze względu na drobniejsza
 wielkość ziarna w DX5242 nasycenie jest mniej jasne, a wygląd ciemniejszy
-patrząc „na wprost” i jaśniejszy „pod dużym kątem” (flop)",g,Perła,OK,,PDF_DUXONE,False,True
+patrząc „na wprost” i jaśniejszy „pod dużym kątem” (flop)",g,Perła,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5243,DX5243,DX5243,,,SUPER RED PEARL,,SUPER RED PEARL,"Półprzezroczysty
 Średniej wielkości ziarno
 Czerwony patrząc „na wpros” a bardzo zielony „pod dużym kątem” (flop)","Półprzezroczysty
 Średniej wielkości ziarno
-Czerwony patrząc „na wpros” a bardzo zielony „pod dużym kątem” (flop)",g,Perła,OK,,PDF_DUXONE,False,True
+Czerwony patrząc „na wpros” a bardzo zielony „pod dużym kątem” (flop)",g,Perła,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5244,DX5244,DX5244,,,RED BROWN PEARL,,RED BROWN PEARL,"Kryjący
 Średniej wielkości ziarno
 Będzie dawał efekt miedzianego odcienia pod każdym kątem","Kryjący
 Średniej wielkości ziarno
-Będzie dawał efekt miedzianego odcienia pod każdym kątem",g,Perła,OK,,PDF_DUXONE,False,True
+Będzie dawał efekt miedzianego odcienia pod każdym kątem",g,Perła,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5251,DX5251,DX5251,,,BLUE PEARL,,BLUE PEARL,"Średniej wielkości ziarno
 Półprzezroczysty
 Czysty, niebieski patrząc „na wprost” z żółtawym, jasnym flopem","Średniej wielkości ziarno
 Półprzezroczysty
-Czysty, niebieski patrząc „na wprost” z żółtawym, jasnym flopem",g,Perła,OK,,PDF_DUXONE,False,True
+Czysty, niebieski patrząc „na wprost” z żółtawym, jasnym flopem",g,Perła,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5261,DX5261,DX5261,,,GREEN PEARL,,GREEN PEARL,"Półprzezroczysty
 Średniej wielkości ziarno
 Czysty, zielony patrząc „na wprost” z czerwonawym, jasnym flopem","Półprzezroczysty
 Średniej wielkości ziarno
-Czysty, zielony patrząc „na wprost” z czerwonawym, jasnym flopem",g,Perła,OK,,PDF_DUXONE,False,True
+Czysty, zielony patrząc „na wprost” z czerwonawym, jasnym flopem",g,Perła,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5271,DX5271,DX5271,,,GOLD PEARL,,GOLD PEARL,"Półprzezroczysty
 Średniej wielkości ziarno
 Żółtawy złoty kolor patrząc „na wprost” z jasnym, niebieskim flopem","Półprzezroczysty
 Średniej wielkości ziarno
-Żółtawy złoty kolor patrząc „na wprost” z jasnym, niebieskim flopem",g,Perła,OK,,PDF_DUXONE,False,True
+Żółtawy złoty kolor patrząc „na wprost” z jasnym, niebieskim flopem",g,Perła,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5281,DX5281,DX5281,,,LILAC PEARL,,LILAC PEARL,"Półprzezroczysty
 Średniej wielkości ziarno
 Czysty, fioletowy patrząc „na wprost” z żółtym, pomarańczowym flopem","Półprzezroczysty
 Średniej wielkości ziarno
-Czysty, fioletowy patrząc „na wprost” z żółtym, pomarańczowym flopem",g,Perła,OK,,PDF_DUXONE,False,True
+Czysty, fioletowy patrząc „na wprost” z żółtym, pomarańczowym flopem",g,Perła,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX5299,DX5299,DX5299,,,UNISILVER,,UNISILVER,"Tylko do użytku w kolorach z efektem
 Tworzy bardziej jednolitą powłokę
 Dodatki modyfikujące","Tylko do użytku w kolorach z efektem
 Tworzy bardziej jednolitą powłokę
-Dodatki modyfikujące",g,Aluminium,OK,,PDF_DUXONE,False,True
-DUXONE,DUXONE|DX5300,DX5300,DX5300,,,WHITE CRYSTAL,,WHITE CRYSTAL,Dużo jaśniejszy w symulowanym świetle słonecznym niż DX5231,Dużo jaśniejszy w symulowanym świetle słonecznym niż DX5231,g,Xirallic/Crystal,OK,,PDF_DUXONE,False,True
-DUXONE,DUXONE|DX5301,DX5301,DX5301,,,RED CRYSTAL,,RED CRYSTAL,Jaśniejszy w symulowanym świetle słonecznym niż DX5241,Jaśniejszy w symulowanym świetle słonecznym niż DX5241,g,Xirallic/Crystal,OK,,PDF_DUXONE,False,True
-DUXONE,DUXONE|DX5302,DX5302,DX5302,,,BLUE CRYSTAL,,BLUE CRYSTAL,Dużo jaśniejszy w symulowanym świetle słonecznym niż DX5251,Dużo jaśniejszy w symulowanym świetle słonecznym niż DX5251,g,Xirallic/Crystal,OK,,PDF_DUXONE,False,True
-DUXONE,DUXONE|DX5303,DX5303,DX5303,,,GREEN CRYSTAL,,GREEN CRYSTAL,Dużo jaśniejszy w symulowanym świetle słonecznym niż DX5261,Dużo jaśniejszy w symulowanym świetle słonecznym niż DX5261,g,Xirallic/Crystal,OK,,PDF_DUXONE,False,True
-DUXONE,DUXONE|DX5304,DX5304,DX5304,,,GOLD CRYSTAL,,GOLD CRYSTAL,Jaśniejszy w symulowanym świetle słonecznym niż DX5271,Jaśniejszy w symulowanym świetle słonecznym niż DX5271,g,Xirallic/Crystal,OK,,PDF_DUXONE,False,True
-DUXONE,DUXONE|DX5305,DX5305,DX5305,,,COPPER CRYSTAL,,COPPER CRYSTAL,Jaśniejszy w symulowanym świetle słonecznym niż DX5244,Jaśniejszy w symulowanym świetle słonecznym niż DX5244,g,Xirallic/Crystal,OK,,PDF_DUXONE,False,True
+Dodatki modyfikujące",g,Aluminium,OK,,PDF_DUXONE,False,True,,
+DUXONE,DUXONE|DX5300,DX5300,DX5300,,,WHITE CRYSTAL,,WHITE CRYSTAL,Dużo jaśniejszy w symulowanym świetle słonecznym niż DX5231,Dużo jaśniejszy w symulowanym świetle słonecznym niż DX5231,g,Xirallic/Crystal,OK,,PDF_DUXONE,False,True,,
+DUXONE,DUXONE|DX5301,DX5301,DX5301,,,RED CRYSTAL,,RED CRYSTAL,Jaśniejszy w symulowanym świetle słonecznym niż DX5241,Jaśniejszy w symulowanym świetle słonecznym niż DX5241,g,Xirallic/Crystal,OK,,PDF_DUXONE,False,True,,
+DUXONE,DUXONE|DX5302,DX5302,DX5302,,,BLUE CRYSTAL,,BLUE CRYSTAL,Dużo jaśniejszy w symulowanym świetle słonecznym niż DX5251,Dużo jaśniejszy w symulowanym świetle słonecznym niż DX5251,g,Xirallic/Crystal,OK,,PDF_DUXONE,False,True,,
+DUXONE,DUXONE|DX5303,DX5303,DX5303,,,GREEN CRYSTAL,,GREEN CRYSTAL,Dużo jaśniejszy w symulowanym świetle słonecznym niż DX5261,Dużo jaśniejszy w symulowanym świetle słonecznym niż DX5261,g,Xirallic/Crystal,OK,,PDF_DUXONE,False,True,,
+DUXONE,DUXONE|DX5304,DX5304,DX5304,,,GOLD CRYSTAL,,GOLD CRYSTAL,Jaśniejszy w symulowanym świetle słonecznym niż DX5271,Jaśniejszy w symulowanym świetle słonecznym niż DX5271,g,Xirallic/Crystal,OK,,PDF_DUXONE,False,True,,
+DUXONE,DUXONE|DX5305,DX5305,DX5305,,,COPPER CRYSTAL,,COPPER CRYSTAL,Jaśniejszy w symulowanym świetle słonecznym niż DX5244,Jaśniejszy w symulowanym świetle słonecznym niż DX5244,g,Xirallic/Crystal,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX0112,DX0112,DX0112,,,BLACK (KOMPONENT O MAŁEJ SILE KRYCIA),,BLACK (KOMPONENT O MAŁEJ SILE KRYCIA),"Ma żółte zabarwienie
 Zamień DX5110 na DX0112 gdy stężenie DX5110 jest mniejsze niż 0.45%
 całości wagi receptury; kiedy stężenie komponentu DX0112 jest większe niż 8%,
@@ -532,12 +532,12 @@ Zamień DX5110 na DX0112: stężenie DX5110 x 10
 SOLID
 ALUMINIUM
 PERŁOWE &
-XIRALLIC",g,Niska siła krycia,OK,,PDF_DUXONE,False,True
+XIRALLIC",g,Niska siła krycia,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX0124,DX0124,DX0124,,,BROWN RED (PIGMENT O MAŁEJ SILE KRYCIA),,BROWN RED (PIGMENT O MAŁEJ SILE KRYCIA),"Kryjacy komponent o czerwonym / żółtym odcieniu
 Może być używany w małych ilościach do kolorów z efektem dla uzyskania
 jasnego i czerwonego wyglądu „pod dużym kątem” (flop)","Kryjacy komponent o czerwonym / żółtym odcieniu
 Może być używany w małych ilościach do kolorów z efektem dla uzyskania
-jasnego i czerwonego wyglądu „pod dużym kątem” (flop)",g,Niska siła krycia,OK,,PDF_DUXONE,False,True
+jasnego i czerwonego wyglądu „pod dużym kątem” (flop)",g,Niska siła krycia,OK,,PDF_DUXONE,False,True,,
 DUXONE,DUXONE|DX0132,DX0132,DX0132,,,WHITE (KOMPONENT O MAŁEJ SILE KRYCIA),,WHITE (KOMPONENT O MAŁEJ SILE KRYCIA),"Sprawia, że kolor solidowy jest jaśniejszy
 Może być używany w małych ilościach w kolorach z efektem do rozjaśnienia
 koloru „pod dużym kątem” (flop) i ściemnienia „pod kątem”.
@@ -550,16 +550,16 @@ koloru „pod dużym kątem” (flop) i ściemnienia „pod kątem”.
 Zamień DX5130 na DX0132 gdy stężenie DX5130 jest mniejsze niż 0.45%
 całości wagi receptury; kiedy stężenie komponentu DX0132 jest większe niż 8%,
 zastosuj DX5130
-Zamień DX5130 na DX0132: stężenie DX5130 x 10",g,Niska siła krycia,OK,,PDF_DUXONE,False,True
-DUXONE,DUXONE|DX11,DX11,DX11,,,,,,,,g,Dodatek,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True
-DUXONE,DUXONE|AXT100,AXT100,AXT100,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True
-DUXONE,DUXONE|AXT101,AXT101,AXT101,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True
-DUXONE,DUXONE|AXT102,AXT102,AXT102,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True
-DUXONE,DUXONE|AXT103,AXT103,AXT103,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True
-DUXONE,DUXONE|AXT104,AXT104,AXT104,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True
-DUXONE,DUXONE|AXT105,AXT105,AXT105,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True
-DUXONE,DUXONE|AXT106,AXT106,AXT106,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True
-DUXONE,DUXONE|AXT107,AXT107,AXT107,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True
-DUXONE,DUXONE|AXT108,AXT108,AXT108,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True
-DUXONE,DUXONE|AXT109,AXT109,AXT109,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True
-DUXONE,DUXONE|AXT110,AXT110,AXT110,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True
+Zamień DX5130 na DX0132: stężenie DX5130 x 10",g,Niska siła krycia,OK,,PDF_DUXONE,False,True,,
+DUXONE,DUXONE|DX11,DX11,DX11,,,,,,,,g,Dodatek,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True,,
+DUXONE,DUXONE|AXT100,AXT100,AXT100,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True,,
+DUXONE,DUXONE|AXT101,AXT101,AXT101,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True,,
+DUXONE,DUXONE|AXT102,AXT102,AXT102,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True,,
+DUXONE,DUXONE|AXT103,AXT103,AXT103,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True,,
+DUXONE,DUXONE|AXT104,AXT104,AXT104,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True,,
+DUXONE,DUXONE|AXT105,AXT105,AXT105,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True,,
+DUXONE,DUXONE|AXT106,AXT106,AXT106,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True,,
+DUXONE,DUXONE|AXT107,AXT107,AXT107,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True,,
+DUXONE,DUXONE|AXT108,AXT108,AXT108,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True,,
+DUXONE,DUXONE|AXT109,AXT109,AXT109,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True,,
+DUXONE,DUXONE|AXT110,AXT110,AXT110,,,,,,,,g,Dodatek do lakieru bezbarwnego,DO WERYFIKACJI,Brak nazwy w PDF dobarwiania i w ODS,BRAK,False,True,,

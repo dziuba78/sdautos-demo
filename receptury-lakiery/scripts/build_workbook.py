@@ -245,15 +245,18 @@ def write_bases(wb):
         "ZRODLO_NAZWY",
         "W_KATALOGU_ODS",
         "W_SZABLONIE_ODS",
+        "OPIS_EN",
+        "OPIS_DZIALANIA_PL",
     ]
-    widths = [22, 14, 16, 14, 18, 12, 36, 36, 36, 55, 12, 18, 16, 40, 16, 14, 16]
+    widths = [22, 14, 16, 14, 18, 12, 36, 36, 36, 55, 12, 18, 16, 40, 16, 14, 16, 50, 55]
 
     def dump(ws, rows, title):
         banner(
             ws,
             title,
-            "Q",
-            "Kopia robocza bazy. Oryginalne pliki ODS/PDF nie są zmieniane. Klucz = SYSTEM|NR_PIGMENTU.",
+            "S",
+            "Kopia robocza bazy. Oryginalne pliki ODS/PDF nie są zmieniane. Klucz = SYSTEM|NR_PIGMENTU. "
+            "AUTOCOLOR: OPIS_DOBARWIANIA i OPIS_DZIALANIA_PL po polsku (tint chart); nazwy katalogowe EN. DUXONE: opisy z PDF PL.",
         )
         for i, h in enumerate(headers, 1):
             cell = ws.cell(8, i, h)
@@ -263,8 +266,9 @@ def write_bases(wb):
             cell.border = thin
             ws.column_dimensions[get_column_letter(i)].width = widths[i - 1]
         ws.freeze_panes = "A9"
-        ws.auto_filter.ref = f"A8:Q{8 + len(rows)}"
+        ws.auto_filter.ref = f"A8:S{8 + len(rows)}"
         for r_i, rec in enumerate(rows, 9):
+            opis_pl = rec.get("opis_dzialania_pl") or rec.get("procedura_dobarwiania") or rec.get("opis") or ""
             vals = [
                 rec["klucz"],
                 rec["system"],
@@ -283,6 +287,8 @@ def write_bases(wb):
                 rec.get("zrodlo_nazwy") or "",
                 "TAK" if rec.get("w_katalogu_ods") else "NIE",
                 "TAK" if rec.get("w_szablonie_ods") else "NIE",
+                rec.get("opis_en") or "",
+                opis_pl,
             ]
             for c_i, v in enumerate(vals, 1):
                 cell = ws.cell(r_i, c_i, v)
@@ -298,7 +304,7 @@ def write_bases(wb):
                     cell.fill = fill(BLUE_SOFT)
                 else:
                     cell.fill = fill(WHITE)
-            ws.row_dimensions[r_i].height = 36
+            ws.row_dimensions[r_i].height = 48
         ws.sheet_properties.pageSetUpPr.fitToPage = True
         protect(ws)
         return len(rows)
@@ -315,15 +321,16 @@ def write_pigmenty(wb, n_ac, n_dx):
     banner(
         ws,
         "PIGMENTY — wspólna baza wyszukiwania",
-        "L",
-        "Filtruj kolumnę SYSTEM (AUTOCOLOR / DUXONE) oraz NR / NAZWA. AUTOCOLOR 123 i DUXONE 123 to dwa różne pigmenty.",
+        "N",
+        "Filtruj kolumnę SYSTEM (AUTOCOLOR / DUXONE) oraz NR / NAZWA. AUTOCOLOR 123 i DUXONE 123 to dwa różne pigmenty. Opisy dobarwiania Autocolor — po polsku.",
     )
     ws["A4"] = "INSTRUKCJA"
     ws["A4"].font = font_label()
-    ws.merge_cells("B4:L4")
+    ws.merge_cells("B4:N4")
     ws["B4"] = (
         "Włącz filtry w wierszu 8. SYSTEM: AUTOCOLOR lub DUXONE. Wyszukaj numer lub nazwę. "
-        "Nie wpisuj numerów ręcznie w recepturze — wybierz SYSTEM, potem NR z listy rozwijanej."
+        "Nie wpisuj numerów ręcznie w recepturze — wybierz SYSTEM, potem NR z listy rozwijanej. "
+        "AUTOCOLOR: nazwa katalogowa EN, opis działania PL (kolumna OPIS_DOBARWIANIA)."
     )
     ws["B4"].alignment = align_l()
     headers = [
@@ -339,8 +346,10 @@ def write_pigmenty(wb, n_ac, n_dx):
         "ZRODLO_NAZWY",
         "NAZWA_ODS",
         "NAZWA_PDF",
+        "OPIS_EN",
+        "OPIS_DZIALANIA_PL",
     ]
-    widths = [22, 14, 16, 36, 12, 12, 22, 16, 55, 16, 32, 32]
+    widths = [22, 14, 16, 36, 12, 12, 22, 16, 55, 16, 32, 32, 50, 55]
     for i, (h, w) in enumerate(zip(headers, widths), 1):
         cell = ws.cell(8, i, h)
         cell.font = font_h()
@@ -358,14 +367,14 @@ def write_pigmenty(wb, n_ac, n_dx):
         else:
             src = f"BAZA_DUXONE"
             sr = 9 + (i - n_ac)
-        mapping = [1, 2, 3, 7, 11, 6, 12, 13, 10, 15, 8, 9]
+        mapping = [1, 2, 3, 7, 11, 6, 12, 13, 10, 15, 8, 9, 18, 19]
         for c, src_c in enumerate(mapping, 1):
             cell = ws.cell(r, c, f"={src}!{get_column_letter(src_c)}{sr}")
             style_formula(cell)
             cell.alignment = Alignment(vertical="center", wrap_text=True)
-        ws.row_dimensions[r].height = 32
+        ws.row_dimensions[r].height = 40
     ws.freeze_panes = "A9"
-    ws.auto_filter.ref = f"A8:L{8 + total}"
+    ws.auto_filter.ref = f"A8:N{8 + total}"
     protect(ws)
 
 
@@ -1206,7 +1215,7 @@ def write_dobarwianie(wb):
         ws,
         "PROCEDURY DOBARWIANIA",
         "F",
-        "Źródło: nexa-autocolor-2k-tint-chart-guide.pdf oraz Duxone - Tint Descriptions - PL.pdf (kopie w data/backup).",
+        "Źródło: nexa-autocolor-2k-tint-chart-guide.pdf (opisy działania Autocolor przetłumaczone na PL) oraz Duxone - Tint Descriptions - PL.pdf (kopie w data/backup).",
     )
     ws["A4"] = "Wybierz system"
     ws["A4"].font = font_label()
@@ -1233,7 +1242,7 @@ def write_dobarwianie(wb):
     ws["B7"] = '=IF(B6="", "", IFERROR(VLOOKUP(B6,PigmentyKlucz,4,FALSE),"BRAK W BAZIE"))'
     style_formula(ws["B7"])
     ws.merge_cells("B7:F7")
-    ws["A8"] = "Opis / procedura"
+    ws["A8"] = "Opis działania (PL)"
     ws["B8"] = '=IF(B6="", "", IFERROR(VLOOKUP(B6,PigmentyKlucz,9,FALSE),""))'
     style_formula(ws["B8"])
     ws.merge_cells("B8:F14")

@@ -1,7 +1,12 @@
 # Raport testów
 
-PASS=58 FAIL=0
+PASS=69 FAIL=0
 
+- OK  JSON AC PL opisy >=96 107
+- OK  JSON AC wszystkie z opisem []
+- OK  JSON AC brak EN lead []
+- OK  JSON AC baza >=96 107
+- OK  JSON DUXONE nie nadpisany EN []
 - OK  T01 arkusze ['START', 'RECEPTURA_ORYGINALNA', 'RECEPTURA_WLASNA', 'ANALIZA', 'RAPORT', 'HISTORIA', 'DOBARWIANIE', 'BAZA_AUTOCOLOR', 'BAZA_DUXONE', 'PIGMENTY', 'USTAWIENIA', 'HISTORIA_POZYCJE', 'DANE_WYKRESOW', 'LISTY']
 - OK  T02 baza AUTOCOLOR >=96 107
 - OK  T03 baza DUXONE >=79 79
@@ -21,6 +26,13 @@ PASS=58 FAIL=0
 - OK  T nazwa Lista_DUXONE
 - OK  T kolizja P426-HE02 oznaczona KOLIZJA NAZW
 - OK  T DX11 do weryfikacji DO WERYFIKACJI
+- OK  T AC opisy działania PL >=96 107
+- OK  T AC brak pustych opisów dobarwiania []
+- OK  T AC brak surowego EN w OPIS_DOBARWIANIA []
+- OK  T AC kolumna OPIS_DZIALANIA_PL ['W_SZABLONIE_ODS', 'OPIS_EN', 'OPIS_DZIALANIA_PL']
+- OK  T AC kolumna OPIS_EN
+- OK  T DUXONE opis nadal PL Najmocniejszy i najbardziej nasycony czarny pigment
+DX5111 jest ciemniejszy patr
 - OK  T ODS istnieje C:\Users\PPG\sdautos-demo\receptury-lakiery\RECEPTURY_LAKIERY.ods
 - OK  T makra Basic
 - OK  Test1 suma 100
