@@ -637,6 +637,33 @@ Function JoinCmd(sExe As String, sScript As String, sPdf As String, sDir As Stri
 End Function
 
 
+Function CytujKatalog(s As String) As String
+    s = Trim(s)
+    If s = "" Then
+        CytujKatalog = ""
+        Exit Function
+    End If
+    If Len(s) = 2 And Mid(s, 2, 1) = ":" Then s = s & "\"
+    If Right(s, 1) = "\" Then s = s & "."
+    CytujKatalog = s
+End Function
+
+
+Function JoinCmdWybierz(sExe As String, sScript As String, sDir As String, sStart As String) As String
+    Dim s As String
+    sStart = CytujKatalog(sStart)
+    If sExe = "py -3" Or sExe = "python" Then
+        s = "cmd /c " & sExe & " """ & sScript & """ --wybierz --out-dir """ & sDir & """"
+    Else
+        s = "cmd /c """ & sExe & """ """ & sScript & """ --wybierz --out-dir """ & sDir & """"
+    End If
+    If sStart <> "" Then
+        s = s & " --start-dir """ & sStart & """"
+    End If
+    JoinCmdWybierz = s
+End Function
+
+
 Function TestCmd(sCmd As String) As Boolean
     Dim oWsh As Object
     Dim n As Long
@@ -648,11 +675,22 @@ Function TestCmd(sCmd As String) As Boolean
 End Function
 
 
+Function PlikIstnieje(sPath As String) As Boolean
+    Dim oSFA As Object
+    PlikIstnieje = False
+    On Error Resume Next
+    If Trim(sPath) = "" Then Exit Function
+    oSFA = CreateUnoService("com.sun.star.ucb.SimpleFileAccess")
+    PlikIstnieje = oSFA.exists(ConvertToURL(sPath))
+End Function
+
+
 Function ZnajdzPython() As String
     Dim sDoc As String
     Dim sLocal As String
     Dim cand(12) As String
     Dim i As Integer
+    Dim sW As String
     ZnajdzPython = ""
     On Error Resume Next
     sDoc = KatalogDokumentu()
@@ -668,19 +706,57 @@ Function ZnajdzPython() As String
     cand(8) = "C:\Python311\python.exe"
     For i = 0 To 8
         If cand(i) <> "" Then
-            If TestCmd("cmd /c """ & cand(i) & """ -c ""import fitz""") Then
-                ZnajdzPython = cand(i)
+            If PlikIstnieje(cand(i)) Then
+                sW = Left(cand(i), Len(cand(i)) - 10) & "pythonw.exe"
+                If PlikIstnieje(sW) Then
+                    ZnajdzPython = sW
+                Else
+                    ZnajdzPython = cand(i)
+                End If
                 Exit Function
             End If
         End If
     Next i
-    If TestCmd("cmd /c py -3 -c ""import fitz""") Then
+    If TestCmd("cmd /c py -3 -c ""import sys""") Then
         ZnajdzPython = "py -3"
         Exit Function
     End If
-    If TestCmd("cmd /c python -c ""import fitz""") Then
+    If TestCmd("cmd /c python -c ""import sys""") Then
         ZnajdzPython = "python"
     End If
+End Function
+
+
+Sub KomunikatAnulowanoImport
+    Dim oStart As Object
+    On Error Resume Next
+    oStart = Arkusz("START")
+    Odblokuj(oStart)
+    oStart.getCellRangeByName("C36").String = "Anulowano wybór PDF — skład bez zmian."
+    MsgBox "Anulowano wybór pliku PDF. Skład nie został zmieniony.", 64, "Import PDF"
+End Sub
+
+
+Function FolderStartuDialogu() As String
+    Dim sHave As String
+    Dim p As Integer
+    FolderStartuDialogu = ""
+    On Error Resume Next
+    sHave = Trim(Arkusz("START").getCellRangeByName("C35").String)
+    If sHave <> "" Then
+        p = InStrRev(sHave, "\")
+        If p > 0 Then
+            FolderStartuDialogu = Left(sHave, p)
+        Else
+            FolderStartuDialogu = sHave
+        End If
+        Exit Function
+    End If
+    If PlikIstnieje("E:\") Then
+        FolderStartuDialogu = "E:\"
+        Exit Function
+    End If
+    FolderStartuDialogu = KatalogDokumentu() & "data\import\"
 End Function
 
 
@@ -688,20 +764,20 @@ Function WybierzPdf() As String
     Dim oFP As Object
     Dim files As Variant
     Dim sDir As String
-    Dim sHave As String
     WybierzPdf = ""
     On Error Resume Next
-    sHave = Trim(Arkusz("START").getCellRangeByName("C35").String)
-    oFP = CreateUnoService("com.sun.star.ui.dialogs.FilePicker")
+    sDir = FolderStartuDialogu()
+    Err = 0
+    oFP = CreateUnoService("com.sun.star.ui.dialogs.SystemFilePicker")
+    If Err <> 0 Or IsEmpty(oFP) Then
+        Err = 0
+        oFP = CreateUnoService("com.sun.star.ui.dialogs.FilePicker")
+    End If
+    If IsEmpty(oFP) Then Exit Function
     oFP.appendFilter("PDF (*.pdf)", "*.pdf")
     oFP.appendFilter("Wszystkie pliki (*.*)", "*.*")
     oFP.setCurrentFilter("PDF (*.pdf)")
     oFP.setTitle("Wskaż PDF receptury Autocolor / Duxone")
-    If sHave <> "" Then
-        sDir = Left(sHave, InStrRev(sHave, "\"))
-    Else
-        sDir = KatalogDokumentu() & "data\import\"
-    End If
     If sDir <> "" Then oFP.setDisplayDirectory(ConvertToURL(sDir))
     If oFP.execute() <> 1 Then Exit Function
     files = oFP.getFiles()
@@ -878,33 +954,45 @@ Sub ImportujZPdf
     Dim sDir As String
     Dim sPy As String
     Dim sCmd As String
+    Dim sStart As String
     Dim oWsh As Object
     Dim n As Long
     Dim oStart As Object
     oStart = Arkusz("START")
     Odblokuj(oStart)
-    sPdf = WybierzPdf()
-    If sPdf = "" Then Exit Sub
-    oStart.getCellRangeByName("C35").String = sPdf
     sDoc = KatalogDokumentu()
     sScript = sDoc & "scripts\import_receptura_pdf.py"
     sDir = sDoc & "data\import"
+    sStart = FolderStartuDialogu()
     sPy = ZnajdzPython()
     If sPy = "" Then
-        oStart.getCellRangeByName("C36").String = "Brak Pythona z pymupdf — użyj WczytajOstatniImport po ręcznym skrypcie"
-        MsgBox "Nie znaleziono Pythona z biblioteką pymupdf." & Chr(13) & _
+        sPdf = WybierzPdf()
+        If sPdf = "" Then
+            KomunikatAnulowanoImport
+            Exit Sub
+        End If
+        oStart.getCellRangeByName("C35").String = sPdf
+        oStart.getCellRangeByName("C36").String = "Brak Pythona — użyj WczytajOstatniImport po ręcznym skrypcie"
+        MsgBox "Nie znaleziono Pythona." & Chr(13) & _
             "Uruchom w folderze projektu:" & Chr(13) & _
-            "python scripts\import_receptura_pdf.py ""ścieżka.pdf""" & Chr(13) & _
+            "python scripts\import_receptura_pdf.py --wybierz" & Chr(13) & _
             "Potem makro WczytajOstatniImport.", 16, "Import PDF"
         Exit Sub
     End If
     If sPy = "py -3" Or sPy = "python" Then
-        sCmd = "cmd /c " & sPy & " """ & sScript & """ """ & sPdf & """ --out-dir """ & sDir & """"
+        sCmd = "cmd /c " & sPy & " """ & sScript & """ --wybierz --out-dir """ & sDir & """"
+        If CytujKatalog(sStart) <> "" Then
+            sCmd = sCmd & " --start-dir """ & CytujKatalog(sStart) & """"
+        End If
     Else
-        sCmd = JoinCmd(sPy, sScript, sPdf, sDir)
+        sCmd = JoinCmdWybierz(sPy, sScript, sDir, sStart)
     End If
     oWsh = CreateObject("WScript.Shell")
     n = oWsh.Run(sCmd, 0, True)
+    If n = 3 Then
+        KomunikatAnulowanoImport
+        Exit Sub
+    End If
     If n <> 0 And n <> 2 Then
         oStart.getCellRangeByName("C36").String = "Błąd skryptu Python (kod " & n & ")"
         MsgBox "Skrypt importu zakończył się kodem " & n & "." & Chr(13) & "Polecenie: " & sCmd, 16, "Import PDF"

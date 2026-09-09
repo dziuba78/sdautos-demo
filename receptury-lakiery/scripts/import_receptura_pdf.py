@@ -10,12 +10,15 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 IMPORT_DIR = ROOT / "data" / "import"
 PIGMENTY_JSON = ROOT / "data" / "extracted" / "pigmenty.json"
+LAST_DIR_FILE = IMPORT_DIR / "ostatni_folder.txt"
+EXIT_CANCEL = 3
 
 AC_PREFIX = r"P(?:192|420|425|426|429|433|434|435|440|450)"
 AC_CODE_RE = re.compile(rf"\b({AC_PREFIX}-[A-Z0-9]+(?:RT)?|VM\d{{4}})\b", re.I)
@@ -493,6 +496,291 @@ def write_outputs(result: dict, out_dir: Path) -> tuple[Path, Path]:
     return json_path, txt_path
 
 
+def default_start_dir(hint: str | None = None) -> str:
+    """Folder startowy dialogu: hint / ostatni / E:\\ / Dokumenty — nigdy pusty."""
+    candidates: list[Path] = []
+    if hint:
+        raw = Path(str(hint).strip().strip('"'))
+        if raw.is_dir():
+            candidates.append(raw)
+        elif raw.parent.is_dir():
+            candidates.append(raw.parent)
+    if LAST_DIR_FILE.exists():
+        try:
+            saved = Path(LAST_DIR_FILE.read_text(encoding="utf-8").strip().strip('"'))
+            if saved:
+                candidates.append(saved)
+        except OSError:
+            pass
+    candidates.extend(
+        [
+            Path("E:/"),
+            Path.home() / "Documents",
+            Path.home() / "Dokumenty",
+            IMPORT_DIR,
+            Path.home(),
+        ]
+    )
+    for cand in candidates:
+        try:
+            if cand.exists() and cand.is_dir():
+                return str(cand)
+        except OSError:
+            continue
+    return str(Path.home())
+
+
+def _save_last_dir(folder: Path) -> None:
+    try:
+        LAST_DIR_FILE.parent.mkdir(parents=True, exist_ok=True)
+        LAST_DIR_FILE.write_text(str(folder), encoding="utf-8")
+    except OSError:
+        pass
+
+
+def _guid(ole32, text: str):
+    import ctypes
+    from ctypes import POINTER, byref
+
+    class GUID(ctypes.Structure):
+        _fields_ = [
+            ("Data1", ctypes.c_uint32),
+            ("Data2", ctypes.c_uint16),
+            ("Data3", ctypes.c_uint16),
+            ("Data4", ctypes.c_ubyte * 8),
+        ]
+
+    g = GUID()
+    ole32.CLSIDFromString(text, byref(g))
+    return g
+
+
+def _choose_pdf_ifiledialog(initial_dir: str) -> str | None:
+    """Natywne okno Windows (IFileOpenDialog = Eksplorator). None = anulowano."""
+    import ctypes
+    from ctypes import POINTER, byref, c_void_p, c_wchar_p
+    from ctypes.wintypes import DWORD, HWND, LPCWSTR, LPWSTR, UINT
+
+    class COMDLG_FILTERSPEC(ctypes.Structure):
+        _fields_ = [("pszName", LPCWSTR), ("pszSpec", LPCWSTR)]
+
+    ole32 = ctypes.WinDLL("ole32")
+    shell32 = ctypes.WinDLL("shell32")
+    user32 = ctypes.WinDLL("user32")
+    ole32.CoInitialize(None)
+
+    clsid = _guid(ole32, "{DC1C5A9C-E88A-4DDE-A5A1-60F82A20AEF7}")
+    iid = _guid(ole32, "{D57C7288-D4AD-4768-BE02-9D969532D960}")
+    iid_item = _guid(ole32, "{43826D1E-E718-42EE-BC55-A1E261C37BFE}")
+    dialog = c_void_p()
+    ole32.CoCreateInstance.restype = ctypes.c_long
+    hr = ole32.CoCreateInstance(byref(clsid), None, 1, byref(iid), byref(dialog))
+    if hr != 0 or not dialog:
+        raise OSError(f"CoCreateInstance IFileOpenDialog hr={hr}")
+
+    def vtbl(obj):
+        return ctypes.cast(obj, POINTER(POINTER(c_void_p)))[0]
+
+    def call(obj, index, restype, *argtypes):
+        proto = ctypes.WINFUNCTYPE(restype, c_void_p, *argtypes)
+        return proto(vtbl(obj)[index])
+
+    try:
+        get_opts = call(dialog, 10, ctypes.c_long, POINTER(DWORD))
+        set_opts = call(dialog, 9, ctypes.c_long, DWORD)
+        opts = DWORD()
+        get_opts(dialog, byref(opts))
+        fos = 0x8 | 0x40 | 0x800 | 0x1000  # NOCHANGEDIR | FORCEFILESYSTEM | PATHMUSTEXIST | FILEMUSTEXIST
+        set_opts(dialog, opts.value | fos)
+
+        filters = (COMDLG_FILTERSPEC * 2)()
+        filters[0].pszName = "PDF (*.pdf)"
+        filters[0].pszSpec = "*.pdf"
+        filters[1].pszName = "Wszystkie pliki (*.*)"
+        filters[1].pszSpec = "*.*"
+        call(dialog, 4, ctypes.c_long, UINT, POINTER(COMDLG_FILTERSPEC))(dialog, 2, filters)
+        call(dialog, 5, ctypes.c_long, UINT)(dialog, 1)
+        call(dialog, 17, ctypes.c_long, LPCWSTR)(
+            dialog, "Wskaż PDF receptury Autocolor / Duxone"
+        )
+        call(dialog, 22, ctypes.c_long, LPCWSTR)(dialog, "pdf")
+
+        folder_item = c_void_p()
+        shell32.SHCreateItemFromParsingName.restype = ctypes.c_long
+        shell32.SHCreateItemFromParsingName.argtypes = [
+            c_wchar_p,
+            c_void_p,
+            c_void_p,
+            POINTER(c_void_p),
+        ]
+        if (
+            shell32.SHCreateItemFromParsingName(
+                initial_dir, None, byref(iid_item), byref(folder_item)
+            )
+            == 0
+            and folder_item
+        ):
+            call(dialog, 12, ctypes.c_long, c_void_p)(dialog, folder_item)
+
+        hwnd = user32.GetForegroundWindow()
+        hr_show = call(dialog, 3, ctypes.c_long, HWND)(dialog, hwnd)
+        if (hr_show & 0xFFFFFFFF) == 0x800704C7:
+            return None
+        if hr_show != 0:
+            raise OSError(f"IFileOpenDialog.Show hr={hr_show}")
+
+        result_item = c_void_p()
+        hr_res = call(dialog, 20, ctypes.c_long, POINTER(c_void_p))(
+            dialog, byref(result_item)
+        )
+        if hr_res != 0 or not result_item:
+            return None
+        ppsz = LPWSTR()
+        hr_name = call(result_item, 5, ctypes.c_long, ctypes.c_ulong, POINTER(LPWSTR))(
+            result_item, 0x80058000, byref(ppsz)
+        )
+        if hr_name != 0 or not ppsz:
+            return None
+        path = ppsz.value
+        ole32.CoTaskMemFree(ppsz)
+        return path
+    finally:
+        try:
+            call(dialog, 2, ctypes.c_ulong)(dialog)
+        except Exception:
+            pass
+
+
+def _choose_pdf_getopenfilename(initial_dir: str) -> str | None:
+    """GetOpenFileNameW (OFN_EXPLORER). None = anulowano."""
+    import ctypes
+    from ctypes import wintypes
+
+    class OPENFILENAMEW(ctypes.Structure):
+        _fields_ = [
+            ("lStructSize", wintypes.DWORD),
+            ("hwndOwner", wintypes.HWND),
+            ("hInstance", wintypes.HINSTANCE),
+            ("lpstrFilter", wintypes.LPCWSTR),
+            ("lpstrCustomFilter", wintypes.LPWSTR),
+            ("nMaxCustFilter", wintypes.DWORD),
+            ("nFilterIndex", wintypes.DWORD),
+            ("lpstrFile", wintypes.LPWSTR),
+            ("nMaxFile", wintypes.DWORD),
+            ("lpstrFileTitle", wintypes.LPWSTR),
+            ("nMaxFileTitle", wintypes.DWORD),
+            ("lpstrInitialDir", wintypes.LPCWSTR),
+            ("lpstrTitle", wintypes.LPCWSTR),
+            ("Flags", wintypes.DWORD),
+            ("nFileOffset", wintypes.WORD),
+            ("nFileExtension", wintypes.WORD),
+            ("lpstrDefExt", wintypes.LPCWSTR),
+            ("lCustData", wintypes.LPARAM),
+            ("lpfnHook", ctypes.c_void_p),
+            ("lpTemplateName", wintypes.LPCWSTR),
+            ("pvReserved", ctypes.c_void_p),
+            ("dwReserved", wintypes.DWORD),
+            ("FlagsEx", wintypes.DWORD),
+        ]
+
+    buf = ctypes.create_unicode_buffer(32768)
+    ofn = OPENFILENAMEW()
+    ofn.lStructSize = ctypes.sizeof(OPENFILENAMEW)
+    ofn.lpstrFilter = "PDF (*.pdf)\0*.pdf\0Wszystkie pliki (*.*)\0*.*\0\0"
+    ofn.nFilterIndex = 1
+    ofn.lpstrFile = ctypes.cast(buf, wintypes.LPWSTR)
+    ofn.nMaxFile = 32768
+    ofn.lpstrInitialDir = initial_dir
+    ofn.lpstrTitle = "Wskaż PDF receptury Autocolor / Duxone"
+    ofn.Flags = 0x00080000 | 0x00001000 | 0x00000800 | 0x00000004 | 0x00000008
+    ofn.lpstrDefExt = "pdf"
+    comdlg32 = ctypes.WinDLL("comdlg32")
+    if comdlg32.GetOpenFileNameW(ctypes.byref(ofn)):
+        return buf.value or None
+    return None
+
+
+def _choose_pdf_tk(initial_dir: str) -> str | None:
+    import tkinter as tk
+    from tkinter import filedialog
+
+    root = tk.Tk()
+    root.withdraw()
+    try:
+        root.attributes("-topmost", True)
+    except tk.TclError:
+        pass
+    path = filedialog.askopenfilename(
+        parent=root,
+        title="Wskaż PDF receptury Autocolor / Duxone",
+        filetypes=[("PDF (*.pdf)", "*.pdf"), ("Wszystkie pliki (*.*)", "*.*")],
+        initialdir=initial_dir,
+        defaultextension=".pdf",
+    )
+    root.destroy()
+    return path or None
+
+
+def _choose_pdf_powershell(initial_dir: str) -> str | None:
+    initial = json.dumps(initial_dir)
+    title = json.dumps("Wskaż PDF receptury Autocolor / Duxone")
+    ps = (
+        "Add-Type -AssemblyName System.Windows.Forms | Out-Null; "
+        "[System.Windows.Forms.Application]::EnableVisualStyles(); "
+        "$d = New-Object System.Windows.Forms.OpenFileDialog; "
+        "$d.Filter = 'PDF (*.pdf)|*.pdf|Wszystkie pliki (*.*)|*.*'; "
+        f"$d.Title = {title}; "
+        f"$d.InitialDirectory = {initial}; "
+        "$d.Multiselect = $false; $d.CheckFileExists = $true; $d.RestoreDirectory = $true; "
+        "if ($d.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK) { "
+        "[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false); "
+        "[Console]::Out.Write($d.FileName) }"
+    )
+    proc = subprocess.run(
+        [
+            "powershell",
+            "-NoProfile",
+            "-STA",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-Command",
+            ps,
+        ],
+        capture_output=True,
+        timeout=600,
+    )
+    if proc.returncode not in (0, None) and not proc.stdout:
+        err = (proc.stderr or b"").decode("utf-8", "replace")[:300]
+        raise RuntimeError(err or f"powershell {proc.returncode}")
+    out = (proc.stdout or b"").decode("utf-8", "replace").strip()
+    return out or None
+
+
+def choose_pdf_path(initial_dir: str | None = None) -> Path | None:
+    """Otwórz natywne okno Windows i zwróć PDF albo None (anulowano)."""
+    start = default_start_dir(initial_dir)
+    pickers = (
+        [_choose_pdf_ifiledialog, _choose_pdf_getopenfilename, _choose_pdf_tk, _choose_pdf_powershell]
+        if sys.platform == "win32"
+        else [_choose_pdf_tk]
+    )
+    last_exc: Exception | None = None
+    for picker in pickers:
+        try:
+            selected = picker(start)
+        except Exception as exc:
+            last_exc = exc
+            continue
+        if not selected:
+            return None
+        path = Path(selected)
+        if path.is_file():
+            _save_last_dir(path.parent)
+            return path
+        return None
+    raise RuntimeError(f"Nie udało się otworzyć okna wyboru pliku Windows: {last_exc}")
+
+
 def make_test_pdf(dest: Path) -> Path:
     import pymupdf as fitz
 
@@ -593,17 +881,30 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--out-dir", default=str(IMPORT_DIR), help="Folder JSON/TXT")
     parser.add_argument("--make-test-pdf", action="store_true")
     parser.add_argument("--self-test", action="store_true")
+    parser.add_argument(
+        "--wybierz",
+        action="store_true",
+        help="Natywne okno Windows (jak Eksplorator), potem parsuj PDF",
+    )
+    parser.add_argument("--start-dir", default="", help="Folder startowy dialogu")
     args = parser.parse_args(argv)
     if args.self_test:
         return run_self_test()
     out_dir = Path(args.out_dir)
+    if args.wybierz:
+        picked = choose_pdf_path(args.start_dir or None)
+        if picked is None:
+            print("ANULOWANO")
+            return EXIT_CANCEL
+        args.pdf = str(picked)
+        print(args.pdf)
     if args.make_test_pdf:
         p = make_test_pdf(out_dir / "przyklad_receptura_test.pdf")
         print(p)
         if not args.pdf:
             args.pdf = str(p)
     if not args.pdf:
-        parser.error("Podaj plik PDF albo --self-test / --make-test-pdf")
+        parser.error("Podaj plik PDF, --wybierz albo --self-test / --make-test-pdf")
     result = parse_receptura_pdf(Path(args.pdf))
     json_path, txt_path = write_outputs(result, out_dir)
     print(result.get("komunikat") or result.get("error") or "")

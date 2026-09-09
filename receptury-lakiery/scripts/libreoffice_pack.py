@@ -246,6 +246,10 @@ def _lock_active(lock_path: Path) -> bool:
     return lock_path.exists()
 
 
+def _lock_for(ods_path: Path) -> Path:
+    return ods_path.with_name(f".~lock.{ods_path.name}#")
+
+
 def _try_copy(src: Path, dest: Path) -> bool:
     try:
         shutil.copy2(src, dest)
@@ -257,20 +261,24 @@ def _try_copy(src: Path, dest: Path) -> bool:
 
 
 def publish_ods(built: Path) -> Path:
-    """Zapisz aktualny ODS roboczy (dropdown). Przy locku — RECEPTURY_LAKIERY_import.ods."""
+    """Zapisz aktualny ODS roboczy. Przy locku na import.ods — nowa nazwa."""
     if not _lock_active(LOCK_DROPDOWN):
-        if _try_copy(built, ODS_DROPDOWN):
-            if not _lock_active(LOCK_IMPORT):
-                _try_copy(built, ODS_IMPORT)
-            print("Aktualny plik roboczy:", ODS_DROPDOWN)
-            return ODS_DROPDOWN
+        _try_copy(built, ODS_DROPDOWN)
     if not _lock_active(LOCK_IMPORT) and _try_copy(built, ODS_IMPORT):
-        print("Lock na dropdown — aktualny plik roboczy:", ODS_IMPORT)
+        print("Aktualny plik roboczy:", ODS_IMPORT)
         return ODS_IMPORT
-    stamp = ROOT / "RECEPTURY_LAKIERY_import_nowy.ods"
-    if _try_copy(built, stamp):
-        print("Oba pliki zablokowane — aktualny:", stamp)
-        return stamp
+    for name in (
+        "RECEPTURY_LAKIERY_import_nowy.ods",
+        "RECEPTURY_LAKIERY_import_nowy2.ods",
+        "RECEPTURY_LAKIERY_explorer.ods",
+    ):
+        dest = ROOT / name
+        if _lock_active(_lock_for(dest)):
+            continue
+        if _try_copy(built, dest):
+            print("Lock na import.ods — aktualny plik roboczy:", dest)
+            return dest
+    print("Nie udało się zapisać kopii roboczej — zostaje", built)
     return built
 
 

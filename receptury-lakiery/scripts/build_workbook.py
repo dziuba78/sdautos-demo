@@ -684,7 +684,7 @@ def write_start(wb):
         (21, "A", "4. Modyfikuj", "Zmieniaj złote komórki ilości. Dodawaj pigment z drugiego systemu. Ten sam pigment drugi raz → status DUPLIKAT (zsumuj)."),
         (22, "A", "5. Przelicz masę", "Ustaw masę docelową na START. Kolumna ILOŚĆ DO ZWAŻENIA przelicza na żywo. Makro ZastosujPrzeliczenie zapisuje wartości."),
         (23, "A", "6. Analiza / raport", "Otwórz ANALIZA (wykresy) i RAPORT (wydruk). HISTORIA — makro ZapiszWersje nie nadpisuje poprzednich wersji."),
-        (24, "A", "7. Import z PDF", "Makro ImportujZPdf: wskaż PDF receptury Autocolor/Duxone (kody + ilości w g). WczytajOstatniImport ładuje data/import/ostatni.json. Tint chart bez ilości = komunikat, bez zmiany składu."),
+        (24, "A", "7. Import z PDF", "Makro ImportujZPdf: natychmiast okno Windows (jak Eksplorator), filtr PDF. WczytajOstatniImport ładuje data/import/ostatni.json. Anulowanie i tint chart bez ilości = komunikat, bez zmiany składu."),
     ]
     for row, col, title, desc in actions:
         ws[f"{col}{row}"] = title
@@ -746,7 +746,7 @@ def write_start(wb):
     ws["A36"].font = font_label()
     ws["A36"].fill = fill("EEF1F6")
     ws.merge_cells("C36:L36")
-    ws["C36"] = "Wskaż PDF przyciskiem albo: Narzędzia → Makra → ImportujZPdf"
+    ws["C36"] = "Przycisk otwiera okno Windows (jak Eksplorator). Anulowanie nie czyści składu."
     style_input(ws["C36"])
     ws.merge_cells("A37:L37")
     ws["A37"] = (
@@ -770,8 +770,9 @@ def write_start(wb):
     ws.merge_cells("E38:H38")
     ws.merge_cells("A39:L40")
     ws["A39"] = (
+        "Przycisk Importuj otwiera natywne okno Windows (PDF). Anulowanie nie czyści składu. "
         "Przykład testowy: data/import/przyklad_receptura_test.pdf. "
-        "Przewodniki tint chart (bez kolumny ilości) nie są recepturą — pojawi się „nie znaleziono receptury”, skład nie zostanie wyczyszczony."
+        "Przewodniki tint chart (bez kolumny ilości) nie są recepturą — pojawi się „nie znaleziono receptury”."
     )
     ws["A39"].alignment = Alignment(wrap_text=True, vertical="top")
     protect(ws)

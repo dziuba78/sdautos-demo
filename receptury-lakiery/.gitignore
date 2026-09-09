@@ -3,6 +3,7 @@ data/extracted/lo_convert/
 data/extracted/test_out/
 data/import/ostatni.json
 data/import/ostatni.txt
+data/import/ostatni_folder.txt
 scripts/__pycache__/
 __pycache__/
 *.pyc

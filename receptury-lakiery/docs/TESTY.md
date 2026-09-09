@@ -1,6 +1,6 @@
 # Raport testów
 
-PASS=99 FAIL=0
+PASS=108 FAIL=0
 
 - OK  JSON AC PL opisy >=96 107
 - OK  JSON AC wszystkie z opisem []
@@ -17,6 +17,12 @@ PASS=99 FAIL=0
 - OK  T import bez ilości nie znaleziono receptury
 - OK  T import tint chart nie jest recepturą nie znaleziono receptury
 - OK  T import nie rusza pigmenty.json
+- OK  T import start dir z hintu C:\Users\PPG\sdautos-demo\receptury-lakiery\data\import
+- OK  T import start dir z pliku C:\Users\PPG\sdautos-demo\receptury-lakiery\data\import
+- OK  T import start dir niepusty C:\Users\PPG\Documents
+- OK  T import skrypt --wybierz
+- OK  T import --wybierz anulowanie kod 3
+- OK  T import anulowanie nie nadpisuje ostatni.txt
 - OK  T01 arkusze ['START', 'RECEPTURA_ORYGINALNA', 'RECEPTURA_WLASNA', 'ANALIZA', 'RAPORT', 'HISTORIA', 'DOBARWIANIE', 'BAZA_AUTOCOLOR', 'BAZA_DUXONE', 'PIGMENTY', 'USTAWIENIA', 'HISTORIA_POZYCJE', 'DANE_WYKRESOW', 'LISTY']
 - OK  T02 baza AUTOCOLOR >=96 107
 - OK  T03 baza DUXONE >=79 79
@@ -64,6 +70,9 @@ DX5111 jest ciemniejszy patr
 - OK  T ODS event OnWyborKomorki
 - OK  T makro lista pigmentów
 - OK  T makro ImportujZPdf
+- OK  T makro --wybierz
+- OK  T makro SystemFilePicker
+- OK  T makro anulowanie PDF
 - OK  T ODS przycisk importu
 - OK  Test1 suma 100
 - OK  Test1 status BEZ ZMIAN

@@ -6,8 +6,9 @@ Narzędzie robocze (LibreOffice Calc + Microsoft Excel) do tworzenia, mieszania 
 
 | Plik | Przeznaczenie |
 | --- | --- |
-| `RECEPTURY_LAKIERY_dropdown.ods` | Aktualny plik roboczy (listy SYSTEM/NR, bez ochrony, polskie opisy) |
-| `RECEPTURY_LAKIERY_import.ods` | Kopia robocza, gdy dropdown jest otwarty w LibreOffice (lock) |
+| `RECEPTURY_LAKIERY_import.ods` | Aktualny plik roboczy (gdy nie jest zablokowany w LibreOffice) |
+| `RECEPTURY_LAKIERY_import_nowy.ods` | Kopia robocza, gdy `import.ods` ma lock (otwierana automatycznie po przebudowie) |
+| `RECEPTURY_LAKIERY_dropdown.ods` | Kopia z listami SYSTEM/NR |
 | `RECEPTURY_LAKIERY.xlsx` | Ten sam model danych i formuł dla Microsoft Excel |
 
 Oryginalne źródła **nie są zmieniane**. Kopie: `data/backup/`.
@@ -23,7 +24,7 @@ Priorytet nazw: **PDF dobarwiania** > katalog ODS. Kolizje (np. `P426-HE02`) są
 
 ## Uruchomienie
 
-1. Otwórz **aktualny** ODS w LibreOffice Calc (`RECEPTURY_LAKIERY_dropdown.ods` albo `RECEPTURY_LAKIERY_import.ods` — patrz komunikat po przebudowie).
+1. Otwórz **aktualny** ODS w LibreOffice Calc (konsola przebudowy wypisuje `Aktualny plik roboczy:` — zwykle `RECEPTURY_LAKIERY_import.ods`, przy locku `RECEPTURY_LAKIERY_import_nowy.ods`).
 2. Zezwól na makra (lokalny plik, bez sieci).
 3. Na arkuszu **START** wybierz system bazowy i wypełnij identyfikację (komórki złote).
 4. Wpisz skład na **RECEPTURA_ORYGINALNA** (SYSTEM z listy, potem NR z listy) **albo zaimportuj PDF** (poniżej).
@@ -46,11 +47,12 @@ Arkusze są **bez ochrony** — edycja i zapis (Ctrl+S) bez hasła. Komórki zł
 
 ## Import receptury z PDF
 
-1. Na START użyj przycisku **Importuj recepturę z PDF** (albo makro `ImportujZPdf`).
-2. Wskaż plik PDF w oknie LibreOffice. Parser (Python + pymupdf: `scripts/import_receptura_pdf.py`) zapisuje `data/import/ostatni.json` i `ostatni.txt`.
-3. Skład trafia na **RECEPTURA_ORYGINALNA** i jest kopiowany na **RECEPTURA_WLASNA**. Meta (kod/nazwa koloru, data) — gdy da się odczytać z PDF.
-4. Gdy Python nie wstanie: `python scripts/import_receptura_pdf.py "C:\sciezka\receptura.pdf"`, potem przycisk **Wczytaj ostatni import**.
-5. Przykład testowy: `data/import/przyklad_receptura_test.pdf`. Przewodnik tint chart **nie** jest recepturą — komunikat „nie znaleziono receptury”, skład nie jest czyszczony.
+1. Na START kliknij **Importuj recepturę z PDF** (albo makro `ImportujZPdf`).
+2. Od razu otwiera się **natywne okno Windows** (jak Eksplorator / Otwórz plik), filtr `PDF (*.pdf)`. Folder startowy: ostatnio użyty, `E:\` albo Dokumenty.
+3. Po wyborze pliku parser (Python + pymupdf: `scripts/import_receptura_pdf.py --wybierz`) zapisuje `data/import/ostatni.json` i `ostatni.txt` i wstawia skład.
+4. Anulowanie okna **nie czyści** receptury — tylko komunikat informacyjny.
+5. Gdy Python nie wstanie: `python scripts/import_receptura_pdf.py --wybierz`, potem przycisk **Wczytaj ostatni import**.
+6. Przykład testowy: `data/import/przyklad_receptura_test.pdf`. Przewodnik tint chart **nie** jest recepturą — komunikat „nie znaleziono receptury”, skład nie jest czyszczony.
 
 SYSTEM pigmentu wynika ze **wzorca kodu** (P192/P420/… = AUTOCOLOR, DX/AXT = DUXONE), nie z gołego numeru. Nieznany kod: wiersz zostaje, uwagi `DO WERYFIKACJI`. Bazy pigmentów nie są nadpisywane.
 

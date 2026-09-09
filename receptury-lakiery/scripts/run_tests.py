@@ -16,6 +16,7 @@ from libreoffice_pack import ODS_UNLOCKED, convert  # noqa: E402
 from import_receptura_pdf import (  # noqa: E402
     IMPORT_DIR,
     classify_system,
+    default_start_dir,
     load_known_codes,
     make_noqty_pdf,
     make_test_pdf,
@@ -234,6 +235,9 @@ def test_structure():
     ok("T ODS event OnWyborKomorki", "OnWyborKomorki" in xml)
     ok("T makro lista pigmentów", "DialogListaPigmentow" in bas and "CzyKomorkaNrPigmentu" in bas)
     ok("T makro ImportujZPdf", "ImportujZPdf" in bas and "WczytajOstatniImport" in bas)
+    ok("T makro --wybierz", "--wybierz" in bas and "JoinCmdWybierz" in bas)
+    ok("T makro SystemFilePicker", "SystemFilePicker" in bas)
+    ok("T makro anulowanie PDF", "KomunikatAnulowanoImport" in bas and "n = 3" in bas)
     ok("T ODS przycisk importu", "btnImportPdf" in xml or "ImportujZPdf" in xml)
 
 
@@ -486,6 +490,27 @@ def test_import_pdf():
     else:
         ok("T import tint chart nie jest recepturą", False, "brak PDF")
     ok("T import nie rusza pigmenty.json", pig_path.read_bytes() == pig_before)
+    d_hint = default_start_dir(str(IMPORT_DIR))
+    ok("T import start dir z hintu", Path(d_hint).resolve() == IMPORT_DIR.resolve(), d_hint)
+    d_file = default_start_dir(str(IMPORT_DIR / "przyklad_receptura_test.pdf"))
+    ok("T import start dir z pliku", Path(d_file).resolve() == IMPORT_DIR.resolve(), d_file)
+    d_empty = default_start_dir()
+    ok("T import start dir niepusty", bool(d_empty) and Path(d_empty).is_dir(), d_empty)
+    src = (ROOT / "scripts" / "import_receptura_pdf.py").read_text(encoding="utf-8")
+    ok("T import skrypt --wybierz", "--wybierz" in src and "choose_pdf_path" in src and "IFileOpenDialog" in src)
+    import import_receptura_pdf as imp
+
+    marker = IMPORT_DIR / "ostatni.txt"
+    before = marker.read_text(encoding="utf-8") if marker.exists() else None
+    orig_choose = imp.choose_pdf_path
+    imp.choose_pdf_path = lambda initial_dir=None: None
+    try:
+        rc = imp.main(["--wybierz"])
+    finally:
+        imp.choose_pdf_path = orig_choose
+    ok("T import --wybierz anulowanie kod 3", rc == 3)
+    after = marker.read_text(encoding="utf-8") if marker.exists() else None
+    ok("T import anulowanie nie nadpisuje ostatni.txt", before == after)
 
 
 def main():
