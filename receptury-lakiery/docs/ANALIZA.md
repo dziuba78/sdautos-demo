@@ -86,4 +86,4 @@ Bez sieci, bez kodu zewnętrznego. XLSX działa na samych formułach.
 
 ## 8. Ochrona
 
-Hasło arkuszy: `lakier`. Komórki złote = wpis. Szare = formuła.
+Arkusze bez ochrony (priorytet: edycja i zapis bez hasła). Komórki złote = wpis. Szare = formuła.

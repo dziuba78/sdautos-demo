@@ -162,13 +162,16 @@ def style_meta_bar(ws, last_col: str):
 
 
 def protect(ws):
-    ws.protection.sheet = True
-    ws.protection.password = "lakier"
-    ws.protection.enable()
-    ws.protection.autoFilter = True
-    ws.protection.sort = True
-    ws.protection.selectLockedCells = True
-    ws.protection.selectUnlockedCells = True
+    """Arkusze bez ochrony — pełna edycja i zapis (Ctrl+S) bez hasła.
+
+    Kolory zostają: złote = wpis, szare = formuła. Flagi locked na komórkach
+    nie blokują edycji, dopóki arkusz nie jest chroniony.
+    """
+    ws.protection.sheet = False
+    try:
+        ws.protection.disable()
+    except Exception:
+        pass
 
 
 def add_dv_list(ws, formula: str, sqref: str, allow_blank=True):
@@ -418,7 +421,7 @@ def write_ustawienia(wb):
         (8, "A", "Autor domyślny", "B", "Sylwek"),
         (9, "A", "Jednostka masy", "B", "g"),
         (10, "A", "Tolerancja sumy %", "B", 0.15),
-        (11, "A", "Hasło ochrony arkuszy", "B", "lakier"),
+        (11, "A", "Ochrona arkuszy", "B", "WYŁĄCZONA"),
         (12, "A", "Następny numer RC", "B", 2),
         (13, "A", "Prefiks numeru", "B", "RC-"),
         (14, "A", "Masa preset 1 (g)", "B", 100),
@@ -439,7 +442,7 @@ def write_ustawienia(wb):
             cell.number_format = "0.00"
     ws["C8"] = "Wpisz nazwisko lakiernika — trafia do nowych receptur."
     ws["C10"] = "Jeżeli |suma % − 100| > tolerancji, START i ANALIZA pokażą ostrzeżenie."
-    ws["C11"] = "Hasło odblokowania formuł. Nie udostępniaj osobom edytującym tylko ilości."
+    ws["C11"] = "Arkusze bez hasła — pełna edycja i zapis. Złote = wpis, szare = formuła."
     ws["A19"] = "ZASADA KLUCZA PIGMENTU"
     ws["A19"].font = font_label()
     ws.merge_cells("A20:F22")
@@ -620,7 +623,7 @@ def write_start(wb):
     ws["A29"] = (
         "Mieszanie systemów: receptura bazowa AUTOCOLOR może zawierać pigmenty DUXONE i odwrotnie. "
         "Nie usuwaj wierszy tabel — zeruj ilość (status USUNIĘTO). "
-        "Komórki złote = wpis, szare = formuła (ochrona hasłem: lakier). "
+        "Komórki złote = wpis, szare = formuła (arkusze bez ochrony — edycja i zapis bez hasła). "
         "Źródła nazw: PDF Nexa Autocolor 2K Tint Chart oraz Duxone Tint Descriptions PL; kody z szablonów ODS."
     )
     ws["A29"].alignment = Alignment(wrap_text=True, vertical="top")

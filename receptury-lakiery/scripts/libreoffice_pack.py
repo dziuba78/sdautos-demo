@@ -2,6 +2,7 @@
 """Konwersja przez LibreOffice + wstrzyknięcie makr StarBasic do ODS."""
 from __future__ import annotations
 
+import re
 import shutil
 import subprocess
 import tempfile
@@ -14,7 +15,9 @@ ROOT = Path(__file__).resolve().parents[1]
 SOFFICE = Path(r"C:\Program Files\LibreOffice\program\soffice.exe")
 XLSX = ROOT / "RECEPTURY_LAKIERY.xlsx"
 ODS = ROOT / "RECEPTURY_LAKIERY.ods"
+ODS_UNLOCKED = ROOT / "RECEPTURY_LAKIERY_edycja.ods"
 BAS = ROOT / "macros" / "modReceptury.bas"
+LOCK_MAIN = ROOT / ".~lock.RECEPTURY_LAKIERY.ods#"
 
 NS = {"manifest": "urn:oasis:names:tc:opendocument:xmlns:manifest:1.0"}
 
@@ -46,6 +49,25 @@ def convert(src: Path, dest_ext: str, outdir: Path) -> Path:
     return produced
 
 
+def _rewrite_zip(src_dir: Path, ods_path: Path) -> None:
+    tmp_zip = ods_path.with_suffix(".ods.tmpzip")
+    with zipfile.ZipFile(tmp_zip, "w", zipfile.ZIP_DEFLATED) as zout:
+        for f in src_dir.rglob("*"):
+            if f.is_file():
+                zout.write(f, f.relative_to(src_dir).as_posix())
+    shutil.move(tmp_zip, ods_path)
+
+
+def unprotect_content_xml(text: str) -> str:
+    """Zdejmij ochronę arkuszy w ODS — edycja i zapis bez hasła."""
+    text = text.replace('table:protected="true"', 'table:protected="false"')
+    text = re.sub(r'\s+table:protection-key="[^"]*"', "", text)
+    text = re.sub(r'\s+table:protection-key-digest-algorithm="[^"]*"', "", text)
+    text = re.sub(r'\s+loext:protection-key-digest-algorithm-2="[^"]*"', "", text)
+    text = text.replace('table:structure-protected="true"', 'table:structure-protected="false"')
+    return text
+
+
 def inject_macros(ods_path: Path) -> None:
     code = BAS.read_text(encoding="utf-8")
     # StarBasic w XML: escape & < >
@@ -68,6 +90,12 @@ def inject_macros(ods_path: Path) -> None:
     try:
         with zipfile.ZipFile(ods_path, "r") as zin:
             zin.extractall(tmp)
+        content = tmp / "content.xml"
+        if content.exists():
+            content.write_text(
+                unprotect_content_xml(content.read_text(encoding="utf-8")),
+                encoding="utf-8",
+            )
         basic = tmp / "Basic" / "Standard"
         basic.mkdir(parents=True, exist_ok=True)
         (basic / "script-lb.xml").write_text(lib_xml, encoding="utf-8")
@@ -90,14 +118,38 @@ def inject_macros(ods_path: Path) -> None:
             el.set(f"{{{NS['manifest']}}}full-path", path)
             el.set(f"{{{NS['manifest']}}}media-type", mt)
         tree.write(manifest, encoding="UTF-8", xml_declaration=True)
-        tmp_zip = ods_path.with_suffix(".ods.tmpzip")
-        with zipfile.ZipFile(tmp_zip, "w", zipfile.ZIP_DEFLATED) as zout:
-            for f in tmp.rglob("*"):
-                if f.is_file():
-                    zout.write(f, f.relative_to(tmp).as_posix())
-        shutil.move(tmp_zip, ods_path)
+        _rewrite_zip(tmp, ods_path)
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
+
+
+def _lock_active(lock_path: Path) -> bool:
+    return lock_path.exists()
+
+
+def publish_ods(built: Path) -> Path:
+    """Zapisz główny ODS; przy locku LibreOffice nie kasuj pracy — daj kopię edycji."""
+    try:
+        shutil.copy2(built, ODS)
+        print("ODS z makrami:", ODS, "size", ODS.stat().st_size)
+    except OSError as exc:
+        print("Nie nadpisano głównego ODS (plik otwarty):", exc)
+    if _lock_active(LOCK_MAIN):
+        shutil.copy2(built, ODS_UNLOCKED)
+        print("Lock LibreOffice aktywny — odblokowana kopia:", ODS_UNLOCKED)
+        return ODS_UNLOCKED
+    return ODS
+
+
+def open_in_calc(ods_path: Path) -> None:
+    if not SOFFICE.exists():
+        print("Brak soffice.exe — otwórz ręcznie:", ods_path)
+        return
+    subprocess.Popen(
+        [str(SOFFICE), "--norestore", "--nolockcheck", str(ods_path)],
+        cwd=str(ROOT),
+    )
+    print("Otwarto w LibreOffice:", ods_path)
 
 
 def main() -> None:
@@ -110,9 +162,9 @@ def main() -> None:
         shutil.rmtree(work)
     work.mkdir(parents=True)
     ods = convert(XLSX, "ods", work)
-    shutil.copy2(ods, ODS)
-    inject_macros(ODS)
-    print("ODS z makrami:", ODS, "size", ODS.stat().st_size)
+    inject_macros(ods)
+    published = publish_ods(ods)
+    open_in_calc(published)
 
 
 if __name__ == "__main__":

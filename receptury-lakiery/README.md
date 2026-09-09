@@ -39,7 +39,7 @@ Makra: *Narzędzia → Makra → Uruchom makro → RECEPTURY_LAKIERY.ods → Sta
 - `ZapiszWersje`
 - `ScalDuplikaty`
 
-Hasło ochrony formuł: `lakier` (komórki złote pozostają edytowalne).
+Arkusze są **bez ochrony** — edycja i zapis (Ctrl+S) bez hasła. Komórki złote = wpis, szare = formuła.
 
 ## Klucz pigmentu
 

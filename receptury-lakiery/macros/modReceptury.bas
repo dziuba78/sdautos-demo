@@ -26,9 +26,8 @@ End Sub
 
 
 Sub Zablokuj(oSheet As Object)
-    If Not oSheet.IsProtected Then
-        oSheet.protect(HASLO)
-    End If
+    REM Ochrona arkuszy wyłączona — plik roboczy ma dać się edytować i zapisać bez hasła.
+    REM Nie zakładaj ponownie ochrony po makrach NowaReceptura / KopiujDoWlasnej / ZapiszWersje.
 End Sub
 
 

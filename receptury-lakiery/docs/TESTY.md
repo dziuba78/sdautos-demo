@@ -1,6 +1,6 @@
 # Raport testów
 
-PASS=69 FAIL=0
+PASS=72 FAIL=0
 
 - OK  JSON AC PL opisy >=96 107
 - OK  JSON AC wszystkie z opisem []
@@ -14,9 +14,9 @@ PASS=69 FAIL=0
 - OK  T05 klucz zawiera SYSTEM|
 - OK  T06 Autocolor 123 != Duxone 123
 - OK  T12 wykresy ANALIZA = 4 4
-- OK  T13 ochrona formuł ORYG
-- OK  T13b input odblokowany E12
-- OK  T13c formuła zablokowana D12
+- OK  T13 brak ochrony arkusza ORYG
+- OK  T13b input złoty odblokowany E12
+- OK  T13c formuła szara (flaga locked) D12
 - OK  T13d walidacja ilości
 - OK  T nazwa Meta_System
 - OK  T nazwa MasaOryg
@@ -33,8 +33,11 @@ PASS=69 FAIL=0
 - OK  T AC kolumna OPIS_EN
 - OK  T DUXONE opis nadal PL Najmocniejszy i najbardziej nasycony czarny pigment
 DX5111 jest ciemniejszy patr
-- OK  T ODS istnieje C:\Users\PPG\sdautos-demo\receptury-lakiery\RECEPTURY_LAKIERY.ods
+- OK  T ODS istnieje C:\Users\PPG\sdautos-demo\receptury-lakiery\data\extracted\lo_convert\RECEPTURY_LAKIERY.ods
 - OK  T makra Basic
+- OK  T ODS arkusze bez table:protected=true
+- OK  T ODS bez protection-key
+- OK  T ODS makro bez ponownej ochrony
 - OK  Test1 suma 100
 - OK  Test1 status BEZ ZMIAN
 - OK  Test1 % 50/30/20

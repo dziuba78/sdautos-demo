@@ -12,7 +12,9 @@ from openpyxl import load_workbook
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-from libreoffice_pack import convert  # noqa: E402
+from libreoffice_pack import ODS_UNLOCKED, convert  # noqa: E402
+
+ODS_BUILT = ROOT / "data" / "extracted" / "lo_convert" / "RECEPTURY_LAKIERY.ods"
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -103,9 +105,9 @@ def test_structure():
     charts = wb["ANALIZA"]._charts
     ok("T12 wykresy ANALIZA = 4", len(charts) == 4, str(len(charts)))
     orig = wb["RECEPTURA_ORYGINALNA"]
-    ok("T13 ochrona formuł ORYG", orig.protection.sheet is True)
-    ok("T13b input odblokowany E12", orig["E12"].protection.locked is False)
-    ok("T13c formuła zablokowana D12", orig["D12"].protection.locked is True)
+    ok("T13 brak ochrony arkusza ORYG", orig.protection.sheet is not True)
+    ok("T13b input złoty odblokowany E12", orig["E12"].protection.locked is False)
+    ok("T13c formuła szara (flaga locked) D12", orig["D12"].protection.locked is True)
     ok("T13d walidacja ilości", any(dv.type == "decimal" for dv in orig.data_validations.dataValidation))
     names = set(wb.defined_names.keys())
     for n in ("Meta_System", "MasaOryg", "MasaWlasna", "PigmentyKlucz", "Lista_AUTOCOLOR", "Lista_DUXONE"):
@@ -175,11 +177,30 @@ def test_structure():
             break
     ok("T DUXONE opis nadal PL", bool(dx_sample) and "If more" not in dx_sample, (dx_sample or "")[:80])
     wb.close()
-    ok("T ODS istnieje", ODS.exists(), str(ODS))
     import zipfile
 
-    with zipfile.ZipFile(ODS) as z:
+    def _ods_unlocked() -> Path:
+        for p in (ODS_BUILT, ODS_UNLOCKED, ODS):
+            if not p.exists():
+                continue
+            try:
+                with zipfile.ZipFile(p) as z:
+                    xml = z.read("content.xml").decode("utf-8")
+                if 'table:protected="true"' not in xml:
+                    return p
+            except Exception:
+                continue
+        return ODS
+
+    ods_check = _ods_unlocked()
+    ok("T ODS istnieje", ods_check.exists(), str(ods_check))
+    with zipfile.ZipFile(ods_check) as z:
         ok("T makra Basic", "Basic/Standard/modReceptury.xml" in z.namelist())
+        xml = z.read("content.xml").decode("utf-8")
+        bas = z.read("Basic/Standard/modReceptury.xml").decode("utf-8")
+    ok("T ODS arkusze bez table:protected=true", 'table:protected="true"' not in xml)
+    ok("T ODS bez protection-key", "table:protection-key=" not in xml)
+    ok("T ODS makro bez ponownej ochrony", "Nie zakładaj ponownie ochrony" in bas)
 
 
 def test_json_autocolor_pl():
