@@ -1,6 +1,6 @@
 # Raport testów
 
-PASS=72 FAIL=0
+PASS=81 FAIL=0
 
 - OK  JSON AC PL opisy >=96 107
 - OK  JSON AC wszystkie z opisem []
@@ -24,6 +24,13 @@ PASS=72 FAIL=0
 - OK  T nazwa PigmentyKlucz
 - OK  T nazwa Lista_AUTOCOLOR
 - OK  T nazwa Lista_DUXONE
+- OK  T nazwa ListaAC
+- OK  T nazwa ListaDX
+- OK  T LISTY etykieta AC ma kod P192-475 | REGULATOR BAZY
+- OK  T LISTY etykieta DX ma kod DX5110 | DEEP BLACK
+- OK  T LISTY adres AC LISTY!$F$9:$F$115
+- OK  T DV NR INDIRECT LISTY ['=Lista_Systemow', '=INDIRECT(IF($B12="DUXONE",LISTY!$K$9,LISTY!$J$9))']
+- OK  T klucz wyciąga kod z etykiety =IF(C12="","",B12&"|"&IF(ISNUMBER(FIND(" | ",C12)),TRIM(LEFT(C12,FIND(" | ",C12)
 - OK  T kolizja P426-HE02 oznaczona KOLIZJA NAZW
 - OK  T DX11 do weryfikacji DO WERYFIKACJI
 - OK  T AC opisy działania PL >=96 107
@@ -38,6 +45,8 @@ DX5111 jest ciemniejszy patr
 - OK  T ODS arkusze bez table:protected=true
 - OK  T ODS bez protection-key
 - OK  T ODS makro bez ponownej ochrony
+- OK  T ODS event PrzyOtwarciu
+- OK  T makro DataSelect NR
 - OK  Test1 suma 100
 - OK  Test1 status BEZ ZMIAN
 - OK  Test1 % 50/30/20

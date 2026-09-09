@@ -206,6 +206,34 @@ def add_dv_decimal(ws, sqref: str):
     ws.add_data_validation(dv)
 
 
+def kod_z_pola_nr(cell: str) -> str:
+    """Z komórki NR: goły kod albo etykieta 'P425-900 | nazwa' → sam kod (klucz VLOOKUP)."""
+    return f'IF(ISNUMBER(FIND(" | ",{cell})),TRIM(LEFT({cell},FIND(" | ",{cell})-1)),{cell})'
+
+
+def add_dv_nr_pigmentu(ws, sqref: str, system_cell: str = "$B12"):
+    """Lista NR zależna od SYSTEM w wierszu.
+
+    Calc często nie rozwija INDIRECT(\"Lista_\"&B12) (nazwany zakres).
+    INDIRECT na adresie z LISTY!J9 / K9 (zwykły tekst zakresu) działa pewniej.
+    Wiersz w system_cell jest względny ($B12 → B13, B14…), więc każdy wiersz
+    może mieć inny system (mieszanie AUTOCOLOR / DUXONE).
+    """
+    dv = DataValidation(
+        type="list",
+        formula1=f'=INDIRECT(IF({system_cell}="DUXONE",LISTY!$K$9,LISTY!$J$9))',
+        allow_blank=True,
+        showDropDown=False,
+        showErrorMessage=False,
+        showInputMessage=True,
+        promptTitle="NR PIGMENTU",
+        prompt="Wybierz pigment z listy (baza = SYSTEM w tym wierszu). Nie wpisuj kodu ręcznie.",
+    )
+    dv.add(sqref)
+    ws.add_data_validation(dv)
+    return dv
+
+
 def status_cf(ws, col_letter: str):
     rng = f"{col_letter}{R0}:{col_letter}{R1}"
     rules = [
@@ -392,7 +420,12 @@ def _define(wb, name, ref):
 
 def write_listy(wb, n_ac, n_dx):
     ws = wb.create_sheet("LISTY")
-    banner(ws, "LISTY POMOCNICZE", "D", "Arkusz techniczny — listy rozwijane.")
+    banner(
+        ws,
+        "LISTY POMOCNICZE",
+        "K",
+        "Źródło list rozwijanych NR PIGMENTU. Etykieta = kod | nazwa. Makro i Validity biorą zakres z J9/K9.",
+    )
     ws["A8"] = "SYSTEMY"
     ws["A8"].font = font_h()
     ws["A8"].fill = fill(NAVY2)
@@ -404,12 +437,53 @@ def write_listy(wb, n_ac, n_dx):
     ws["C9"] = 100
     ws["C10"] = 500
     ws["C11"] = 1000
-    ws.column_dimensions["A"].width = 16
-    ws.column_dimensions["C"].width = 18
+    headers = [
+        (5, "AUTOCOLOR_NR"),
+        (6, "AUTOCOLOR_LISTA"),
+        (7, "DUXONE_NR"),
+        (8, "DUXONE_LISTA"),
+        (10, "ADRES_LISTA_AC"),
+        (11, "ADRES_LISTA_DX"),
+    ]
+    for col, title in headers:
+        cell = ws.cell(8, col, title)
+        cell.font = font_h()
+        cell.fill = fill(NAVY2)
+        cell.alignment = align_c()
+    ac = DATA["autocolor"]
+    dx = DATA["duxone"]
+    for i, rec in enumerate(ac):
+        r = 9 + i
+        nr = rec["nr_pigmentu"]
+        naz = (rec.get("nazwa") or "").strip()
+        ws.cell(r, 5, nr)
+        ws.cell(r, 6, f"{nr} | {naz}" if naz else nr)
+    for i, rec in enumerate(dx):
+        r = 9 + i
+        nr = rec["nr_pigmentu"]
+        naz = (rec.get("nazwa") or "").strip()
+        ws.cell(r, 7, nr)
+        ws.cell(r, 8, f"{nr} | {naz}" if naz else nr)
+    last_ac = 8 + n_ac
+    last_dx = 8 + n_dx
+    # Tekst adresu — INDIRECT w Validity (Calc nie rozwija nazwy zakresu przez INDIRECT).
+    ws["J9"] = f"LISTY!$F$9:$F${last_ac}"
+    ws["K9"] = f"LISTY!$H$9:$H${last_dx}"
+    ws["J10"] = n_ac
+    ws["K10"] = n_dx
+    ws["I8"] = "LICZBA"
+    ws["I9"] = "wiersze listy →"
+    ws["I10"] = "liczba kodów →"
+    for col, width in (("A", 16), ("C", 18), ("E", 16), ("F", 42), ("G", 16), ("H", 42), ("I", 18), ("J", 28), ("K", 28)):
+        ws.column_dimensions[col].width = width
     ws.sheet_state = "hidden"
     _define(wb, "Lista_Systemow", "LISTY!$A$9:$A$10")
-    _define(wb, "Lista_AUTOCOLOR", f"BAZA_AUTOCOLOR!$C$9:$C${8 + n_ac}")
-    _define(wb, "Lista_DUXONE", f"BAZA_DUXONE!$C$9:$C${8 + n_dx}")
+    _define(wb, "Lista_AUTOCOLOR", f"LISTY!$F$9:$F${last_ac}")
+    _define(wb, "Lista_DUXONE", f"LISTY!$H$9:$H${last_dx}")
+    _define(wb, "ListaAC", f"LISTY!$F$9:$F${last_ac}")
+    _define(wb, "ListaDX", f"LISTY!$H$9:$H${last_dx}")
+    _define(wb, "ListaAC_NR", f"LISTY!$E$9:$E${last_ac}")
+    _define(wb, "ListaDX_NR", f"LISTY!$G$9:$G${last_dx}")
     _define(wb, "PigmentyKlucz", f"PIGMENTY!$A$9:$I${8 + n_ac + n_dx}")
     protect(ws)
 
@@ -577,7 +651,7 @@ def write_start(wb):
 
     actions = [
         (18, "A", "1. Nowa receptura", "Wyczyść tabele oryginału i własnej, nadaj nowy numer RC, ustaw wersję = 1. Makro: NowaReceptura"),
-        (19, "A", "2. Wpisz oryginał", "Arkusz RECEPTURA_ORYGINALNA: wybierz SYSTEM, potem NR z listy. Ilość w gramach. Nazwa uzupełni się sama."),
+        (19, "A", "2. Wpisz oryginał", "Arkusz RECEPTURA_ORYGINALNA: SYSTEM z listy, potem kliknij NR PIGMENTU — lista z wybranej bazy. Ilość w gramach. Nazwa uzupełni się sama."),
         (20, "A", "3. Kopia → własna", "Makro KopiujDoWlasnej kopiuje skład. Albo przepisz SYSTEM/NR i ilości. ILOŚĆ ORYGINALNA dociąga się kluczem."),
         (21, "A", "4. Modyfikuj", "Zmieniaj złote komórki ilości. Dodawaj pigment z drugiego systemu. Ten sam pigment drugi raz → status DUPLIKAT (zsumuj)."),
         (22, "A", "5. Przelicz masę", "Ustaw masę docelową na START. Kolumna ILOŚĆ DO ZWAŻENIA przelicza na żywo. Makro ZastosujPrzeliczenie zapisuje wartości."),
@@ -665,28 +739,18 @@ def write_oryg(wb):
     ws.row_dimensions[6].height = 6
     ws.merge_cells("A7:J8")
     ws["A7"] = (
-        "Wpisz SYSTEM (AUTOCOLOR lub DUXONE), potem NR z listy zależnej. "
-        "Możesz mieszać systemy. Ilość ≥ 0. Ten sam klucz dwa razy = DUPLIKAT (zsumuj ilości)."
+        "Najpierw SYSTEM (AUTOCOLOR / DUXONE) z listy, potem kliknij NR PIGMENTU — otworzy się lista z tej bazy. "
+        "Każdy wiersz ma własny SYSTEM (można mieszać). Po wyborze numeru nazwa i jednostka uzupełnią się same. "
+        "Ilość ≥ 0. Ten sam klucz dwa razy = DUPLIKAT (zsumuj ilości)."
     )
     ws["A7"].alignment = align_l()
 
     headers = ["LP", "SYSTEM", "NR PIGMENTU", "NAZWA PIGMENTU", "ILOŚĆ", "JEDNOSTKA", "% UDZIAŁU", "UWAGI", "KLUCZ", "KONTROLA"]
-    widths = [6, 14, 16, 36, 12, 12, 12, 28, 22, 18]
+    widths = [6, 14, 36, 36, 12, 12, 12, 28, 22, 18]
     header_row(ws, 11, headers, widths)
     add_dv_list(ws, "=Lista_Systemow", f"B{R0}:B{R1}")
     add_dv_decimal(ws, f"E{R0}:E{R1}")
-    # zależna lista NR — INDIRECT
-    dv_nr = DataValidation(
-        type="list",
-        formula1='=INDIRECT("Lista_"&B12)',
-        allow_blank=True,
-        showDropDown=False,
-        showErrorMessage=False,
-    )
-    # openpyxl applies one formula to range; INDIRECT with B12 is relative in Excel/Calc when added per cell.
-    # Use one DV with sqref; relative refs adjust in Excel. LibreOffice also adjusts.
-    dv_nr.add(f"C{R0}:C{R1}")
-    ws.add_data_validation(dv_nr)
+    add_dv_nr_pigmentu(ws, f"C{R0}:C{R1}", "$B12")
 
     for i, r in enumerate(range(R0, R1 + 1), 1):
         ws.cell(r, 1, f'=IF(C{r}="","",{i})')
@@ -702,7 +766,7 @@ def write_oryg(wb):
         ws.cell(r, 7, f'=IF(OR(C{r}="",MasaOryg=0),"",E{r}/MasaOryg)')
         style_formula(ws.cell(r, 7), "0.00%")
         style_input(ws.cell(r, 8))
-        ws.cell(r, 9, f'=IF(C{r}="","",B{r}&"|"&C{r})')
+        ws.cell(r, 9, f'=IF(C{r}="","",B{r}&"|"&{kod_z_pola_nr(f"C{r}")})')
         style_formula(ws.cell(r, 9))
         ws.cell(
             r,
@@ -766,7 +830,7 @@ def write_wlasna(wb):
     ws.row_dimensions[6].height = 6
     ws.merge_cells("A7:P8")
     ws["A7"] = (
-        "Kolumny złote: SYSTEM, NR, ILOŚĆ WŁASNA, UWAGI. "
+        "Kolumny złote: SYSTEM, NR, ILOŚĆ WŁASNA, UWAGI. Kliknij NR PIGMENTU — lista z bazy SYSTEM w tym wierszu (można mieszać AUTOCOLOR i DUXONE). "
         "ILOŚĆ DO ZWAŻENIA = ilość własna × masa docelowa / masa własna (przeliczenie na 100 g / 500 g / 1 kg / dowolna). "
         "STATUS: BEZ ZMIAN / ZWIĘKSZONO / ZMNIEJSZONO / DODANO / USUNIĘTO. "
         "Usunięcie = ilość własna 0 przy ilości oryginalnej > 0."
@@ -791,20 +855,12 @@ def write_wlasna(wb):
         "WALIDACJA BAZY",
         "KLUCZ",
     ]
-    widths = [6, 14, 16, 32, 16, 14, 12, 12, 16, 16, 14, 22, 16, 14, 16, 22]
+    widths = [6, 14, 36, 32, 16, 14, 12, 12, 16, 16, 14, 22, 16, 14, 16, 22]
     header_row(ws, 11, headers, widths)
     ws.auto_filter.ref = f"A11:P{R1}"
     add_dv_list(ws, "=Lista_Systemow", f"B{R0}:B{R1}")
     add_dv_decimal(ws, f"F{R0}:F{R1}")
-    dv_nr = DataValidation(
-        type="list",
-        formula1='=INDIRECT("Lista_"&B12)',
-        allow_blank=True,
-        showDropDown=False,
-        showErrorMessage=False,
-    )
-    dv_nr.add(f"C{R0}:C{R1}")
-    ws.add_data_validation(dv_nr)
+    add_dv_nr_pigmentu(ws, f"C{R0}:C{R1}", "$B12")
 
     for i, r in enumerate(range(R0, R1 + 1), 1):
         ws.cell(r, 1, f'=IF(C{r}="","",{i})')
@@ -846,7 +902,7 @@ def write_wlasna(wb):
             f'=IF(C{r}="","",IF(B{r}="","BRAK SYSTEMU",IF(ISERROR(VLOOKUP(P{r},PigmentyKlucz,1,FALSE)),"BRAK W BAZIE","OK")))',
         )
         style_formula(ws.cell(r, 15))
-        ws.cell(r, 16, f'=IF(C{r}="","",B{r}&"|"&C{r})')
+        ws.cell(r, 16, f'=IF(C{r}="","",B{r}&"|"&{kod_z_pola_nr(f"C{r}")})')
         style_formula(ws.cell(r, 16))
         for col in (2, 3, 11, 14, 15):
             ws.cell(r, col).alignment = align_c()
@@ -1228,18 +1284,10 @@ def write_dobarwianie(wb):
     ws["A5"] = "Wybierz pigment"
     ws["A5"].font = font_label()
     style_input(ws["B5"])
-    dv = DataValidation(
-        type="list",
-        formula1='=INDIRECT("Lista_"&B4)',
-        allow_blank=True,
-        showDropDown=False,
-        showErrorMessage=False,
-    )
-    dv.add("B5")
-    ws.add_data_validation(dv)
+    add_dv_nr_pigmentu(ws, "B5", "$B4")
     ws["A6"] = "Klucz"
     ws["C6"] = '=IF(B5="","","")'
-    ws["B6"] = '=IF(OR(B4="",B5=""),"",B4&"|"&B5)'
+    ws["B6"] = f'=IF(OR(B4="",B5=""),"",B4&"|"&{kod_z_pola_nr("B5")})'
     style_formula(ws["B6"])
     ws["A7"] = "Nazwa"
     ws["B7"] = '=IF(B6="", "", IFERROR(VLOOKUP(B6,PigmentyKlucz,4,FALSE),"BRAK W BAZIE"))'

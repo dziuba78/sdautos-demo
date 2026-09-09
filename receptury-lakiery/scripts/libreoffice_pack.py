@@ -16,8 +16,10 @@ SOFFICE = Path(r"C:\Program Files\LibreOffice\program\soffice.exe")
 XLSX = ROOT / "RECEPTURY_LAKIERY.xlsx"
 ODS = ROOT / "RECEPTURY_LAKIERY.ods"
 ODS_UNLOCKED = ROOT / "RECEPTURY_LAKIERY_edycja.ods"
+ODS_NOWY = ROOT / "RECEPTURY_LAKIERY_nowy.ods"
 BAS = ROOT / "macros" / "modReceptury.bas"
 LOCK_MAIN = ROOT / ".~lock.RECEPTURY_LAKIERY.ods#"
+LOCK_EDYCJA = ROOT / ".~lock.RECEPTURY_LAKIERY_edycja.ods#"
 
 NS = {"manifest": "urn:oasis:names:tc:opendocument:xmlns:manifest:1.0"}
 
@@ -68,6 +70,35 @@ def unprotect_content_xml(text: str) -> str:
     return text
 
 
+EVENT_LISTENERS = (
+    "<office:scripts>"
+    "<office:event-listeners>"
+    '<script:event-listener script:language="ooo:Basic" '
+    'script:event-name="office:ViewCreated" '
+    'script:macro-name="Standard.modReceptury.PrzyOtwarciu" '
+    'xlink:href="vnd.sun.star.script:Standard.modReceptury.PrzyOtwarciu?language=Basic&amp;location=document" '
+    'xlink:type="simple"/>'
+    '<script:event-listener script:language="ooo:Basic" '
+    'script:event-name="office:Load" '
+    'script:macro-name="Standard.modReceptury.PrzyOtwarciu" '
+    'xlink:href="vnd.sun.star.script:Standard.modReceptury.PrzyOtwarciu?language=Basic&amp;location=document" '
+    'xlink:type="simple"/>'
+    "</office:event-listeners>"
+    "</office:scripts>"
+)
+
+
+def inject_document_events(text: str) -> str:
+    """Podłącz PrzyOtwarciu — listener SelectionChanged / klik NR PIGMENTU."""
+    if "modReceptury.PrzyOtwarciu" in text:
+        return text
+    if "<office:scripts/>" in text:
+        return text.replace("<office:scripts/>", EVENT_LISTENERS, 1)
+    if "<office:scripts></office:scripts>" in text:
+        return text.replace("<office:scripts></office:scripts>", EVENT_LISTENERS, 1)
+    return text.replace("<office:scripts>", EVENT_LISTENERS.replace("</office:scripts>", ""), 1)
+
+
 def inject_macros(ods_path: Path) -> None:
     code = BAS.read_text(encoding="utf-8")
     # StarBasic w XML: escape & < >
@@ -92,10 +123,9 @@ def inject_macros(ods_path: Path) -> None:
             zin.extractall(tmp)
         content = tmp / "content.xml"
         if content.exists():
-            content.write_text(
-                unprotect_content_xml(content.read_text(encoding="utf-8")),
-                encoding="utf-8",
-            )
+            xml = unprotect_content_xml(content.read_text(encoding="utf-8"))
+            xml = inject_document_events(xml)
+            content.write_text(xml, encoding="utf-8")
         basic = tmp / "Basic" / "Standard"
         basic.mkdir(parents=True, exist_ok=True)
         (basic / "script-lb.xml").write_text(lib_xml, encoding="utf-8")
@@ -127,18 +157,35 @@ def _lock_active(lock_path: Path) -> bool:
     return lock_path.exists()
 
 
-def publish_ods(built: Path) -> Path:
-    """Zapisz główny ODS; przy locku LibreOffice nie kasuj pracy — daj kopię edycji."""
+def _try_copy(src: Path, dest: Path) -> bool:
     try:
-        shutil.copy2(built, ODS)
-        print("ODS z makrami:", ODS, "size", ODS.stat().st_size)
+        shutil.copy2(src, dest)
+        print("Zapisano", dest, "size", dest.stat().st_size)
+        return True
     except OSError as exc:
-        print("Nie nadpisano głównego ODS (plik otwarty):", exc)
-    if _lock_active(LOCK_MAIN):
-        shutil.copy2(built, ODS_UNLOCKED)
-        print("Lock LibreOffice aktywny — odblokowana kopia:", ODS_UNLOCKED)
+        print("Nie zapisano", dest, "—", exc)
+        return False
+
+
+def publish_ods(built: Path) -> Path:
+    """Zapisz ODS; przy locku LibreOffice nie kasuj pracy — daj kopię edycji / nowy."""
+    _try_copy(built, ODS)
+    edycja_ok = _try_copy(built, ODS_UNLOCKED)
+    nowy_ok = _try_copy(built, ODS_NOWY)
+    locked = _lock_active(LOCK_MAIN) or _lock_active(LOCK_EDYCJA)
+    if locked:
+        lista = ROOT / "RECEPTURY_LAKIERY_lista.ods"
+        if _try_copy(built, lista):
+            print("Lock LibreOffice aktywny — otwórz świeżą kopię:", lista)
+            return lista
+    if edycja_ok:
         return ODS_UNLOCKED
-    return ODS
+    if nowy_ok:
+        return ODS_NOWY
+    fallback = ROOT / "RECEPTURY_LAKIERY_lista.ods"
+    shutil.copy2(built, fallback)
+    print("Zapisano kopię awaryjną:", fallback)
+    return fallback
 
 
 def open_in_calc(ods_path: Path) -> None:

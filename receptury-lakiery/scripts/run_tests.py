@@ -110,8 +110,23 @@ def test_structure():
     ok("T13c formuła szara (flaga locked) D12", orig["D12"].protection.locked is True)
     ok("T13d walidacja ilości", any(dv.type == "decimal" for dv in orig.data_validations.dataValidation))
     names = set(wb.defined_names.keys())
-    for n in ("Meta_System", "MasaOryg", "MasaWlasna", "PigmentyKlucz", "Lista_AUTOCOLOR", "Lista_DUXONE"):
+    for n in ("Meta_System", "MasaOryg", "MasaWlasna", "PigmentyKlucz", "Lista_AUTOCOLOR", "Lista_DUXONE", "ListaAC", "ListaDX"):
         ok(f"T nazwa {n}", n in names)
+    listy = wb["LISTY"]
+    ac_lab = str(listy["F9"].value or "")
+    dx_lab = str(listy["H9"].value or "")
+    ok("T LISTY etykieta AC ma kod", " | " in ac_lab or ac_lab.startswith("P"), ac_lab[:40])
+    ok("T LISTY etykieta DX ma kod", " | " in dx_lab or dx_lab.startswith("DX") or bool(dx_lab), dx_lab[:40])
+    ok("T LISTY adres AC", "LISTY!" in str(listy["J9"].value or "") and "$F$" in str(listy["J9"].value or ""), str(listy["J9"].value))
+    orig = wb["RECEPTURA_ORYGINALNA"]
+    dv_nr = [
+        dv
+        for dv in orig.data_validations.dataValidation
+        if dv.type == "list" and "LISTY" in str(dv.formula1 or "")
+    ]
+    ok("T DV NR INDIRECT LISTY", len(dv_nr) >= 1, str([dv.formula1 for dv in orig.data_validations.dataValidation if dv.type == "list"]))
+    klucz12 = str(orig["I12"].value or "")
+    ok("T klucz wyciąga kod z etykiety", "FIND" in klucz12 and " | " in klucz12, klucz12[:80])
     # kolizja HE02 zachowana
     he02 = None
     for r in range(9, 9 + n_ac):
@@ -201,6 +216,8 @@ def test_structure():
     ok("T ODS arkusze bez table:protected=true", 'table:protected="true"' not in xml)
     ok("T ODS bez protection-key", "table:protection-key=" not in xml)
     ok("T ODS makro bez ponownej ochrony", "Nie zakładaj ponownie ochrony" in bas)
+    ok("T ODS event PrzyOtwarciu", "PrzyOtwarciu" in xml)
+    ok("T makro DataSelect NR", "DataSelect" in bas and "CzyKomorkaNrPigmentu" in bas)
 
 
 def test_json_autocolor_pl():
