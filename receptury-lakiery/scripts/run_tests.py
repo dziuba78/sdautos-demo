@@ -122,9 +122,11 @@ def test_structure():
     dv_nr = [
         dv
         for dv in orig.data_validations.dataValidation
-        if dv.type == "list" and "LISTY" in str(dv.formula1 or "")
+        if dv.type == "list" and "$T$9" in str(dv.formula1 or "")
     ]
-    ok("T DV NR INDIRECT LISTY", len(dv_nr) >= 1, str([dv.formula1 for dv in orig.data_validations.dataValidation if dv.type == "list"]))
+    ok("T DV NR zakres T (strzałka Calc)", len(dv_nr) >= 1, str([dv.formula1 for dv in orig.data_validations.dataValidation if dv.type == "list"]))
+    ok("T sidelist AC T9", " | " in str(orig["T9"].value or "") or str(orig["T9"].value or "").startswith("P"), str(orig["T9"].value)[:40])
+    ok("T sidelist DX U9", " | " in str(orig["U9"].value or "") or str(orig["U9"].value or "").startswith("DX"), str(orig["U9"].value)[:40])
     klucz12 = str(orig["I12"].value or "")
     ok("T klucz wyciąga kod z etykiety", "FIND" in klucz12 and " | " in klucz12, klucz12[:80])
     # kolizja HE02 zachowana
@@ -217,7 +219,8 @@ def test_structure():
     ok("T ODS bez protection-key", "table:protection-key=" not in xml)
     ok("T ODS makro bez ponownej ochrony", "Nie zakładaj ponownie ochrony" in bas)
     ok("T ODS event PrzyOtwarciu", "PrzyOtwarciu" in xml)
-    ok("T makro DataSelect NR", "DataSelect" in bas and "CzyKomorkaNrPigmentu" in bas)
+    ok("T ODS event OnWyborKomorki", "OnWyborKomorki" in xml)
+    ok("T makro lista pigmentów", "DialogListaPigmentow" in bas and "CzyKomorkaNrPigmentu" in bas)
 
 
 def test_json_autocolor_pl():

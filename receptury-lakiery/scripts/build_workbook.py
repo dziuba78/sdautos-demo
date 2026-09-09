@@ -211,23 +211,49 @@ def kod_z_pola_nr(cell: str) -> str:
     return f'IF(ISNUMBER(FIND(" | ",{cell})),TRIM(LEFT({cell},FIND(" | ",{cell})-1)),{cell})'
 
 
-def add_dv_nr_pigmentu(ws, sqref: str, system_cell: str = "$B12"):
-    """Lista NR zależna od SYSTEM w wierszu.
+def fill_sidelists(ws):
+    """Kolumny T/U na arkuszu receptury — źródło strzałki dropdown w Calc.
 
-    Calc często nie rozwija INDIRECT(\"Lista_\"&B12) (nazwany zakres).
-    INDIRECT na adresie z LISTY!J9 / K9 (zwykły tekst zakresu) działa pewniej.
-    Wiersz w system_cell jest względny ($B12 → B13, B14…), więc każdy wiersz
-    może mieć inny system (mieszanie AUTOCOLOR / DUXONE).
+    Calc pokazuje listę rozwijaną tylko przy zwykłym zakresie komórek
+    (nie przy INDIRECT). Makro podmienia T (AUTOCOLOR) ↔ U (DUXONE) wg SYSTEM.
+    Kolumn nie ukrywać — ukryte źródło też gubi strzałkę.
     """
+    ac = DATA["autocolor"]
+    dx = DATA["duxone"]
+    ws.cell(8, 20, "LISTA_AC")
+    ws.cell(8, 21, "LISTA_DX")
+    ws.cell(8, 20).font = font_h()
+    ws.cell(8, 21).font = font_h()
+    ws.cell(8, 20).fill = fill(NAVY2)
+    ws.cell(8, 21).fill = fill(NAVY2)
+    for i, rec in enumerate(ac):
+        nr = rec["nr_pigmentu"]
+        naz = (rec.get("nazwa") or "").strip()
+        ws.cell(9 + i, 20, f"{nr} | {naz}" if naz else nr)
+    for i, rec in enumerate(dx):
+        nr = rec["nr_pigmentu"]
+        naz = (rec.get("nazwa") or "").strip()
+        ws.cell(9 + i, 21, f"{nr} | {naz}" if naz else nr)
+    ws.column_dimensions["T"].width = 36
+    ws.column_dimensions["U"].width = 36
+
+
+def add_dv_nr_pigmentu(ws, sqref: str, system_cell: str = "$B12"):
+    """Dropdown NR: zwykły zakres $T$9:$T$n (AUTOCOLOR).
+
+    Calc nie rysuje strzałki przy INDIRECT. Makro SelectionChanged / on-change
+    ustawia $U$9:$U$n gdy SYSTEM=DUXONE w tym wierszu.
+    """
+    last_ac = 8 + len(DATA["autocolor"])
     dv = DataValidation(
         type="list",
-        formula1=f'=INDIRECT(IF({system_cell}="DUXONE",LISTY!$K$9,LISTY!$J$9))',
+        formula1=f"=$T$9:$T${last_ac}",
         allow_blank=True,
         showDropDown=False,
         showErrorMessage=False,
         showInputMessage=True,
         promptTitle="NR PIGMENTU",
-        prompt="Wybierz pigment z listy (baza = SYSTEM w tym wierszu). Nie wpisuj kodu ręcznie.",
+        prompt="Kliknij komórkę — lista pigmentów z SYSTEMU tego wiersza (AUTOCOLOR albo DUXONE).",
     )
     dv.add(sqref)
     ws.add_data_validation(dv)
@@ -474,9 +500,11 @@ def write_listy(wb, n_ac, n_dx):
     ws["I8"] = "LICZBA"
     ws["I9"] = "wiersze listy →"
     ws["I10"] = "liczba kodów →"
+    ws["J11"] = f"$LISTY.$F$9:$F${last_ac}"
+    ws["K11"] = f"$LISTY.$H$9:$H${last_dx}"
     for col, width in (("A", 16), ("C", 18), ("E", 16), ("F", 42), ("G", 16), ("H", 42), ("I", 18), ("J", 28), ("K", 28)):
         ws.column_dimensions[col].width = width
-    ws.sheet_state = "hidden"
+    ws.sheet_state = "visible"
     _define(wb, "Lista_Systemow", "LISTY!$A$9:$A$10")
     _define(wb, "Lista_AUTOCOLOR", f"LISTY!$F$9:$F${last_ac}")
     _define(wb, "Lista_DUXONE", f"LISTY!$H$9:$H${last_dx}")
@@ -750,6 +778,7 @@ def write_oryg(wb):
     header_row(ws, 11, headers, widths)
     add_dv_list(ws, "=Lista_Systemow", f"B{R0}:B{R1}")
     add_dv_decimal(ws, f"E{R0}:E{R1}")
+    fill_sidelists(ws)
     add_dv_nr_pigmentu(ws, f"C{R0}:C{R1}", "$B12")
 
     for i, r in enumerate(range(R0, R1 + 1), 1):
@@ -860,6 +889,7 @@ def write_wlasna(wb):
     ws.auto_filter.ref = f"A11:P{R1}"
     add_dv_list(ws, "=Lista_Systemow", f"B{R0}:B{R1}")
     add_dv_decimal(ws, f"F{R0}:F{R1}")
+    fill_sidelists(ws)
     add_dv_nr_pigmentu(ws, f"C{R0}:C{R1}", "$B12")
 
     for i, r in enumerate(range(R0, R1 + 1), 1):
@@ -1284,6 +1314,7 @@ def write_dobarwianie(wb):
     ws["A5"] = "Wybierz pigment"
     ws["A5"].font = font_label()
     style_input(ws["B5"])
+    fill_sidelists(ws)
     add_dv_nr_pigmentu(ws, "B5", "$B4")
     ws["A6"] = "Klucz"
     ws["C6"] = '=IF(B5="","","")'

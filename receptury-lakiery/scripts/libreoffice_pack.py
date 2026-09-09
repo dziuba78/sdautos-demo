@@ -26,7 +26,7 @@ NS = {"manifest": "urn:oasis:names:tc:opendocument:xmlns:manifest:1.0"}
 
 def convert(src: Path, dest_ext: str, outdir: Path) -> Path:
     outdir.mkdir(parents=True, exist_ok=True)
-    profile = ROOT / "data" / "extracted" / "lo_profile"
+    profile = ROOT / "data" / "extracted" / "lo_profile_headless"
     profile.mkdir(parents=True, exist_ok=True)
     uri = profile.resolve().as_uri()
     cmd = [
@@ -88,15 +88,46 @@ EVENT_LISTENERS = (
 )
 
 
+SHEET_EVENTS = (
+    "<office:event-listeners>"
+    '<script:event-listener script:language="ooo:Basic" '
+    'script:event-name="on-select" '
+    'script:macro-name="Standard.modReceptury.OnWyborKomorki" '
+    'xlink:href="vnd.sun.star.script:Standard.modReceptury.OnWyborKomorki?language=Basic&amp;location=document" '
+    'xlink:type="simple"/>'
+    '<script:event-listener script:language="ooo:Basic" '
+    'script:event-name="on-change" '
+    'script:macro-name="Standard.modReceptury.OnZmianaKomorki" '
+    'xlink:href="vnd.sun.star.script:Standard.modReceptury.OnZmianaKomorki?language=Basic&amp;location=document" '
+    'xlink:type="simple"/>'
+    "</office:event-listeners>"
+)
+
+
 def inject_document_events(text: str) -> str:
     """Podłącz PrzyOtwarciu — listener SelectionChanged / klik NR PIGMENTU."""
-    if "modReceptury.PrzyOtwarciu" in text:
-        return text
     if "<office:scripts/>" in text:
         return text.replace("<office:scripts/>", EVENT_LISTENERS, 1)
     if "<office:scripts></office:scripts>" in text:
         return text.replace("<office:scripts></office:scripts>", EVENT_LISTENERS, 1)
+    if "modReceptury.PrzyOtwarciu" in text:
+        return text
     return text.replace("<office:scripts>", EVENT_LISTENERS.replace("</office:scripts>", ""), 1)
+
+
+def inject_sheet_events(text: str) -> str:
+    """Zdarzenia arkusza on-select / on-change — lista NR po kliknięciu."""
+    if "OnWyborKomorki" in text and "table:name=\"RECEPTURA_ORYGINALNA\"" in text:
+        if "on-select" in text:
+            return text
+    for name in ("RECEPTURA_ORYGINALNA", "RECEPTURA_WLASNA", "DOBARWIANIE"):
+        text = re.sub(
+            rf'(<table:table table:name="{name}"[^>]*>)',
+            rf"\1{SHEET_EVENTS}",
+            text,
+            count=1,
+        )
+    return text
 
 
 def inject_macros(ods_path: Path) -> None:
@@ -125,6 +156,7 @@ def inject_macros(ods_path: Path) -> None:
         if content.exists():
             xml = unprotect_content_xml(content.read_text(encoding="utf-8"))
             xml = inject_document_events(xml)
+            xml = inject_sheet_events(xml)
             content.write_text(xml, encoding="utf-8")
         basic = tmp / "Basic" / "Standard"
         basic.mkdir(parents=True, exist_ok=True)
@@ -168,35 +200,77 @@ def _try_copy(src: Path, dest: Path) -> bool:
 
 
 def publish_ods(built: Path) -> Path:
-    """Zapisz ODS; przy locku LibreOffice nie kasuj pracy — daj kopię edycji / nowy."""
+    """Zapisz ODS; przy locku LibreOffice — nowy odblokowany plik i otwórz go."""
     _try_copy(built, ODS)
-    edycja_ok = _try_copy(built, ODS_UNLOCKED)
-    nowy_ok = _try_copy(built, ODS_NOWY)
+    _try_copy(built, ODS_UNLOCKED)
+    _try_copy(built, ODS_NOWY)
     locked = _lock_active(LOCK_MAIN) or _lock_active(LOCK_EDYCJA)
-    if locked:
-        lista = ROOT / "RECEPTURY_LAKIERY_lista.ods"
-        if _try_copy(built, lista):
-            print("Lock LibreOffice aktywny — otwórz świeżą kopię:", lista)
-            return lista
-    if edycja_ok:
+    fresh = ROOT / "RECEPTURY_LAKIERY_dropdown.ods"
+    if locked or not ODS_UNLOCKED.exists():
+        if _try_copy(built, fresh):
+            print("Lock LibreOffice aktywny — otwórz świeżą kopię:", fresh)
+            return fresh
+    if ODS_UNLOCKED.exists() and not _lock_active(LOCK_EDYCJA):
         return ODS_UNLOCKED
-    if nowy_ok:
-        return ODS_NOWY
-    fallback = ROOT / "RECEPTURY_LAKIERY_lista.ods"
-    shutil.copy2(built, fallback)
-    print("Zapisano kopię awaryjną:", fallback)
-    return fallback
+    if fresh.exists():
+        return fresh
+    lista = ROOT / "RECEPTURY_LAKIERY_lista.ods"
+    _try_copy(built, lista)
+    return lista
+
+
+def ensure_lo_macros_allowed(profile: Path) -> None:
+    """W profilu konwersji/podglądu zezwól na makra (inaczej lista NR się nie otworzy)."""
+    user = profile / "user"
+    user.mkdir(parents=True, exist_ok=True)
+    xcu = user / "registrymodifications.xcu"
+    snippet = (
+        '<item oor:path="/org.openoffice.Office.Common/Security/Scripting">'
+        '<prop oor:name="MacroSecurityLevel" oor:op="fuse"><value>0</value></prop>'
+        "</item>"
+    )
+    if xcu.exists():
+        text = xcu.read_text(encoding="utf-8", errors="replace")
+        if "MacroSecurityLevel" in text:
+            text = re.sub(
+                r'<prop oor:name="MacroSecurityLevel"[^>]*>.*?</prop>',
+                '<prop oor:name="MacroSecurityLevel" oor:op="fuse"><value>0</value></prop>',
+                text,
+                count=1,
+                flags=re.S,
+            )
+            xcu.write_text(text, encoding="utf-8")
+            return
+        if "</oor:items>" in text:
+            xcu.write_text(text.replace("</oor:items>", snippet + "</oor:items>", 1), encoding="utf-8")
+            return
+    xcu.write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<oor:items xmlns:oor="http://openoffice.org/2001/registry" '
+        'xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\n'
+        f"{snippet}\n</oor:items>\n",
+        encoding="utf-8",
+    )
 
 
 def open_in_calc(ods_path: Path) -> None:
     if not SOFFICE.exists():
         print("Brak soffice.exe — otwórz ręcznie:", ods_path)
         return
+    profile = ROOT / "data" / "extracted" / "lo_profile_gui"
+    ensure_lo_macros_allowed(profile)
+    uri = profile.resolve().as_uri()
     subprocess.Popen(
-        [str(SOFFICE), "--norestore", "--nolockcheck", str(ods_path)],
+        [
+            str(SOFFICE),
+            "--norestore",
+            "--nolockcheck",
+            f"-env:UserInstallation={uri}",
+            str(ods_path),
+        ],
         cwd=str(ROOT),
     )
-    print("Otwarto w LibreOffice:", ods_path)
+    print("Otwarto w LibreOffice (makra włączone):", ods_path)
 
 
 def main() -> None:

@@ -266,13 +266,13 @@ End Sub
 
 
 REM ===== Lista rozwijana NR PIGMENTU (zależna od SYSTEM w wierszu) =====
+REM Calc pokazuje strzałkę TYLKO przy zwykłym zakresie ($T$9:$T$n / $U$9:$U$n).
+REM INDIRECT w Validity nie rysuje dropdownu — nie używać jako źródła listy.
 
 Sub PrzyOtwarciu
     On Error Resume Next
-    If gInitLista Then
-        UstawWalidacjeWszystkichNr
-        Exit Sub
-    End If
+    UstawWalidacjeWszystkichNr
+    If gInitLista Then Exit Sub
     gSelListener = CreateUnoListener("Sel_", "com.sun.star.view.XSelectionChangeListener")
     ThisComponent.CurrentController.addSelectionChangeListener(gSelListener)
     gMouseListener = CreateUnoListener("Mysz_", "com.sun.star.awt.XEnhancedMouseClickHandler")
@@ -280,7 +280,36 @@ Sub PrzyOtwarciu
     Arkusz("RECEPTURA_WLASNA").addEnhancedMouseEventListener(gMouseListener)
     Arkusz("DOBARWIANIE").addEnhancedMouseEventListener(gMouseListener)
     gInitLista = True
-    UstawWalidacjeWszystkichNr
+End Sub
+
+
+Sub OnWyborKomorki
+    REM Zdarzenie arkusza on-select (wstrzyknięte do ODS).
+    Dim oSel As Object
+    If gBusyLista Then Exit Sub
+    On Error Resume Next
+    oSel = ThisComponent.CurrentSelection
+    If IsNull(oSel) Then Exit Sub
+    If Not oSel.SupportsService("com.sun.star.sheet.SheetCell") Then Exit Sub
+    If CzyKomorkaNrPigmentu(oSel) Then
+        ObsluzKomorkeNr oSel, True
+    ElseIf CzyKomorkaSystemu(oSel) Then
+        UstawWalidacjeKomorkiNr KomorkaNrZWiersza(oSel), UCase(Trim(oSel.String))
+    End If
+End Sub
+
+
+Sub OnZmianaKomorki
+    REM Po wyborze SYSTEM w kolumnie B — ustaw źródło listy NR w tym wierszu.
+    Dim oSel As Object
+    If gBusyLista Then Exit Sub
+    On Error Resume Next
+    oSel = ThisComponent.CurrentSelection
+    If IsNull(oSel) Then Exit Sub
+    If Not oSel.SupportsService("com.sun.star.sheet.SheetCell") Then Exit Sub
+    If CzyKomorkaSystemu(oSel) Then
+        UstawWalidacjeKomorkiNr KomorkaNrZWiersza(oSel), UCase(Trim(oSel.String))
+    End If
 End Sub
 
 
@@ -296,6 +325,11 @@ Sub Sel_selectionChanged(oEvt)
     If IsNull(oSel) Then Exit Sub
     If Not oSel.SupportsService("com.sun.star.sheet.SheetCell") Then
         gLastNrAddr = ""
+        Exit Sub
+    End If
+    If CzyKomorkaSystemu(oSel) Then
+        gLastNrAddr = ""
+        UstawWalidacjeKomorkiNr KomorkaNrZWiersza(oSel), UCase(Trim(oSel.String))
         Exit Sub
     End If
     If Not CzyKomorkaNrPigmentu(oSel) Then
@@ -327,6 +361,10 @@ Function Mysz_mouseReleased(oEvt As Object) As Boolean
     oCell = oEvt.Target
     If IsNull(oCell) Then Exit Function
     If Not oCell.SupportsService("com.sun.star.sheet.SheetCell") Then Exit Function
+    If CzyKomorkaSystemu(oCell) Then
+        UstawWalidacjeKomorkiNr KomorkaNrZWiersza(oCell), UCase(Trim(oCell.String))
+        Exit Function
+    End If
     If Not CzyKomorkaNrPigmentu(oCell) Then Exit Function
     gLastNrAddr = oCell.AbsoluteName
     ObsluzKomorkeNr oCell, True
@@ -354,6 +392,34 @@ Function CzyKomorkaNrPigmentu(oCell As Object) As Boolean
 End Function
 
 
+Function CzyKomorkaSystemu(oCell As Object) As Boolean
+    Dim s As String
+    Dim col As Long
+    Dim row As Long
+    CzyKomorkaSystemu = False
+    On Error Resume Next
+    s = oCell.Spreadsheet.Name
+    col = oCell.CellAddress.Column
+    row = oCell.CellAddress.Row + 1
+    If s = "RECEPTURA_ORYGINALNA" Or s = "RECEPTURA_WLASNA" Then
+        If col = 1 And row >= R0 And row <= R1 Then CzyKomorkaSystemu = True
+    ElseIf s = "DOBARWIANIE" Then
+        If col = 1 And row = 4 Then CzyKomorkaSystemu = True
+    End If
+End Function
+
+
+Function KomorkaNrZWiersza(oSys As Object) As Object
+    Dim s As String
+    s = oSys.Spreadsheet.Name
+    If s = "DOBARWIANIE" Then
+        KomorkaNrZWiersza = oSys.Spreadsheet.getCellRangeByName("B5")
+    Else
+        KomorkaNrZWiersza = oSys.Spreadsheet.getCellByPosition(2, oSys.CellAddress.Row)
+    End If
+End Function
+
+
 Function SystemZKomorkiNr(oCell As Object) As String
     Dim s As String
     Dim row As Long
@@ -367,23 +433,21 @@ Function SystemZKomorkiNr(oCell As Object) As String
 End Function
 
 
-Function AdresListyPigmentow(sys As String) As String
-    Dim nazwa As String
+Function AdresListyPigmentow(oSheet As Object, sys As String) As String
+    Dim n As Long
+    Dim oL As Object
     AdresListyPigmentow = ""
+    On Error Resume Next
+    oL = Arkusz("LISTY")
     sys = UCase(Trim(sys))
     If sys = "DUXONE" Then
-        nazwa = "ListaDX"
-        If Not ThisComponent.NamedRanges.hasByName(nazwa) Then nazwa = "Lista_DUXONE"
+        n = CLng(oL.getCellRangeByName("K10").Value)
+        If n < 1 Then n = 79
+        AdresListyPigmentow = "$U$9:$U$" & CStr(8 + n)
     ElseIf sys = "AUTOCOLOR" Then
-        nazwa = "ListaAC"
-        If Not ThisComponent.NamedRanges.hasByName(nazwa) Then nazwa = "Lista_AUTOCOLOR"
-    Else
-        Exit Function
-    End If
-    On Error Resume Next
-    AdresListyPigmentow = ThisComponent.NamedRanges.getByName(nazwa).getReferredCells().AbsoluteName
-    If AdresListyPigmentow = "" Then
-        AdresListyPigmentow = ThisComponent.NamedRanges.getByName(nazwa).Content
+        n = CLng(oL.getCellRangeByName("J10").Value)
+        If n < 1 Then n = 107
+        AdresListyPigmentow = "$T$9:$T$" & CStr(8 + n)
     End If
 End Function
 
@@ -391,7 +455,8 @@ End Function
 Sub UstawWalidacjeKomorkiNr(oCell As Object, sys As String)
     Dim oVal As Object
     Dim adres As String
-    adres = AdresListyPigmentow(sys)
+    If IsNull(oCell) Then Exit Sub
+    adres = AdresListyPigmentow(oCell.Spreadsheet, sys)
     If adres = "" Then Exit Sub
     On Error Resume Next
     oVal = oCell.Validation
@@ -401,7 +466,7 @@ Sub UstawWalidacjeKomorkiNr(oCell As Object, sys As String)
     oVal.ShowErrorMessage = False
     oVal.ShowInputMessage = True
     oVal.InputTitle = "NR PIGMENTU"
-    oVal.InputMessage = "Lista pigmentów " & sys & " (ten wiersz). Wybierz z listy."
+    oVal.InputMessage = "Lista pigmentów " & sys & " — wybierz z listy, nie wpisuj kodu."
     oVal.Formula1 = adres
     oCell.Validation = oVal
 End Sub
@@ -409,6 +474,7 @@ End Sub
 
 Sub ObsluzKomorkeNr(oCell As Object, bOtworz As Boolean)
     Dim sys As String
+    Dim wybrane As String
     If gBusyLista Then Exit Sub
     gBusyLista = True
     On Error Resume Next
@@ -416,17 +482,100 @@ Sub ObsluzKomorkeNr(oCell As Object, bOtworz As Boolean)
     If sys <> "AUTOCOLOR" And sys <> "DUXONE" Then
         gBusyLista = False
         If bOtworz Then
-            MsgBox "Najpierw wybierz SYSTEM (AUTOCOLOR lub DUXONE) w tym wierszu.", 64, "NR PIGMENTU"
+            MsgBox "Najpierw kliknij SYSTEM w tym wierszu i wybierz AUTOCOLOR albo DUXONE.", 64, "NR PIGMENTU"
         End If
         Exit Sub
     End If
     UstawWalidacjeKomorkiNr oCell, sys
     If bOtworz Then
-        Wait 40
-        OtworzListeRozwijana
+        wybrane = DialogListaPigmentow(oCell.Spreadsheet, sys, Trim(oCell.String))
+        If wybrane <> "" Then
+            oCell.String = wybrane
+            Przelicz()
+        End If
     End If
     gBusyLista = False
 End Sub
+
+
+Function DialogListaPigmentow(oSheet As Object, sys As String, biezace As String) As String
+    REM Widoczna lista (kod | nazwa). Zwraca etykietę albo "".
+    Dim oDlgModel As Object
+    Dim oDlg As Object
+    Dim oLstM As Object
+    Dim oOkM As Object
+    Dim oAnM As Object
+    Dim oTk As Object
+    Dim oList As Object
+    Dim col As Integer
+    Dim i As Integer
+    Dim n As Long
+    Dim txt As String
+    Dim sel As Integer
+    Dim oL As Object
+    DialogListaPigmentow = ""
+    On Error Resume Next
+    oL = Arkusz("LISTY")
+    If UCase(sys) = "DUXONE" Then
+        col = 20
+        n = CLng(oL.getCellRangeByName("K10").Value)
+        If n < 1 Then n = 79
+    Else
+        col = 19
+        n = CLng(oL.getCellRangeByName("J10").Value)
+        If n < 1 Then n = 107
+    End If
+    oDlgModel = CreateUnoService("com.sun.star.awt.UnoControlDialogModel")
+    oDlgModel.Title = "Pigmenty " & sys & " — wybierz z listy"
+    oDlgModel.Width = 240
+    oDlgModel.Height = 220
+    oDlgModel.Closeable = True
+    oLstM = oDlgModel.createInstance("com.sun.star.awt.UnoControlListBoxModel")
+    oLstM.Name = "Lista"
+    oLstM.PositionX = 6
+    oLstM.PositionY = 6
+    oLstM.Width = 228
+    oLstM.Height = 190
+    oLstM.Dropdown = False
+    oLstM.MultiSelection = False
+    oDlgModel.insertByName("Lista", oLstM)
+    oOkM = oDlgModel.createInstance("com.sun.star.awt.UnoControlButtonModel")
+    oOkM.Name = "OK"
+    oOkM.PositionX = 124
+    oOkM.PositionY = 200
+    oOkM.Width = 50
+    oOkM.Height = 14
+    oOkM.Label = "OK"
+    oOkM.PushButtonType = 1
+    oOkM.DefaultButton = True
+    oDlgModel.insertByName("OK", oOkM)
+    oAnM = oDlgModel.createInstance("com.sun.star.awt.UnoControlButtonModel")
+    oAnM.Name = "Anuluj"
+    oAnM.PositionX = 178
+    oAnM.PositionY = 200
+    oAnM.Width = 50
+    oAnM.Height = 14
+    oAnM.Label = "Anuluj"
+    oAnM.PushButtonType = 2
+    oDlgModel.insertByName("Anuluj", oAnM)
+    oDlg = CreateUnoService("com.sun.star.awt.UnoControlDialog")
+    oDlg.setModel(oDlgModel)
+    oTk = CreateUnoService("com.sun.star.awt.Toolkit")
+    oDlg.createPeer(oTk, oTk.getDesktopWindow())
+    oList = oDlg.getControl("Lista")
+    For i = 0 To n - 1
+        txt = Trim(oSheet.getCellByPosition(col, 8 + i).String)
+        If txt <> "" Then
+            oList.addItem(txt, oList.getItemCount())
+            If txt = biezace Then oList.selectItemPos(oList.getItemCount() - 1, True)
+        End If
+    Next i
+    If oDlg.execute() = 1 Then
+        sel = oList.getSelectedItemPos()
+        If sel >= 0 Then DialogListaPigmentow = oList.getItem(sel)
+    End If
+    oDlg.dispose()
+End Function
 
 
 Sub OtworzListeRozwijana
