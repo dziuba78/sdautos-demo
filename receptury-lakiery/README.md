@@ -6,7 +6,8 @@ Narzędzie robocze (LibreOffice Calc + Microsoft Excel) do tworzenia, mieszania 
 
 | Plik | Przeznaczenie |
 | --- | --- |
-| `RECEPTURY_LAKIERY.ods` | Główny plik roboczy w LibreOffice (z makrami StarBasic) |
+| `RECEPTURY_LAKIERY_dropdown.ods` | Aktualny plik roboczy (listy SYSTEM/NR, bez ochrony, polskie opisy) |
+| `RECEPTURY_LAKIERY_import.ods` | Kopia robocza, gdy dropdown jest otwarty w LibreOffice (lock) |
 | `RECEPTURY_LAKIERY.xlsx` | Ten sam model danych i formuł dla Microsoft Excel |
 
 Oryginalne źródła **nie są zmieniane**. Kopie: `data/backup/`.
@@ -22,24 +23,36 @@ Priorytet nazw: **PDF dobarwiania** > katalog ODS. Kolizje (np. `P426-HE02`) są
 
 ## Uruchomienie
 
-1. Otwórz `RECEPTURY_LAKIERY.ods` w LibreOffice Calc.
+1. Otwórz **aktualny** ODS w LibreOffice Calc (`RECEPTURY_LAKIERY_dropdown.ods` albo `RECEPTURY_LAKIERY_import.ods` — patrz komunikat po przebudowie).
 2. Zezwól na makra (lokalny plik, bez sieci).
 3. Na arkuszu **START** wybierz system bazowy i wypełnij identyfikację (komórki złote).
-4. Wpisz skład na **RECEPTURA_ORYGINALNA** (SYSTEM z listy, potem NR z listy).
-5. Makro `KopiujDoWlasnej` albo przepisz skład na **RECEPTURA_WLASNA**.
+4. Wpisz skład na **RECEPTURA_ORYGINALNA** (SYSTEM z listy, potem NR z listy) **albo zaimportuj PDF** (poniżej).
+5. Makro `KopiujDoWlasnej` albo przepisz skład na **RECEPTURA_WLASNA** (import PDF kopiuje skład sam).
 6. Modyfikuj ilości, dodawaj pigmenty z **drugiego** systemu — to jest dozwolone.
 7. Masa docelowa na START (100 / 500 / 1000 / dowolna) — kolumna **ILOŚĆ DO ZWAŻENIA** przelicza na żywo.
 8. **ANALIZA** — wykresy, **RAPORT** — wydruk, **HISTORIA** — makro `ZapiszWersje`.
 
-Makra: *Narzędzia → Makra → Uruchom makro → RECEPTURY_LAKIERY.ods → Standard → modReceptury*
+Makra: *Narzędzia → Makra → Uruchom makro → (otwarty ODS) → Standard → modReceptury*
 
 - `NowaReceptura`
 - `KopiujDoWlasnej`
 - `ZastosujPrzeliczenie`
 - `ZapiszWersje`
 - `ScalDuplikaty`
+- `ImportujZPdf`
+- `WczytajOstatniImport`
 
 Arkusze są **bez ochrony** — edycja i zapis (Ctrl+S) bez hasła. Komórki złote = wpis, szare = formuła.
+
+## Import receptury z PDF
+
+1. Na START użyj przycisku **Importuj recepturę z PDF** (albo makro `ImportujZPdf`).
+2. Wskaż plik PDF w oknie LibreOffice. Parser (Python + pymupdf: `scripts/import_receptura_pdf.py`) zapisuje `data/import/ostatni.json` i `ostatni.txt`.
+3. Skład trafia na **RECEPTURA_ORYGINALNA** i jest kopiowany na **RECEPTURA_WLASNA**. Meta (kod/nazwa koloru, data) — gdy da się odczytać z PDF.
+4. Gdy Python nie wstanie: `python scripts/import_receptura_pdf.py "C:\sciezka\receptura.pdf"`, potem przycisk **Wczytaj ostatni import**.
+5. Przykład testowy: `data/import/przyklad_receptura_test.pdf`. Przewodnik tint chart **nie** jest recepturą — komunikat „nie znaleziono receptury”, skład nie jest czyszczony.
+
+SYSTEM pigmentu wynika ze **wzorca kodu** (P192/P420/… = AUTOCOLOR, DX/AXT = DUXONE), nie z gołego numeru. Nieznany kod: wiersz zostaje, uwagi `DO WERYFIKACJI`. Bazy pigmentów nie są nadpisywane.
 
 ## Klucz pigmentu
 

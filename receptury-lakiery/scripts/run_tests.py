@@ -13,6 +13,15 @@ from openpyxl import load_workbook
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 from libreoffice_pack import ODS_UNLOCKED, convert  # noqa: E402
+from import_receptura_pdf import (  # noqa: E402
+    IMPORT_DIR,
+    classify_system,
+    load_known_codes,
+    make_noqty_pdf,
+    make_test_pdf,
+    parse_receptura_pdf,
+    write_outputs,
+)
 
 ODS_BUILT = ROOT / "data" / "extracted" / "lo_convert" / "RECEPTURY_LAKIERY.ods"
 
@@ -104,13 +113,16 @@ def test_structure():
     ok("T06 Autocolor 123 != Duxone 123", "AUTOCOLOR|123" != "DUXONE|123")
     charts = wb["ANALIZA"]._charts
     ok("T12 wykresy ANALIZA = 4", len(charts) == 4, str(len(charts)))
+    start = wb["START"]
+    ok("T START import PDF", "PDF" in str(start["A34"].value or "") and "ImportujZPdf" in str(start["C24"].value or ""), str(start["A34"].value)[:50])
+    ok("T START sciezka PDF", start["A35"].value == "Ścieżka PDF")
     orig = wb["RECEPTURA_ORYGINALNA"]
     ok("T13 brak ochrony arkusza ORYG", orig.protection.sheet is not True)
     ok("T13b input złoty odblokowany E12", orig["E12"].protection.locked is False)
     ok("T13c formuła szara (flaga locked) D12", orig["D12"].protection.locked is True)
     ok("T13d walidacja ilości", any(dv.type == "decimal" for dv in orig.data_validations.dataValidation))
     names = set(wb.defined_names.keys())
-    for n in ("Meta_System", "MasaOryg", "MasaWlasna", "PigmentyKlucz", "Lista_AUTOCOLOR", "Lista_DUXONE", "ListaAC", "ListaDX"):
+    for n in ("Meta_System", "MasaOryg", "MasaWlasna", "PigmentyKlucz", "Lista_AUTOCOLOR", "Lista_DUXONE", "ListaAC", "ListaDX", "Import_PdfSciezka"):
         ok(f"T nazwa {n}", n in names)
     listy = wb["LISTY"]
     ac_lab = str(listy["F9"].value or "")
@@ -221,6 +233,8 @@ def test_structure():
     ok("T ODS event PrzyOtwarciu", "PrzyOtwarciu" in xml)
     ok("T ODS event OnWyborKomorki", "OnWyborKomorki" in xml)
     ok("T makro lista pigmentów", "DialogListaPigmentow" in bas and "CzyKomorkaNrPigmentu" in bas)
+    ok("T makro ImportujZPdf", "ImportujZPdf" in bas and "WczytajOstatniImport" in bas)
+    ok("T ODS przycisk importu", "btnImportPdf" in xml or "ImportujZPdf" in xml)
 
 
 def test_json_autocolor_pl():
@@ -440,8 +454,43 @@ def test_libreoffice_recalc():
     ok("LO Test5 DODANO", "DODANO" in str(w5.iloc[14, 10]).upper(), str(w5.iloc[14, 10]))
 
 
+def test_import_pdf():
+    pig_path = ROOT / "data" / "extracted" / "pigmenty.json"
+    pig_before = pig_path.read_bytes()
+    known = load_known_codes()
+    ok("T import SYSTEM ze wzorca AC", classify_system("P425-900") == "AUTOCOLOR")
+    ok("T import SYSTEM ze wzorca DX", classify_system("DX5110") == "DUXONE")
+    ok("T import 123 bez wzorca", classify_system("123") is None)
+    IMPORT_DIR.mkdir(parents=True, exist_ok=True)
+    good = make_test_pdf(IMPORT_DIR / "przyklad_receptura_test.pdf")
+    bad = make_noqty_pdf(IMPORT_DIR / "przyklad_brak_receptury.pdf")
+    r1 = parse_receptura_pdf(good, known)
+    write_outputs(r1, IMPORT_DIR)
+    nrs = [p["nr"] for p in r1.get("pozycje") or []]
+    syss = [p["system"] for p in r1.get("pozycje") or []]
+    ok("T import test PDF 4 pozycje", r1.get("ok") is True and len(nrs) == 4, str(nrs))
+    ok("T import kody", nrs == ["P425-900", "P425-984", "DX5110", "P425-ZZ99"], str(nrs))
+    ok("T import systemy wzorzec", syss == ["AUTOCOLOR", "AUTOCOLOR", "DUXONE", "AUTOCOLOR"], str(syss))
+    zz = next((p for p in r1.get("pozycje") or [] if p["nr"] == "P425-ZZ99"), None)
+    ok("T import nieznany DO WERYFIKACJI", bool(zz) and zz["znany"] is False and zz["uwagi"] == "DO WERYFIKACJI", str(zz))
+    r2 = parse_receptura_pdf(bad, known)
+    ok("T import bez ilości", r2.get("ok") is False and "nie znaleziono receptury" in (r2.get("komunikat") or ""), r2.get("komunikat"))
+    tint = ROOT / "data" / "backup" / "nexa-autocolor-2k-tint-chart-guide.pdf"
+    if tint.exists():
+        r3 = parse_receptura_pdf(tint, known)
+        ok(
+            "T import tint chart nie jest recepturą",
+            r3.get("ok") is False and "nie znaleziono receptury" in (r3.get("komunikat") or ""),
+            r3.get("komunikat"),
+        )
+    else:
+        ok("T import tint chart nie jest recepturą", False, "brak PDF")
+    ok("T import nie rusza pigmenty.json", pig_path.read_bytes() == pig_before)
+
+
 def main():
     test_json_autocolor_pl()
+    test_import_pdf()
     test_structure()
     test_math_independent()
     test_libreoffice_recalc()

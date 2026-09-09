@@ -684,6 +684,7 @@ def write_start(wb):
         (21, "A", "4. Modyfikuj", "Zmieniaj złote komórki ilości. Dodawaj pigment z drugiego systemu. Ten sam pigment drugi raz → status DUPLIKAT (zsumuj)."),
         (22, "A", "5. Przelicz masę", "Ustaw masę docelową na START. Kolumna ILOŚĆ DO ZWAŻENIA przelicza na żywo. Makro ZastosujPrzeliczenie zapisuje wartości."),
         (23, "A", "6. Analiza / raport", "Otwórz ANALIZA (wykresy) i RAPORT (wydruk). HISTORIA — makro ZapiszWersje nie nadpisuje poprzednich wersji."),
+        (24, "A", "7. Import z PDF", "Makro ImportujZPdf: wskaż PDF receptury Autocolor/Duxone (kody + ilości w g). WczytajOstatniImport ładuje data/import/ostatni.json. Tint chart bez ilości = komunikat, bez zmiany składu."),
     ]
     for row, col, title, desc in actions:
         ws[f"{col}{row}"] = title
@@ -730,9 +731,54 @@ def write_start(wb):
     )
     ws["A29"].alignment = Alignment(wrap_text=True, vertical="top")
     ws["A29"].fill = fill("EEF1F6")
+
+    ws.merge_cells("A34:L34")
+    ws["A34"] = "IMPORT RECEPTURY Z PDF   |   makro ImportujZPdf  ·  WczytajOstatniImport"
+    ws["A34"].font = Font(name="Calibri", size=12, bold=True, color=WHITE)
+    ws["A34"].fill = fill(NAVY2)
+    ws["A35"] = "Ścieżka PDF"
+    ws["A35"].font = font_label()
+    ws["A35"].fill = fill("EEF1F6")
+    ws.merge_cells("C35:L35")
+    style_input(ws["C35"])
+    _define(wb, "Import_PdfSciezka", "START!$C$35")
+    ws["A36"] = "Status importu"
+    ws["A36"].font = font_label()
+    ws["A36"].fill = fill("EEF1F6")
+    ws.merge_cells("C36:L36")
+    ws["C36"] = "Wskaż PDF przyciskiem albo: Narzędzia → Makra → ImportujZPdf"
+    style_input(ws["C36"])
+    ws.merge_cells("A37:L37")
+    ws["A37"] = (
+        "Parser (Python pymupdf) szuka kodów Autocolor (P192/P420/P425/P426/P429/P433/P434/P435/P440/P450, VM) "
+        "i Duxone (DX…, AXT…) oraz ilości w gramach. SYSTEM pigmentu ze wzorca kodu (AUTOCOLOR 123 ≠ DUXONE 123). "
+        "Nieznany kod: wiersz zostaje, uwagi DO WERYFIKACJI. Bazy pigmentów nie są nadpisywane."
+    )
+    ws["A37"].alignment = Alignment(wrap_text=True, vertical="center")
+    ws.row_dimensions[37].height = 36
+    ws["A38"] = "► Importuj recepturę z PDF"
+    ws["A38"].font = Font(name="Calibri", size=11, bold=True, color=NAVY)
+    ws["A38"].fill = fill(INPUT)
+    ws["A38"].alignment = align_c()
+    ws["A38"].border = thin
+    ws.merge_cells("A38:C38")
+    ws["E38"] = "► Wczytaj ostatni import"
+    ws["E38"].font = Font(name="Calibri", size=11, bold=True, color=NAVY)
+    ws["E38"].fill = fill(INPUT)
+    ws["E38"].alignment = align_c()
+    ws["E38"].border = thin
+    ws.merge_cells("E38:H38")
+    ws.merge_cells("A39:L40")
+    ws["A39"] = (
+        "Przykład testowy: data/import/przyklad_receptura_test.pdf. "
+        "Przewodniki tint chart (bez kolumny ilości) nie są recepturą — pojawi się „nie znaleziono receptury”, skład nie zostanie wyczyszczony."
+    )
+    ws["A39"].alignment = Alignment(wrap_text=True, vertical="top")
     protect(ws)
     for row in range(5, 16):
         ws[f"C{row}"].protection = Protection(locked=False)
+    ws["C35"].protection = Protection(locked=False)
+    ws["C36"].protection = Protection(locked=False)
 
 
 def write_oryg(wb):

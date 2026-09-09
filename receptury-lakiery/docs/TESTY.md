@@ -1,12 +1,22 @@
 # Raport testów
 
-PASS=84 FAIL=0
+PASS=99 FAIL=0
 
 - OK  JSON AC PL opisy >=96 107
 - OK  JSON AC wszystkie z opisem []
 - OK  JSON AC brak EN lead []
 - OK  JSON AC baza >=96 107
 - OK  JSON DUXONE nie nadpisany EN []
+- OK  T import SYSTEM ze wzorca AC
+- OK  T import SYSTEM ze wzorca DX
+- OK  T import 123 bez wzorca
+- OK  T import test PDF 4 pozycje ['P425-900', 'P425-984', 'DX5110', 'P425-ZZ99']
+- OK  T import kody ['P425-900', 'P425-984', 'DX5110', 'P425-ZZ99']
+- OK  T import systemy wzorzec ['AUTOCOLOR', 'AUTOCOLOR', 'DUXONE', 'AUTOCOLOR']
+- OK  T import nieznany DO WERYFIKACJI {'system': 'AUTOCOLOR', 'nr': 'P425-ZZ99', 'ilosc': 7.5, 'jednostka': 'g', 'znany': False, 'nazwa': '', 'uwagi': 'DO WERYFIKACJI'}
+- OK  T import bez ilości nie znaleziono receptury
+- OK  T import tint chart nie jest recepturą nie znaleziono receptury
+- OK  T import nie rusza pigmenty.json
 - OK  T01 arkusze ['START', 'RECEPTURA_ORYGINALNA', 'RECEPTURA_WLASNA', 'ANALIZA', 'RAPORT', 'HISTORIA', 'DOBARWIANIE', 'BAZA_AUTOCOLOR', 'BAZA_DUXONE', 'PIGMENTY', 'USTAWIENIA', 'HISTORIA_POZYCJE', 'DANE_WYKRESOW', 'LISTY']
 - OK  T02 baza AUTOCOLOR >=96 107
 - OK  T03 baza DUXONE >=79 79
@@ -14,6 +24,8 @@ PASS=84 FAIL=0
 - OK  T05 klucz zawiera SYSTEM|
 - OK  T06 Autocolor 123 != Duxone 123
 - OK  T12 wykresy ANALIZA = 4 4
+- OK  T START import PDF IMPORT RECEPTURY Z PDF   |   makro ImportujZPdf  ·
+- OK  T START sciezka PDF
 - OK  T13 brak ochrony arkusza ORYG
 - OK  T13b input złoty odblokowany E12
 - OK  T13c formuła szara (flaga locked) D12
@@ -26,6 +38,7 @@ PASS=84 FAIL=0
 - OK  T nazwa Lista_DUXONE
 - OK  T nazwa ListaAC
 - OK  T nazwa ListaDX
+- OK  T nazwa Import_PdfSciezka
 - OK  T LISTY etykieta AC ma kod P192-475 | REGULATOR BAZY
 - OK  T LISTY etykieta DX ma kod DX5110 | DEEP BLACK
 - OK  T LISTY adres AC LISTY!$F$9:$F$115
@@ -50,6 +63,8 @@ DX5111 jest ciemniejszy patr
 - OK  T ODS event PrzyOtwarciu
 - OK  T ODS event OnWyborKomorki
 - OK  T makro lista pigmentów
+- OK  T makro ImportujZPdf
+- OK  T ODS przycisk importu
 - OK  Test1 suma 100
 - OK  Test1 status BEZ ZMIAN
 - OK  Test1 % 50/30/20

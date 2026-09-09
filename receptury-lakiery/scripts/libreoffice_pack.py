@@ -17,9 +17,13 @@ XLSX = ROOT / "RECEPTURY_LAKIERY.xlsx"
 ODS = ROOT / "RECEPTURY_LAKIERY.ods"
 ODS_UNLOCKED = ROOT / "RECEPTURY_LAKIERY_edycja.ods"
 ODS_NOWY = ROOT / "RECEPTURY_LAKIERY_nowy.ods"
+ODS_DROPDOWN = ROOT / "RECEPTURY_LAKIERY_dropdown.ods"
+ODS_IMPORT = ROOT / "RECEPTURY_LAKIERY_import.ods"
 BAS = ROOT / "macros" / "modReceptury.bas"
 LOCK_MAIN = ROOT / ".~lock.RECEPTURY_LAKIERY.ods#"
 LOCK_EDYCJA = ROOT / ".~lock.RECEPTURY_LAKIERY_edycja.ods#"
+LOCK_DROPDOWN = ROOT / ".~lock.RECEPTURY_LAKIERY_dropdown.ods#"
+LOCK_IMPORT = ROOT / ".~lock.RECEPTURY_LAKIERY_import.ods#"
 
 NS = {"manifest": "urn:oasis:names:tc:opendocument:xmlns:manifest:1.0"}
 
@@ -115,6 +119,58 @@ def inject_document_events(text: str) -> str:
     return text.replace("<office:scripts>", EVENT_LISTENERS.replace("</office:scripts>", ""), 1)
 
 
+IMPORT_FORMS = (
+    '<office:forms form:automatic-focus="false" form:apply-design-mode="false">'
+    '<form:form form:name="Standard" form:apply-filter="false" form:command-type="table" '
+    'form:control-implementation="ooo:com.sun.star.form.component.Form">'
+    '<form:button form:name="btnImportPdf" form:control-implementation="ooo:com.sun.star.form.component.CommandButton" '
+    'form:id="ctrlImportPdf" form:label="Importuj recepturę z PDF" form:button-type="push" form:image-position="center">'
+    "<office:event-listeners>"
+    '<script:event-listener script:language="ooo:Basic" script:event-name="form:click" '
+    'xlink:href="vnd.sun.star.script:Standard.modReceptury.ImportujZPdf?language=Basic&amp;location=document" '
+    'xlink:type="simple"/>'
+    "</office:event-listeners>"
+    "</form:button>"
+    '<form:button form:name="btnWczytajImport" form:control-implementation="ooo:com.sun.star.form.component.CommandButton" '
+    'form:id="ctrlWczytajImport" form:label="Wczytaj ostatni import" form:button-type="push" form:image-position="center">'
+    "<office:event-listeners>"
+    '<script:event-listener script:language="ooo:Basic" script:event-name="form:click" '
+    'xlink:href="vnd.sun.star.script:Standard.modReceptury.WczytajOstatniImport?language=Basic&amp;location=document" '
+    'xlink:type="simple"/>'
+    "</office:event-listeners>"
+    "</form:button>"
+    "</form:form>"
+    "</office:forms>"
+    "<table:shapes>"
+    '<draw:control draw:control="ctrlImportPdf" svg:width="7.8cm" svg:height="0.8cm" svg:x="0.35cm" svg:y="17.55cm">'
+    "<text:p/>"
+    "</draw:control>"
+    '<draw:control draw:control="ctrlWczytajImport" svg:width="7.2cm" svg:height="0.8cm" svg:x="8.4cm" svg:y="17.55cm">'
+    "<text:p/>"
+    "</draw:control>"
+    "</table:shapes>"
+)
+
+
+def inject_import_buttons(text: str) -> str:
+    """Przyciski ImportujZPdf / WczytajOstatniImport na arkuszu START."""
+    if "btnImportPdf" in text and "ctrlImportPdf" in text:
+        return text
+    if 'xmlns:form=' not in text[:2500]:
+        text = text.replace(
+            "<office:document-content",
+            '<office:document-content xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0"',
+            1,
+        )
+    text = re.sub(
+        r'(<table:table table:name="START"[^>]*>)',
+        r"\1" + IMPORT_FORMS,
+        text,
+        count=1,
+    )
+    return text
+
+
 def inject_sheet_events(text: str) -> str:
     """Zdarzenia arkusza on-select / on-change — lista NR po kliknięciu."""
     if "OnWyborKomorki" in text and "table:name=\"RECEPTURA_ORYGINALNA\"" in text:
@@ -157,6 +213,7 @@ def inject_macros(ods_path: Path) -> None:
             xml = unprotect_content_xml(content.read_text(encoding="utf-8"))
             xml = inject_document_events(xml)
             xml = inject_sheet_events(xml)
+            xml = inject_import_buttons(xml)
             content.write_text(xml, encoding="utf-8")
         basic = tmp / "Basic" / "Standard"
         basic.mkdir(parents=True, exist_ok=True)
@@ -200,23 +257,21 @@ def _try_copy(src: Path, dest: Path) -> bool:
 
 
 def publish_ods(built: Path) -> Path:
-    """Zapisz ODS; przy locku LibreOffice — nowy odblokowany plik i otwórz go."""
-    _try_copy(built, ODS)
-    _try_copy(built, ODS_UNLOCKED)
-    _try_copy(built, ODS_NOWY)
-    locked = _lock_active(LOCK_MAIN) or _lock_active(LOCK_EDYCJA)
-    fresh = ROOT / "RECEPTURY_LAKIERY_dropdown.ods"
-    if locked or not ODS_UNLOCKED.exists():
-        if _try_copy(built, fresh):
-            print("Lock LibreOffice aktywny — otwórz świeżą kopię:", fresh)
-            return fresh
-    if ODS_UNLOCKED.exists() and not _lock_active(LOCK_EDYCJA):
-        return ODS_UNLOCKED
-    if fresh.exists():
-        return fresh
-    lista = ROOT / "RECEPTURY_LAKIERY_lista.ods"
-    _try_copy(built, lista)
-    return lista
+    """Zapisz aktualny ODS roboczy (dropdown). Przy locku — RECEPTURY_LAKIERY_import.ods."""
+    if not _lock_active(LOCK_DROPDOWN):
+        if _try_copy(built, ODS_DROPDOWN):
+            if not _lock_active(LOCK_IMPORT):
+                _try_copy(built, ODS_IMPORT)
+            print("Aktualny plik roboczy:", ODS_DROPDOWN)
+            return ODS_DROPDOWN
+    if not _lock_active(LOCK_IMPORT) and _try_copy(built, ODS_IMPORT):
+        print("Lock na dropdown — aktualny plik roboczy:", ODS_IMPORT)
+        return ODS_IMPORT
+    stamp = ROOT / "RECEPTURY_LAKIERY_import_nowy.ods"
+    if _try_copy(built, stamp):
+        print("Oba pliki zablokowane — aktualny:", stamp)
+        return stamp
+    return built
 
 
 def ensure_lo_macros_allowed(profile: Path) -> None:

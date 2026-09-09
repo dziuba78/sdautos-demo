@@ -272,6 +272,7 @@ REM INDIRECT w Validity nie rysuje dropdownu — nie używać jako źródła lis
 Sub PrzyOtwarciu
     On Error Resume Next
     UstawWalidacjeWszystkichNr
+    UpewnijPrzyciskiImportu
     If gInitLista Then Exit Sub
     gSelListener = CreateUnoListener("Sel_", "com.sun.star.view.XSelectionChangeListener")
     ThisComponent.CurrentController.addSelectionChangeListener(gSelListener)
@@ -612,4 +613,364 @@ Sub UstawWalidacjeWszystkichNr
     If sys = "AUTOCOLOR" Or sys = "DUXONE" Then
         UstawWalidacjeKomorkiNr oDob.getCellRangeByName("B5"), sys
     End If
+End Sub
+
+
+REM ===== Import receptury z PDF (Python pymupdf + JSON/TXT w data/import) =====
+
+Function KatalogDokumentu() As String
+    Dim s As String
+    Dim p As Integer
+    KatalogDokumentu = ""
+    On Error Resume Next
+    s = ConvertFromURL(ThisComponent.URL)
+    p = InStrRev(s, "\")
+    If p < 1 Then p = InStrRev(s, "/")
+    If p > 0 Then
+        KatalogDokumentu = Left(s, p)
+    End If
+End Function
+
+
+Function JoinCmd(sExe As String, sScript As String, sPdf As String, sDir As String) As String
+    JoinCmd = "cmd /c """ & sExe & """ """ & sScript & """ """ & sPdf & """ --out-dir """ & sDir & """"
+End Function
+
+
+Function TestCmd(sCmd As String) As Boolean
+    Dim oWsh As Object
+    Dim n As Long
+    TestCmd = False
+    On Error Resume Next
+    oWsh = CreateObject("WScript.Shell")
+    n = oWsh.Run(sCmd, 0, True)
+    TestCmd = (n = 0)
+End Function
+
+
+Function ZnajdzPython() As String
+    Dim sDoc As String
+    Dim sLocal As String
+    Dim cand(12) As String
+    Dim i As Integer
+    ZnajdzPython = ""
+    On Error Resume Next
+    sDoc = KatalogDokumentu()
+    sLocal = Environ("LOCALAPPDATA")
+    cand(0) = sDoc & ".venv\Scripts\python.exe"
+    cand(1) = sDoc & "venv\Scripts\python.exe"
+    cand(2) = sLocal & "\Programs\Python\Python313\python.exe"
+    cand(3) = sLocal & "\Programs\Python\Python312\python.exe"
+    cand(4) = sLocal & "\Programs\Python\Python311\python.exe"
+    cand(5) = sLocal & "\Programs\Python\Python310\python.exe"
+    cand(6) = "C:\Python313\python.exe"
+    cand(7) = "C:\Python312\python.exe"
+    cand(8) = "C:\Python311\python.exe"
+    For i = 0 To 8
+        If cand(i) <> "" Then
+            If TestCmd("cmd /c """ & cand(i) & """ -c ""import fitz""") Then
+                ZnajdzPython = cand(i)
+                Exit Function
+            End If
+        End If
+    Next i
+    If TestCmd("cmd /c py -3 -c ""import fitz""") Then
+        ZnajdzPython = "py -3"
+        Exit Function
+    End If
+    If TestCmd("cmd /c python -c ""import fitz""") Then
+        ZnajdzPython = "python"
+    End If
+End Function
+
+
+Function WybierzPdf() As String
+    Dim oFP As Object
+    Dim files As Variant
+    Dim sDir As String
+    Dim sHave As String
+    WybierzPdf = ""
+    On Error Resume Next
+    sHave = Trim(Arkusz("START").getCellRangeByName("C35").String)
+    oFP = CreateUnoService("com.sun.star.ui.dialogs.FilePicker")
+    oFP.appendFilter("PDF (*.pdf)", "*.pdf")
+    oFP.appendFilter("Wszystkie pliki (*.*)", "*.*")
+    oFP.setCurrentFilter("PDF (*.pdf)")
+    oFP.setTitle("Wskaż PDF receptury Autocolor / Duxone")
+    If sHave <> "" Then
+        sDir = Left(sHave, InStrRev(sHave, "\"))
+    Else
+        sDir = KatalogDokumentu() & "data\import\"
+    End If
+    If sDir <> "" Then oFP.setDisplayDirectory(ConvertToURL(sDir))
+    If oFP.execute() <> 1 Then Exit Function
+    files = oFP.getFiles()
+    If UBound(files) >= 0 Then
+        WybierzPdf = ConvertFromURL(files(0))
+    End If
+End Function
+
+
+Function CzytajLinieUtf8(sPath As String) As Variant
+    Dim oSFA As Object
+    Dim oIn As Object
+    Dim oTxt As Object
+    Dim a() As String
+    Dim n As Integer
+    Dim s As String
+    Dim sUrl As String
+    n = 0
+    ReDim a(0)
+    On Error Resume Next
+    sUrl = ConvertToURL(sPath)
+    oSFA = CreateUnoService("com.sun.star.ucb.SimpleFileAccess")
+    If Not oSFA.exists(sUrl) Then
+        CzytajLinieUtf8 = a
+        Exit Function
+    End If
+    oIn = oSFA.openFileRead(sUrl)
+    oTxt = CreateUnoService("com.sun.star.io.TextInputStream")
+    oTxt.setInputStream(oIn)
+    oTxt.setEncoding("UTF-8")
+    Do While Not oTxt.isEOF()
+        s = oTxt.readLine()
+        ReDim Preserve a(n)
+        a(n) = s
+        n = n + 1
+    Loop
+    oIn.closeInput()
+    CzytajLinieUtf8 = a
+End Function
+
+
+Function WartoscKlucza(a As Variant, sKlucz As String) As String
+    Dim i As Integer
+    Dim s As String
+    Dim pref As String
+    WartoscKlucza = ""
+    pref = sKlucz & "="
+    For i = LBound(a) To UBound(a)
+        s = a(i)
+        If Left(s, Len(pref)) = pref Then
+            WartoscKlucza = Mid(s, Len(pref) + 1)
+            Exit Function
+        End If
+    Next i
+End Function
+
+
+Sub WyczyscWierszeReceptury
+    Dim oOryg As Object, oWlas As Object
+    Dim i As Integer
+    oOryg = Arkusz("RECEPTURA_ORYGINALNA")
+    oWlas = Arkusz("RECEPTURA_WLASNA")
+    Odblokuj(oOryg) : Odblokuj(oWlas)
+    For i = R0 To R1
+        oOryg.getCellByPosition(1, i - 1).String = ""
+        oOryg.getCellByPosition(2, i - 1).String = ""
+        oOryg.getCellByPosition(4, i - 1).String = ""
+        oOryg.getCellByPosition(7, i - 1).String = ""
+        oWlas.getCellByPosition(1, i - 1).String = ""
+        oWlas.getCellByPosition(2, i - 1).String = ""
+        oWlas.getCellByPosition(5, i - 1).String = ""
+        oWlas.getCellByPosition(11, i - 1).String = ""
+    Next i
+End Sub
+
+
+Sub WypelnijZImportuTxt(sTxt As String)
+    Dim a As Variant
+    Dim ok As String, kom As String, sys As String
+    Dim n As Long, i As Integer, row As Integer
+    Dim sP As String, parts As Variant
+    Dim oStart As Object, oOryg As Object, oWlas As Object, oUst As Object
+    Dim nrRc As Long, prefiks As String
+    Dim ilosc As Double
+    Dim nieznane As Integer
+    oStart = Arkusz("START")
+    oOryg = Arkusz("RECEPTURA_ORYGINALNA")
+    oWlas = Arkusz("RECEPTURA_WLASNA")
+    oUst = Arkusz("USTAWIENIA")
+    a = CzytajLinieUtf8(sTxt)
+    ok = WartoscKlucza(a, "OK")
+    kom = WartoscKlucza(a, "KOMUNIKAT")
+    If ok <> "1" Then
+        oStart.getCellRangeByName("C36").String = kom
+        If kom = "" Then kom = "nie znaleziono receptury"
+        MsgBox kom, 64, "Import PDF"
+        Exit Sub
+    End If
+    n = CLng(Val(WartoscKlucza(a, "LICZBA")))
+    If n < 1 Then
+        oStart.getCellRangeByName("C36").String = "nie znaleziono receptury"
+        MsgBox "nie znaleziono receptury", 64, "Import PDF"
+        Exit Sub
+    End If
+
+    Odblokuj(oStart) : Odblokuj(oOryg) : Odblokuj(oWlas) : Odblokuj(oUst)
+    WyczyscWierszeReceptury
+    nieznane = 0
+    row = R0
+    For i = 1 To n
+        If row > R1 Then Exit For
+        sP = WartoscKlucza(a, "P" & i)
+        parts = Split(sP, "|")
+        If UBound(parts) >= 2 Then
+            oOryg.getCellByPosition(1, row - 1).String = UCase(Trim(parts(0)))
+            oOryg.getCellByPosition(2, row - 1).String = Trim(parts(1))
+            ilosc = Val(Replace(parts(2), ",", "."))
+            oOryg.getCellByPosition(4, row - 1).Value = ilosc
+            If UBound(parts) >= 3 Then
+                oOryg.getCellByPosition(7, row - 1).String = Trim(parts(3))
+                If InStr(UCase(parts(3)), "WERYFIK") > 0 Then nieznane = nieznane + 1
+            End If
+            oWlas.getCellByPosition(1, row - 1).String = UCase(Trim(parts(0)))
+            oWlas.getCellByPosition(2, row - 1).String = Trim(parts(1))
+            oWlas.getCellByPosition(5, row - 1).Value = ilosc
+            If UBound(parts) >= 3 Then
+                oWlas.getCellByPosition(11, row - 1).String = Trim(parts(3))
+            End If
+            row = row + 1
+        End If
+    Next i
+
+    If Trim(oStart.getCellRangeByName("C6").String) = "" Then
+        nrRc = CLng(oUst.getCellRangeByName("B12").Value)
+        If nrRc < 1 Then nrRc = 1
+        prefiks = oUst.getCellRangeByName("B13").String
+        If prefiks = "" Then prefiks = "RC-"
+        oStart.getCellRangeByName("C6").String = prefiks & Format(nrRc, "0000")
+        oUst.getCellRangeByName("B12").Value = nrRc + 1
+    End If
+    If WartoscKlucza(a, "NAZWA_RECEPTURY") <> "" Then
+        oStart.getCellRangeByName("C5").String = WartoscKlucza(a, "NAZWA_RECEPTURY")
+    End If
+    If WartoscKlucza(a, "NAZWA_KOLORU") <> "" Then
+        oStart.getCellRangeByName("C7").String = WartoscKlucza(a, "NAZWA_KOLORU")
+    End If
+    If WartoscKlucza(a, "KOD_KOLORU") <> "" Then
+        oStart.getCellRangeByName("C8").String = WartoscKlucza(a, "KOD_KOLORU")
+    End If
+    sys = UCase(Trim(WartoscKlucza(a, "SYSTEM")))
+    If sys = "DUXONE" Or sys = "AUTOCOLOR" Then
+        oStart.getCellRangeByName("C10").String = sys
+    End If
+    oStart.getCellRangeByName("C11").Value = 1
+    If WartoscKlucza(a, "DATA") <> "" Then
+        oStart.getCellRangeByName("C13").String = WartoscKlucza(a, "DATA")
+    End If
+    oStart.getCellRangeByName("C14").String = WartoscKlucza(a, "UWAGI")
+    If WartoscKlucza(a, "PDF") <> "" Then
+        oStart.getCellRangeByName("C35").String = WartoscKlucza(a, "PDF")
+    End If
+    oStart.getCellRangeByName("C36").String = kom
+    Przelicz()
+    UstawWalidacjeWszystkichNr
+    Zablokuj(oStart) : Zablokuj(oOryg) : Zablokuj(oWlas) : Zablokuj(oUst)
+    MsgBox kom & ". Skład skopiowany do RECEPTURA_WLASNA. Nieznane kody: " & nieznane & ".", 64, "Import PDF"
+End Sub
+
+
+Sub ImportujZPdf
+    Dim sPdf As String
+    Dim sDoc As String
+    Dim sScript As String
+    Dim sDir As String
+    Dim sPy As String
+    Dim sCmd As String
+    Dim oWsh As Object
+    Dim n As Long
+    Dim oStart As Object
+    oStart = Arkusz("START")
+    Odblokuj(oStart)
+    sPdf = WybierzPdf()
+    If sPdf = "" Then Exit Sub
+    oStart.getCellRangeByName("C35").String = sPdf
+    sDoc = KatalogDokumentu()
+    sScript = sDoc & "scripts\import_receptura_pdf.py"
+    sDir = sDoc & "data\import"
+    sPy = ZnajdzPython()
+    If sPy = "" Then
+        oStart.getCellRangeByName("C36").String = "Brak Pythona z pymupdf — użyj WczytajOstatniImport po ręcznym skrypcie"
+        MsgBox "Nie znaleziono Pythona z biblioteką pymupdf." & Chr(13) & _
+            "Uruchom w folderze projektu:" & Chr(13) & _
+            "python scripts\import_receptura_pdf.py ""ścieżka.pdf""" & Chr(13) & _
+            "Potem makro WczytajOstatniImport.", 16, "Import PDF"
+        Exit Sub
+    End If
+    If sPy = "py -3" Or sPy = "python" Then
+        sCmd = "cmd /c " & sPy & " """ & sScript & """ """ & sPdf & """ --out-dir """ & sDir & """"
+    Else
+        sCmd = JoinCmd(sPy, sScript, sPdf, sDir)
+    End If
+    oWsh = CreateObject("WScript.Shell")
+    n = oWsh.Run(sCmd, 0, True)
+    If n <> 0 And n <> 2 Then
+        oStart.getCellRangeByName("C36").String = "Błąd skryptu Python (kod " & n & ")"
+        MsgBox "Skrypt importu zakończył się kodem " & n & "." & Chr(13) & "Polecenie: " & sCmd, 16, "Import PDF"
+        Exit Sub
+    End If
+    WypelnijZImportuTxt(sDir & "\ostatni.txt")
+End Sub
+
+
+Sub WczytajOstatniImport
+    Dim sTxt As String
+    sTxt = KatalogDokumentu() & "data\import\ostatni.txt"
+    Dim oSFA As Object
+    oSFA = CreateUnoService("com.sun.star.ucb.SimpleFileAccess")
+    If Not oSFA.exists(ConvertToURL(sTxt)) Then
+        MsgBox "Brak pliku data\import\ostatni.txt. Najpierw Importuj recepturę z PDF albo:" & Chr(13) & _
+            "python scripts\import_receptura_pdf.py ""plik.pdf""", 64, "Import PDF"
+        Exit Sub
+    End If
+    WypelnijZImportuTxt(sTxt)
+End Sub
+
+
+Sub DodajPrzyciskImportu(oSheet As Object, oForm As Object, nazwa As String, etykieta As String, makro As String, sKomorka As String, nSzer As Long)
+    Dim oBtn As Object
+    Dim oShape As Object
+    Dim aSize As New com.sun.star.awt.Size
+    Dim ev As New com.sun.star.script.ScriptEventDescriptor
+    Dim nIdx As Long
+    On Error Resume Next
+    If oForm.hasByName(nazwa) Then Exit Sub
+    oBtn = CreateUnoService("com.sun.star.form.component.CommandButton")
+    oBtn.Name = nazwa
+    oBtn.Label = etykieta
+    oForm.insertByName(nazwa, oBtn)
+    oShape = ThisComponent.createInstance("com.sun.star.drawing.ControlShape")
+    aSize.Width = nSzer
+    aSize.Height = 850
+    oShape.setSize(aSize)
+    oShape.Anchor = oSheet.getCellRangeByName(sKomorka)
+    oShape.Control = oForm.getByName(nazwa)
+    oSheet.getDrawPage().add(oShape)
+    nIdx = oForm.getCount() - 1
+    ev.ListenerType = "XActionListener"
+    ev.EventMethod = "actionPerformed"
+    ev.ScriptType = "Script"
+    ev.ScriptCode = "vnd.sun.star.script:Standard.modReceptury." & makro & "?language=Basic&location=document"
+    oForm.registerScriptEvent(nIdx, ev)
+End Sub
+
+
+Sub UpewnijPrzyciskiImportu
+    Dim oSheet As Object
+    Dim oDraw As Object
+    Dim oForms As Object
+    Dim oForm As Object
+    On Error Resume Next
+    oSheet = Arkusz("START")
+    oDraw = oSheet.getDrawPage()
+    oForms = oDraw.getForms()
+    If oForms.getCount() = 0 Then
+        oForm = CreateUnoService("com.sun.star.form.component.Form")
+        oForm.Name = "Standard"
+        oForms.insertByIndex(0, oForm)
+    End If
+    oForm = oForms.getByIndex(0)
+    DodajPrzyciskImportu oSheet, oForm, "btnImportPdf", "Importuj recepturę z PDF", "ImportujZPdf", "A38", 7500
+    DodajPrzyciskImportu oSheet, oForm, "btnWczytajImport", "Wczytaj ostatni import", "WczytajOstatniImport", "E38", 6500
 End Sub
