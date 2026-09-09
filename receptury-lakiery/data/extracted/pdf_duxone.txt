@@ -1,0 +1,896 @@
+
+
+===== PAGE 1 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+PODSTAWY 
+KORYGOWANIA
+
+
+===== PAGE 2 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+SPIS TREŚCI
+1.
+Reguły korygowania
+2.
+Właściwości komponentów
+
+
+===== PAGE 3 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+1. Reguły korygowania
+1.1 Informacje podstawowe
+1.2 Wykonywanie próbek koloru
+informaCJE PODSTAWOWE
+INFORMACJE 
+PODSTAWOWE
+WyKONYWANIE PRÓBEK KOLORU
+WYKONYWANIE 
+PRÓBEK 
+KOLORU
+
+
+===== PAGE 4 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+-
+Wizualne korygowanie koloru - "mokre korygowanie" - jest zalecana tylko w 
+przypadku nieudanych wyników poszukiwań w naszych narzędziach  
+kolorystycznych
+-
+Kiedy wykonujemy korygowanie koloru zawsze należy używać 
+komponentów znajdujących się w formule koloru.
+-
+Należy się starać aby ograniczać do miniumium ilość komponentów branych 
+do korygowania koloru.
+-
+Kolory są obserwowane pod 3 kątami:
+„POD KĄTEM” 15°
+„NA WPROST” 45°
+‚POD DUŻYM KĄTEM” 110°
+1.1 Informacje podstawowe
+
+
+===== PAGE 5 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+1.1 Informacje podstawowe
+Komponenty Solid
+Porady & Triki
+-
+Korygowanie przy użyciu komplementarnego komponentu może 
+spowodować metameryzm.
+-
+Niektóre definicje:
+➢Metameryzm jest zmianą koloru pod wpływem innego źródła światła 
+(zwł. w ciemności).
+➢Czarność jest określeniem stopnia zmiany "czerń" - w "bardziej czarne" 
+(głęboka czerń), tym wyższa czrność.
+
+
+===== PAGE 6 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+1.1 Informacje podstawowe
+Komponenty Aluminium
+Porady & Triki
+-
+Aby uzyskać jaśniejszy kolor aluminium, nie należy używać białego 
+komponentu, ale korzystać z komponentów aluminium.
+Biały komponent rozjaśnia aluminium „pod dużym kątem” (110° - flop) 
+i ściemina aluminium patrząc „pod katem” (15°) oraz „na wprost” (45°)
+-
+Im drobniejsze ziarno aluminum, tym jaśniejsze pod dużym kątem (110°).
+-
+Im grubsze ziarno aluminium, tym ciemniejsze pod dużym kątem (110°). 
+
+
+===== PAGE 7 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+-
+Drobne srebra ma lepszą zdolność krycia od grubszych.
+-
+Drobniejsze srebra są ciemniejsze „pod kątem” i jaśniejsze „pod dużym 
+kątem” (flop).
+-
+Grubsze srebra są jaśniejsze „pod kątem” i ciemnijsze „pod duzym kątem” 
+(flop).
+-
+Możliwe jest, że zastąpienie grubszego srebra w tej samej ilości na 
+drobniejsze srebro może prowadzić do jaśniejszego koloru.
+1.1 Informacje podstawowe
+Komponenty Aluminium
+
+
+===== PAGE 8 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+Muscovite
+Natural mica
+1.1 Informacje podstawowe
+Komponenty Pearl
+Muscovite i naturalne miki są nośnikami do pigmentów perłowych.
+
+
+===== PAGE 9 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+Uwaga: większość pereł jest transparentna
+1.1 Informacje podstawowe
+Komponenty Pearl
+Użyteczne porady
+-
+Perłowe komponenty zwiększają nasycenie kolorów z efektem.
+-
+Zaleca się stosowanie komponentów perłowych, które są już stosowane 
+w formule koloru.
+-
+Użyj białej perły dla uzyskania jeśniejszych kolorów pełowych.
+-
+Kolor nigdy nie będzie istnieć stworzony wyłącznie z komponentów 
+perłowych, z wyjątkiem lakierów trzywarstwowych; warstwą efektową 
+może być czysta perła.
+
+
+===== PAGE 10 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+Naturalny surowy materiał: mica
+Limitowana kontrola wykończenia powierzchni
+Syntetycznie produkowane podłoże
+Dokładna kontrola nad wykończeniem podłoża
+Tlenki metali
+(TiO2 dla transparentości)
+MICA
+Tlenki metali
+Al2O3
+1.1 Informacje podstawowe
+Komponenty Pearl
+Pearl vs. Xirallic®
+
+
+===== PAGE 11 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+1.1 Informacje podstawowe
+DX5136
+Metallic Adjuster
+-
+Tylko do użycia w kolorach metalicznych i perłowych.
+-
+Powoduje ściemnienie koloru przy paotrzeniu „pod kątem” (NRSP)
+-
+Skutki uboczne:
+➢Spowoduje rozjaśnienie „pod dużym katem” i płatki aluminium staną 
+się jaśniejsze.
+➢Ponieważ płatki aluminium staną się jaśniejsze, może istnieć 
+konieczność udania się po drobniejsze aluminium.
+➢Maksimum 12% w całkowitej wadze formuły koloru 
+
+
+===== PAGE 12 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+Procedura aplikacji próbek kolorów Duxone® :
+1. Dokładnie wybrać odpowiedni kolor we właściwym miejscu na samochodzie, na 
+prawidłowo oświetlanej powierzchni (w razie potrzeby mogą być użyte różne 
+źródła światła, w celu osiągnięcia właściwego koloru).
+2. Użyj dokumentacji Variant Color Documentation korzystając z wzorca koloru, 
+który musi być w dobrym stanie.
+3. Użyj pistoletu natryskowego przy właściwych ustawieniach (otwarcie i ciśnienie 
+na wejściu do pistoletu)
+4. Należy ustawić pistolet natryskowy na całkowite otwarcie wydatku materiału w 
+pistolecie i nie modyfikować kształtu natrysku po ustawieniu pistoletu (próbka 
+koloru jest nakładana za pomocą pistoletu "całkowicie otwartego").
+1.2 Wykonywanie próbek kolorów
+Aplikacja & Korygowanie
+
+
+===== PAGE 13 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+1.2 Wykonywanie próbek kolorów
+Aplikacja & Korygowanie
+Procedura aplikacji próbek kolorów Duxone® :
+5. Użyj próbki kolorów o minimalnych wymiarach10x15 cm (nie należy stosować 
+mniejszych próbek, ponieważ są zbyt wrażliwe na wahania aplikacji).
+6. Nanoś bazę Duxone® na całym panelu (od góry do dołu, z użyciem 50% 
+zakładki).
+7. Pozostawić do wyschnięcia. Przestrzegać zaleceń do suszenia lakieru 
+bazowego, gdzie jest maksymalna temperatura = 40ºC.
+8. Przed oceną koloru należy nanieść lakier bezbarwny.
+
+
+===== PAGE 14 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+1.2 Wykonywanie próbek kolorów
+Aplikacja & Korygowanie
+Co nie powinno się zdarzyć przy wykonywaniu próbki koloru:
+1. Nie zmieniaj kształtu natrysku w czasie aplikacji koloru na próbkę.
+Inny kształt = inne ciśnienie = inna atomizacja (rozpylenie).
+2. Nie odmuchuj dla wysuszenia panelu przy użyciu pistoletu natryskowego, 
+to może wywołać przepływ powietrza 13 m/s.
+3. Nie nagrzewaj panelu powyżej 40°C.
+4. Nie aplikuj lakieru bazowego zbyt mokro, lecz próbuj uzyskać mokry film 
+na panelu w zgodzie z tym, co można uzyskać na samochodzie.
+
+
+===== PAGE 15 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+15
+Jak obserwować kolor?
+Kolor a kąt patrzenia
+„na wprost” – źródło światła 
+jest nad obserwatorem 45°
+„pod kątem” – źródło światła 
+jest nad obserwatorem 15°
+„pod dużym kątem” – źródło 
+światła jest za obserwatorem 
+110°
+
+
+===== PAGE 16 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+OPIS KOMPONENTÓW
+
+
+===== PAGE 17 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5…  
+KOMPONENTY BAZOWE
+– DX51..  → Komponenty Solid
+– DX52..  → Komponenty Aluminiowe & Perlowe
+– DX53..  → Komponenty Xirallic
+DX01..
+KOMPONENTY O OBNIŻONEJ SILE KRYCIA
+Komponenty Duxone
+
+
+===== PAGE 18 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+LAKIER BAZOWY
+KOMPONENTY 
+ALUMINIOWE
+Komponenty Solid
+KOMPONENTY 
+SOLID
+Komponenty perłowe  XIRALLIC
+KOMPONENTY 
+PERŁOWE & 
+XIRALLIC
+WWW.DUXONE.COM
+
+
+===== PAGE 19 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5217
+EXTRA FINE SILVER
+– Jasny patrząc „na wprost” i brudny (rozmyty) „pod dużym kątem”
+– Ciemny patrząc „pod kątem”
+DX5215
+FINE SILVER
+– Przejrzysty (czysty) patrząc „na wprost”
+– Jasny pod 3 kątami widzenia
+DX5213
+MEDIUM COARSE SILVER
+– Jasnoskrzący się (iskrzący się) 
+– Jednakowa jasność patrząc „pod kątem”, „na wprost” oraz „pod dużym kątem”
+Lakier bazowy – Komponenty aluminiowe
+
+
+===== PAGE 20 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5212
+COARSE SILVER
+– Skrzący się „pod dużym kątem”
+– Jednakowa jasność patrząc „pod kątem”, „na wprost” oraz „pod dużym kątem”
+DX5214
+MEDIUM SILVER
+– Grubość ziarna identyczna jak w DX5215
+– Ciemniejszy patrząc „pod kątem” niż DX5215
+– Taki sam efekt patrząc „pod dużym kątem” jak DX5215
+– DX5214 = DX5215 + 10%
+Lakier bazowy – Komponenty aluminiowe
+
+
+===== PAGE 21 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5223
+MEDIUM BRIGHT SILVER
+– Bardzo jasny patrząc „pod kątem” i ciemniejszy „pod dużym kątem”
+DX5211
+EXTRA COARSE SILVER
+– Taki sam jak DX5212, ale grubsze ziarno
+– Bardzo jasny patrząc „pod kątem”
+DX5221
+COARSE BRIGHT SILVER
+– Taki sam jak DX5223, ale jaśniejszy
+– Komponent aluminium „silver dollar”
+Lakier bazowy – Komponenty aluminiowe
+
+
+===== PAGE 22 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5224
+GOLD ALU
+– Aluminium pokryte tlenkiem żelaza (żółty)
+– Wielkość ziarna podobna do DX5215
+– Jaśniejszy patrząc „pod kątem” i czerwony „pod dużym kątem” (flop)
+DX5225
+ORANGE ALU
+– Aluminium pokryte tlenkiem żelaza (pomarańczowy)
+– Wielkość ziarna identyczna jak w DX5215
+– Jaśniejszy patrząc „pod kątem” i czerwony „pod dużym kątem” (flop)
+Lakiery bazowe – Komponenty aluminiowe
+
+
+===== PAGE 23 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5226
+FINE EXTRA BRIGHT ALU
+– Komponent aluminium „silver dollar”; nowszy typ od DX5223 i DX5221
+– Drobne ziarno w świetle dziennym, ale bardziej skrzący się w świetle 
+słonecznym
+– Bardzo jasny patrząc „pod kątem” i ciemniejszy „pod dużym kątem” (flop)
+DX5227
+MEDIUM FINE BRIGHT ALU
+– Takie same właściwości jak DX5226, ale jaśniejszy w świetle słonecznym
+Lakiery bazowe – Komponenty aluminiowe
+
+
+===== PAGE 24 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DROBNE 
+ZIARNO
+GRUBE 
+ZIARNO
+DX5217
+DX5214
+DX5215
+DX5226
+DX5213
+DX5223
+DX5227
+DX5221
+DX5212
+DX5211
+MAŁO 
+SKRZĄCY SIĘ
+BARDZO 
+SKRZĄCY SIĘ
+DX5217
+DX5214
+DX5215
+DX5226
+DX5213
+DX5223
+DX5227
+DX5221
+DX5212
+DX5211
+Komponenty aluminiowe pod względem grubości ziarna
+Komponenty aluminiowe pod względem iskrzenia się
+Lakiery bazowe – Komponenty aluminiowe
+
+
+===== PAGE 25 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+LAKIER BAZOWY
+KOMPONENTY Solid
+KOMPONENTY 
+SOLID
+KOMPONENTY AluminiOWE
+KOMPONENTY 
+ALUMINIOWE
+KOMPONENTY PERŁOWE  Xirallic
+KOMPONENTY 
+PERŁOWE & 
+XIRALLIC
+WWW.DUXONE.COM
+
+
+===== PAGE 26 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5136
+METALLIC ADJUSTER
+– Ciemniejszy patrząc „pod kątem” (15°) , jaśniejszy patrząc pod dużym kątem 
+(110°)
+– Powoduje jaśniejszy wygląd ziarna aluminiowego
+– Tylko do użytku w kolorach z efektem (lakier bazowy)
+– Nie używać więcej niż 12% na wagę receptury by uniknąć problemów z 
+trwałością
+DX5134
+EFFECT WHITE
+– Jest używany w kolorach z efektem aby uzyskać  kolor bardziej żołty patrząc „pod 
+kątem” oraz bardziej niebieski i jaśniejszy patrząc „pod dużym kątem” (flop)
+– Nie używać więcej niż 40% na wagę receptury by uniknąć problemów z 
+trwałością
+Lakier bazowy – Komponenty Solid
+Dodatki modyfikujące
+
+
+===== PAGE 27 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5299
+UNISILVER 
+– Tylko do użytku w kolorach z efektem
+– Tworzy bardziej jednolitą powłokę
+Lakier bazowy – Komponenty Solid
+Dodatki modyfikujące
+
+
+===== PAGE 28 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5126
+EFFECT OCRE
+– Przezroczysty pigment
+– Najbardziej żółtawy brąz
+– Zielony/żółty odcień i jasny czerwony patrząc „pod dużym kątem”
+DX5122
+EFFECT BROWN RED
+– Przezroczysty pigment
+– Czerwony patrząc „pod dużym kątem” i „na wprost”
+– Czerwony w świetle żarówkowym
+DX5121
+EFFECT BROWN
+– Przezroczysty pigment
+– Najbardziej czerwonawy pigment z rodziny tlenków trans
+– Ciemniejszy i bardziej zielonkawy odcień patrząc „pod dużym kątem” niż 
+DX5126 oraz DX5122
+Lakier bazowy – Komponenty Solid
+Dobarwianie - Brązowe komponenty (tlenki Trans)
+
+
+===== PAGE 29 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5167
+YELLOW (LEAD FREE)
+– Kryjący komponent dla kolorów solid
+– Nasycony żółty odcień
+– Najciemniejszy żółty w oświetleniu sodowym
+DX5166
+EFFECT LIGHT YELLOW (LEAD FREE)
+– Przezroczysty żółty odcień
+– Najbardziej czerwonawy żółty komponent w świetle żarówkowym
+– Staje się jaśniejszy w oświetleniu sodowym
+Lakier bazowy – Komponenty Solid
+Dobarwianie - Żółte komponenty
+
+
+===== PAGE 30 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5163
+EFFECT YELLOW (LEAD FREE)
+– Przezroczysty żółty komponent (żywy, nasycony czerwony)
+– Żółty z czerwonym odcieniem w świetle dziennym (D65)
+– Zielony efekt w świetle żarówkowym
+– Ten komponent jest bardziej nasycony jak DX5162
+– Do użytku z kolorami metalicznymi
+DX5162
+YELLOW ORANGE (LEAD FREE)
+– Kryjacy komponent dla kolorów solid
+– Stosowany w małych ilościach w kolorach z efektem do uzyskania bardzo 
+zielonego i jasnego wyglądu „pod dużym kątem” (flop)
+– Zielony w świetle żarówkowym
+Lakier bazowy – Komponenty Solid
+Dobarwianie - Żółte komponenty 
+
+
+===== PAGE 31 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5172
+GREEN 
+– Zielony z odcieniem niebieskiego
+DX5171
+YELLOW GREEN
+– Jaśniejszy od DX5172 patrząc „pod dużym kątem”
+– Zielony z odcieniem żółtego 
+Lakier bazowy – Komponenty Solid
+Dobarwianie - Zielone komponenty
+
+
+===== PAGE 32 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5173
+BRIGHT GREEN 
+– Przezroczysty zielony z odcieniem żółtego
+– Zielono-żółty w świetle dziennym (D65) i czerwonawy efekt w świetle 
+żarówkowym w kolorach metalicznych
+– Może być używany z kolorami Solid w dużych ilościach (jeśli jest taka potrzeba)
+Dobarwianie - Zielone komponenty
+Lakier bazowy – Komponenty Solid
+DX5174
+GOLD GREEN 
+– Nasycony, przezroczysty zielony z zółtym odcieniem
+– Podobny do DX5173 ale bardziej nasycony i czystrzy
+
+
+===== PAGE 33 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5168
+YELLOW BROWN
+– Kryjący komponent o zielono / żółtym odcieniu 
+– Może być używany w małych ilościach do kolorów z efektem dla uzyskania 
+jasnego i żółtego wyglądu „pod dużym kątem” (flop)
+Dobrwianie - Ochra komponenty (Tlenki)
+Lakier bazowy – Komponenty Solid
+
+
+===== PAGE 34 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX0124
+BROWN RED (PIGMENT O MAŁEJ SILE KRYCIA)
+– Kryjacy komponent o czerwonym / żółtym odcieniu
+– Może być używany w małych ilościach do kolorów z efektem dla uzyskania 
+jasnego i czerwonego wyglądu „pod dużym kątem” (flop)
+Dobrwianie - Ochra komponenty (Tlenki)
+Lakier bazowy – Komponenty Solid
+
+
+===== PAGE 35 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5143
+RED 
+– Używać w kolorach metalicznych tylko w razie konieczności
+– Substytut dla pigmentów zawierających ołów
+– Ciemny pomarańczowy komponent w świetle sodowym
+Dobarwianie - Pomarańczowe komponenty
+Lakier bazowy – Komponenty Solid
+DX5161
+ORANGE 
+– Bardzo przezroczysty „pod kątem” (15°) 
+– Bardzo czysty pomarańczowy
+– Ciemny pomarańczowy komponent w świetle żarówkowym
+
+
+===== PAGE 36 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5147
+LIGHT RED
+– Przezroczysty, czerwony komponent (żywy, nasycony pomarańczowy)
+– Nasycony czerwony o żółtym odcieniu  pod każdym kątem
+DX5123
+TRANSPARENT MAROON
+– Przezroczysty, czerwony komponent
+– Taki sam jak DX5147, ale bardziej czerwony i bardziej niebieski
+Dobarwianie - Czerwone komponenty
+Lakier bazowy – Komponenty Solid
+
+
+===== PAGE 37 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5145
+PINK RED
+– Czysty czerwony o niebieskim odcieniu
+– Mniej czerwonawy pigment w świetle żarówkowym w przeciwieństwie do 
+DX5146 i DX5189
+– Jeśłi zamieniasz DX5146 lub DX5189 na DX5145: zmniejsz stężenie o 5% i 
+zwiększ stężenie DX5110 o 10%
+Dobarwianie - Czerwone komponenty
+Lakier bazowy – Komponenty Solid
+DX5142
+FLAMING RED
+– Przezroczysty czerwony
+– Podobny do DX5123 ale bardziej niebieski odcień.
+– Bardzo jasny i czysty pod żródłem światła lampy (F11)
+
+
+===== PAGE 38 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5146
+MAGENTA RED
+– Czerwony o niebieskim odcieniu, przezroczysty komponent
+– DX5146  jest mniej nienasycony od DX5189
+– Najbardziej czerwony czerwony komponent patrząc „pod dużym kątem” (flop)
+– Bardziej przezroczysty od DX5189
+DX5189
+DARK MAGENTA
+– Najbardziej nienasycony czerwony o niebieskim odcieniu
+– Najbardziej czerwonawy w świetle żarówkowym
+Dobarwianie - Komponenty czerwone
+Lakier bazowy – Komponenty Solid
+
+
+===== PAGE 39 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5144
+DARK RED
+– Nasycony, kryjący czerwony komponent
+– Przeważnie używany w kolorach Solid
+– Może być używany w małych ilościach w kolorach z efektem do wytworzenia 
+czystego, jasnego czerwonego flopu (patrząc „pod duzym kątem”)
+DX5149
+BRIGHT RED
+– Bardziej czerwonawy pigment w świetle dziennym (D65)
+– Ciemny w świetle sodowym
+Dobarwianie - Czerwone komponenty
+Lakier bazowy – Komponenty Solid
+
+
+===== PAGE 40 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5188
+RED VIOLET
+– Bardzo nasycony czerwonawy fiolet
+– Bardziej zielony patrząc „pod dużym kątem” (flop) niż DX5187 i brudniejszy
+– Czerwony w świetle żarówkowym w porównaniu do DX5187
+DX5187
+VIOLET 
+– Mniej nasycony niż DX5188
+– Bardziej czerwony patrząc „pod dużym kątem” (flop) niż DX5188
+– Bardziej zielony w świetle żarówkowym w porównaniu do DX5188
+Dobarwianie - Komponenty fioletowe
+Lakier bazowy – Komponenty Solid
+
+
+===== PAGE 41 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5184
+BLUE
+– Komponent jest przezroczysty
+– Bardziej czerwony „pod dużym kątem” (flop)
+DX5182
+EFFECT BLUE
+– Niebieski z zielonym odcieniem „pod dużym kątem” (flop)
+– Czerwony patrząc „na wprost”
+Dobarwianie - Komponenty niebieskie
+Lakier bazowy – Komponenty Solid
+
+
+===== PAGE 42 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5185
+RED BLUE
+– Przezroczysty pigment
+– Czerwonawy niebieski w świetle dziennym (D65) i najczerwieńszy ze wszystkich 
+niebieskich w świetle żarówkowym
+DX5181
+GREEN BLUE
+– Zielony w świetle dziennym (D65)
+– Staje się bardziej zielony w świetle żarówkowym
+– Zielony patrząc „na wprost”
+Dobarwianie - komponenty niebieskie
+Lakier bazowy – Komponenty Solid
+
+
+===== PAGE 43 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+Zielony
+Czerwony
+DX5181
+DX5181
+DX5182
+DX5184
+DX5182
+DX5181
+DX5182
+DX5184
+DX5185
+DX5185
+DX5185
+DX5184
+„Pod kątem”
+„Na wprost”
+„Pod dużym kątem”
+Ogólnie - Światło dzienne (D65) / światło słoneczne
+Lakiery bazowe – Komponenty Solid
+
+
+===== PAGE 44 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5130
+WHITE HS
+DX0132
+WHITE (KOMPONENT O MAŁEJ SILE KRYCIA)
+– Sprawia, że kolor solidowy jest jaśniejszy
+– Może być używany w małych ilościach w kolorach z efektem do rozjaśnienia 
+koloru „pod dużym kątem” (flop) i ściemnienia „pod kątem”.
+– Zamień DX5130 na DX0132 gdy stężenie DX5130 jest mniejsze niż 0.45%
+całości wagi receptury; kiedy stężenie komponentu DX0132 jest większe niż 8%,
+zastosuj DX5130
+– Zamień DX5130 na DX0132: stężenie DX5130 x 10
+Dobarwianie - Komponenty białe
+Lakier bazowy – Komponenty Solid
+
+
+===== PAGE 45 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5111
+BLACK
+– Najmocniejszy i najbardziej nasycony czarny pigment
+– DX5111 jest ciemniejszy patrząc „pod dużym kątem” (flop) niż DX5110
+– Zamień DX5110 na DX5111: stężenie DX5110 x 2
+– Ma niebieskie zabarwienie
+Dobarwianie - Komponenty czarne
+Lakier bazowy – Komponenty Solid
+
+
+===== PAGE 46 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5110
+DEEP BLACK 
+DX0112
+BLACK (KOMPONENT O MAŁEJ SILE  KRYCIA)
+– Ma żółte zabarwienie
+– Zamień DX5110 na DX0112 gdy stężenie DX5110 jest mniejsze niż 0.45%
+całości wagi receptury; kiedy stężenie komponentu DX0112 jest większe niż 8%,
+zastosuj DX5110
+– Zamień DX5110 na DX0112: stężenie DX5110 x 10
+Dobarwianie - Komponenty czarne
+Lakier bazowy – Komponenty Solid
+
+
+===== PAGE 47 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+LAKIER BAZOWY
+KOMPONENTY Solid
+KOMPONENTY 
+SOLID
+KOMPONENTY Aluminium
+KOMPONENTY 
+ALUMINIUM
+KOMPONENTY PERŁOWE  xirallic
+KOMPONENTY 
+PERŁOWE & 
+XIRALLIC
+WWW.DUXONE.COM
+
+
+===== PAGE 48 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5231
+SILVER PEARL
+– Półprzezroczysty
+– Średnia wielkość ziarna
+DX5232
+FINE SILVER PEARL
+– Półprzezroczysty
+– Drobna wielkość ziarna
+– Ciemny patrząc „na wprost” i jaśniejszy patrząc „pod dużym kątem” (flop)
+jak DX5231
+Lakier bazowy – Komponenty perłowe
+
+
+===== PAGE 49 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5300
+WHITE CRYSTAL
+– Dużo jaśniejszy w symulowanym świetle słonecznym niż DX5231
+DX5303
+GREEN CRYSTAL
+– Dużo jaśniejszy w symulowanym świetle słonecznym niż DX5261
+Lakier bazowy – Komponenty Perłowe
+
+
+===== PAGE 50 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5241
+RED PEARL
+– Średniej wielkości ziarno
+– Efekt koloru czerwonego pod każdym kątem
+DX5242
+FINE RED PEARL
+– Średnia-drobna wielkość ziarna
+– Efekt kolorystyczny taki sam jak w DX5241, ale ze względu na drobniejsza 
+wielkość ziarna w DX5242 nasycenie jest mniej jasne, a wygląd ciemniejszy 
+patrząc „na wprost” i jaśniejszy „pod dużym kątem” (flop)
+Lakier bazowy – Komponenty Perłowe
+
+
+===== PAGE 51 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5243
+SUPER RED PEARL
+– Półprzezroczysty
+– Średniej wielkości ziarno
+– Czerwony patrząc „na wpros” a bardzo zielony „pod dużym kątem” (flop)
+DX5301
+RED CRYSTAL
+– Jaśniejszy w symulowanym świetle słonecznym niż DX5241
+Lakier bazowy – Komponenty Perłowe
+
+
+===== PAGE 52 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5251
+BLUE PEARL
+– Średniej wielkości ziarno
+– Półprzezroczysty
+– Czysty, niebieski patrząc „na wprost”  z żółtawym, jasnym flopem
+DX5302
+BLUE CRYSTAL
+– Dużo jaśniejszy w symulowanym świetle słonecznym niż DX5251
+Lakier bazowy – Komponenty Perłowe
+
+
+===== PAGE 53 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5271
+GOLD PEARL
+– Półprzezroczysty
+– Średniej wielkości ziarno
+– Żółtawy złoty kolor patrząc „na wprost” z jasnym, niebieskim flopem
+DX5304
+GOLD CRYSTAL
+– Jaśniejszy w symulowanym świetle słonecznym niż DX5271
+Lakier bazowy – Komponenty Perłowe
+
+
+===== PAGE 54 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5244
+RED BROWN PEARL
+– Kryjący
+– Średniej wielkości ziarno
+– Będzie dawał efekt miedzianego odcienia pod każdym kątem
+DX5305
+COPPER CRYSTAL
+– Jaśniejszy w symulowanym świetle słonecznym niż DX5244
+Lakier bazowy – Komponenty perłowe
+
+
+===== PAGE 55 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DX5281
+LILAC PEARL
+– Półprzezroczysty
+– Średniej wielkości ziarno
+– Czysty, fioletowy patrząc „na wprost” z żółtym, pomarańczowym flopem
+DX5261
+GREEN PEARL
+– Półprzezroczysty
+– Średniej wielkości ziarno
+– Czysty, zielony patrząc „na wprost” z czerwonawym, jasnym flopem
+Lakier bazowy – Komponenty Perłowe
+
+
+===== PAGE 56 =====
+Sensitivity: Business Internal
+AN AXALTA COATING SYSTEMS BRAND
+DZIĘKUJĘ
+WWW.DUXONE.COM

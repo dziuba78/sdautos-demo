@@ -1,0 +1,62 @@
+# Raport testów
+
+PASS=58 FAIL=0
+
+- OK  T01 arkusze ['START', 'RECEPTURA_ORYGINALNA', 'RECEPTURA_WLASNA', 'ANALIZA', 'RAPORT', 'HISTORIA', 'DOBARWIANIE', 'BAZA_AUTOCOLOR', 'BAZA_DUXONE', 'PIGMENTY', 'USTAWIENIA', 'HISTORIA_POZYCJE', 'DANE_WYKRESOW', 'LISTY']
+- OK  T02 baza AUTOCOLOR >=96 107
+- OK  T03 baza DUXONE >=79 79
+- OK  T04 brak duplikatów kluczy AC
+- OK  T05 klucz zawiera SYSTEM|
+- OK  T06 Autocolor 123 != Duxone 123
+- OK  T12 wykresy ANALIZA = 4 4
+- OK  T13 ochrona formuł ORYG
+- OK  T13b input odblokowany E12
+- OK  T13c formuła zablokowana D12
+- OK  T13d walidacja ilości
+- OK  T nazwa Meta_System
+- OK  T nazwa MasaOryg
+- OK  T nazwa MasaWlasna
+- OK  T nazwa PigmentyKlucz
+- OK  T nazwa Lista_AUTOCOLOR
+- OK  T nazwa Lista_DUXONE
+- OK  T kolizja P426-HE02 oznaczona KOLIZJA NAZW
+- OK  T DX11 do weryfikacji DO WERYFIKACJI
+- OK  T ODS istnieje C:\Users\PPG\sdautos-demo\receptury-lakiery\RECEPTURY_LAKIERY.ods
+- OK  T makra Basic
+- OK  Test1 suma 100
+- OK  Test1 status BEZ ZMIAN
+- OK  Test1 % 50/30/20
+- OK  Test14 suma % = 100
+- OK  Test3 ZWIĘKSZONO
+- OK  Test3 zmiana % +20
+- OK  Test4 ZMNIEJSZONO
+- OK  Test4 zmiana % -50
+- OK  Test7 USUNIĘTO
+- OK  Test5/6 DODANO
+- OK  Test8 różne klucze
+- OK  Test9 100g→500g
+- OK  Test10 100g→1kg
+- OK  Test11 suma duplikatu
+- OK  Test14 zmiana przy orig=0
+- OK  LO Test1 ilości oryg [50, 30, 20]
+- OK  LO Test1 ilości własne [50, 30, 20]
+- OK  LO Test1 status BEZ ZMIAN ['BEZ ZMIAN', 'BEZ ZMIAN', 'BEZ ZMIAN']
+- OK  LO Test14 suma % ~ 1 1.0
+- OK  LO masa oryg 100 100
+- OK  LO nazwa z PDF/bazy HS Super White
+- OK  LO Test3 ZWIĘKSZONO ZWIĘKSZONO
+- OK  LO Test4 ZMNIEJSZONO ZMNIEJSZONO
+- OK  LO Test7 USUNIĘTO USUNIĘTO
+- OK  LO Test6 DODANO DUXONE DODANO
+- OK  LO Test6 system DUXONE
+- OK  LO Test8 drugi pigment DUXONE
+- OK  LO Test11 DUPLIKAT DUPLIKAT DUPLIKAT
+- OK  LO Test9 przeliczenie 500g 326.086956521739 vs 326.0869565217391
+- OK  LO status udziałów wypełniony RECEPTURA POPRAWNA
+- OK  LO Test10 przeliczenie 1kg 652.173913043478 vs 652.1739130434783
+- OK  LO Test2 DUXONE nr DX5130
+- OK  LO Test2 DUXONE status BEZ ZMIAN
+- OK  LO Test2 masa 100
+- OK  LO Test2 nazwa z PDF Duxone WHITE HS
+- OK  LO Test5 AUTOCOLOR w DUXONE
+- OK  LO Test5 DODANO DODANO

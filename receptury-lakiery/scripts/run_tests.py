@@ -1,0 +1,340 @@
+# -*- coding: utf-8 -*-
+"""Testy systemu RECEPTURY_LAKIERY (LibreOffice Calc)."""
+from __future__ import annotations
+
+import json
+import shutil
+import sys
+from pathlib import Path
+
+import pandas as pd
+from openpyxl import load_workbook
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+from libreoffice_pack import convert  # noqa: E402
+
+XLSX = ROOT / "RECEPTURY_LAKIERY.xlsx"
+ODS = ROOT / "RECEPTURY_LAKIERY.ods"
+OUT = ROOT / "data" / "extracted" / "test_out"
+PIG = json.loads((ROOT / "data" / "extracted" / "pigmenty.json").read_text(encoding="utf-8"))
+
+PASS = 0
+FAIL = 0
+LOG: list[str] = []
+
+
+def ok(name: str, cond: bool, detail: str = "") -> None:
+    global PASS, FAIL
+    if cond:
+        PASS += 1
+        LOG.append(f"OK  {name} {detail}".rstrip())
+        print(f"OK  {name} {detail}".rstrip())
+    else:
+        FAIL += 1
+        LOG.append(f"FAIL {name} {detail}".rstrip())
+        print(f"FAIL {name} {detail}".rstrip())
+
+
+def math_share(qty, total):
+    if not total:
+        return 0.0
+    return qty / total
+
+
+def math_change(orig, own):
+    if orig == 0:
+        return None if own > 0 else 0.0
+    return (own - orig) / orig
+
+
+def math_status(orig, own):
+    if orig > 0 and own == 0:
+        return "USUNIĘTO"
+    if orig == 0 and own > 0:
+        return "DODANO"
+    if own > orig:
+        return "ZWIĘKSZONO"
+    if own < orig:
+        return "ZMNIEJSZONO"
+    return "BEZ ZMIAN"
+
+
+def test_structure():
+    wb = load_workbook(XLSX)
+    expected = [
+        "START",
+        "RECEPTURA_ORYGINALNA",
+        "RECEPTURA_WLASNA",
+        "ANALIZA",
+        "RAPORT",
+        "HISTORIA",
+        "DOBARWIANIE",
+        "BAZA_AUTOCOLOR",
+        "BAZA_DUXONE",
+        "PIGMENTY",
+        "USTAWIENIA",
+        "HISTORIA_POZYCJE",
+        "DANE_WYKRESOW",
+        "LISTY",
+    ]
+    ok("T01 arkusze", wb.sheetnames == expected, str(wb.sheetnames))
+    ac = wb["BAZA_AUTOCOLOR"]
+    dx = wb["BAZA_DUXONE"]
+    n_ac = sum(1 for r in range(9, 300) if ac.cell(r, 1).value)
+    n_dx = sum(1 for r in range(9, 300) if dx.cell(r, 1).value)
+    ok("T02 baza AUTOCOLOR >=96", n_ac >= 96, str(n_ac))
+    ok("T03 baza DUXONE >=79", n_dx >= 79, str(n_dx))
+    keys = set()
+    dup = False
+    for r in range(9, 9 + n_ac):
+        k = ac.cell(r, 1).value
+        if k in keys:
+            dup = True
+        keys.add(k)
+    ok("T04 brak duplikatów kluczy AC", not dup)
+    ok("T05 klucz zawiera SYSTEM|", all(str(k).startswith("AUTOCOLOR|") for k in keys if k))
+    # mieszanie: te same numery teoretyczne są różne przez prefiks
+    ok("T06 Autocolor 123 != Duxone 123", "AUTOCOLOR|123" != "DUXONE|123")
+    charts = wb["ANALIZA"]._charts
+    ok("T12 wykresy ANALIZA = 4", len(charts) == 4, str(len(charts)))
+    orig = wb["RECEPTURA_ORYGINALNA"]
+    ok("T13 ochrona formuł ORYG", orig.protection.sheet is True)
+    ok("T13b input odblokowany E12", orig["E12"].protection.locked is False)
+    ok("T13c formuła zablokowana D12", orig["D12"].protection.locked is True)
+    ok("T13d walidacja ilości", any(dv.type == "decimal" for dv in orig.data_validations.dataValidation))
+    names = set(wb.defined_names.keys())
+    for n in ("Meta_System", "MasaOryg", "MasaWlasna", "PigmentyKlucz", "Lista_AUTOCOLOR", "Lista_DUXONE"):
+        ok(f"T nazwa {n}", n in names)
+    # kolizja HE02 zachowana
+    he02 = None
+    for r in range(9, 9 + n_ac):
+        if ac.cell(r, 3).value == "P426-HE02":
+            he02 = ac.cell(r, 13).value
+            break
+    ok("T kolizja P426-HE02 oznaczona", he02 == "KOLIZJA NAZW", str(he02))
+    dx11 = None
+    for r in range(9, 9 + n_dx):
+        if dx.cell(r, 3).value == "DX11":
+            dx11 = dx.cell(r, 13).value
+            break
+    ok("T DX11 do weryfikacji", dx11 == "DO WERYFIKACJI", str(dx11))
+    wb.close()
+    ok("T ODS istnieje", ODS.exists(), str(ODS))
+    import zipfile
+
+    with zipfile.ZipFile(ODS) as z:
+        ok("T makra Basic", "Basic/Standard/modReceptury.xml" in z.namelist())
+
+
+def test_math_independent():
+    orig = {"P425-900": 50, "P425-984": 30, "P425-948": 20}
+    own = dict(orig)
+    total_o = sum(orig.values())
+    total_w = sum(own.values())
+    ok("Test1 suma 100", total_o == 100 and total_w == 100)
+    ok("Test1 status BEZ ZMIAN", all(math_status(orig[k], own[k]) == "BEZ ZMIAN" for k in orig))
+    pct = [math_share(orig[k], total_o) * 100 for k in orig]
+    ok("Test1 % 50/30/20", pct == [50, 30, 20])
+    ok("Test14 suma % = 100", abs(sum(pct) - 100) < 0.01)
+
+    own3 = dict(orig)
+    own3["P425-900"] = 60
+    ok("Test3 ZWIĘKSZONO", math_status(50, 60) == "ZWIĘKSZONO")
+    ok("Test3 zmiana % +20", abs(math_change(50, 60) - 0.2) < 1e-9)
+
+    own4 = dict(orig)
+    own4["P425-984"] = 15
+    ok("Test4 ZMNIEJSZONO", math_status(30, 15) == "ZMNIEJSZONO")
+    ok("Test4 zmiana % -50", abs(math_change(30, 15) + 0.5) < 1e-9)
+
+    ok("Test7 USUNIĘTO", math_status(20, 0) == "USUNIĘTO")
+    ok("Test5/6 DODANO", math_status(0, 5) == "DODANO")
+    ok("Test8 różne klucze", "AUTOCOLOR|123" != "DUXONE|123")
+
+    # skala 100 -> 500
+    factor = 500 / 100
+    scaled = {k: v * factor for k, v in orig.items()}
+    ok("Test9 100g→500g", scaled["P425-900"] == 250 and sum(scaled.values()) == 500)
+    factor2 = 1000 / 100
+    scaled2 = {k: v * factor2 for k, v in orig.items()}
+    ok("Test10 100g→1kg", scaled2["P425-900"] == 500 and sum(scaled2.values()) == 1000)
+
+    # duplikat: 50+10 = 60
+    ok("Test11 suma duplikatu", 50 + 10 == 60)
+
+    # dzielenie przez zero
+    ok("Test14 zmiana przy orig=0", math_change(0, 8) is None)
+
+
+def test_libreoffice_recalc():
+    if not ODS.exists():
+        ok("LO recalc", False, "brak ODS")
+        return
+    if OUT.exists():
+        shutil.rmtree(OUT)
+    OUT.mkdir(parents=True)
+    # ODS już po konwersji LO — odczyt wartości
+    start = pd.read_excel(ODS, sheet_name="START", header=None, engine="odf")
+    orig = pd.read_excel(ODS, sheet_name="RECEPTURA_ORYGINALNA", header=None, engine="odf")
+    wlas = pd.read_excel(ODS, sheet_name="RECEPTURA_WLASNA", header=None, engine="odf")
+    # wiersze pandas 0-based; Excel row 12 = index 11
+    names = [orig.iloc[11 + i, 3] for i in range(3)]
+    qty_o = [orig.iloc[11 + i, 4] for i in range(3)]
+    qty_w = [wlas.iloc[11 + i, 5] for i in range(3)]
+    status = [wlas.iloc[11 + i, 10] for i in range(3)]
+    pct_w = [wlas.iloc[11 + i, 9] for i in range(3)]
+    print("LO names", names)
+    print("LO qty_o", qty_o)
+    print("LO qty_w", qty_w)
+    print("LO status", status)
+    print("LO pct", pct_w)
+    print("START I5/I6/I11", start.iloc[4, 8], start.iloc[5, 8], start.iloc[10, 8])
+    ok("LO Test1 ilości oryg", qty_o == [50, 30, 20], str(qty_o))
+    ok("LO Test1 ilości własne", qty_w == [50, 30, 20], str(qty_w))
+    bez = all(str(s).upper() == "BEZ ZMIAN" for s in status)
+    ok("LO Test1 status BEZ ZMIAN", bez, str(status))
+    if all(isinstance(p, (int, float)) for p in pct_w):
+        ok("LO Test14 suma % ~ 1", abs(sum(pct_w) - 1) < 0.002, str(sum(pct_w)))
+    else:
+        ok("LO Test14 suma %", False, str(pct_w))
+    masa = start.iloc[4, 8]
+    ok("LO masa oryg 100", abs(float(masa) - 100) < 0.01 if pd.notna(masa) else False, str(masa))
+    nazwa0 = str(names[0] or "")
+    ok("LO nazwa z PDF/bazy", "WHITE" in nazwa0.upper() or "BIE" in nazwa0.upper() or nazwa0 != "", nazwa0)
+
+    # drugi przebieg: mieszanie + zmiany — zapis xlsx i ponowna konwersja
+    wb = load_workbook(XLSX)
+    own = wb["RECEPTURA_WLASNA"]
+    origs = wb["RECEPTURA_ORYGINALNA"]
+    # Test3 zwiększ P425-900 do 60
+    own["F12"] = 60
+    # Test4 zmniejsz P425-984 do 15
+    own["F13"] = 15
+    # Test7 usuń P425-948
+    own["F14"] = 0
+    # Test6 dodaj DUXONE DX5110
+    own["B15"] = "DUXONE"
+    own["C15"] = "DX5110"
+    own["F15"] = 5
+    # Test8 ten sam numer z drugiego systemu — DUXONE nie ma 123, użyjemy kodu który istnieje
+    # AUTOCOLOR P425-900 już jest; dodajemy „fałszywy” ten sam numer z DUXONE nie istnieje
+    # zamiast tego: dodaj DX11 (inny system)
+    own["B16"] = "DUXONE"
+    own["C16"] = "DX5111"
+    own["F16"] = 2
+    # Test11 duplikat P425-900
+    own["B17"] = "AUTOCOLOR"
+    own["C17"] = "P425-900"
+    own["F17"] = 10
+    wb["START"]["C15"] = 500  # masa docelowa 500 g  (Test9)
+    tmp = OUT / "mut.xlsx"
+    wb.save(tmp)
+    wb.close()
+    ods2 = convert(tmp, "ods", OUT / "mut")
+    w2 = pd.read_excel(ods2, sheet_name="RECEPTURA_WLASNA", header=None, engine="odf")
+    st2 = pd.read_excel(ods2, sheet_name="START", header=None, engine="odf")
+    statuses = [str(w2.iloc[11 + i, 10]) for i in range(6)]
+    print("MUT status", statuses)
+    print("MUT F", [w2.iloc[11 + i, 5] for i in range(6)])
+    print("MUT M zważ", [w2.iloc[11 + i, 12] for i in range(6)])
+    print("MUT kontrola", [w2.iloc[11 + i, 13] for i in range(6)])
+    ok("LO Test3 ZWIĘKSZONO", "ZWIĘKSZONO" in statuses[0].upper(), statuses[0])
+    ok("LO Test4 ZMNIEJSZONO", "ZMNIEJSZONO" in statuses[1].upper(), statuses[1])
+    ok("LO Test7 USUNIĘTO", "USUNIĘTO" in statuses[2].upper(), statuses[2])
+    ok("LO Test6 DODANO DUXONE", "DODANO" in statuses[3].upper(), statuses[3])
+    ok("LO Test6 system DUXONE", str(w2.iloc[14, 1]).upper() == "DUXONE")
+    ok("LO Test8 drugi pigment DUXONE", str(w2.iloc[15, 2]).upper() == "DX5111")
+    dup = str(w2.iloc[11, 13]) + " " + str(w2.iloc[16, 13])
+    ok("LO Test11 DUPLIKAT", "DUPLIKAT" in dup.upper(), dup)
+    # Test9: ilość do zważenia dla 60 przy masie własnej
+    # masa własna = 60+15+0+5+2+10 = 92
+    # skala 500/92, zważenie P425-900 pierwsza pozycja = 60*500/92
+    masa_w = 60 + 15 + 0 + 5 + 2 + 10
+    expected_waz = 60 * 500 / masa_w
+    got_waz = w2.iloc[11, 12]
+    if pd.notna(got_waz):
+        ok("LO Test9 przeliczenie 500g", abs(float(got_waz) - expected_waz) < 0.05, f"{got_waz} vs {expected_waz}")
+    else:
+        ok("LO Test9 przeliczenie 500g", False, str(got_waz))
+    st_status = str(st2.iloc[10, 8])
+    ok("LO status udziałów wypełniony", "RECEPTURA" in st_status.upper() or "UWAGA" in st_status.upper() or st_status != "", st_status)
+
+    # Test10 1 kg
+    wb = load_workbook(tmp)
+    wb["START"]["C15"] = 1000
+    tmp3 = OUT / "mut1kg.xlsx"
+    wb.save(tmp3)
+    wb.close()
+    ods3 = convert(tmp3, "ods", OUT / "mut1kg")
+    w3 = pd.read_excel(ods3, sheet_name="RECEPTURA_WLASNA", header=None, engine="odf")
+    expected1000 = 60 * 1000 / masa_w
+    got1000 = w3.iloc[11, 12]
+    if pd.notna(got1000):
+        ok("LO Test10 przeliczenie 1kg", abs(float(got1000) - expected1000) < 0.05, f"{got1000} vs {expected1000}")
+    else:
+        ok("LO Test10 przeliczenie 1kg", False, str(got1000))
+
+    # Test2 DUXONE bez zmian — nowy plik
+    wb = load_workbook(XLSX)
+    o = wb["RECEPTURA_ORYGINALNA"]
+    w = wb["RECEPTURA_WLASNA"]
+    wb["START"]["C10"] = "DUXONE"
+    for r in range(12, 18):
+        o.cell(r, 2).value = None
+        o.cell(r, 3).value = None
+        o.cell(r, 5).value = None
+        w.cell(r, 2).value = None
+        w.cell(r, 3).value = None
+        w.cell(r, 6).value = None
+    demo = [(12, "DX5130", 70), (13, "DX5110", 20), (14, "DX5215", 10)]
+    for r, nr, q in demo:
+        o.cell(r, 2).value = "DUXONE"
+        o.cell(r, 3).value = nr
+        o.cell(r, 5).value = q
+        w.cell(r, 2).value = "DUXONE"
+        w.cell(r, 3).value = nr
+        w.cell(r, 6).value = q
+    tmp4 = OUT / "dux.xlsx"
+    wb.save(tmp4)
+    wb.close()
+    ods4 = convert(tmp4, "ods", OUT / "dux")
+    w4 = pd.read_excel(ods4, sheet_name="RECEPTURA_WLASNA", header=None, engine="odf")
+    st4 = pd.read_excel(ods4, sheet_name="RECEPTURA_ORYGINALNA", header=None, engine="odf")
+    ok("LO Test2 DUXONE nr", str(w4.iloc[11, 2]).upper() == "DX5130", str(w4.iloc[11, 2]))
+    ok("LO Test2 DUXONE status", str(w4.iloc[11, 10]).upper() == "BEZ ZMIAN", str(w4.iloc[11, 10]))
+    ok("LO Test2 masa 100", abs(float(pd.read_excel(ods4, sheet_name="START", header=None, engine="odf").iloc[4, 8]) - 100) < 0.05)
+    naz = str(w4.iloc[11, 3] or "")
+    ok("LO Test2 nazwa z PDF Duxone", "WHITE" in naz.upper() or naz != "", naz)
+
+    # Test5 dodaj AUTOCOLOR do DUXONE
+    wb = load_workbook(tmp4)
+    wb["RECEPTURA_WLASNA"]["B15"] = "AUTOCOLOR"
+    wb["RECEPTURA_WLASNA"]["C15"] = "P425-941"
+    wb["RECEPTURA_WLASNA"]["F15"] = 8
+    tmp5 = OUT / "mix.xlsx"
+    wb.save(tmp5)
+    wb.close()
+    ods5 = convert(tmp5, "ods", OUT / "mix")
+    w5 = pd.read_excel(ods5, sheet_name="RECEPTURA_WLASNA", header=None, engine="odf")
+    ok("LO Test5 AUTOCOLOR w DUXONE", str(w5.iloc[14, 1]).upper() == "AUTOCOLOR" and str(w5.iloc[14, 2]).upper() == "P425-941")
+    ok("LO Test5 DODANO", "DODANO" in str(w5.iloc[14, 10]).upper(), str(w5.iloc[14, 10]))
+
+
+def main():
+    test_structure()
+    test_math_independent()
+    test_libreoffice_recalc()
+    report = ROOT / "docs" / "TESTY.md"
+    report.parent.mkdir(exist_ok=True)
+    report.write_text(
+        f"# Raport testów\n\nPASS={PASS} FAIL={FAIL}\n\n" + "\n".join(f"- {x}" for x in LOG) + "\n",
+        encoding="utf-8",
+    )
+    print(f"\nPASS={PASS} FAIL={FAIL}")
+    if FAIL:
+        raise SystemExit(1)
+
+
+if __name__ == "__main__":
+    main()

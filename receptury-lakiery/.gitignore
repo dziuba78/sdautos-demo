@@ -1,0 +1,8 @@
+data/extracted/lo_profile/
+data/extracted/lo_convert/
+data/extracted/test_out/
+scripts/__pycache__/
+__pycache__/
+*.pyc
+*.tmpzip
+~$*
