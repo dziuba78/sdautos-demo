@@ -12,7 +12,7 @@ from openpyxl import load_workbook
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-from libreoffice_pack import ODS_UNLOCKED, convert  # noqa: E402
+from libreoffice_pack import ODS_IMPORT, ODS_UNLOCKED, convert  # noqa: E402
 from import_receptura_pdf import (  # noqa: E402
     IMPORT_DIR,
     classify_system,
@@ -210,7 +210,7 @@ def test_structure():
     import zipfile
 
     def _ods_unlocked() -> Path:
-        for p in (ODS_BUILT, ODS_UNLOCKED, ODS):
+        for p in (ODS_IMPORT, ODS_BUILT, ODS_UNLOCKED, ODS):
             if not p.exists():
                 continue
             try:
@@ -235,10 +235,17 @@ def test_structure():
     ok("T ODS event OnWyborKomorki", "OnWyborKomorki" in xml)
     ok("T makro lista pigmentów", "DialogListaPigmentow" in bas and "CzyKomorkaNrPigmentu" in bas)
     ok("T makro ImportujZPdf", "ImportujZPdf" in bas and "WczytajOstatniImport" in bas)
+    chunk = bas[bas.find("Sub ImportujZPdf") : bas.find("Sub ImportujReceptureZPdf")]
+    if "Sub ImportujReceptureZPdf" not in bas:
+        chunk = bas[bas.find("Sub ImportujZPdf") : bas.find("Sub WczytajOstatniImport")]
+    ok("T makro FilePicker przed Pythonem", "sPdf = WybierzPdf()" in chunk and chunk.find("WybierzPdf()") < chunk.find("ZnajdzPython()"), chunk[:200])
+    ok("T makro PowerShell dialog", "WybierzPdfPowerShell" in bas and "wybierz_pdf.ps1" in bas)
     ok("T makro --wybierz", "--wybierz" in bas and "JoinCmdWybierz" in bas)
     ok("T makro SystemFilePicker", "SystemFilePicker" in bas)
+    ok("T makro bez pythonw", "pythonw.exe" not in bas)
     ok("T makro anulowanie PDF", "KomunikatAnulowanoImport" in bas and "n = 3" in bas)
-    ok("T ODS przycisk importu", "btnImportPdf" in xml or "ImportujZPdf" in xml)
+    ok("T ODS przycisk importu", "btnImportPdf" in xml and "ImportujZPdf" in xml)
+    ok("T ODS przycisk script:macro-name", 'script:macro-name="Standard.modReceptury.ImportujZPdf"' in xml)
 
 
 def test_json_autocolor_pl():
@@ -498,6 +505,8 @@ def test_import_pdf():
     ok("T import start dir niepusty", bool(d_empty) and Path(d_empty).is_dir(), d_empty)
     src = (ROOT / "scripts" / "import_receptura_pdf.py").read_text(encoding="utf-8")
     ok("T import skrypt --wybierz", "--wybierz" in src and "choose_pdf_path" in src and "IFileOpenDialog" in src)
+    ok("T import skrypt STA", "COINIT_APARTMENTTHREADED" in src or "CoInitializeEx" in src)
+    ok("T import skrypt topmost", "-topmost" in src and "lift()" in src)
     import import_receptura_pdf as imp
 
     marker = IMPORT_DIR / "ostatni.txt"

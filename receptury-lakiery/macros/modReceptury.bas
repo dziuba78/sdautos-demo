@@ -18,6 +18,7 @@ Global gInitLista As Boolean
 Global gBusyLista As Boolean
 Global gLastNrAddr As String
 Global gOtworzonoListe As Boolean
+Global gPickerShown As Boolean
 
 
 Function Arkusz(nazwa As String) As Object
@@ -633,7 +634,11 @@ End Function
 
 
 Function JoinCmd(sExe As String, sScript As String, sPdf As String, sDir As String) As String
-    JoinCmd = "cmd /c """ & sExe & """ """ & sScript & """ """ & sPdf & """ --out-dir """ & sDir & """"
+    If sExe = "py -3" Or sExe = "python" Then
+        JoinCmd = sExe & " """ & sScript & """ """ & sPdf & """ --out-dir """ & sDir & """"
+    Else
+        JoinCmd = """" & sExe & """ """ & sScript & """ """ & sPdf & """ --out-dir """ & sDir & """"
+    End If
 End Function
 
 
@@ -653,9 +658,9 @@ Function JoinCmdWybierz(sExe As String, sScript As String, sDir As String, sStar
     Dim s As String
     sStart = CytujKatalog(sStart)
     If sExe = "py -3" Or sExe = "python" Then
-        s = "cmd /c " & sExe & " """ & sScript & """ --wybierz --out-dir """ & sDir & """"
+        s = sExe & " """ & sScript & """ --wybierz --out-dir """ & sDir & """"
     Else
-        s = "cmd /c """ & sExe & """ """ & sScript & """ --wybierz --out-dir """ & sDir & """"
+        s = """" & sExe & """ """ & sScript & """ --wybierz --out-dir """ & sDir & """"
     End If
     If sStart <> "" Then
         s = s & " --start-dir """ & sStart & """"
@@ -690,7 +695,6 @@ Function ZnajdzPython() As String
     Dim sLocal As String
     Dim cand(12) As String
     Dim i As Integer
-    Dim sW As String
     ZnajdzPython = ""
     On Error Resume Next
     sDoc = KatalogDokumentu()
@@ -707,12 +711,7 @@ Function ZnajdzPython() As String
     For i = 0 To 8
         If cand(i) <> "" Then
             If PlikIstnieje(cand(i)) Then
-                sW = Left(cand(i), Len(cand(i)) - 10) & "pythonw.exe"
-                If PlikIstnieje(sW) Then
-                    ZnajdzPython = sW
-                Else
-                    ZnajdzPython = cand(i)
-                End If
+                ZnajdzPython = cand(i)
                 Exit Function
             End If
         End If
@@ -739,6 +738,7 @@ End Sub
 
 Function FolderStartuDialogu() As String
     Dim sHave As String
+    Dim sDocu As String
     Dim p As Integer
     FolderStartuDialogu = ""
     On Error Resume Next
@@ -756,33 +756,132 @@ Function FolderStartuDialogu() As String
         FolderStartuDialogu = "E:\"
         Exit Function
     End If
+    sDocu = Environ("USERPROFILE") & "\Documents"
+    If PlikIstnieje(sDocu) Then
+        FolderStartuDialogu = sDocu
+        Exit Function
+    End If
     FolderStartuDialogu = KatalogDokumentu() & "data\import\"
 End Function
 
 
 Function WybierzPdf() As String
+    REM Warstwa A: FilePicker UNO w TYM samym procesie Calc — okno zawsze nad arkuszem.
     Dim oFP As Object
     Dim files As Variant
     Dim sDir As String
+    Dim nRes As Integer
     WybierzPdf = ""
-    On Error Resume Next
+    gPickerShown = False
     sDir = FolderStartuDialogu()
+    On Error Resume Next
     Err = 0
     oFP = CreateUnoService("com.sun.star.ui.dialogs.SystemFilePicker")
-    If Err <> 0 Or IsEmpty(oFP) Then
+    If Err <> 0 Then
         Err = 0
         oFP = CreateUnoService("com.sun.star.ui.dialogs.FilePicker")
     End If
-    If IsEmpty(oFP) Then Exit Function
+    If Err <> 0 Then
+        Err = 0
+        oFP = CreateUnoService("com.sun.star.ui.dialogs.OfficeFilePicker")
+    End If
+    If Err <> 0 Then
+        Exit Function
+    End If
+    Err = 0
+    oFP.initialize(Array(com.sun.star.ui.dialogs.TemplateDescription.FILEOPEN_SIMPLE))
+    Err = 0
+    oFP.setTitle("Wskaż PDF receptury Autocolor / Duxone")
     oFP.appendFilter("PDF (*.pdf)", "*.pdf")
     oFP.appendFilter("Wszystkie pliki (*.*)", "*.*")
     oFP.setCurrentFilter("PDF (*.pdf)")
-    oFP.setTitle("Wskaż PDF receptury Autocolor / Duxone")
-    If sDir <> "" Then oFP.setDisplayDirectory(ConvertToURL(sDir))
-    If oFP.execute() <> 1 Then Exit Function
+    If sDir <> "" Then oFP.setDisplayDirectory(ConvertToURL(CytujKatalog(sDir)))
+    Err = 0
+    nRes = oFP.execute()
+    If Err <> 0 Then
+        MsgBox "FilePicker execute() błąd: " & Error$ & " (nr " & Err & ")", 16, "Import PDF"
+        Exit Function
+    End If
+    gPickerShown = True
+    If nRes <> 1 Then Exit Function
     files = oFP.getFiles()
-    If UBound(files) >= 0 Then
-        WybierzPdf = ConvertFromURL(files(0))
+    If IsArray(files) Then
+        If UBound(files) >= 0 Then
+            WybierzPdf = ConvertFromURL(files(0))
+        End If
+    End If
+End Function
+
+
+Function WybierzPdfPowerShell() As String
+    REM Warstwa B: natywny OpenFileDialog Windows (zawsze wygląda jak Eksplorator).
+    Dim oWsh As Object
+    Dim sPs1 As String
+    Dim sOut As String
+    Dim sStart As String
+    Dim sCmd As String
+    Dim n As Long
+    Dim a As Variant
+    WybierzPdfPowerShell = ""
+    gPickerShown = False
+    sPs1 = KatalogDokumentu() & "scripts\wybierz_pdf.ps1"
+    sOut = KatalogDokumentu() & "data\import\wybrany_pdf.txt"
+    sStart = FolderStartuDialogu()
+    If Not PlikIstnieje(sPs1) Then Exit Function
+    sCmd = "powershell -NoProfile -STA -ExecutionPolicy Bypass -File """ & sPs1 & """ -StartDir """ & sStart & """ -OutFile """ & sOut & """"
+    On Error Resume Next
+    Err = 0
+    oWsh = CreateObject("WScript.Shell")
+    n = oWsh.Run(sCmd, 1, True)
+    If Err <> 0 Then
+        MsgBox "PowerShell OpenFileDialog błąd: " & Error$ & Chr(13) & sCmd, 16, "Import PDF"
+        Exit Function
+    End If
+    If n = 0 Or n = 3 Then gPickerShown = True
+    If n = 3 Then Exit Function
+    If n <> 0 Then Exit Function
+    a = CzytajLinieUtf8(sOut)
+    If IsArray(a) Then
+        If Trim(a(0)) <> "" Then WybierzPdfPowerShell = Trim(a(0))
+    End If
+End Function
+
+
+Function WybierzPdfPython() As String
+    REM Warstwa C: python.exe --wybierz (NIE pythonw), widoczna konsola.
+    Dim sPy As String
+    Dim sCmd As String
+    Dim oWsh As Object
+    Dim n As Long
+    Dim sDir As String
+    Dim sScript As String
+    Dim a As Variant
+    WybierzPdfPython = ""
+    gPickerShown = False
+    sPy = ZnajdzPython()
+    If sPy = "" Then Exit Function
+    sScript = KatalogDokumentu() & "scripts\import_receptura_pdf.py"
+    sDir = KatalogDokumentu() & "data\import"
+    If Not PlikIstnieje(sScript) Then Exit Function
+    sCmd = JoinCmdWybierz(sPy, sScript, sDir, FolderStartuDialogu())
+    On Error Resume Next
+    Err = 0
+    oWsh = CreateObject("WScript.Shell")
+    n = oWsh.Run(sCmd, 1, True)
+    If Err <> 0 Then
+        MsgBox "Nie uruchomiono Pythona: " & Error$ & Chr(13) & sCmd, 16, "Import PDF"
+        Exit Function
+    End If
+    If n = 3 Then
+        gPickerShown = True
+        Exit Function
+    End If
+    If n = 0 Or n = 2 Then
+        gPickerShown = True
+        a = CzytajLinieUtf8(sDir & "\ostatni.txt")
+        WybierzPdfPython = WartoscKlucza(a, "PDF")
+    Else
+        MsgBox "Skrypt --wybierz zakończył się kodem " & n & "." & Chr(13) & sCmd, 16, "Import PDF"
     End If
 End Function
 
@@ -954,51 +1053,78 @@ Sub ImportujZPdf
     Dim sDir As String
     Dim sPy As String
     Dim sCmd As String
-    Dim sStart As String
     Dim oWsh As Object
     Dim n As Long
     Dim oStart As Object
+    Dim juzSparsowano As Boolean
     oStart = Arkusz("START")
     Odblokuj(oStart)
+    gPickerShown = False
+    juzSparsowano = False
+    REM 1) FilePicker UNO w procesie Calc — ZAWSZE pierwsze, zanim Python.
+    sPdf = WybierzPdf()
+    If sPdf = "" And Not gPickerShown Then
+        sPdf = WybierzPdfPowerShell()
+    End If
+    If sPdf = "" And Not gPickerShown Then
+        sPdf = WybierzPdfPython()
+        If sPdf <> "" Then juzSparsowano = True
+    End If
+    If sPdf = "" Then
+        If gPickerShown Then
+            KomunikatAnulowanoImport
+        Else
+            oStart.getCellRangeByName("C36").String = "Brak okna wyboru pliku"
+            MsgBox "Nie udało się otworzyć okna wyboru PDF (FilePicker, PowerShell, Python)." & Chr(13) & _
+                "Spróbuj: Narzędzia → Makra → Uruchom makro → Standard → modReceptury → ImportujZPdf", 16, "Import PDF"
+        End If
+        Exit Sub
+    End If
+    oStart.getCellRangeByName("C35").String = sPdf
     sDoc = KatalogDokumentu()
     sScript = sDoc & "scripts\import_receptura_pdf.py"
     sDir = sDoc & "data\import"
-    sStart = FolderStartuDialogu()
+    If juzSparsowano Then
+        WypelnijZImportuTxt(sDir & "\ostatni.txt")
+        Exit Sub
+    End If
+    If Not PlikIstnieje(sScript) Then
+        oStart.getCellRangeByName("C36").String = "Brak skryptu importu"
+        MsgBox "Brak pliku:" & Chr(13) & sScript, 16, "Import PDF"
+        Exit Sub
+    End If
     sPy = ZnajdzPython()
     If sPy = "" Then
-        sPdf = WybierzPdf()
-        If sPdf = "" Then
-            KomunikatAnulowanoImport
-            Exit Sub
-        End If
-        oStart.getCellRangeByName("C35").String = sPdf
-        oStart.getCellRangeByName("C36").String = "Brak Pythona — użyj WczytajOstatniImport po ręcznym skrypcie"
-        MsgBox "Nie znaleziono Pythona." & Chr(13) & _
-            "Uruchom w folderze projektu:" & Chr(13) & _
-            "python scripts\import_receptura_pdf.py --wybierz" & Chr(13) & _
+        oStart.getCellRangeByName("C36").String = "Wybrano PDF — brak Pythona, uruchom skrypt ręcznie"
+        MsgBox "Wybrano plik:" & Chr(13) & sPdf & Chr(13) & Chr(13) & _
+            "Nie znaleziono Pythona. Uruchom w folderze projektu:" & Chr(13) & _
+            "python scripts\import_receptura_pdf.py """ & sPdf & """" & Chr(13) & _
             "Potem makro WczytajOstatniImport.", 16, "Import PDF"
         Exit Sub
     End If
-    If sPy = "py -3" Or sPy = "python" Then
-        sCmd = "cmd /c " & sPy & " """ & sScript & """ --wybierz --out-dir """ & sDir & """"
-        If CytujKatalog(sStart) <> "" Then
-            sCmd = sCmd & " --start-dir """ & CytujKatalog(sStart) & """"
-        End If
-    Else
-        sCmd = JoinCmdWybierz(sPy, sScript, sDir, sStart)
-    End If
+    sCmd = JoinCmd(sPy, sScript, sPdf, sDir)
+    On Error Resume Next
+    Err = 0
     oWsh = CreateObject("WScript.Shell")
-    n = oWsh.Run(sCmd, 0, True)
-    If n = 3 Then
-        KomunikatAnulowanoImport
+    n = oWsh.Run(sCmd, 1, True)
+    If Err <> 0 Then
+        oStart.getCellRangeByName("C36").String = "Błąd uruchomienia Pythona"
+        MsgBox "Nie uruchomiono parsera PDF: " & Error$ & Chr(13) & sCmd, 16, "Import PDF"
         Exit Sub
     End If
+    On Error GoTo 0
     If n <> 0 And n <> 2 Then
         oStart.getCellRangeByName("C36").String = "Błąd skryptu Python (kod " & n & ")"
         MsgBox "Skrypt importu zakończył się kodem " & n & "." & Chr(13) & "Polecenie: " & sCmd, 16, "Import PDF"
         Exit Sub
     End If
     WypelnijZImportuTxt(sDir & "\ostatni.txt")
+End Sub
+
+
+Sub ImportujReceptureZPdf
+    REM Alias — Narzędzia → Makra → Uruchom makro.
+    ImportujZPdf
 End Sub
 
 
@@ -1020,10 +1146,11 @@ Sub DodajPrzyciskImportu(oSheet As Object, oForm As Object, nazwa As String, ety
     Dim oBtn As Object
     Dim oShape As Object
     Dim aSize As New com.sun.star.awt.Size
-    Dim ev As New com.sun.star.script.ScriptEventDescriptor
-    Dim nIdx As Long
     On Error Resume Next
-    If oForm.hasByName(nazwa) Then Exit Sub
+    If oForm.hasByName(nazwa) Then
+        PrzypiszMakroPrzycisku oForm, nazwa, makro
+        Exit Sub
+    End If
     oBtn = CreateUnoService("com.sun.star.form.component.CommandButton")
     oBtn.Name = nazwa
     oBtn.Label = etykieta
@@ -1035,12 +1162,41 @@ Sub DodajPrzyciskImportu(oSheet As Object, oForm As Object, nazwa As String, ety
     oShape.Anchor = oSheet.getCellRangeByName(sKomorka)
     oShape.Control = oForm.getByName(nazwa)
     oSheet.getDrawPage().add(oShape)
-    nIdx = oForm.getCount() - 1
+    PrzypiszMakroPrzycisku oForm, nazwa, makro
+End Sub
+
+
+Sub PrzypiszMakroPrzycisku(oForm As Object, nazwa As String, makro As String)
+    Dim i As Long
+    Dim nIdx As Long
+    Dim j As Integer
+    Dim ev As New com.sun.star.script.ScriptEventDescriptor
+    Dim oldEvents As Variant
+    nIdx = -1
+    On Error Resume Next
+    For i = 0 To oForm.getCount() - 1
+        If oForm.getByIndex(i).Name = nazwa Then
+            nIdx = i
+            Exit For
+        End If
+    Next i
+    If nIdx < 0 Then Exit Sub
+    oldEvents = oForm.getScriptEvents(nIdx)
+    If IsArray(oldEvents) Then
+        For j = LBound(oldEvents) To UBound(oldEvents)
+            oForm.revokeScriptEvent(nIdx, oldEvents(j))
+        Next j
+    End If
     ev.ListenerType = "XActionListener"
     ev.EventMethod = "actionPerformed"
     ev.ScriptType = "Script"
+    ev.AddListenerParam = ""
     ev.ScriptCode = "vnd.sun.star.script:Standard.modReceptury." & makro & "?language=Basic&location=document"
+    Err = 0
     oForm.registerScriptEvent(nIdx, ev)
+    If Err <> 0 Then
+        MsgBox "Nie podłączono przycisku " & nazwa & " do makra " & makro & ": " & Error$, 16, "Import PDF"
+    End If
 End Sub
 
 

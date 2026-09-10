@@ -746,7 +746,7 @@ def write_start(wb):
     ws["A36"].font = font_label()
     ws["A36"].fill = fill("EEF1F6")
     ws.merge_cells("C36:L36")
-    ws["C36"] = "Przycisk otwiera okno Windows (jak Eksplorator). Anulowanie nie czyści składu."
+    ws["C36"] = "Przycisk Importuj → od razu okno Otwórz (PDF). Gdy martwy: Narzędzia→Makra→ImportujZPdf."
     style_input(ws["C36"])
     ws.merge_cells("A37:L37")
     ws["A37"] = (
@@ -770,9 +770,9 @@ def write_start(wb):
     ws.merge_cells("E38:H38")
     ws.merge_cells("A39:L40")
     ws["A39"] = (
-        "Przycisk Importuj otwiera natywne okno Windows (PDF). Anulowanie nie czyści składu. "
-        "Przykład testowy: data/import/przyklad_receptura_test.pdf. "
-        "Przewodniki tint chart (bez kolumny ilości) nie są recepturą — pojawi się „nie znaleziono receptury”."
+        "Kliknij Importuj recepturę z PDF — od razu otworzy się okno Otwórz (jak Eksplorator), filtr PDF. "
+        "Gdy przycisk nie działa: Narzędzia → Makra → Uruchom makro → Standard → modReceptury → ImportujZPdf. "
+        "Przykład: data/import/przyklad_receptura_test.pdf. Tint chart bez ilości = „nie znaleziono receptury”."
     )
     ws["A39"].alignment = Alignment(wrap_text=True, vertical="top")
     protect(ws)

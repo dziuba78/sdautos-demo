@@ -127,6 +127,7 @@ IMPORT_FORMS = (
     'form:id="ctrlImportPdf" form:label="Importuj recepturę z PDF" form:button-type="push" form:image-position="center">'
     "<office:event-listeners>"
     '<script:event-listener script:language="ooo:Basic" script:event-name="form:click" '
+    'script:macro-name="Standard.modReceptury.ImportujZPdf" '
     'xlink:href="vnd.sun.star.script:Standard.modReceptury.ImportujZPdf?language=Basic&amp;location=document" '
     'xlink:type="simple"/>'
     "</office:event-listeners>"
@@ -135,6 +136,7 @@ IMPORT_FORMS = (
     'form:id="ctrlWczytajImport" form:label="Wczytaj ostatni import" form:button-type="push" form:image-position="center">'
     "<office:event-listeners>"
     '<script:event-listener script:language="ooo:Basic" script:event-name="form:click" '
+    'script:macro-name="Standard.modReceptury.WczytajOstatniImport" '
     'xlink:href="vnd.sun.star.script:Standard.modReceptury.WczytajOstatniImport?language=Basic&amp;location=document" '
     'xlink:type="simple"/>'
     "</office:event-listeners>"
@@ -155,6 +157,21 @@ IMPORT_FORMS = (
 def inject_import_buttons(text: str) -> str:
     """Przyciski ImportujZPdf / WczytajOstatniImport na arkuszu START."""
     if "btnImportPdf" in text and "ctrlImportPdf" in text:
+        if 'script:macro-name="Standard.modReceptury.ImportujZPdf"' not in text:
+            text = text.replace(
+                'script:event-name="form:click" '
+                'xlink:href="vnd.sun.star.script:Standard.modReceptury.ImportujZPdf?language=Basic&amp;location=document"',
+                'script:event-name="form:click" '
+                'script:macro-name="Standard.modReceptury.ImportujZPdf" '
+                'xlink:href="vnd.sun.star.script:Standard.modReceptury.ImportujZPdf?language=Basic&amp;location=document"',
+            )
+            text = text.replace(
+                'script:event-name="form:click" '
+                'xlink:href="vnd.sun.star.script:Standard.modReceptury.WczytajOstatniImport?language=Basic&amp;location=document"',
+                'script:event-name="form:click" '
+                'script:macro-name="Standard.modReceptury.WczytajOstatniImport" '
+                'xlink:href="vnd.sun.star.script:Standard.modReceptury.WczytajOstatniImport?language=Basic&amp;location=document"',
+            )
         return text
     if 'xmlns:form=' not in text[:2500]:
         text = text.replace(

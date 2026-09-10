@@ -47,11 +47,11 @@ Arkusze są **bez ochrony** — edycja i zapis (Ctrl+S) bez hasła. Komórki zł
 
 ## Import receptury z PDF
 
-1. Na START kliknij **Importuj recepturę z PDF** (albo makro `ImportujZPdf`).
-2. Od razu otwiera się **natywne okno Windows** (jak Eksplorator / Otwórz plik), filtr `PDF (*.pdf)`. Folder startowy: ostatnio użyty, `E:\` albo Dokumenty.
-3. Po wyborze pliku parser (Python + pymupdf: `scripts/import_receptura_pdf.py --wybierz`) zapisuje `data/import/ostatni.json` i `ostatni.txt` i wstawia skład.
+1. Na START kliknij **Importuj recepturę z PDF** (albo *Narzędzia → Makra → Uruchom makro → Standard → modReceptury → ImportujZPdf*).
+2. Od razu otwiera się **okno Otwórz** LibreOffice/Windows (jak Eksplorator), filtr `PDF (*.pdf)`. Folder startowy: ostatnio użyty, `E:\` albo Dokumenty.
+3. Po wyborze pliku parser Python (`scripts/import_receptura_pdf.py`) zapisuje `data/import/ostatni.json` i `ostatni.txt` i wstawia skład.
 4. Anulowanie okna **nie czyści** receptury — tylko komunikat informacyjny.
-5. Gdy Python nie wstanie: `python scripts/import_receptura_pdf.py --wybierz`, potem przycisk **Wczytaj ostatni import**.
+5. Gdy Python nie wstanie **po** wyborze pliku: `python scripts/import_receptura_pdf.py "plik.pdf"`, potem **Wczytaj ostatni import**.
 6. Przykład testowy: `data/import/przyklad_receptura_test.pdf`. Przewodnik tint chart **nie** jest recepturą — komunikat „nie znaleziono receptury”, skład nie jest czyszczony.
 
 SYSTEM pigmentu wynika ze **wzorca kodu** (P192/P420/… = AUTOCOLOR, DX/AXT = DUXONE), nie z gołego numeru. Nieznany kod: wiersz zostaje, uwagi `DO WERYFIKACJI`. Bazy pigmentów nie są nadpisywane.

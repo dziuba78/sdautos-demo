@@ -567,7 +567,11 @@ def _choose_pdf_ifiledialog(initial_dir: str) -> str | None:
     ole32 = ctypes.WinDLL("ole32")
     shell32 = ctypes.WinDLL("shell32")
     user32 = ctypes.WinDLL("user32")
-    ole32.CoInitialize(None)
+    ole32.CoInitializeEx.restype = ctypes.c_long
+    ole32.CoInitializeEx.argtypes = [ctypes.c_void_p, ctypes.c_uint32]
+    hr_init = ole32.CoInitializeEx(None, 0x2)  # COINIT_APARTMENTTHREADED
+    if hr_init not in (0, 1) and (hr_init & 0xFFFFFFFF) != 0x80010106:
+        ole32.CoInitialize(None)
 
     clsid = _guid(ole32, "{DC1C5A9C-E88A-4DDE-A5A1-60F82A20AEF7}")
     iid = _guid(ole32, "{D57C7288-D4AD-4768-BE02-9D969532D960}")
@@ -623,6 +627,12 @@ def _choose_pdf_ifiledialog(initial_dir: str) -> str | None:
             call(dialog, 12, ctypes.c_long, c_void_p)(dialog, folder_item)
 
         hwnd = user32.GetForegroundWindow()
+        if not hwnd:
+            hwnd = user32.GetDesktopWindow()
+        try:
+            user32.AllowSetForegroundWindow(-1)
+        except Exception:
+            pass
         hr_show = call(dialog, 3, ctypes.c_long, HWND)(dialog, hwnd)
         if (hr_show & 0xFFFFFFFF) == 0x800704C7:
             return None
@@ -708,6 +718,9 @@ def _choose_pdf_tk(initial_dir: str) -> str | None:
     root.withdraw()
     try:
         root.attributes("-topmost", True)
+        root.lift()
+        root.focus_force()
+        root.update_idletasks()
     except tk.TclError:
         pass
     path = filedialog.askopenfilename(
@@ -758,6 +771,8 @@ def _choose_pdf_powershell(initial_dir: str) -> str | None:
 
 def choose_pdf_path(initial_dir: str | None = None) -> Path | None:
     """Otwórz natywne okno Windows i zwróć PDF albo None (anulowano)."""
+    import traceback
+
     start = default_start_dir(initial_dir)
     pickers = (
         [_choose_pdf_ifiledialog, _choose_pdf_getopenfilename, _choose_pdf_tk, _choose_pdf_powershell]
@@ -770,6 +785,8 @@ def choose_pdf_path(initial_dir: str | None = None) -> Path | None:
             selected = picker(start)
         except Exception as exc:
             last_exc = exc
+            print(f"{picker.__name__}: {exc}", file=sys.stderr)
+            traceback.print_exc()
             continue
         if not selected:
             return None
@@ -892,7 +909,13 @@ def main(argv: list[str] | None = None) -> int:
         return run_self_test()
     out_dir = Path(args.out_dir)
     if args.wybierz:
-        picked = choose_pdf_path(args.start_dir or None)
+        try:
+            picked = choose_pdf_path(args.start_dir or None)
+        except Exception:
+            import traceback
+
+            _msgbox_error(traceback.format_exc())
+            return 1
         if picked is None:
             print("ANULOWANO")
             return EXIT_CANCEL
@@ -917,5 +940,23 @@ def main(argv: list[str] | None = None) -> int:
     return 1
 
 
+def _msgbox_error(text: str) -> None:
+    print(text, file=sys.stderr)
+    if sys.platform != "win32":
+        return
+    try:
+        import ctypes
+
+        ctypes.windll.user32.MessageBoxW(None, text[:1500], "Import PDF — błąd", 0x10)
+    except Exception:
+        pass
+
+
 if __name__ == "__main__":
-    raise SystemExit(main())
+    try:
+        raise SystemExit(main())
+    except Exception:
+        import traceback
+
+        _msgbox_error(traceback.format_exc())
+        raise
