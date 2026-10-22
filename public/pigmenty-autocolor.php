@@ -1,13 +1,13 @@
 <?php
 /**
  * Katalog tonerów Nexa Autocolor 2K.
- * Dane: config/pigmenty-autocolor-2k.json
+ * Dane do sklepu autocolor.pl: sklep/pigmenty-autocolor-2k.json
  * Zdjęcie: public/assets/images/pigmenty/{SKU}.webp|jpg|jpeg|png
  * albo pole image_file w JSON.
  */
 $site = require dirname(__DIR__) . '/config/site.php';
 $catalog = json_decode(
-    file_get_contents(dirname(__DIR__) . '/config/pigmenty-autocolor-2k.json'),
+    file_get_contents(dirname(__DIR__) . '/sklep/pigmenty-autocolor-2k.json'),
     true
 );
 $categories = [];
@@ -51,8 +51,8 @@ function pigment_image(array $product, string $imageDir, string $imageUrl, strin
     return $placeholder;
 }
 
-$pageTitle = 'Pigmenty Autocolor 2K — SDAUTOS';
-$pageDescription = 'Tonery Nexa Autocolor 2K: kolory, czerń i biel, metaliki, perły i efekty specjalne. Opisy z karty tinting guide, przygotowane pod zdjęcia produktów.';
+$pageTitle = 'Pigmenty Autocolor 2K — dane do sklepu autocolor.pl';
+$pageDescription = 'Dane katalogowe tonerów Nexa Autocolor 2K do sklepu autocolor.pl: kolory, czerń i biel, metaliki, perły i efekty specjalne.';
 $canonicalPath = '/pigmenty-autocolor.php';
 $activeNav = 'pigmenty';
 require dirname(__DIR__) . '/includes/head.php';
@@ -63,6 +63,7 @@ require dirname(__DIR__) . '/includes/header.php';
     <div class="container-sda">
       <h1>Pigmenty Autocolor 2K</h1>
       <p>
+        Dane katalogowe do sklepu autocolor.pl.
         <?= count($catalog['products']) ?> tonerów Nexa Autocolor 2K.
         Opis mówi, jak toner zmienia światło i flop. Ceny nie są jeszcze podane — zapytanie idzie do kontaktu.
         Zdjęcie pojawia się samo po wrzuceniu pliku

@@ -11,7 +11,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / "config" / "pigmenty-autocolor-2k.json"
+OUT = ROOT / "sklep" / "pigmenty-autocolor-2k.json"
 
 # sku, nazwa EN, kategoria, rodzina, ziarno, moc, para, kod w recepturze, krotki, opis
 ROWS: list[tuple] = [
@@ -497,12 +497,14 @@ def main() -> None:
             }
         )
     payload = {
+        "sklep": "autocolor.pl",
+        "przeznaczenie": "Dane katalogowe produktów do sklepu autocolor.pl.",
         "system": "Nexa Autocolor 2K",
         "zrodlo": "nexa-autocolor-2k-tint-chart-guide.pdf",
         "zrodlo_nr": "RMTT1002, 5/18",
         "uwaga": (
-            "Opisy techniczne pod kartę sklepu, na podstawie charakterystyki tint chart. "
-            "Ceny i pojemności nie pochodzą z karty. "
+            "Dane do sklepu autocolor.pl. Opisy techniczne pod kartę produktu, "
+            "na podstawie charakterystyki tint chart. Ceny i pojemności nie pochodzą z karty. "
             "Zdjęcie: wrzuć plik do public/assets/images/pigmenty/ "
             "nazwany kodem, np. P420-905.webp (albo .jpg, .jpeg, .png). "
             "Można też wpisać nazwę pliku w image_file. Puste pole = placeholder."
@@ -519,6 +521,7 @@ def main() -> None:
         ],
         "products": products,
     }
+    OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"{len(products)} -> {OUT}")
 
