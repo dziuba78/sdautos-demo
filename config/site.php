@@ -38,6 +38,7 @@ return [
         ['label' => 'Lakiernictwo', 'href' => '/lakiernictwo.php', 'id' => 'lakiernictwo'],
         ['label' => 'Materiały lakiernicze', 'href' => '/materialy.php', 'id' => 'materialy'],
         ['label' => 'Produkty', 'href' => '/produkty.php', 'id' => 'produkty'],
+        ['label' => 'Pigmenty 2K', 'href' => '/pigmenty-autocolor.php', 'id' => 'pigmenty'],
         ['label' => 'O nas', 'href' => '/o-nas.php', 'id' => 'o-nas'],
         ['label' => 'Realizacje', 'href' => '/realizacje.php', 'id' => 'realizacje'],
         ['label' => 'Kontakt', 'href' => '/kontakt.php', 'id' => 'kontakt'],
