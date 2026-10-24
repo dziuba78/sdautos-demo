@@ -1,0 +1,305 @@
+Pigmenty do sklepu autocolor.pl — 255 pozycji
+
+Nexa Autocolor 2K
+89 składników
+
+Tonery kolorowe
+P420-905	Yellow Oxide	Kryjący tlenek żółty. Ciepła, ziemista żółć o mocnym kryciu.
+P429-972	HS Bright Amber	Jasna, czysta pomarańcz HS. Głównie kolory solid.
+P420-982	Trans Oxide Yellow	Transparentny tlenek żółty. Ciemniejszy flop niż P420-983.
+P420-983	Strong Yellow	Żółty o pomarańczowym odcieniu, czystszy niż tlenek P420-982.
+P420-903	RT Medium Pale Yellow	Blada żółć o zielonkawym flopie. Toner RT, obniżona moc.
+P429-937	HS Pale Yellow	Żółty o zielonym odcieniu, zielony także na flopie.
+P420-975	Bronze Green	Złocista zieleń na świetle, żółty odcień na flopie.
+P425-954	HS Blue Green	Zieleń o niebieskim odcieniu.
+P425-922	HS Lagoon Blue	Zielonkawy niebieski z zielonym flopem. Do metalików i pereł.
+P420-930	Lake Blue	Niebieski o czerwonym odcieniu.
+P420-952	Fast Blue	Niebieski o środkowym odcieniu.
+P425-956	HS Super Blue	Niebieski środkowy: zielone światło, czerwony flop.
+P425-957	HS Fast Blue	Wysokowydajny transparentny niebieski. Pełna moc odpowiednika RT Deep Blue.
+P420-910	RT Deep Blue	Wysokowydajny transparentny niebieski w obniżonej mocy (RT).
+P420-942	Transoxide Red	Złotobrązowy transparentny tlenek czerwony, żółty flop.
+P429-973	HS Bright Orange	Pomarańcz o czerwonym odcieniu.
+P420-907	Red Oxide	Tlenek czerwony o niebieskim odcieniu. Pełna moc.
+P420-908	RT Russet	Tlenek czerwony o niebieskim odcieniu, obniżona moc (RT).
+P420-926	Super Red	Czysta czerwień, bez tlenkowego przytłumienia.
+P420-978	Brown	Ciemny brąz z bardziej żółtym flopem niż P429-923.
+P425-919	HS Clean Red Violet	Średni fiolet z głębokim flopem.
+P425-941	HS Strong Red	Czysta, wysokowydajna czerwień. Głównie kolory solid.
+P425-971	HS Brilliant Red	Czysta czerwień o żółtym tonie.
+P429-923	HS Bright Maroon	Transparentne bordo o środkowym odcieniu, ciemny flop.
+P429-980	HS Speed Red	Jasna, czysta czerwień do solidów, zwykle powyżej 20% udziału.
+P420-920	Violet	Czysty fiolet, czerwieńszy niż Lake Blue, z brudnym żółtym flopem.
+P425-921	HS Claret	Czysta magenta o niebieskim tonie. Czystsza i jaśniejsza niż P429-976.
+P429-961	HS Clean Magenta	Czysty fiolet o niebieskim tonie, ciemniejszy flop niż HS Claret.
+P429-976	HS Red Violet	Fiolet o niebieskim odcieniu. Pełna moc odpowiednika RT Burgundy.
+P420-960	RT Burgundy	Fiolet o niebieskim odcieniu w obniżonej mocy (RT).
+
+Czerń i biel
+P420-933	Blue Black	Czerń o niebieskim odcieniu. Jaśniejszy i bardziej niebieski flop niż HS Black.
+P425-900	HS Super White	Mocna biel HS. Pełna moc odpowiednika RT Pale White.
+P420-902	RT Pale White	Mocna biel w obniżonej mocy (RT).
+P425-948	HS Black	Czerń HS o żółtym odcieniu. Ciemniejszy flop niż Blue Black.
+P420-904	RT Transparent Black	Czerń o żółtym odcieniu w obniżonej mocy, transparentniejsza.
+P425-950	HS Jet Black	Czerń o żółtym odcieniu, ciemniejszy flop niż HS Black.
+P426-HE03	Graphite Flake	Grafitowy płatek. Subtelny niebieski ton na świetle, rozjaśnia flop.
+P429-967	HS Deep Angle Black	Czerń o żółtym odcieniu z najciemniejszym flopem w palecie 2K.
+
+Metaliki
+P425-984	HS Medium Fine Aluminium	Drobny, jasny metalik. Ciemniejszy flop niż średnie aluminium P425-986.
+P425-985	HS Fine Aluminium	Drobny metalik: ciemne światło, jasny flop.
+P425-986	HS Medium Aluminium	Średnie aluminium. Ciemniejszy flop niż drobne P425-985.
+P425-987	Medium Coarse Aluminium	Średnio grube aluminium. Ciemniejszy flop niż drobne P425-985.
+P425-988	HS Coarse Aluminium	Grube aluminium: jaśniejsze światło, ciemniejszy flop niż P425-987.
+P425-989	HS Very Coarse Aluminium	Bardzo grube, jasne aluminium z ciemnym flopem.
+P425-991	Fine Satin Aluminium	Drobne aluminium satynowe. Ciemniejsze światło i jaśniejszy flop niż P425-984.
+P425-992	HS Shining Coarse Aluminium	Błyszczący metalik o średnim ziarnie. Ciemniejszy flop niż P425-984.
+P425-998	HS Coarse Silver Dollar Aluminium	Grube aluminium typu silver dollar. Czystsze światło i ciemniejszy flop niż P425-992.
+VM4370	Super Fine Liquid Metal	Bardzo drobne płatki liquid metal, efekt stopionego metalu.
+P426-HE04	Gold Flash	Średni złoty płatek aluminiowy.
+P426-HE05	Orange Flash	Pomarańczowy płatek aluminiowy, ziarno średnie.
+P426-HE07	Blue Flash	Organiczny niebieski płatek aluminiowy, ziarno średnie.
+
+Korekta flopu
+P420-938	Tone Controller	Pogrubia wygląd ziarna i rozjaśnia flop.
+P426-HE02	Blue Frost	W metalikach dodaje żółć na świetle i jasnoniebieski ton na flopie.
+
+Perły
+P426-PP05	White Pearl	Czysta biała perła. Jaśniejsze światło i ciemniejszy flop niż Fine White Pearl.
+P426-PP06	Fine White Pearl	Drobna biała perła. Brudniejsze światło, jaśniejszy flop niż P426-PP05.
+P426-PP07	Blue Pearl	Niebieskie światło, żółty flop. Grubsza niż Fine Blue Pearl.
+P426-PP08	Red Pearl	Czerwona mika, grubsza niż Fine Russet Pearl.
+P426-PP09	Gold Pearl	Złote światło, niebieskawy flop.
+P426-PP10	Copper Pearl	Miedziane światło, na flopie ciemna miedź.
+P426-PP60	White Satin Pearl	Drobna biała perła satynowa.
+P426-PP61	Fine Red Pearl	Interferencyjna czerwona mika z zielonym flopem.
+P426-PP62	Fine Russet Pearl	Czerwona mika, drobniejsza niż Red Pearl.
+P426-PP63	Fine Blue Pearl	Niebieskie światło, żółty flop. Drobniejsza niż Blue Pearl.
+P426-PP64	Medium Violet Pearl	Liliowe światło, zielony flop.
+P426-PP65	Medium Green Pearl	Zielone światło, czerwonawy flop.
+P426-PP68	Orange Pearl	Czyste pomarańczowe światło, zielony flop.
+
+Efekty specjalne
+P440-FX51	Silver Flair	Tęczowy efekt, szczególnie w srebrnych kolorach przy mocnym świetle.
+P435-GF37	Silver Glass	Srebrne płatki szkła pokryte metalem. Iskra widoczna w słońcu.
+P433-XR10	Crystal Silver	Iskrzący biały Xirallic. Grubszy i jaśniejszy niż biała perła P426-PP05.
+P433-XR11	Sunbeam Gold	Iskrzący złoty Xirallic, jaśniejszy i grubszy niż Gold Pearl.
+P433-XR12	Radiant Red	Iskrzący czerwony Xirallic, jaśniejszy niż Red Pearl.
+P433-XR13	Galaxy Blue	Iskrzący niebieski Xirallic, jaśniejszy niż Blue Pearl.
+P433-XR14	Stellar Green	Iskrzący zielony Xirallic, jaśniejszy niż Medium Green Pearl.
+P433-XR15	Solaris Red	Iskrzący magenta-czerwony Xirallic, jaśniejszy niż Fine Red Pearl.
+P433-XR16	Fireside Copper	Iskrzący miedziany Xirallic, jaśniejszy niż Copper Pearl.
+P433-XR17	Cosmic Turquoise	Iskrzący morski błękit, płatek Xirallic.
+P433-XR18	Amethyst Dream	Iskrzący fioletowy Xirallic, jaśniejszy niż Medium Violet Pearl.
+P434-CS31	Autumn Mystery	Colorstream: kąt od czerwieni przez złoto i brąz do zieleni.
+P434-CS32	Viola Fantasy	Colorstream: kąt fiolet, srebro, zieleń, błękit.
+P434-CS33	Arctic Fire	Colorstream: od turkusu przez srebro do czerwieni.
+P434-CS34	Tropic Sunrise	Colorstream: zieleń, srebro, czerwonawa pomarańcz.
+P434-CS35	Lapis Sunlight	Colorstream: złoto, zieleń, błękit.
+VM4987	Cyan to Purple	ChromaFlair: cyjan przechodzi w fiolet.
+VM4988	Silver to Green	ChromaFlair: srebro przechodzi w zieleń.
+VM4989	Green to Purple	ChromaFlair: zieleń przechodzi w fiolet.
+VM4990	Blue to Red	ChromaFlair: błękit przechodzi w czerwień.
+VM4991	Magenta to Gold	ChromaFlair: magenta przechodzi w złoto.
+VM4994	Gold to Silver	ChromaFlair: złoto przechodzi w srebro.
+VM4995	Red to Gold	ChromaFlair: czerwień przechodzi w złoto.
+
+
+MOBIHEL MIX BASE
+97 składników
+
+Aluminium
+MIX 400	Aluminium średnie	Średni płatek nieregularny. Jasne światło, średnio ciemny flop.
+MIX 401	Aluminium drobne	Drobny płatek nieregularny. Jasne światło, jaśniejszy flop niż MIX 400.
+MIX 402	Aluminium grube	Grubszy płatek nieregularny. Jasne światło i ciemny flop.
+MIX 403	Aluminium ekstra drobne	Najdrobniejszy płatek. Szare, brudniejsze światło i bardzo jasny flop.
+MIX 404	Aluminium ekstra grube	Bardzo gruby, błyszczący płatek. Jasne światło, ciemny flop.
+MIX 405	Aluminium drobne brylantowe	Drobny srebrny dolar. Bardzo jasny błysk i bardzo ciemny flop.
+MIX 406	Aluminium grube brylantowe	Gruby srebrny dolar. Wysoki połysk i bardzo ciemny flop.
+MIX 407	Aluminium drobne jasne	Cienki płatek. Jasne światło i średnio jasny, szary flop.
+MIX 408	Aluminium drobne brylant jasny	Drobny płatek o wysokim brylancie i jasnym flopie.
+MIX 409	Aluminium jedwabiste drobne	Bardzo drobny, regularny płatek. Jasny błysk i ciemny flop.
+MIX 410	Aluminium jedwabiste grubsze	Drobny regularny płatek, grubszy niż MIX 409. Jasny błysk i ciemny flop.
+MIX 411	Aluminium premium drobne	Bardzo drobny srebrny dolar, około 7 µm. Drobniejszy niż MIX 409.
+MIX 412	Aluminium premium grube	Gruby srebrny dolar premium. Wysoki połysk, flop ciemniejszy niż MIX 406.
+MIX 413	Szkło srebrzone	Płatek szklany pokryty srebrem. Iskrzący błysk z ciepłym odcieniem.
+MIX 415	Aluminium złote	Drobne złote aluminium. Ciemny flop.
+MIX 416	Aluminium złotopomarańczowe	Ziarno barwione tlenkiem żelaza. Iskrzący pomarańcz na wprost, ciemniejszy flop.
+MIX 417	Aluminium niebieskie	Regularny płatek w niebieskim kolorze.
+
+Modyfikatory flopa
+MIX 300	Biel efektowa	Do metalików i pereł. Światło żółknie, flop robi się mlecznoniebieski.
+MIX 301	Biel	Rozjaśnia solidy. W metaliku do około 5% rozjaśnia flop i brudzi światło.
+MIX 302	Biel o wyższej mocy	Mocniejsza biel niż MIX 301, lepsze krycie.
+MIX 495	Dodatek flopu	Ściemnia i brudzi światło, rozjaśnia bok. Ziarno wygląda grubiej.
+
+Perła
+MIX 420	Perła biała gruba	Gruba srebrnobiała perła. Grubsza niż MIX 421 i MIX 422.
+MIX 421	Perła biała drobna	Drobna srebrnobiała perła. Drobniejsza niż MIX 420, grubsza niż MIX 422.
+MIX 422	Perła biała ekstra drobna	Najdrobniejsza biała perła z tej trójki.
+MIX 430	Perła żółta	Żółta perła o średnim ziarnie. Żółte światło, niebieskawy kąt środkowy.
+MIX 440	Perła miedziana	Kryjąca perła miedziana o średnim ziarnie.
+MIX 450	Perła czerwona drobna	Drobna czerwona perła do malinowego błysku.
+MIX 451	Perła czerwona gruba	Grubsza czerwona perła niż MIX 450. Miedzianoczerwony błysk.
+MIX 452	Perła czerwonobrązowa	Przezroczysta czerwona perła o średnim ziarnie.
+MIX 453	Perła bordowa	Kryjąca czerwona perła, bardziej niebieska niż MIX 450.
+MIX 460	Perła fioletowa	Przezroczysta fioletowa perła o średnim ziarnie.
+MIX 461	Perła fioletowo-zielona	Colorstream. Przelew od fioletu przez srebro i zieleń do błękitu.
+MIX 470	Perła niebieska	Średnio gruba niebieska perła. Niebieskozielone światło, jasnożółty bok.
+MIX 471	Perła niebieska drobniejsza	Przezroczysta niebieska perła z czerwonym odcieniem. Drobniejsza niż MIX 470.
+MIX 472	Perła niebieska ekstra drobna	Bardzo drobna niebieska perła z czerwonym odcieniem. Drobniejsza niż MIX 471.
+MIX 480	Perła niebieskozielona	Niebieskozielona perła o średnim ziarnie i żółtozielonym flopie.
+MIX 481	Perła zielona	Przezroczysta zielona perła, drobniejsza niż MIX 480.
+MIX 500	Xirallic biały	Gruby biały ksyrallic. Wyższy połysk i bielszy ton niż MIX 420.
+MIX 501	Xirallic żółty	Gruby żółty ksyrallic.
+MIX 502	Xirallic miedziany	Kryjący, gruby ksyrallic w kolorze miedzi.
+MIX 503	Xirallic czerwony	Kryjący, gruby czerwony ksyrallic.
+MIX 504	Xirallic niebieski	Gruby przezroczysty niebieski ksyrallic.
+MIX 505	Xirallic zielony	Gruby przezroczysty zielony ksyrallic.
+MP01	Proszek Colorstream ciepły	Przelew od czerwieni przez złoto i brąz do zieleni.
+MP02	Proszek Xirallic czerwony	Czyste czerwone odbicie, zielony bok.
+MP03	Proszek Colorstream turkus	Przelew od turkusu przez srebrny brylant do metalicznej czerwieni.
+MP04	Proszek Iriodin brąz	Klasyczna perła z tlenkiem żelaza. Przelew z zieleni w czerwień.
+MP05	Proszek Xirallic biały drobny	Perłowo-biały brylant o drobnej strukturze. Jedwabistszy niż MIX 500.
+MP06	Proszek Iriodin zielony	Zielona perła interferencyjna. Przelew z zieleni w czerwień, czystsza niż MIX 481.
+MP07	Proszek Xirallic niebieskozielony	Czysty przelew z niebieskiej zieleni w zieleń, wysoki połysk.
+MP08	Proszek Colorstream złoto-błękit	Przelew od złota przez srebrną zieleń do żywego błękitu.
+MP09	Proszek Iriodin złoto-czerwień	Mika z tlenkiem żelaza i tytanu. Przelew ze złotej żółci w czerwień.
+MP10	Proszek Colorstream fiolet	Przelew od fioletu przez srebrzystą szarość do zieleni i błękitu.
+MP11	Proszek Iriodin niebieski	Niebieska perła interferencyjna. Przelew z błękitu w żółć, czystsza niż MIX 470.
+MP12	Proszek perłowy	Pigment proszkowy z grupy Perła w poradniku MOBIHEL BASE.
+
+Pigmenty
+MIX 308	Żółcień zielonkawa	Żółtozielony, z ciemnym żółtawym flopem.
+MIX 310	Żółcień słoneczna	Mocniejsza, lepiej kryjąca wersja MIX 311. Flop mocniejszy niż światło.
+MIX 311	Żółcień jasna	Czysta, przezroczysta żółć o zielonym odcieniu. Bardziej transparentna niż MIX 310.
+MIX 312	Żółcień czerwonawa	Jasna, czysta żółć z czerwonym odcieniem.
+MIX 313	Żółcień	Przezroczysta, czysta żółć z czerwonawym odcieniem.
+MIX 314	Pomarańcz	Kryjący pomarańcz do czystych czerwieni i pomarańczy solid.
+MIX 315	Ochra	Brudna żółć do jasnych żółci, beżów i brązów.
+MIX 316	Żółcień złocista	Przezroczysty żółty tlenek. Ciemny flop, ciepły brązowo-złoty ton.
+MIX 317	Pomarańcz brylantowy	Czysty, przezroczysty pomarańcz z czerwonym odcieniem.
+MIX 320	Czerwień miedziana przezroczysta	Czysta przezroczysta czerwień o brązowym odcieniu. Ciemny flop.
+MIX 321	Czerwień miedziana	Przezroczysty tlenek czerwony do miedzianych efektów. Ciemny flop.
+MIX 322	Czerwień cyklamen	Średnia czerwień z niebieskim odcieniem. Czyste światło, ciemnożółty flop.
+MIX 323	Czerwień brązowa	Kryjąca, brudna czerwień brązowa do kości słoniowej, beżów i brązów.
+MIX 324	Czerwień purpurowa	Przezroczysta czerwień o żółtym odcieniu. Czyste światło, ciemnożółty flop.
+MIX 325	Czerwień	Jasna, żywa czerwień z pomarańczowym odcieniem.
+MIX 326	Czerwień ciemna	Półtransparentna ciemna czerwień z brązem. W efekcie żółknie bok.
+MIX 327	Czerwień ciemna przezroczysta	Bardziej przezroczysta i nieco bardziej żółta niż MIX 326. Ciemny flop.
+MIX 328	Czerwień brylantowa	Żywa czerwień z niebieskim odcieniem.
+MIX 329	Bordo	Półtransparentny, czysty purpur. W efekcie bok bardziej czerwony niż światło.
+MIX 330	Róż	Przezroczysta czerwień o malinowym odcieniu.
+MIX 331	Fiolet	Czysty niebieski fiolet. Głęboki czerwononiebieski efekt.
+MIX 332	Fiolet niebieski słabszy	Słabsza wersja MIX 331, ten sam kierunek.
+MIX 341	Błękit stalowy	Przezroczysty, brudny ciemny błękit z mocną czerwienią. W efekcie czerwony flop.
+MIX 342	Błękit brylantowy	Bardzo czysty, przezroczysty ciemny błękit.
+MIX 343	Błękit	Przezroczysty ciemny błękit o zielonym odcieniu. Stabilny na kącie.
+MIX 344	Błękit przezroczysty	Na wprost bardziej zielony niż MIX 343, flop łamie się w czerwonofiolet.
+MIX 345	Błękit królewski	Przezroczysty ciemny błękit o fioletowym odcieniu.
+MIX 346	Błękit oceanu	Brylantowy przezroczysty błękit. Zielone światło, wyraźnie czerwony flop.
+MIX 351	Zieleń ciemna	Przezroczysta zieleń o niebieskim odcieniu. Ciemny flop, podobny pod każdym kątem.
+MIX 352	Zieleń	Przezroczysta zieleń o żółtym odcieniu. Bardzo jasny, żywy zielony flop.
+MIX 361	Czerń głęboka	Półtransparentna czerń o brązowożółtym odcieniu. W efekcie ciemny flop.
+MIX 362	Czerń niebieskawa	Czerń o niebieskim odcieniu. W efekcie nie ściemnia boku.
+MIX 363	Czerń słabsza	Słabsza pigmentacja niż MIX 362. Ten sam chłodny kierunek.
+MIX 364	Czerń brązowa	Głęboka czerń o brązowym odcieniu. Ciemniejsza niż MIX 361, bardzo ciemny flop.
+MIX 365	Czerń antracyt	Półtransparentny grafit tylko do efektów. Miękki, niebieskawy flop.
+MIX 366	Czerń głęboka ekstra	Głęboka czerń o niebieskim odcieniu. Flop ciemniejszy niż światło.
+MIX 367	Czerń super głęboka	Głęboka czerń o neutralnym szaroniebieskim odcieniu.
+MIX 368	Czerń głęboka neutralna	Czerń o bardziej neutralnym odcieniu. Mniej czerwona niż MIX 361.
+MIX 369	Czerń ekstra	Nasycona, głęboka czerń. W efekcie neutralny szarozielony bok, bez czerwieni.
+MIX 822	Czerwień malinowa	Nasycona, czysta, przezroczysta czerwień z lekkim błękitem.
+MIX 825	Czerwień o wyższej mocy	Mocniejszy odpowiednik MIX 325. Nie do kolorów efektowych.
+MIX 828	Magenta	Przezroczysta, nasycona magenta. Światło i flop niebieskoczerwone.
+
+
+MOBIHEL 2K akryl MIX
+30 składników
+
+Kolory
+MIX 101	Biel	Kryjąca biel. Można jej użyć jako samodzielnego białego lakieru.
+MIX 102	Pomarańcz	Pomarańczowo-czerwony. Sam słabo kryje.
+MIX 103	Błękit brylantowy	Mocny błękit o zielonkawym kierunku.
+MIX 104	Fiolet	Fiolet do korekty w stronę czerwonego błękitu.
+MIX 105	Czerwień brylantowa	Czerwień z niebieskim odcieniem. Z bielą MIX 101 daje róż.
+MIX 107	Zieleń jasna	Przezroczysta zieleń z żółtym odcieniem.
+MIX 108	Ochra	Brudna, kryjąca ochra. Można jej użyć samodzielnie.
+MIX 109	Żółcień	Brylantowa żółć do większości żółtych kolorów.
+MIX 110	Zieleń	Zieleń o niebieskawym kierunku.
+MIX 111	Błękit	Przezroczysty błękit z zielonym odcieniem.
+MIX 112	Czerwień tlenkowa	Kryjąca, brudna czerwień tlenkowa. Można jej użyć samodzielnie.
+MIX 113	Czerń głęboka	Głęboka czerń o dobrym kryciu. Można jej użyć samodzielnie.
+MIX 114	Czerwień	Czerwień z lekkim niebieskim odcieniem.
+MIX 115	Bordo	Ciemna czerwień w stronę bordo.
+MIX 116	Czerń	Czerń o dobrym kryciu. Można jej użyć samodzielnie.
+MIX 117	Żółcień jasna	Jasna żółć, słabsza niż MIX 109.
+MIX 118	Biel HP	Biel o wyższej mocy niż MIX 101.
+MIX 119	Czerwień HP	Czerwień o wyższej mocy.
+
+Tonery obniżonej mocy
+MIX 120	Toner fioletowy	Obniżona moc. Do małej korekty w fiolet.
+MIX 121	Toner zielony	Obniżona moc. Do małej korekty w zieleń.
+MIX 122	Toner niebieski	Obniżona moc. Do małej korekty w błękit.
+MIX 123	Toner tlenkowy	Obniżona moc tlenku czerwonego.
+MIX 124	Toner ochra	Obniżona moc ochry.
+MIX 125	Toner czarny	Obniżona moc czerni.
+
+Kolory
+MIX 126	Żółcień HP	Żółć o wyższej mocy.
+MIX 127	Czerwień pomarańczowa	Czerwień przesunięta w pomarańcz.
+MIX 128	Czerwień ciemna	Ciemna czerwień.
+MIX 129	Błękit królewski	Ciemny błękit o fioletowym kierunku.
+MIX 130	Żółcień słoneczna	Ciepła, nasycona żółć.
+MIX 131	Czerń głęboka ekstra	Głębsza czerń niż MIX 113.
+
+
+GRAVIHEL
+39 składników
+
+Pigmenty
+GHEL 01	Biel	Kryjąca biel. Rozjaśnia pastę w binderze.
+GHEL 02	Ochra	Brudna żółć tlenkowa. Przytłumia czystość.
+GHEL 03	Żółcień złocista	Ciepła, złocista żółć.
+GHEL 04	Żółcień jasna	Jasna, czystsza żółć.
+GHEL 05	Żółcień zielonkawa	Żółć o zielonym odcieniu.
+GHEL 06	Żółcień czerwonawa	Żółć z czerwonym odcieniem.
+GHEL 07	Żółcień pomarańczowa	Żółtopomarańcz.
+GHEL 08	Pomarańcz	Czysty pomarańcz.
+GHEL 09	Czerwień tlenkowa	Kryjąca, brudna czerwień tlenkowa.
+GHEL 10	Czerwień	Czysta czerwień.
+GHEL 11	Czerwień burgund	Ciemna czerwień o burgundowym kierunku.
+GHEL 12	Bordo	Głębokie bordo.
+GHEL 13	Fiolet	Fiolet.
+GHEL 14	Magenta	Czysta magenta.
+GHEL 15	Zieleń	Zieleń.
+GHEL 16	Błękit nieba	Jasny, niebieski o zielonkawym świetle.
+GHEL 17	Błękit	Błękit.
+GHEL 18	Czerń głęboka	Głęboka czerń.
+GHEL 19	Czerń	Czerń.
+GHEL 20	Toner czarny	Słabsza czerń do małej korekty.
+
+Aluminium
+GHEL 21	Aluminium drobne	Drobne srebro.
+GHEL 22	Aluminium grube	Grube srebro.
+GHEL 23	Aluminium ekstra grube	Bardzo grube srebro.
+GHEL 24	Złoto blade	Blade złote aluminium.
+GHEL 25	Aluminium super drobne	Najdrobniejsze srebro.
+
+Perła
+GHEL 30	Perła biała	Biała perła.
+GHEL 31	Perła żółta	Żółta perła.
+GHEL 32	Perła czerwona	Czerwona perła.
+GHEL 33	Perła niebieska	Niebieska perła.
+GHEL 34	Perła fioletowa	Fioletowa perła.
+GHEL 35	Perła zielona	Zielona perła.
+
+Fluorescencyjne
+PP 40	Fluor żółty	Żółty pigment fluorescencyjny.
+PP 41	Fluor żółtopomarańczowy	Żółtopomarańczowy pigment fluorescencyjny.
+PP 42	Fluor pomarańczowy	Pomarańczowy pigment fluorescencyjny.
+PP 43	Fluor czerwonopomarańczowy	Czerwonopomarańczowy pigment fluorescencyjny.
+PP 44	Fluor czerwony	Czerwony pigment fluorescencyjny.
+PP 45	Fluor różowy	Różowy pigment fluorescencyjny.
+PP 46	Fluor niebieski	Niebieski pigment fluorescencyjny.
+PP 47	Fluor zielony	Zielony pigment fluorescencyjny.
