@@ -1,0 +1,40 @@
+﻿Active;Name;Categories;Price tax excluded;Reference;Short description;Description;Visibility
+1;GHEL 01 Biel;Pasty GRAVIHEL/Pigmenty;;GHEL 01;Kryjąca biel. Rozjaśnia pastę w binderze.;<p>Główna biel systemu. Daje krycie jasnych kolorów RAL i NCS.</p>;both
+1;GHEL 02 Ochra;Pasty GRAVIHEL/Pigmenty;;GHEL 02;Brudna żółć tlenkowa. Przytłumia czystość.;<p>Do beżów, żółci ziemistych i brązów. Kryje mocniej niż czysta żółć.</p>;both
+1;GHEL 03 Żółcień złocista;Pasty GRAVIHEL/Pigmenty;;GHEL 03;Ciepła, złocista żółć.;<p>Przesuwa żółć w złoto. Do nasyconych żółtych i złotych solidów.</p>;both
+1;GHEL 04 Żółcień jasna;Pasty GRAVIHEL/Pigmenty;;GHEL 04;Jasna, czystsza żółć.;<p>Do bladych żółci, gdy ochra i złocista żółć są za brudne.</p>;both
+1;GHEL 05 Żółcień zielonkawa;Pasty GRAVIHEL/Pigmenty;;GHEL 05;Żółć o zielonym odcieniu.;<p>Przesuwa kolor w żółtozielony. Do limonek i chłodnych żółci.</p>;both
+1;GHEL 06 Żółcień czerwonawa;Pasty GRAVIHEL/Pigmenty;;GHEL 06;Żółć z czerwonym odcieniem.;<p>Ociepla żółć w stronę pomarańczy.</p>;both
+1;GHEL 07 Żółcień pomarańczowa;Pasty GRAVIHEL/Pigmenty;;GHEL 07;Żółtopomarańcz.;<p>Most między żółcią a pomarańczą GHEL 08.</p>;both
+1;GHEL 08 Pomarańcz;Pasty GRAVIHEL/Pigmenty;;GHEL 08;Czysty pomarańcz.;<p>Do pomarańczowych solidów i korekty czerwieni w ciepło.</p>;both
+1;GHEL 09 Czerwień tlenkowa;Pasty GRAVIHEL/Pigmenty;;GHEL 09;Kryjąca, brudna czerwień tlenkowa.;<p>Do brązów, czerwieni ziemistych i przytłumienia czystej czerwieni.</p>;both
+1;GHEL 10 Czerwień;Pasty GRAVIHEL/Pigmenty;;GHEL 10;Czysta czerwień.;<p>Główny czerwony składnik solidów. Czyściejsza niż tlenek GHEL 09.</p>;both
+1;GHEL 11 Czerwień burgund;Pasty GRAVIHEL/Pigmenty;;GHEL 11;Ciemna czerwień o burgundowym kierunku.;<p>Ściemnia czerwień bez zejścia w bordo GHEL 12.</p>;both
+1;GHEL 12 Bordo;Pasty GRAVIHEL/Pigmenty;;GHEL 12;Głębokie bordo.;<p>Ochładza i ściemnia czerwień w stronę wina.</p>;both
+1;GHEL 13 Fiolet;Pasty GRAVIHEL/Pigmenty;;GHEL 13;Fiolet.;<p>Przesuwa błękit w czerwień albo czerwień w błękit.</p>;both
+1;GHEL 14 Magenta;Pasty GRAVIHEL/Pigmenty;;GHEL 14;Czysta magenta.;<p>Chłodna, niebieskawa czerwień. Do różów i purpur.</p>;both
+1;GHEL 15 Zieleń;Pasty GRAVIHEL/Pigmenty;;GHEL 15;Zieleń.;<p>Główny zielony składnik. Czyściejsza niż żółtozielony GHEL 05.</p>;both
+1;GHEL 16 Błękit nieba;Pasty GRAVIHEL/Pigmenty;;GHEL 16;Jasny, niebieski o zielonkawym świetle.;<p>Do jasnych błękitów. Chłodniejszy i jaśniejszy niż GHEL 17.</p>;both
+1;GHEL 17 Błękit;Pasty GRAVIHEL/Pigmenty;;GHEL 17;Błękit.;<p>Główny niebieski składnik solidów, głębszy niż błękit nieba.</p>;both
+1;GHEL 18 Czerń głęboka;Pasty GRAVIHEL/Pigmenty;;GHEL 18;Głęboka czerń.;<p>Do nasyconych czerni i mocnego ściemnienia.</p>;both
+1;GHEL 19 Czerń;Pasty GRAVIHEL/Pigmenty;;GHEL 19;Czerń.;<p>Standardowe ściemnianie. Płytsza niż GHEL 18.</p>;both
+1;GHEL 20 Toner czarny;Pasty GRAVIHEL/Pigmenty;;GHEL 20;Słabsza czerń do małej korekty.;<p>Ściemnia bez dziury, którą dałaby pełna czerń w jasnym kolorze.</p>;both
+1;GHEL 21 Aluminium drobne;Pasty GRAVIHEL/Aluminium;;GHEL 21;Drobne srebro.;<p>Drobny metalik. Do jasnych sreber i drobnego ziarna.</p>;both
+1;GHEL 22 Aluminium grube;Pasty GRAVIHEL/Aluminium;;GHEL 22;Grube srebro.;<p>Grubsze ziarno, wyraźniejszy błysk. Do efektów, w których drobne srebro jest za gładkie.</p>;both
+1;GHEL 23 Aluminium ekstra grube;Pasty GRAVIHEL/Aluminium;;GHEL 23;Bardzo grube srebro.;<p>Najgrubszy płatek tej trójki. Do grubych metalików i struktur, gdzie ziarno ma być widoczne.</p>;both
+1;GHEL 24 Złoto blade;Pasty GRAVIHEL/Aluminium;;GHEL 24;Blade złote aluminium.;<p>Ciepły metalik. Do złotych i szampańskich kolorów, nie do neutralnego srebra.</p>;both
+1;GHEL 25 Aluminium super drobne;Pasty GRAVIHEL/Aluminium;;GHEL 25;Najdrobniejsze srebro.;<p>Gładsze niż GHEL 21. Do jedwabistych, bardzo drobnych metalików.</p>;both
+1;GHEL 30 Perła biała;Pasty GRAVIHEL/Perła;;GHEL 30;Biała perła.;<p>Dodaje biały, perłowy połysk w binderze efektowym.</p>;both
+1;GHEL 31 Perła żółta;Pasty GRAVIHEL/Perła;;GHEL 31;Żółta perła.;<p>Ciepły perłowy błysk. Do złotawych efektów.</p>;both
+1;GHEL 32 Perła czerwona;Pasty GRAVIHEL/Perła;;GHEL 32;Czerwona perła.;<p>Czerwony perłowy połysk.</p>;both
+1;GHEL 33 Perła niebieska;Pasty GRAVIHEL/Perła;;GHEL 33;Niebieska perła.;<p>Niebieski perłowy połysk.</p>;both
+1;GHEL 34 Perła fioletowa;Pasty GRAVIHEL/Perła;;GHEL 34;Fioletowa perła.;<p>Fioletowy perłowy połysk.</p>;both
+1;GHEL 35 Perła zielona;Pasty GRAVIHEL/Perła;;GHEL 35;Zielona perła.;<p>Zielony perłowy połysk.</p>;both
+1;PP 40 Fluor żółty;Pasty GRAVIHEL/Fluorescencyjne;;PP 40;Żółty pigment fluorescencyjny.;<p>Świeci w świetle dziennym. Nie zastępuje pasteli GHEL. Do kolorów ostrzegawczych.</p>;both
+1;PP 41 Fluor żółtopomarańczowy;Pasty GRAVIHEL/Fluorescencyjne;;PP 41;Żółtopomarańczowy pigment fluorescencyjny.;<p>Między żółtym PP 40 a pomarańczowym PP 42.</p>;both
+1;PP 42 Fluor pomarańczowy;Pasty GRAVIHEL/Fluorescencyjne;;PP 42;Pomarańczowy pigment fluorescencyjny.;<p>Do pomarańczowych kolorów fluorescencyjnych.</p>;both
+1;PP 43 Fluor czerwonopomarańczowy;Pasty GRAVIHEL/Fluorescencyjne;;PP 43;Czerwonopomarańczowy pigment fluorescencyjny.;<p>Między pomarańczem PP 42 a czerwienią PP 44.</p>;both
+1;PP 44 Fluor czerwony;Pasty GRAVIHEL/Fluorescencyjne;;PP 44;Czerwony pigment fluorescencyjny.;<p>Do czerwonych kolorów fluorescencyjnych.</p>;both
+1;PP 45 Fluor różowy;Pasty GRAVIHEL/Fluorescencyjne;;PP 45;Różowy pigment fluorescencyjny.;<p>Chłodniejszy niż czerwień PP 44.</p>;both
+1;PP 46 Fluor niebieski;Pasty GRAVIHEL/Fluorescencyjne;;PP 46;Niebieski pigment fluorescencyjny.;<p>Do niebieskich kolorów fluorescencyjnych.</p>;both
+1;PP 47 Fluor zielony;Pasty GRAVIHEL/Fluorescencyjne;;PP 47;Zielony pigment fluorescencyjny.;<p>Do zielonych kolorów fluorescencyjnych.</p>;both
